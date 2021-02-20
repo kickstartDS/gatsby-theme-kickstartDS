@@ -1,18 +1,39 @@
 {
   "name": "example",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
+  "description": "example gatsby project to test kickstartds theme with wordpress as a source",
   "license": "UNLICENSED",
+  "version": "0.0.1",
+  "author": {
+    "name": "Jonas Ulrich",
+    "email": "jonas.ulrich@ruhmesmeile.com"
+  },
   "scripts": {
     "develop": "gatsby develop",
+    "clean": "gatsby clean",
     "build": "gatsby build",
-    "clean": "gatsby clean"
+    "cdev": "gatsby clean && gatsby develop",
+    "cbuild": "gatsby clean && gatsby build",
+    "start": "npm run develop",
+    "serve": "gatsby serve"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gatsby": "^2.32.3",
+    "gatsby-image": "^2.11.0",
+    "gatsby-plugin-netlify-cache": "^1.2.0",
+    "gatsby-plugin-notifications": "^0.0.2",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-sharp": "^2.14.1",
+    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-source-wordpress": "^4.0.1",
     "gatsby-theme-kickstartds": "*",
+    "gatsby-transformer-sharp": "^2.12.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }
