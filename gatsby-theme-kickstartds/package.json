@@ -4,7 +4,19 @@
   "main": "index.js",
   "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
   "license": "UNLICENSED",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
+  },
   "peerDependencies": {
-    "gatsby": "^2.6.0"
+    "gatsby": "^2.32.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "gatsby": "^2.32.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }
