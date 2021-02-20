@@ -1,14 +1,14 @@
 {
-  "name": "gatsby-starter-theme-workspace",
+  "name": "gatsby-theme-kickstartds-workspace",
   "private": true,
   "version": "0.0.1",
   "main": "index.js",
-  "license": "0BSD",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "yarn workspace example build"
   },
   "workspaces": [
-    "gatsby-theme-minimal",
+    "gatsby-theme-kickstartds",
     "example"
   ]
 }

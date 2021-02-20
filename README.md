@@ -4,13 +4,12 @@
   </a>
 </p>
 <h1 align="center">
-  Starter for creating a Gatsby Theme workspace
+  Workspace for kickstartds Gatsby theme
 </h1>
 
+## Installation
 ```shell
-gatsby new my-theme https://github.com/gatsbyjs/gatsby-starter-theme-workspace
-cd my-theme
-yarn workspace example develop
+yarn install
 ```
 
 ## Layout
@@ -18,7 +17,7 @@ yarn workspace example develop
 ```text
 .
 ├── README.md
-├── gatsby-theme-minimal
+├── gatsby-theme-kickstartds
 │   ├── README.md
 │   ├── gatsby-config.js
 │   ├── index.js
@@ -34,14 +33,9 @@ yarn workspace example develop
 3 directories, 10 files
 ```
 
-### `gatsby-theme-minimal`
+### `gatsby-theme-kickstartds`
 
-This directory is the theme package itself. You should rename this at
-some point to be `gatsby-theme-{my-theme-name}`. Also change the
-`package.json` name field and the corresponding dependency in the
-example directory's `package.json`/`gatsby-config.js` to match the chosen name.
-
-- `gatsby-theme-minimal/`
+- `gatsby-theme-kickstartds/`
   - `gatsby-config.js`: An empty gatsby-config that you can use as a starting point for building functionality into your theme.
   - `index.js`: Since themes also function as plugins, this is an empty file that
     gatsby needs to use this theme as a plugin.
@@ -49,8 +43,8 @@ example directory's `package.json`/`gatsby-config.js` to match the chosen name.
 
 ### `example`
 
-This is an example usage of your theme. It should look the same as the
-site of someone who installed and used your theme from npm.
+This is an example usage of the kickstartds theme. It should look the same as the
+site of someone who installs and uses this theme from npm.
 
 - `example/`
   - `gatsby-config.js`: Specifies which theme to use and any other one-off config a site might need.

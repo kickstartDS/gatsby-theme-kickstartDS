@@ -1,0 +1,10 @@
+{
+  "name": "gatsby-theme-kickstartds",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "gatsby": "^2.6.0"
+  }
+}
