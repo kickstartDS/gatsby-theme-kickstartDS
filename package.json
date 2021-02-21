@@ -9,6 +9,7 @@
   },
   "workspaces": [
     "gatsby-theme-kickstartds",
+    "gatsby-transformer-kickstartds-wordpress",
     "example"
   ]
 }

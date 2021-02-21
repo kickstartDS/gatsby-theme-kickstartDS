@@ -1,0 +1,20 @@
+{
+    "name": "gatsby-transformer-kickstartds-wordpress",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
+    "license": "UNLICENSED",
+    "scripts": {
+      "build": "gatsby build",
+      "clean": "gatsby clean",
+      "develop": "gatsby develop"
+    },
+    "peerDependencies": {
+      "gatsby-source-wordpress": "^4.0.1"
+    },
+    "devDependencies": {
+      "gatsby-source-wordpress": "^4.0.1"
+    }
+  }
+  
+
