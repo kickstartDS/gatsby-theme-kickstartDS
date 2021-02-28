@@ -23,39 +23,6 @@ module.exports = {
         excludeFieldNames: [`blocksJSON`, `saveContent`],
 
         type: {
-          __all: {
-            // this function will run any time a node of any type will be created or updated
-            beforeChangeNode: ({actionType, remoteNode, actions, helpers}) => {
-              const { createNode } = actions;
-              const { createNodeId, createContentDigest } = helpers;
-              
-              if (
-                actionType === `CREATE_ALL` ||
-                actionType === `CREATE` ||
-                actionType === `UPDATE`
-              ) {
-                if (remoteNode.internal.type === 'WpPost') {
-                  const post = {
-                    id: createNodeId(remoteNode.title),
-                    title: remoteNode.title,
-                    parent: remoteNode.id,
-                  };
-
-                  post.internal = {
-                    contentDigest: createContentDigest(post),
-                    type: 'KickstartDSWordpressPost',
-                  };
-
-                  createNode(post);
-                }
-              }
-    
-              return {
-                remoteNode: remoteNode
-              }
-            }
-          },
-
           Post: {
             limit:
               process.env.NODE_ENV === `development`

@@ -8,27 +8,25 @@ module.exports = async ({ actions, graphql }, options) => {
     {
       allKickstartDsPost {
         nodes {
-          title
           id
+          image
+          date(formatString: "D. MMMM YYYY", locale: "de")
+          link
+          title
+          body
         }
       }
     }
   `)
 
-  console.log('data', data);
-
   const chunkedContentNodes = chunk(data.allKickstartDsPost.nodes, perPage)
 
   await Promise.all(
     chunkedContentNodes.map(async (nodesChunk, index) => {
-      const firstNode = nodesChunk[0]
-
-      console.log('createPage', index);
-
       await actions.createPage({
-        component: resolve(`./src/templates/archive.js`),
-        path: `kickstartdspage/${index + 1}/`,
-        context: { data },
+        component: require.resolve('../src/templates/list.js'),
+        path: `kickstartds-blog/`,
+        context: { props: data },
       })
     })
   )

@@ -14,7 +14,8 @@
     "cdev": "gatsby clean && gatsby develop",
     "cbuild": "gatsby clean && gatsby build",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "kickstart": "rm-frontend build"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
