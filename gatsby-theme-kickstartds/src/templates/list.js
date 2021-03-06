@@ -1,10 +1,12 @@
-import React from "react";
-import KickstartDSPage from "../components/KickstartDSPage.jsx";
+import { Helmet } from 'react-helmet';
+import { withPrefix, Link } from 'gatsby';
+
+import { KickstartDSPage } from "../components/KickstartDSPageComponent";
 import { graphql } from "gatsby";
 
 // TODO: inject dynamic data into keyvisual, heading
-// TODO: add react helmet
-const KickstartDSList = (props) => {  
+// TODO: convert to .ts / .tsx
+export const KickstartDSList = (props) => {  
   const {
     data: {
       allKickstartDsPost: { nodes },
@@ -12,34 +14,53 @@ const KickstartDSList = (props) => {
   } = props;
 
   return (
-    <KickstartDSPage 
-      keyvisual={{
-        show: true, 
+    <>
+      <Helmet>
+        <link rel="stylesheet" href={withPrefix('css/base.css')} media="print" onload="this.media='all'" /><noscript>{`<link rel="stylesheet" href={${withPrefix('css/base.css')}} />`}</noscript>
+        <link rel="stylesheet" href={withPrefix('css/news.css')} media="print" onload="this.media='all'" /><noscript>{`<link rel="stylesheet" href={${withPrefix('css/news.css')}} />`}</noscript>
+        <link rel="stylesheet" href={withPrefix('css/pagination.css')} media="print" onload="this.media='all'" /><noscript>{`<link rel="stylesheet" href={${withPrefix('css/pagination.css')}} />`}</noscript>
+        <link rel="stylesheet" href={withPrefix('css/visuals.css')} media="print" onload="this.media='all'" /><noscript>{`<link rel="stylesheet" href={${withPrefix('css/visuals.css')}} />`}</noscript>
+      </Helmet>
 
-        small: false,
-        'no-crop': false,
-        'image-indent': false,
-        'box-inbox': false,
-        'image-src-desktop': '/keyvisual.jpg',
-        'image-src-tablet': '/keyvisual.jpg',
-        'image-src-mobile': '/keyvisual.jpg',
-        'box-visible': true,
-        'box-center': false,
-        'box-bottom': false,
-        'box-top': false,
-        'box-left': true,
-        'box-right': false,
-        'box-indent': false,
-        'box-light': false,
-        'box-transparent': false,
-        'box-headline': 'Lorem Ipsum',
-        'box-text': 'Hic maxime sed eos non. Consequatur ut qui amet accusantium nesciunt.',
-        'box-link-href': '#',
-        'box-link-link-button-text': "Button",
-      }}
-      heading="Aktuelle Artikel"
-      content={nodes}>
-    </KickstartDSPage>
+      <KickstartDSPage 
+        keyvisual={{
+          "small": true,
+          "media": {
+            "mode": "image",
+            "image": {
+              "src-mobile": "keyvisual.jpg",
+              "src-tablet": "keyvisual.jpg",
+              "src-desktop": "keyvisual.jpg"
+            }
+          },
+          "box": {
+            "enabled": false,
+            "inbox": false,
+            "center": false,
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "light": false,
+            "transparent": false,
+            "headline": "Lorem Ipsum",
+            "text": "Lorem Ipsum",
+            "link": {
+              "link-button-text": "Button",
+              "button--outline-inverted": true
+            }
+          }
+        }}
+        heading="Aktuelle Artikel"
+        content={nodes}>
+      </KickstartDSPage>
+
+      <Helmet>
+        <script src={withPrefix('js/base.js')} type="text/javascript" defer="defer" />
+        <script src={withPrefix('js/visuals.js')} type="text/javascript" defer="defer" />
+        <script src={withPrefix('js/shared.js')} type="text/javascript" defer="defer" />
+      </Helmet>
+    </>
   );
 }
 

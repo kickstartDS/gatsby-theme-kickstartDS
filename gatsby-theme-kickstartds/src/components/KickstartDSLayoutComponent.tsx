@@ -1,23 +1,20 @@
-import React from "react";
+import { FunctionComponent } from 'react';
 
-import HeaderVariant1 from "@rm-frontend/base/source/3-organisms/header/HeaderVariant1.jsx";
-import Footer from "@rm-frontend/base/source/3-organisms/footer/Footer.jsx";
+import { HeaderVariant1 } from "@rm-frontend/base/source/3-organisms/header/HeaderVariant1Component";
+import { Footer } from "@rm-frontend/base/source/3-organisms/footer/FooterComponent";
+import { IconSprite } from "./IconSpriteComponent";
 
-import IconSprite from "./IconSprite";
-
+// TODO those could possibly be better inlined with Gatsby itself
 import "../assets/css/base.inline.css";
-import "../assets/css/base.css";
 import "../assets/css/news.inline.css";
-import "../assets/css/news.css";
-import "../assets/css/pagination.css";
 import "../assets/css/visuals.inline.css";
-import "../assets/css/visuals.css";
 
-// TODO find a solution for icon sprice (inline svg right now)
+// TODO integrate `IconSprite` from generated frontend build
 // TODO add footer data dynamically
 // TODO extract and / or abstract away section / partials / templates
-const KickstartLayout = ({ children }) => (
-  <div>
+// TODO add `KickstertLayoutProps`
+export const KickstartDSLayout: FunctionComponent<KickstartLayoutProps> = ({ children }) => (
+  <>
     <HeaderVariant1 />
     <IconSprite />
     <div className="page-wrap__content">
@@ -41,7 +38,5 @@ const KickstartLayout = ({ children }) => (
        'footer-address-country': 'Deutschland',
       }}
     />
-  </div>
+  </>
 );
-
-export default KickstartLayout;

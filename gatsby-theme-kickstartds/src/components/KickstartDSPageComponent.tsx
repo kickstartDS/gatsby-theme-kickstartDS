@@ -1,7 +1,8 @@
-import React from 'react';
-import KickstartDSLayout from './KickstartDSLayout.jsx';
-import Keyvisual from '@rm-frontend/visuals/source/2-molecules/keyvisual/keyvisual/Keyvisual.jsx';
-import NewsList from '@rm-frontend/news/source/3-organisms/news/news-list/NewsList.jsx';
+import { FunctionComponent } from 'react';
+import { KickstartDSLayout } from './KickstartDSLayoutComponent';
+import { Keyvisual } from '@rm-frontend/visuals/source/2-molecules/keyvisual/keyvisual/KeyvisualComponent';
+import { NewsList } from '@rm-frontend/news/source/3-organisms/news/news-list/NewsListComponent';
+import { KickstartDSPageProps } from './KickstartDSPageProps';
 
 const elementCounter = [];
 
@@ -21,13 +22,13 @@ const elementCounter = [];
   }
 };*/
 
-const KickstartDSPage = ({
+export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
   keyvisual,
   heading,
   content,
 }) => (
   <KickstartDSLayout>
-    {keyvisual && keyvisual.show && <Keyvisual {...keyvisual} />}
+    {keyvisual && <Keyvisual {...keyvisual} />}
 
     <div className="l-section">
       <div className="l-main-wrap">
@@ -42,5 +43,3 @@ const KickstartDSPage = ({
 );
 
 // {content && content.length > 0 && content.map((element) => getComponent(element))}
-
-export default KickstartDSPage;

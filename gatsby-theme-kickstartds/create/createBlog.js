@@ -25,7 +25,7 @@ module.exports = async ({ actions, graphql }, options) => {
     chunkedContentNodes.map(async (nodesChunk, index) => {
       await actions.createPage({
         component: require.resolve('../src/templates/list.js'),
-        path: `kickstartds-blog/`,
+        path: `blog/`,
         context: { props: data },
       })
     })

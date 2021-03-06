@@ -1,29 +1,21 @@
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
 export const fragments = graphql`
   fragment HeroImage on File {
     childImageSharp {
-      fluid(maxWidth: 1440) {
-        ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        presentationWidth
-      }
+      gatsbyImageData(layout: FIXED)
     }
   }
 
   fragment AvatarImage on File {
     childImageSharp {
-      fixed(width: 80, height: 80) {
-        ...GatsbyImageSharpFixed_withWebp_tracedSVG
-      }
+      gatsbyImageData(layout: FIXED)
     }
   }
 
   fragment Thumbnail on File {
     childImageSharp {
-      fluid(maxWidth: 1200) {
-        ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        presentationWidth
-      }
+      gatsbyImageData(layout: FIXED)
     }
   }
 
@@ -53,6 +45,16 @@ export const fragments = graphql`
         name
         slug
         uri
+      }
+    }
+  }
+
+  fragment KickstartDSPostPreviewContent on KickstartDSPost {
+    image {
+      node {
+        localFile {
+          ...Thumbnail
+        }
       }
     }
   }
@@ -107,4 +109,4 @@ export const fragments = graphql`
       }
     }
   }
-`
+`;
