@@ -40,16 +40,6 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       console.log('node.featuredImage', node.featuredImage);
     }
 
-    if (node.featuredImage
-      && node.featuredImage.node.localFile 
-      && node.featuredImage.node.localFile.childImageSharp
-      && node.featuredImage.node.localFile.childImageSharp.gatsbyImageData
-      && node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images
-      && node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback
-      && node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src) {
-      post.image = node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src;
-    }
-
     post.internal = {
       contentDigest: createContentDigest(post),
       type: 'KickstartDSWordpressPost',
