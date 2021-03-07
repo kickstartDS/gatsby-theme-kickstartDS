@@ -1,7 +1,6 @@
-const { resolve } = require(`path`)
 const chunk = require(`lodash/chunk`)
 
-module.exports = async ({ actions, graphql }, options) => {
+module.exports = async ({ actions, graphql }) => {
   const perPage = 5;
 
   const { data } = await graphql(/* GraphQL */ `

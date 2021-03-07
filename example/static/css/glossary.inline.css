@@ -1,0 +1,38 @@
+
+.glossary-nav__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: none;
+  overflow: auto;
+}
+.glossary-subnav__list {
+  margin: -0.175em 0 -0.175em -0.35em;
+}
+.glossary-subnav__list > * {
+  padding: 0.175em 0 0.175em 0.35em;
+  position: relative;
+  width: 100%;
+  background-clip: content-box;
+}
+.glossary {
+  margin: -1.25rem 0 -1.25rem -2.5rem;
+}
+.glossary > * {
+  padding: 1.25rem 0 1.25rem 2.5rem;
+  position: relative;
+  width: 100%;
+  background-clip: content-box;
+}
+@media (min-width: 60em) {
+  .glossary__subnav {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+  .glossary__content {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+  }
+}
+/*# sourceMappingURL=glossary.inline.css.map */

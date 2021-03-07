@@ -50,13 +50,10 @@ export const fragments = graphql`
   }
 
   fragment KickstartDSPostPreviewContent on KickstartDSPost {
-    image {
-      node {
-        localFile {
-          ...Thumbnail
-        }
-      }
-    }
+    title
+    link
+    body
+    date
   }
 
   fragment PostContent on WpPost {

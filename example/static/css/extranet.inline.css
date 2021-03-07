@@ -1,0 +1,18 @@
+
+.template--content-100 .extranet-login {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+@media (min-width: 40em) {
+  .template--content-100 .extranet-login {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+}
+@media (min-width: 60em) {
+  .template--content-100 .extranet-login {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+/*# sourceMappingURL=extranet.inline.css.map */

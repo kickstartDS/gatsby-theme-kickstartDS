@@ -1,0 +1,22 @@
+
+.template--content-100 .flexible-form__form__column {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+@media (min-width: 40em) {
+  .template--content-100 .flexible-form__form__column {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+  .l-row .content-headline {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+}
+@media (min-width: 60em) {
+  .template--content-100 .flexible-form__form__column {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+/*# sourceMappingURL=flexible-form.inline.css.map */

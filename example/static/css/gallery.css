@@ -1,0 +1,85 @@
+/* prevent top of anchor target and bottom of header on same position */
+/* stylelint-disable order/properties-alphabetical-order */
+/* stylelint-enable */
+/**
+ * # Global z-index defintion
+ */
+/**
+ * # Selectors
+ */
+.gallery-slide figcaption {
+  color: #050505;
+  font-size: 1em;
+  line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box;
+  font-style: normal;
+}
+.gallery-slide figcaption p:last-child {
+  margin-bottom: 0;
+}
+
+.gallery-slide-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0.3;
+  transition: 0.3s;
+  padding: 0 0.25em;
+}
+.slider-nav__slide:first-child .gallery-slide-preview {
+  padding-left: 0;
+}
+.slider-nav__slide:last-child .gallery-slide-preview {
+  padding-right: 0;
+}
+[data-glide-el="controls[nav]"] .slider-nav__slide .gallery-slide-preview {
+  min-width: 7rem;
+}
+.slider-nav__slide:hover .gallery-slide-preview, .slider-nav__slide:focus .gallery-slide-preview, .slider-nav__slide--active .gallery-slide-preview {
+  opacity: 1;
+}
+.gallery-slide-preview__img {
+  width: 100%;
+}
+
+.gallery-slider .slider-nav__slides {
+  margin: 0.5em auto 0;
+  flex-wrap: nowrap;
+}
+
+/**
+ * container mixins
+ */
+/**
+ * column/cell mixins
+ */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 40em) {
+  .gallery-slide figcaption {
+    position: absolute;
+    color: #fff;
+    background: rgba(5, 5, 5, 0.5);
+    padding: 1em;
+    margin-top: 0;
+    font-size: 0.8em;
+    line-height: 0.8em;
+    bottom: 0;
+    left: 0;
+  }
+  .gallery-slider .slider__bullet {
+    display: none;
+  }
+}
+@media (max-width: 39.99em) {
+  .gallery-slider .gallery-slide-preview {
+    display: none;
+  }
+}
+/*# sourceMappingURL=gallery.css.map */

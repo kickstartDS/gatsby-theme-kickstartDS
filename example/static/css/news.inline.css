@@ -1,0 +1,26 @@
+
+.news-list__item__content-wrap {
+  margin: -0.5em 0 -0.5em -1em;
+}
+.news-list__item__content-wrap > * {
+  padding: 0.5em 0 0.5em 1em;
+  position: relative;
+  width: 100%;
+  background-clip: content-box;
+}
+.news-latest {
+  margin: -0.5vw 0 -0.5vw -1vw;
+}
+.news-latest > * {
+  padding: 0.5vw 0 0.5vw 1vw;
+  position: relative;
+  width: 100%;
+  background-clip: content-box;
+}
+@media (min-width: 60em) {
+  .news-latest__item {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+}
+/*# sourceMappingURL=news.inline.css.map */

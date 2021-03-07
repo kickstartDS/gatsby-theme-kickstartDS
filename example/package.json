@@ -20,8 +20,14 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^3.0.0",
+    "gatsby-remark-copy-linked-files": "^3.0.0",
+    "gatsby-remark-images": "^4.0.0",
+    "gatsby-remark-relative-images": "^2.0.2",
+    "gatsby-source-filesystem": "^3.0.0",
     "gatsby-theme-kickstartds": "*",
+    "gatsby-transformer-kickstartds-netlify-cms": "*",
     "gatsby-transformer-kickstartds-wordpress": "*",
+    "gatsby-transformer-remark": "^3.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

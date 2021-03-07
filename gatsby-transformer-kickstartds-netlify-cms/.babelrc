@@ -1,0 +1,36 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "sourceType": "unambiguous",
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "env": {
+    "esm": {
+      "presets": [
+        [
+          "@babel/modules",
+          {
+            "useBuiltIns": "usage"
+          }
+        ]
+      ]
+    },
+    "es5": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "useBuiltIns": "usage",
+            "modules": false,
+            "debug": false,
+            "corejs": 3
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,476 @@
+/* prevent top of anchor target and bottom of header on same position */
+/* stylelint-disable order/properties-alphabetical-order */
+/* stylelint-enable */
+/**
+ * # Global z-index defintion
+ */
+#solr-pagination {
+  margin: 1em 0;
+}
+#solr-pagination .pagination {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#solr-pagination .pagination li {
+  font-size: 0.8em;
+  min-width: 3.35em;
+  height: 3.35em;
+  box-sizing: border-box;
+  margin: 0.165em;
+}
+#solr-pagination .pagination li a,
+#solr-pagination .pagination li .number,
+#solr-pagination .pagination li .spacer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #050505;
+  background: rgba(5, 5, 5, 0.1);
+  border-radius: 3px;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+#solr-pagination .pagination li a svg,
+#solr-pagination .pagination li .number svg,
+#solr-pagination .pagination li .spacer svg {
+  height: 1.6em;
+  width: 1.6em;
+  fill: rgba(5, 5, 5, 0.5);
+}
+#solr-pagination .pagination li a:hover {
+  background: rgba(5, 5, 5, 0.1);
+  text-decoration: none;
+  color: inherit;
+}
+#solr-pagination .pagination li.active a,
+#solr-pagination .pagination li.active .number {
+  background: #333333;
+  color: #fff;
+}
+
+.search__form {
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  color: rgba(5, 5, 5, 0.75);
+  border-bottom: 3px solid #cccccc;
+}
+.search__form::after {
+  transition: width 0.3s linear;
+  position: absolute;
+  top: 100%;
+  display: block;
+  width: 0;
+  border-bottom: 3px solid #333333;
+  content: "";
+}
+.search__form--focussed::after {
+  width: 100%;
+}
+.search__input, .search__submit {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  color: inherit;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  box-sizing: content-box;
+}
+.search__input {
+  flex: 1 1 auto;
+  min-width: 4.45em;
+  padding-bottom: 0.1em;
+  font-size: 1.5em;
+  letter-spacing: 0.025em;
+}
+.search__submit {
+  transition-duration: inherit;
+  cursor: pointer;
+}
+.search__submit:hover, .search__submit:focus {
+  color: #333333;
+}
+.search__submit .icon {
+  height: 1.7em;
+  width: 1.7em;
+  padding: 0.2em 0.5em;
+  fill: currentColor;
+}
+
+/**
+ * Solr specific styles
+ */
+.results-highlight {
+  background-color: rgba(5, 5, 5, 0.1);
+}
+
+/* stylelint-disable */
+/* stylelint-enable */
+/**
+ * ## Autocomplete
+ */
+.ui-menu {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  background-color: rgba(36, 36, 36, 0.9);
+}
+.ui-menu:last-of-type {
+  position: fixed;
+  z-index: 5100;
+}
+.ui-menu-item {
+  margin: 0;
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu-item-wrapper {
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  padding: 0.8em 1em;
+  cursor: pointer;
+}
+.ui-menu-item-wrapper:hover, .ui-menu-item-wrapper:focus, .ui-menu-item-wrapper.ui-state-focus, .ui-menu-item-wrapper.ui-state-active {
+  background-color: #666666;
+}
+
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * # Selectors
+ */
+/**
+ * ## Clearlist
+ */
+/**
+ * ## Vertical Centerer
+ */
+/**
+ * ## Horzontal Centerer
+ */
+/**
+ * ## Vertical and Horizontal Centerer
+ */
+/**
+ * ## Type Reset
+ */
+/**
+ * ## Don't print
+ */
+/**
+ * ## Handling Long Words and URLs
+ * https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+ */
+/**
+ * # Detect IE Browsers
+ */
+.search-filter__row {
+  margin-bottom: 1em;
+}
+.search-filter__headline {
+  width: 100%;
+  margin-bottom: 0;
+}
+.search-filter .search__faceting__in-use + .search__faceting__main {
+  display: none;
+}
+.search-filter__facets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.search-filter__facets li {
+  margin: 0;
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.search-filter__facets ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.search-filter__facets ul li {
+  margin: 0;
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.search-filter__facets .facets-remove-all {
+  margin-top: 1em;
+  text-align: center;
+}
+.search-filter__facets .button {
+  width: 100%;
+}
+.search-filter__facet > a {
+  position: relative;
+  display: block;
+  padding: 0.5em;
+  margin-left: -0.5em;
+  width: 100%;
+  text-decoration: none;
+  color: #333333;
+}
+.search-filter__facet > a .facet-result-count {
+  color: #050505;
+}
+.search-filter__facet > a:hover .search-filter__facet__reset {
+  cursor: pointer;
+  color: #fff;
+  background: #333333;
+  border-color: #333333;
+}
+.search-filter__facet__reset {
+  display: inline-flex;
+  transition: 0.15s ease-in-out;
+  border: 1px solid rgba(5, 5, 5, 0.25);
+  color: rgba(5, 5, 5, 0.25);
+  padding: 0.14em;
+  border-radius: 50%;
+  float: right;
+}
+.search-filter__facet__reset .icon {
+  height: 1.27em;
+  width: 1.27em;
+}
+
+.search__form .visually-hidden {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.search__form [role=listbox] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: rgba(51, 51, 51, 0.95);
+  color: white;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  margin-top: 3px;
+  z-index: 1;
+}
+.search__form [role=listbox] li {
+  margin: 0;
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+  padding: 0.8em 1em;
+  cursor: pointer;
+}
+.search__form [role=listbox] li:hover, .search__form [role=listbox] li[aria-selected=true] {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.search__form [role=listbox] mark {
+  color: inherit;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.search-form-wrap {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+.search-form-wrap__suggestion {
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+.search-form-wrap__suggestion a {
+  color: #333333;
+  text-decoration: none;
+  font-weight: 700;
+}
+.search__hint {
+  opacity: 0.6;
+  font-size: 0.8em;
+  line-height: 1.5;
+}
+.search__hint--results {
+  opacity: 1;
+  color: rgba(5, 5, 5, 0.5);
+  text-align: left;
+}
+
+.search__results__list {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  border: 0;
+  vertical-align: baseline;
+  list-style: none;
+  margin-top: 1rem;
+}
+.search__results__entry {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.1);
+}
+.search__results__entry:first-child {
+  padding-top: 0;
+  border-top: 1px solid rgba(5, 5, 5, 0.1);
+}
+.l-section--bg-1 .search__results__entry {
+  border-color: rgba(5, 5, 5, 0.15);
+}
+.search__results__entry h2 {
+  text-align: left;
+  margin: 0.5em 0;
+}
+.search__results__content {
+  margin: 0;
+}
+.search__results__link {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+  /* Adds a hyphen where the word breaks */
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  display: inline-block;
+  margin-top: 1em;
+  color: rgba(5, 5, 5, 0.5);
+}
+
+.search-overlay__inner {
+  display: block;
+  min-height: 0;
+}
+.search-overlay__close {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+.search-overlay__panel {
+  position: relative;
+  top: 22vh;
+  width: 100%;
+  max-width: 42rem;
+  margin: auto;
+  padding: 1em;
+}
+.search-overlay__panel__topic {
+  color: #fff;
+}
+.search-overlay .search__form {
+  color: inherit;
+  border-bottom-color: rgba(51, 51, 51, 0.5);
+}
+.search-overlay .search__form::after {
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+.search-overlay .search__submit:hover, .search-overlay .search__submit:focus {
+  color: #858585;
+}
+
+/**
+ * container mixins
+ */
+/**
+ * column/cell mixins
+ */
+.l-container--search-results {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.overlay-example {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+@media (min-width: 40em) {
+  #solr-pagination .pagination li {
+    min-width: 2.65em;
+    height: 2.65em;
+    margin: 0.135em;
+  }
+  .search__input {
+    font-size: 2em;
+  }
+  .search__submit .icon {
+    height: 2em;
+    width: 2em;
+  }
+  .search-filter__facets .button {
+    width: auto;
+  }
+  .search-filter__facet__reset {
+    padding: 0.16em;
+  }
+  .search-filter__facet__reset .icon {
+    height: 1em;
+    width: 1em;
+  }
+  .search-form-wrap {
+    margin-bottom: 3em;
+  }
+  .search__hint--results {
+    text-align: center;
+  }
+  .search__results__list {
+    margin-top: 2rem;
+  }
+  .search__results__entry:first-child {
+    padding-top: 1rem;
+  }
+  .search__results__entry {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 60em) {
+  #solr-pagination .pagination li a,
+#solr-pagination .pagination li .number,
+#solr-pagination .pagination li .spacer {
+    background: transparent;
+  }
+  #solr-pagination .pagination li.active a,
+#solr-pagination .pagination li.active .number {
+    background: #333333 !important;
+  }
+  .search-filter__facets .button {
+    width: 100%;
+  }
+  .search-form-wrap {
+    margin-bottom: 4em;
+  }
+  .search__hint--results {
+    text-align: start;
+  }
+}
+/*# sourceMappingURL=search.css.map */

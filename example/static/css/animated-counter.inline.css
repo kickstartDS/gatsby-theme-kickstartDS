@@ -1,0 +1,16 @@
+
+.animated-counter--list {
+  margin: -1em 0 -1em -2em;
+}
+.animated-counter--list > * {
+  padding: 1em 0 1em 2em;
+}
+@media (min-width: 40em) {
+  .animated-counter--list {
+    margin: -1.5em 0 -1.5em -3em;
+  }
+  .animated-counter--list > * {
+    padding: 1.5em 0 1.5em 3em;
+  }
+}
+/*# sourceMappingURL=animated-counter.inline.css.map */

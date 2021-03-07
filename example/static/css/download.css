@@ -1,0 +1,232 @@
+/* prevent top of anchor target and bottom of header on same position */
+/* stylelint-disable order/properties-alphabetical-order */
+/* stylelint-enable */
+/**
+ * # Global z-index defintion
+ */
+/**
+ * # Selectors
+ */
+/**
+ * ## Clearlist
+ */
+/**
+ * ## Vertical Centerer
+ */
+/**
+ * ## Horzontal Centerer
+ */
+/**
+ * ## Vertical and Horizontal Centerer
+ */
+/**
+ * ## Type Reset
+ */
+/**
+ * ## Don't print
+ */
+/**
+ * ## Handling Long Words and URLs
+ * https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+ */
+/**
+ * # Detect IE Browsers
+ */
+.download__item {
+  display: grid;
+  grid-template-columns: auto 1fr 1.5fr;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+  transition: background 0.15s ease-in-out;
+  padding: 1.5em 1em;
+  border-top: 1px solid rgba(5, 5, 5, 0.1);
+  font-size: 1em;
+  line-height: 1.5;
+}
+.download__item:first-child {
+  border: 0;
+}
+.download__item:hover {
+  background: none;
+  cursor: pointer;
+}
+.download__item:hover a {
+  background: none;
+}
+.download__item__icon {
+  padding-right: 1.5em;
+  width: 2.7rem;
+  flex-shrink: 0;
+  grid-column: auto/span 1;
+  grid-row: auto/span 3;
+}
+.download__item__icon img,
+.download__item__icon svg {
+  width: 100%;
+  height: auto;
+}
+.download__item__icon-base {
+  fill: #333333;
+}
+.download__item__icon-element {
+  fill: #fff;
+}
+.download__item__icon-base-corner {
+  fill: rgba(5, 5, 5, 0.25);
+}
+.download__item__title-text {
+  flex: 1 auto;
+  grid-column: 2/span 2;
+}
+.download__item__headline {
+  margin-bottom: 0.5em;
+  word-break: break-all;
+  font-weight: 700;
+}
+.download__item__description {
+  font-size: 0.8em;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+}
+.download__item__meta {
+  align-self: center;
+  font-size: 0.8em;
+  flex-shrink: 0;
+}
+.download__item__meta span {
+  display: inline-block;
+  text-align: left;
+  min-width: auto;
+  margin: 0;
+}
+.download__item__meta span:first-child {
+  margin-right: 1em;
+}
+.download__item__format {
+  text-transform: uppercase;
+}
+.download__item__download {
+  flex-shrink: 0;
+  text-align: right;
+}
+.download__item__download a {
+  font-size: 1em;
+}
+.download__item__download .icon {
+  margin-right: 0.5em;
+}
+
+.download-icon__bg {
+  fill: #333333;
+}
+.download-icon__drwaing {
+  fill: #fff;
+}
+@media (min-width: 40em) {
+  .download__item {
+    display: flex;
+    grid-template-columns: none;
+    align-items: center;
+    grid-auto-rows: auto;
+    font-size: 0.8em;
+    padding: 1.5rem;
+  }
+  .download__item:hover {
+    background-color: rgba(5, 5, 5, 0.07);
+  }
+  .download__item__icon {
+    width: 3.7rem;
+    padding-right: 1.5em;
+  }
+  .download__item__title-text {
+    grid-column: auto/auto;
+  }
+  .download__item__headline {
+    margin: 0;
+  }
+  .download__item__description {
+    margin-bottom: 1em;
+  }
+  .download__item__meta {
+    align-self: auto;
+    padding-left: 2em;
+    font-size: 1em;
+  }
+  .download__item__meta span {
+    min-width: 3em;
+    margin-right: 1.5em;
+    text-align: right;
+  }
+  .download__item__download {
+    text-align: start;
+  }
+}
+@media (min-width: 60em) {
+  .download__item__icon {
+    grid-column: auto/auto;
+    grid-row: auto/auto;
+  }
+}
+@media (max-width: 60em) {
+  .download__item__download a {
+    background-color: #fff;
+    color: #303030;
+    font-size: 0.75em;
+    line-height: 1.2;
+    padding: 0.45em 1em;
+    background-color: transparent;
+  }
+  .download__item__download a:hover, .download__item__download a:focus {
+    background-color: #d6d6d6;
+    text-decoration: none;
+  }
+  .download__item__download a:active:not(:disabled) {
+    background-color: #c1c1c1;
+    transform: scale(0.95);
+  }
+  .download__item__download a[disabled] {
+    background-color: white;
+    color: #303030;
+    opacity: 0.5;
+    cursor: default;
+  }
+  .download__item__download a.button--is-loading::after {
+    height: 1.5em;
+    width: 1.5em;
+  }
+}
+@media print {
+  .download__item {
+    page-break-inside: avoid;
+  }
+  .download__item__download a {
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks */
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    background-color: inherit;
+  }
+  .download__item__download a::after {
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks */
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    content: attr(href);
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=download.css.map */

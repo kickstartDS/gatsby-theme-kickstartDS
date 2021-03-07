@@ -1,0 +1,50 @@
+/* prevent top of anchor target and bottom of header on same position */
+/* stylelint-disable order/properties-alphabetical-order */
+/* stylelint-enable */
+/**
+ * # Global z-index defintion
+ */
+/**
+ * container mixins
+ */
+/**
+ * column/cell mixins
+ */
+.mail-download {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  box-sizing: border-box;
+  font-size: 0.8em;
+  line-height: 1.5;
+}
+.mail-download__preview {
+  margin-left: 8.3333333333%;
+  margin-bottom: 2em;
+  padding-right: 1.35rem;
+  box-sizing: border-box;
+}
+.mail-download__preview img,
+.mail-download__preview svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 0.25rem;
+  border: 2px solid rgba(5, 5, 5, 0.25);
+}
+.mail-download__description {
+  margin-bottom: 1.5em;
+}
+.mail-download__form__controls {
+  margin-top: 1em;
+}
+.mail-download #emailcheck {
+  display: none;
+}
+@media (min-width: 40em) {
+  .mail-download__preview {
+    margin-left: 0;
+    margin-bottom: 1em;
+  }
+}
+/*# sourceMappingURL=mail-download.css.map */

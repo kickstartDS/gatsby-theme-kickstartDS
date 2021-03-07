@@ -1,0 +1,188 @@
+backend:
+  name: git-gateway
+  branch: master
+local_backend: true
+media_folder: src/assets/images/uploads
+public_folder: /assets/images/uploads
+locale: de
+collections:
+  - name: 'blog'
+    label: 'Blog Posts'
+    label_singular: 'Blog Post'
+    folder: 'content/blog'
+    create: true
+    slug: 'blog/{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Cover', name: 'cover', widget: 'image' }
+      - { label: 'Tags', name: 'tags', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: pages
+    label: Pages
+    label_singular: Page
+    description: Pages consisting of default content element
+    folder: 'content'
+    create: true
+    slug: 'page/{slug}}'
+    fields:
+      - label: Id
+        name: Id
+        description: Id
+        widget: id
+      - label: Layout
+        name: layout
+        description: Layout to use
+        widget: hidden
+        default: default
+      - label: Keyvisual
+        name: keyvisual
+        widget: object
+        fields:
+          - label: Background Color
+            name: background-color
+            widget: string
+            default: '#ccc'
+            hint: Background HEX Color
+          - label: Small
+            name: small
+            widget: boolean
+            default: false
+            hint: Display smaller version
+          - label: Media
+            name: media
+            widget: object
+            fields:
+              - label: Mode
+                name: mode
+                widget: select
+                default: 'image'
+                hint: Choose media type
+                options:
+                  - label: Image
+                    value: image
+                  - label: Video
+                    value: video
+                  - label: None
+                    value: none
+              - label: Image
+                name: image
+                widget: object
+                fields:
+                  - label: Image (mobile)
+                    name: src-mobile
+                    widget: image
+                    default: dummy/64-27-l.png
+                    hint: Image for mobile verison
+                  - label: Image (tablet)
+                    name: src-tablet
+                    widget: image
+                    default: dummy/64-27-xl.png
+                    hint: Image for tablet version
+                  - label: Image (desktop)
+                    name: src-desktop
+                    widget: image
+                    default: dummy/64-27-xxxl.png
+                    hint: Image for desktop version
+          - label: Box
+            name: box
+            widget: object
+            fields:        
+              - label: Enabled
+                name: enabled
+                widget: boolean
+                default: false
+                hint: Display box overlay
+              - label: Inbox
+                name: inbox
+                widget: boolean
+                default: false
+              - label: Indent
+                name: indent
+                widget: boolean
+                default: false
+                hint: Indent box on small resolutions
+              - label: Box headline
+                name: headline
+                widget: string
+                default: ''
+                hint: Headline
+              - label: Box text
+                name: text
+                widget: markdown
+                default: ''
+              - label: Link
+                name: link
+                widget: object
+                fields:
+                  - label: Link button text
+                    name: link-button-text
+                    widget: string
+                    default: 'Button'
+                    hint: Text for link button
+                  - label: Link Button Outline inverted
+                    name: button--outline-inverted
+                    widget: boolean
+                    default: true
+                    hint: Use outline style for button
+              - label: Horizontal alignment
+                name: horizontal
+                widget: select
+                default: 'left'
+                hint: Choose a horizontal alignment
+                options:
+                  - label: Left
+                    value: left
+                  - label: Center
+                    value: center
+                  - label: Right
+                    value: right
+              - label: Vertical alignment
+                name: vertical
+                widget: select
+                default: 'center'
+                hint: Choose a vertical alignment
+                options:
+                  - label: Top
+                    value: top
+                  - label: Center
+                    value: center
+                  - label: Bottom
+                    value: bottom
+              - label: Style
+                name: style
+                widget: select
+                default: 'default'
+                hint: Choose a style
+                options:
+                  - label: Default
+                    value: default
+                  - label: Light
+                    value: light
+                  - label: Transparent
+                    value: transparent
+          - label: Show
+            name: show
+            description: 'Choose wether to show the element, or not'
+            widget: boolean
+            default: false
+      - label: Heading
+        name: heading
+        description: Main headline of the page
+        widget: string
+      - label: Content
+        name: content
+        description: Content for the page
+        widget: list
+        types:
+          - label: Text Media
+            name: text-media
+            widget: object
+            fields:
+              - label: Text
+                name: text
+                widget: markdown
+                default: ''
+                hint: Bodytext
+

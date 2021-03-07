@@ -1,0 +1,29 @@
+
+.mail-download {
+  margin: -0.5vw 0 -0.5vw -1vw;
+}
+.mail-download > * {
+  padding: 0.5vw 0 0.5vw 1vw;
+  position: relative;
+  width: 100%;
+  background-clip: content-box;
+}
+.mail-download__preview {
+  flex: 0 0 83.3333333333%;
+  max-width: 83.3333333333%;
+}
+.mail-download__form__controls {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+@media (min-width: 40em) {
+  .mail-download__preview {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+  .mail-download__form {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+  }
+}
+/*# sourceMappingURL=mail-download.inline.css.map */

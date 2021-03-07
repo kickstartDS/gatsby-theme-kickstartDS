@@ -1,0 +1,11 @@
+
+.business-card {
+  margin: -0.5vw 0 -0.5vw -1vw;
+}
+.business-card > * {
+  padding: 0.5vw 0 0.5vw 1vw;
+  position: relative;
+  width: 100%;
+  background-clip: content-box;
+}
+/*# sourceMappingURL=business-card.inline.css.map */

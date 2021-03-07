@@ -10,6 +10,7 @@
   "workspaces": [
     "gatsby-theme-kickstartds",
     "gatsby-transformer-kickstartds-wordpress",
+    "gatsby-transformer-kickstartds-netlify-cms",
     "example"
   ]
 }

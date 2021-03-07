@@ -1,16 +1,7 @@
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
   createTypes(`
-    interface KickstartDSPost implements Node {
-      id: ID!
-      title: String!
-      image: String
-      body: String
-      link: String
-      date: Date @dateformat
-    }
-
     type KickstartDSWordpressPost implements Node & KickstartDSPost {
       id: ID!
       title: String!
@@ -35,10 +26,6 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       link: node.link,
       date: node.date,
     };
-
-    if(node.featuredImage) {
-      console.log('node.featuredImage', node.featuredImage);
-    }
 
     post.internal = {
       contentDigest: createContentDigest(post),

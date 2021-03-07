@@ -68,7 +68,6 @@ export const query = graphql`
   query KickstartDSListPage {
     allKickstartDsPost {
       nodes {
-        image
         date(formatString: "D. MMMM YYYY", locale: "de")
         link
         title

@@ -1,0 +1,28 @@
+{
+  "name": "gatsby-transformer-kickstartds-netlify-cms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
+  },
+  "peerDependencies": {
+    "gatsby-plugin-netlify-cms": "5.1.0-next.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "gatsby-plugin-netlify-cms": "5.1.0-next.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "text-transform-loader": "^2.0.0",
+    "vhtml": "^2.2.0"
+  },
+  "dependencies": {
+    "netlify-cms-app": "^2.14.26",
+    "netlify-cms-widget-simple-uuid": "^0.0.2"
+  }
+}
