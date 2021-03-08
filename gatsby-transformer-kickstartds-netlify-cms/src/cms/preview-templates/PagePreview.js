@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PageTemplate } from '../templates/PageTemplate';
 
-import * as assets from '../../../../gatsby-theme-kickstartds/src/assets/asset-paths.json';
+import assets from '../../../../gatsby-theme-kickstartds/src/assets/asset-paths.json';
 
 class PagePreview extends Component {
   componentDidMount() {

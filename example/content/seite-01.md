@@ -7,9 +7,9 @@ keyvisual:
   media: 
     mode: image
     image:
-      src-mobile: /keyvisual.jpg
-      src-tablet: /keyvisual.jpg
-      src-desktop: /keyvisual.jpg
+      src-mobile: /images/keyvisual.jpg
+      src-tablet: /images/keyvisual.jpg
+      src-desktop: /images/keyvisual.jpg
   box:
     enabled: true
     inbox: false

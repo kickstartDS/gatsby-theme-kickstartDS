@@ -9,10 +9,11 @@ import { graphql } from "gatsby";
 export const KickstartDSList = (props) => {  
   const {
     data: {
-      allKickstartDsPost: { nodes },
+      allKickstartDsPage: { nodes },
     },
   } = props;
 
+  // TODO `<Helmet>` should be filled from the asset-paths.json
   return (
     <>
       <Helmet>
@@ -64,17 +65,41 @@ export const KickstartDSList = (props) => {
   );
 }
 
-export const query = graphql`
-  query KickstartDSListPage {
-    allKickstartDsPost {
+/*export const query = graphql`
+  query KickstartDsListPage {
+    allKickstartDsPage {
       nodes {
-        date(formatString: "D. MMMM YYYY", locale: "de")
-        link
-        title
-        body
+        id
+        layout
+        keyvisual {
+          media {
+            mode
+            image {
+              src_mobile {
+                childImageSharp {
+                  gatsbyImageData(layout: FIXED)
+                }
+              }
+              src_tablet {
+                childImageSharp {
+                  gatsbyImageData(layout: FIXED)
+                }
+              }
+              src_desktop {
+                childImageSharp {
+                  gatsbyImageData(layout: FIXED)
+                }
+              }
+            }
+          }
+          box {
+            text
+          }
+        }
+        heading
       }
     }
   }
-`
+`*/
 
 export default KickstartDSList;

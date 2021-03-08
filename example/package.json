@@ -8,10 +8,10 @@
     "email": "jonas.ulrich@ruhmesmeile.com"
   },
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -- --https",
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "cdev": "gatsby clean && gatsby develop",
+    "cdev": "gatsby clean && gatsby develop -- --https",
     "cbuild": "gatsby clean && gatsby build",
     "start": "npm run develop",
     "serve": "gatsby serve",

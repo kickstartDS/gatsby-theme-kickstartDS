@@ -14,7 +14,6 @@ module.exports = {
     author: `@kickstartds`,
   },
   plugins: [
-    { resolve: 'gatsby-source-filesystem', options: { path: `${__dirname}/content`, name: 'pages' } },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -30,6 +29,7 @@ module.exports = {
         name: 'images',
       },
     },
+    { resolve: 'gatsby-source-filesystem', options: { path: `${__dirname}/content`, name: 'pages' } },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -37,7 +37,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-relative-images',
             options: {
-              name: 'images',
+              name: 'images'
             },
           },
           {

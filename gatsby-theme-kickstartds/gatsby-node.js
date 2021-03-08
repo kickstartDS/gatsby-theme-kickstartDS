@@ -17,58 +17,49 @@ exports.onCreateBabelConfig = ({ actions }) => {
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+  const { createTypes } = actions;
 
   createTypes(`
-    type KickstartDSKeyvisualComponentBoxLink {
+    type KickstartDsKeyvisualComponentBoxLink {
       link_button_text: String
       button__outline_inverted: Boolean
     }
 
-    type KickstartDSKeyvisualComponentBox {
+    type KickstartDsKeyvisualComponentBox {
       enabled: Boolean
       inbox: Boolean
       indent: Boolean
       headline: String
       text: String
-      link: KickstartDSKeyvisualComponentBoxLink
+      link: KickstartDsKeyvisualComponentBoxLink
       horizontal: String
       vertical: String
       style: String
     }
 
-    type KickstartDSKeyvisualComponentMediaImage {
+    type KickstartDsKeyvisualComponentMediaImage {
       src_mobile: String
       src_tablet: String
       src_desktop: String
     }
 
-    type KickstartDSKeyvisualComponentMedia {
+    type KickstartDsKeyvisualComponentMedia {
       mode: String!
-      image: KickstartDSKeyvisualComponentMediaImage
+      image: KickstartDsKeyvisualComponentMediaImage
       show: Boolean
     }
 
-    type KickstartDSKeyvisualComponent {
+    type KickstartDsKeyvisualComponent {
       background_color: String
       small: Boolean
-      media: KickstartDSKeyvisualComponentMedia
-      box: KickstartDSKeyvisualComponentBox 
+      media: KickstartDsKeyvisualComponentMedia
+      box: KickstartDsKeyvisualComponentBox 
     }
 
-    interface KickstartDSPost implements Node {
-      id: ID!
-      title: String!
-      image: String
-      body: String
-      link: String
-      date: Date @dateformat
-    }
-
-    interface KickstartDSPage implements Node {
+    interface KickstartDsPage implements Node {
       id: ID!
       layout: String!
-      keyvisual: KickstartDSKeyvisualComponent
+      keyvisual: KickstartDsKeyvisualComponent
       heading: String
     }
   `);

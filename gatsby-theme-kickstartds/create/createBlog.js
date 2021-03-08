@@ -5,20 +5,44 @@ module.exports = async ({ actions, graphql }) => {
 
   const { data } = await graphql(/* GraphQL */ `
     {
-      allKickstartDsPost {
+      allKickstartDsPage {
         nodes {
           id
-          image
-          date(formatString: "D. MMMM YYYY", locale: "de")
-          link
-          title
-          body
+          layout
+          keyvisual {
+            background_color
+            small
+            media {
+              mode
+              image {
+                src_mobile
+                src_tablet
+                src_desktop
+              }
+            }
+            box {
+              enabled
+              inbox
+              indent
+              headline
+              text
+              link {
+                link_button_text
+                button__outline_inverted
+              }
+              horizontal
+              vertical
+              style
+            }
+          }
+          heading
         }
       }
     }
-  `)
+  `);
+  // (formatString: "D. MMMM YYYY", locale: "de")
 
-  const chunkedContentNodes = chunk(data.allKickstartDsPost.nodes, perPage)
+  const chunkedContentNodes = chunk(data.allKickstartDsPage.nodes, perPage)
 
   await Promise.all(
     chunkedContentNodes.map(async (nodesChunk, index) => {

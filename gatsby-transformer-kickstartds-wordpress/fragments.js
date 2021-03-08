@@ -1,5 +1,14 @@
 import { graphql } from "gatsby";
 
+
+// TODO missing part of `fragment PostContent on WpPost {`, in `author.node.avatar`
+// Needs special resolving for avatar images
+/*
+          imageFile {
+            ...AvatarImage
+          }
+*/
+
 export const fragments = graphql`
   fragment HeroImage on File {
     childImageSharp {
@@ -49,7 +58,7 @@ export const fragments = graphql`
     }
   }
 
-  fragment KickstartDSPostPreviewContent on KickstartDSPost {
+  fragment KickstartDsPostPreviewContent on KickstartDsPost {
     title
     link
     body
@@ -79,9 +88,6 @@ export const fragments = graphql`
           url
           width
           height
-          imageFile {
-            ...AvatarImage
-          }
         }
       }
     }
