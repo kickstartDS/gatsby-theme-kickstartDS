@@ -8,6 +8,9 @@ module.exports = async ({ actions, graphql }) => {
       allKickstartDsPage {
         nodes {
           id
+          date
+          title
+          description
           layout
           keyvisual {
             background_color
@@ -48,7 +51,7 @@ module.exports = async ({ actions, graphql }) => {
     chunkedContentNodes.map(async (nodesChunk, index) => {
       await actions.createPage({
         component: require.resolve('../src/templates/list.js'),
-        path: `blog/`,
+        path: `list/`,
         context: { props: data },
       })
     })

@@ -39,7 +39,7 @@ module.exports = async ({ actions, graphql }) => {
 
   await Promise.all(
     data.allKickstartDsPage.nodes.map(async (page) => {
-      console.log('page', page);
+      // console.log('page', page);
 
       /*await actions.createPage({
         component: require.resolve('../src/templates/page.js'),

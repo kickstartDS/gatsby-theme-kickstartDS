@@ -7,13 +7,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-module.exports = {
-  siteMetadata: {
-    title: `kickstartDS WordPress Twenty Twenty`,
-    description: `kickstartDS starter site for Twenty Twenty Theme.`,
-    author: `@kickstartds`,
-  },
-  plugins: [
+/*
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -22,6 +16,15 @@ module.exports = {
         name: 'uploads',
       },
     },
+*/
+
+module.exports = {
+  siteMetadata: {
+    title: `kickstartDS WordPress Twenty Twenty`,
+    description: `kickstartDS starter site for Twenty Twenty Theme.`,
+    author: `@kickstartds`,
+  },
+  plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {

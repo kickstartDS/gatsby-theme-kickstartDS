@@ -7,100 +7,45 @@ exports.createSchemaCustomization = ({ actions }) => {
       layout: String!
       keyvisual: KickstartDsKeyvisualComponent
       heading: String
+      description: String
+      title: String
+      date: String
     }
   `);
 };
 
-exports.createPages = ({ actions, graphql, createNodeId, getNode, createContentDigest }) => {
+// TODO don't use `randomDate`, get some real date info from page / post
+const randomDate = (start, end) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+
+exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
-  return graphql(`
-    {
-      allMarkdownRemark(limit: 1000) {
-        edges {
-          node {
-            id
-            frontmatter {
-              Id
-              layout
-              keyvisual {
-                background_color
-                small
-                media {
-                  mode
-                  image {
-                    src_mobile {
-                      childImageSharp {
-                        gatsbyImageData(layout: FIXED)
-                      }
-                    }
-                    src_tablet {
-                      childImageSharp {
-                        gatsbyImageData(layout: FIXED)
-                      }
-                    }
-                    src_desktop {
-                      childImageSharp {
-                        gatsbyImageData(layout: FIXED)
-                      }
-                    }
-                  }
-                }
-                box {
-                  enabled
-                  inbox
-                  indent
-                  headline
-                  text
-                  link {
-                    link_button_text
-                    button__outline_inverted
-                  }
-                  horizontal
-                  vertical
-                  style
-                }
-              }
-              heading
-            }
-          }
-        }
+  if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.Id) {
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
+
+    const page = {
+      id: kickstartDSPageId,
+      title: node.frontmatter.heading,
+      description: node.frontmatter.content[0].text,
+      date: randomDate(new Date(2012, 0, 1), new Date()),
+      ...node.frontmatter
+    };
+
+    if (node && node.frontmatter && node.frontmatter.keyvisual) {
+      if (node.frontmatter.keyvisual.media && node.frontmatter.keyvisual.media.mode === 'image' && node.frontmatter.keyvisual.media.image) {
+        // TODO integrate with images more elegantly in kickstartDS components, at least generate correct srcSet / versions of image for keyvisual here!
+        page.keyvisual.media.image.src_mobile = node.frontmatter.keyvisual.media.image.src_mobile;
+        page.keyvisual.media.image.src_tablet = node.frontmatter.keyvisual.media.image.src_tablet;
+        page.keyvisual.media.image.src_desktop = node.frontmatter.keyvisual.media.image.src_desktop;
       }
     }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()));
-      return Promise.reject(result.errors);
-    }
 
-    const markdownEdges = result.data.allMarkdownRemark.edges;
+    page.internal = {
+      contentDigest: createContentDigest(page),
+      type: 'KickstartDsNetlifyCMSPage',
+    };
 
-    markdownEdges.forEach((edge) => {
-      const kickstartDSPageId = createNodeId(`${edge.node.id} >>> KickstartDSNetlifyCMSPage`);
-
-      const page = {
-        id: kickstartDSPageId,
-        ...edge.node.frontmatter
-      };
-
-      if (edge.node && edge.node.frontmatter && edge.node.frontmatter.keyvisual) {
-        if (edge.node.frontmatter.keyvisual.media && edge.node.frontmatter.keyvisual.media.mode === 'image') {
-          // TODO integrate with images more elegantly in kickstartDS components, at least generate correct srcSet / versions of image for keyvisual here!
-          page.keyvisual.media.image.src_mobile = edge.node.frontmatter.keyvisual.media.image.src_mobile.childImageSharp.gatsbyImageData.images.fallback.src;
-          page.keyvisual.media.image.src_tablet = edge.node.frontmatter.keyvisual.media.image.src_tablet.childImageSharp.gatsbyImageData.images.fallback.src;
-          page.keyvisual.media.image.src_desktop = edge.node.frontmatter.keyvisual.media.image.src_desktop.childImageSharp.gatsbyImageData.images.fallback.src;
-        }
-      }
-  
-      page.internal = {
-        contentDigest: createContentDigest(page),
-        type: 'KickstartDSNetlifyCMSPage',
-      };
-  
-      console.log('page netlify cms', page);
-      createNode(page);
-      // TODO probably should switch back to `onCreateNode` / transformer plugins. Should not create pages! can't model the parent / child link this way
-      // createParentChildLink({ parent: edge.node, child: getNode(kickstartDSPageId) });
-    });
-  })
+    createNode(page);
+    createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
+  }
 };

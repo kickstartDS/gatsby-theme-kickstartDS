@@ -2,16 +2,24 @@ import { Helmet } from 'react-helmet';
 import { withPrefix, Link } from 'gatsby';
 
 import { KickstartDSPage } from "../components/KickstartDSPageComponent";
-import { graphql } from "gatsby";
 
 // TODO: inject dynamic data into keyvisual, heading
 // TODO: convert to .ts / .tsx
-export const KickstartDSList = (props) => {  
+export const KickstartDSList = (props) => {
+  console.log(props);
   const {
-    data: {
-      allKickstartDsPage: { nodes },
-    },
-  } = props;
+    allKickstartDsPage: { nodes },
+  } = props.pageContext.props;
+
+  const newsItems = nodes.map((node) => {
+    return {
+      image: '/images/dummy/16-9-m.png',
+      date: node.date,
+      link: 'https://localhost:8000/list/',
+      title: node.title,
+      body: node.description,
+    };
+  });
 
   // TODO `<Helmet>` should be filled from the asset-paths.json
   return (
@@ -29,9 +37,9 @@ export const KickstartDSList = (props) => {
           "media": {
             "mode": "image",
             "image": {
-              "src-mobile": "keyvisual.jpg",
-              "src-tablet": "keyvisual.jpg",
-              "src-desktop": "keyvisual.jpg"
+              "src-mobile": "/keyvisual.jpg",
+              "src-tablet": "/keyvisual.jpg",
+              "src-desktop": "/keyvisual.jpg"
             }
           },
           "box": {
@@ -53,7 +61,7 @@ export const KickstartDSList = (props) => {
           }
         }}
         heading="Aktuelle Artikel"
-        content={nodes}>
+        content={newsItems}>
       </KickstartDSPage>
 
       <Helmet>
@@ -64,42 +72,5 @@ export const KickstartDSList = (props) => {
     </>
   );
 }
-
-/*export const query = graphql`
-  query KickstartDsListPage {
-    allKickstartDsPage {
-      nodes {
-        id
-        layout
-        keyvisual {
-          media {
-            mode
-            image {
-              src_mobile {
-                childImageSharp {
-                  gatsbyImageData(layout: FIXED)
-                }
-              }
-              src_tablet {
-                childImageSharp {
-                  gatsbyImageData(layout: FIXED)
-                }
-              }
-              src_desktop {
-                childImageSharp {
-                  gatsbyImageData(layout: FIXED)
-                }
-              }
-            }
-          }
-          box {
-            text
-          }
-        }
-        heading
-      }
-    }
-  }
-`*/
 
 export default KickstartDSList;

@@ -1,9 +1,9 @@
 
-const createBlog = require(`./create/createBlog`);
+const createList = require(`./create/createList`);
 const createPage = require(`./create/createPage`);
 
 exports.createPages = async (props) => {
-  await createBlog(props);
+  await createList(props);
   await createPage(props);
 };
 
@@ -61,6 +61,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       layout: String!
       keyvisual: KickstartDsKeyvisualComponent
       heading: String
+      description: String
+      title: String
+      date: String
     }
   `);
 };
