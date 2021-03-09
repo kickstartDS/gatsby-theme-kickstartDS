@@ -6,9 +6,9 @@ import { KickstartDSPageProps } from './KickstartDSPageProps';
 
 const elementCounter = [];
 
-/*function getComponent(element) {
+const getComponent = (element) => {
   elementCounter[element.type] = elementCounter[element.type]+1 || 1;
-  const key = `${element.type}-'+${elementCounter[element.type]}`;
+  const key = `${element.type}-${elementCounter[element.type]}`;
 
   console.log(key, element);
 
@@ -17,10 +17,12 @@ const elementCounter = [];
       //return <Teaserbox key={key} data={element} />;
     case 'textpic-intextleft':
       //return <TextpicIntextleft key={key} data={element} />;
+    case 'news-list':
+      return <NewsList key={key} {...element} />;
     default:
       return `No component definition for type: ${element.type}`;
   }
-};*/
+};
 
 export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
   keyvisual,
@@ -38,8 +40,6 @@ export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
       </div>
     </div>
 
-    <NewsList news-items={content} />
+    {content && content.length > 0 && content.map((element) => getComponent(element))}
   </KickstartDSLayout>
 );
-
-// {content && content.length > 0 && content.map((element) => getComponent(element))}

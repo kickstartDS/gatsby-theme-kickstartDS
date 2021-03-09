@@ -21,6 +21,11 @@ export const KickstartDSList = (props) => {
     };
   });
 
+  const content = [{
+    'news-items': newsItems,
+    type: 'news-list'
+  }];
+
   // TODO `<Helmet>` should be filled from the asset-paths.json
   return (
     <>
@@ -61,7 +66,7 @@ export const KickstartDSList = (props) => {
           }
         }}
         heading="Aktuelle Artikel"
-        content={newsItems}>
+        content={content}>
       </KickstartDSPage>
 
       <Helmet>
