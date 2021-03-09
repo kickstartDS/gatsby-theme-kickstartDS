@@ -9,7 +9,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       heading: String
       description: String
       title: String
-      date: String
+      date: Date @dateformat
     }
   `);
 };
@@ -24,7 +24,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       id: kickstartDSPageId,
       title: node.title,
       description: node.excerpt,
-      date: node.date,
+      date: new Date(node.date).toISOString(),
       heading: node.title,
       layout: 'default',
     };

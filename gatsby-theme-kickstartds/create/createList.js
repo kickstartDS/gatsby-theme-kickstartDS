@@ -8,7 +8,7 @@ module.exports = async ({ actions, graphql }) => {
       allKickstartDsPage {
         nodes {
           id
-          date
+          date(formatString: "D. MMMM YYYY", locale: "de")
           title
           description
           layout
@@ -43,7 +43,6 @@ module.exports = async ({ actions, graphql }) => {
       }
     }
   `);
-  // (formatString: "D. MMMM YYYY", locale: "de")
 
   const chunkedContentNodes = chunk(data.allKickstartDsPage.nodes, perPage)
 

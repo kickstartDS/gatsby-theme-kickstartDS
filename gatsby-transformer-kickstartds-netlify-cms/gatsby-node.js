@@ -9,25 +9,23 @@ exports.createSchemaCustomization = ({ actions }) => {
       heading: String
       description: String
       title: String
-      date: String
+      date: Date @dateformat
     }
   `);
 };
-
-// TODO don't use `randomDate`, get some real date info from page / post
-const randomDate = (start, end) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 
 exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.Id) {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
+    const parent = getNode(node.parent);
 
     const page = {
       id: kickstartDSPageId,
       title: node.frontmatter.heading,
       description: node.frontmatter.content[0].text,
-      date: randomDate(new Date(2012, 0, 1), new Date()),
+      date: new Date(parent.ctimeMs).toISOString(),
       ...node.frontmatter
     };
 

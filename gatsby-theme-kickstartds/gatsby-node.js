@@ -7,15 +7,6 @@ exports.createPages = async (props) => {
   await createPage(props);
 };
 
-exports.onCreateBabelConfig = ({ actions }) => {
-  actions.setBabelPlugin({
-    name: '@babel/plugin-transform-react-jsx',
-    options: {
-      runtime: 'automatic',
-    },
-  });
-};
-
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
@@ -63,7 +54,16 @@ exports.createSchemaCustomization = ({ actions }) => {
       heading: String
       description: String
       title: String
-      date: String
+      date: Date @dateformat
     }
   `);
+};
+
+exports.onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPlugin({
+    name: '@babel/plugin-transform-react-jsx',
+    options: {
+      runtime: 'automatic',
+    },
+  });
 };
