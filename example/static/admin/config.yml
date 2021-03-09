@@ -58,17 +58,17 @@ collections:
                 widget: object
                 fields:
                   - label: Image (mobile)
-                    name: src-mobile
+                    name: src_mobile
                     widget: image
                     default: dummy/64-27-l.png
                     hint: Image for mobile verison
                   - label: Image (tablet)
-                    name: src-tablet
+                    name: src_tablet
                     widget: image
                     default: dummy/64-27-xl.png
                     hint: Image for tablet version
                   - label: Image (desktop)
-                    name: src-desktop
+                    name: src_desktop
                     widget: image
                     default: dummy/64-27-xxxl.png
                     hint: Image for desktop version

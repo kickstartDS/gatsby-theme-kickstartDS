@@ -10,11 +10,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       title: String
       date: Date @dateformat
+      content: [KickstartDsContentComponent]
     }
   `);
 };
 
-exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
+exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest, loadNodeContent }) => {
   const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === 'WpPost') {
@@ -28,7 +29,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       heading: node.title,
       layout: 'default',
     };
-
+    
     if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.localFile) {
       // TODO integrate with images more elegantly in kickstartDS components, at least generate correct srcSet / versions of image for keyvisual here!
       page.keyvisual = {

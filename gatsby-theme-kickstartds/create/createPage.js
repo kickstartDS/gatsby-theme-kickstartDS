@@ -32,6 +32,9 @@ module.exports = async ({ actions, graphql }) => {
             }
           }
           heading
+          content {
+            type
+          }
         }
       }
     }

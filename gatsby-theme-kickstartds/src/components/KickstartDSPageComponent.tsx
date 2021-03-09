@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react';
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
 import { Keyvisual } from '@rm-frontend/visuals/source/2-molecules/keyvisual/keyvisual/KeyvisualComponent';
 import { NewsList } from '@rm-frontend/news/source/3-organisms/news/news-list/NewsListComponent';
+import { TextMedia } from '@rm-frontend/base/source/2-molecules/text-media/TextMediaComponent';
 import { KickstartDSPageProps } from './KickstartDSPageProps';
 
 const elementCounter = [];
@@ -10,13 +11,9 @@ const getComponent = (element) => {
   elementCounter[element.type] = elementCounter[element.type]+1 || 1;
   const key = `${element.type}-${elementCounter[element.type]}`;
 
-  console.log(key, element);
-
   switch (element.type) {
-    case 'teaser-box':
-      //return <Teaserbox key={key} data={element} />;
-    case 'textpic-intextleft':
-      //return <TextpicIntextleft key={key} data={element} />;
+    case 'text-media':
+      return <TextMedia key={key} {...element} />
     case 'news-list':
       return <NewsList key={key} {...element} />;
     default:

@@ -47,6 +47,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       box: KickstartDsKeyvisualComponentBox 
     }
 
+    interface KickstartDsContentComponent {
+      type: String
+    }
+
+    type KickStartDsContentTextMediaComponent implements KickstartDsContentComponent{
+      type: String
+      text: String
+    }
+
     interface KickstartDsPage implements Node {
       id: ID!
       layout: String!
@@ -55,6 +64,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       title: String
       date: Date @dateformat
+      content: [KickstartDsContentComponent]
     }
   `);
 };

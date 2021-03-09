@@ -10,6 +10,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       title: String
       date: Date @dateformat
+      content: [KickstartDsContentComponent]
     }
   `);
 };
@@ -21,6 +22,8 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
     const parent = getNode(node.parent);
 
+    console.log('frontmatter', node.frontmatter);
+
     const page = {
       id: kickstartDSPageId,
       title: node.frontmatter.heading,
@@ -28,6 +31,8 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       date: new Date(parent.ctimeMs).toISOString(),
       ...node.frontmatter
     };
+
+    console.log('page', page);
 
     if (node && node.frontmatter && node.frontmatter.keyvisual) {
       if (node.frontmatter.keyvisual.media && node.frontmatter.keyvisual.media.mode === 'image' && node.frontmatter.keyvisual.media.image) {

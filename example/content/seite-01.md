@@ -8,9 +8,9 @@ keyvisual:
   media:
     mode: image
     image:
-      src-mobile: /images/keyvisual.jpg
-      src-tablet: /images/keyvisual.jpg
-      src-desktop: /images/keyvisual.jpg
+      src_mobile: /images/keyvisual.jpg
+      src_tablet: /images/keyvisual.jpg
+      src_desktop: /images/keyvisual.jpg
   box:
     enabled: true
     horizontal: left
