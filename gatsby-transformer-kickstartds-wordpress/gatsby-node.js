@@ -10,13 +10,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       title: String
       date: Date @dateformat
-      content: [KickstartDsContentComponent]
+      content: [KickstartDsContentTextMediaComponent]
     }
   `);
 };
 
-exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest, loadNodeContent }) => {
-  const { createNode, createParentChildLink } = actions;
+exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest }) => {
+  const { createNode, createParentChildLink, createNodeField } = actions;
 
   if (node.internal.type === 'WpPost') {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsWordpressPage`);
@@ -29,6 +29,14 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       heading: node.title,
       layout: 'default',
     };
+
+    if (node.featuredImage) {
+      const mediaItem = getNode(node.featuredImage.node.id);
+
+      if (mediaItem && mediaItem.localFile) {
+        // console.log(getNode(mediaItem.localFile.id))
+      }
+    }
     
     if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.localFile) {
       // TODO integrate with images more elegantly in kickstartDS components, at least generate correct srcSet / versions of image for keyvisual here!

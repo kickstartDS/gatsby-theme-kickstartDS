@@ -29,7 +29,8 @@
     "gatsby-transformer-kickstartds-wordpress": "*",
     "gatsby-transformer-remark": "^3.0.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "slugify": "^1.4.7"
   },
   "devDependencies": {
     "prettier": "^2.2.1"

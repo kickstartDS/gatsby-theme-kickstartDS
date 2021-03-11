@@ -1,4 +1,5 @@
-const chunk = require(`lodash/chunk`)
+const chunk = require('lodash/chunk');
+const slugify = require('slugify');
 
 module.exports = async ({ actions, graphql }) => {
   const perPage = 5;
@@ -85,7 +86,7 @@ module.exports = async ({ actions, graphql }) => {
       return {
         image: '/images/dummy/16-9-m.png',
         date: node.date,
-        link: 'https://localhost:8000/list/',
+        link: `/page/${slugify(node.heading)}`,
         title: node.title,
         body: node.description,
       };
@@ -97,7 +98,7 @@ module.exports = async ({ actions, graphql }) => {
     chunkedContentNodes.map(async (nodesChunk, index) => {
       await actions.createPage({
         component: require.resolve('../src/templates/page.js'),
-        path: `list/`,
+        path: `/`,
         context: {
           page: {
             keyvisual,

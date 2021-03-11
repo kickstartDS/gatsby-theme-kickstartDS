@@ -6509,6 +6509,11 @@ gatsby-plugin-netlify-cms@5.1.0-next.2:
     netlify-identity-widget "^1.9.1"
     webpack "^5.23.00"
 
+gatsby-plugin-no-javascript@^2.0.5:
+  version "2.0.5"
+  resolved "https://verdaccio.ruhmesmeile.tools/gatsby-plugin-no-javascript/-/gatsby-plugin-no-javascript-2.0.5.tgz#b30bd412fabeab1663b6c40a3aaeee878acfddea"
+  integrity sha512-AV8THLpxFH0lOAYxO2bTkyqucp4KxjbF07GSMNnCpmgWp+G88YGhsuWH/Jc+cjoNZl+01MXvMTsmawBWNypxeA==
+
 gatsby-plugin-page-creator@^3.0.0:
   version "3.0.0"
   resolved "https://verdaccio.ruhmesmeile.tools/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-3.0.0.tgz#546a7d7303d2af775bb07ca4663053efd7705e0a"
@@ -13606,6 +13611,11 @@ slugify@^1.4.4:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.4.6.tgz#ef288d920a47fb01c2be56b3487b6722f5e34ace"
   integrity sha512-ZdJIgv9gdrYwhXqxsH9pv7nXxjUEyQ6nqhngRxoAAOlmMGA28FDq5O4/5US4G2/Nod7d1ovNcgURQJ7kHq50KQ==
+
+slugify@^1.4.7:
+  version "1.4.7"
+  resolved "https://verdaccio.ruhmesmeile.tools/slugify/-/slugify-1.4.7.tgz#e42359d505afd84a44513280868e31202a79a628"
+  integrity sha512-tf+h5W1IrjNm/9rKKj0JU2MDMruiopx0jjVA5zCdBtcGjfp0+c5rHw/zADLC3IeKlGHtVbHtpfzvYA0OYT+HKg==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

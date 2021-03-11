@@ -1,10 +1,10 @@
 
 const createList = require(`./create/createList`);
-const createPage = require(`./create/createPage`);
+const createPages = require(`./create/createPages`);
 
 exports.createPages = async (props) => {
   await createList(props);
-  await createPage(props);
+  await createPages(props);
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -48,13 +48,24 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     interface KickstartDsContentComponent {
-      type: String
-    }
-
-    type KickStartDsContentTextMediaComponent implements KickstartDsContentComponent{
-      type: String
+      type: String!
       text: String
     }
+
+    type KickstartDsContentTextMediaComponent implements KickstartDsContentComponent {
+      type: String!
+      text: String
+    }
+
+    type KickstartDsContentQuoteComponent implements KickstartDsContentComponent {
+      type: String!
+      image: String
+      text: String
+      source: String
+      date: Date @dateformat
+    }
+
+    union KickstartDsContent = KickstartDsContentTextMediaComponent | KickstartDsContentQuoteComponent
 
     interface KickstartDsPage implements Node {
       id: ID!
@@ -64,7 +75,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       title: String
       date: Date @dateformat
-      content: [KickstartDsContentComponent]
+      content: [KickstartDsContentTextMediaComponent]
     }
   `);
 };

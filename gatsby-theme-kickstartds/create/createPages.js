@@ -1,3 +1,5 @@
+const slugify = require('slugify');
+
 module.exports = async ({ actions, graphql }) => {
   const { data } = await graphql(/* GraphQL */ `
     {
@@ -42,27 +44,13 @@ module.exports = async ({ actions, graphql }) => {
 
   await Promise.all(
     data.allKickstartDsPage.nodes.map(async (page) => {
-      // console.log('page', page);
-
-      /*await actions.createPage({
+      await actions.createPage({
         component: require.resolve('../src/templates/page.js'),
-        path: `page/${index}`,
-        context: { props: page },
-      })*/
-
-      /*const id = edge.node.id
-      console.log('edge', edge);
-      createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.layout)}.js`
-        ),
-        // additional data can be passed via context
+        path: `page/${slugify(page.heading)}`,
         context: {
-          id,
+          page
         },
-      })*/
+      });
     })
   )
 }
