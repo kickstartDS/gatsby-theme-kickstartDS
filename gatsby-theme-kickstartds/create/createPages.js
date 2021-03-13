@@ -8,14 +8,14 @@ module.exports = async ({ actions, graphql }) => {
           id
           layout
           keyvisual {
-            background_color
+            backgroundColor
             small
             media {
               mode
               image {
-                src_mobile
-                src_tablet
-                src_desktop
+                srcMobile
+                srcTablet
+                srcDesktop
               }
             }
             box {
@@ -25,8 +25,8 @@ module.exports = async ({ actions, graphql }) => {
               headline
               text
               link {
-                link_button_text
-                button__outline_inverted
+                linkButtonText
+                buttonOutlineInverted
               }
               horizontal
               vertical

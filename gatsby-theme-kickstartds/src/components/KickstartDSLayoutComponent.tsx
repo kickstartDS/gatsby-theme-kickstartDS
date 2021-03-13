@@ -10,6 +10,7 @@ import "../assets/css/news.inline.css";
 import "../assets/css/visuals.inline.css";
 
 // TODO integrate `IconSprite` from generated frontend build
+// TODO: inject dynamic data into keyvisual, heading
 // TODO add footer data dynamically
 // TODO extract and / or abstract away section / partials / templates
 // TODO add `KickstertLayoutProps`
@@ -18,7 +19,7 @@ export const KickstartDSLayout: FunctionComponent<KickstartLayoutProps> = ({ chi
     <HeaderVariant1 />
     <IconSprite />
     <div className="page-wrap__content">
-      <main className="content-wrap" id="content" tabIndex="-1">
+      <main className="content-wrap" id="content" tabIndex={-1}>
         {children}
       </main>
       <a href="#🔝" className="scroll-to-top" data-component="base.scroll-to-top">

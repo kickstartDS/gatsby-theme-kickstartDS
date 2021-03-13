@@ -3,7 +3,6 @@ import { withPrefix, Link } from 'gatsby';
 
 import { KickstartDSPage } from "../components/KickstartDSPageComponent";
 
-// TODO: inject dynamic data into keyvisual, heading
 // TODO: convert to .ts / .tsx
 export const KickstartDSList = (props) => {
   const page = props.pageContext.page;

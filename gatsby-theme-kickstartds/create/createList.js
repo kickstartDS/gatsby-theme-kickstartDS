@@ -14,14 +14,14 @@ module.exports = async ({ actions, graphql }) => {
           description
           layout
           keyvisual {
-            background_color
+            backgroundColor
             small
             media {
               mode
               image {
-                src_mobile
-                src_tablet
-                src_desktop
+                srcMobile
+                srcTablet
+                srcDesktop
               }
             }
             box {
@@ -31,8 +31,8 @@ module.exports = async ({ actions, graphql }) => {
               headline
               text
               link {
-                link_button_text
-                button__outline_inverted
+                linkButtonText
+                buttonOutlineInverted
               }
               horizontal
               vertical
@@ -54,9 +54,9 @@ module.exports = async ({ actions, graphql }) => {
     "media": {
       "mode": "image",
       "image": {
-        "src-mobile": "/keyvisual.jpg",
-        "src-tablet": "/keyvisual.jpg",
-        "src-desktop": "/keyvisual.jpg"
+        "srcMobile": "/keyvisual.jpg",
+        "srcTablet": "/keyvisual.jpg",
+        "srcDesktop": "/keyvisual.jpg"
       }
     },
     "box": {
@@ -72,8 +72,8 @@ module.exports = async ({ actions, graphql }) => {
       "headline": "Lorem Ipsum",
       "text": "Lorem Ipsum",
       "link": {
-        "link-button-text": "Button",
-        "button--outline-inverted": true
+        "linkButtonText": "Button",
+        "buttonOutlineInverted": true
       }
     }
   };
@@ -82,7 +82,7 @@ module.exports = async ({ actions, graphql }) => {
   const heading = "Aktuelle Artikel";
 
   const content = [{
-    'news-items':  data.allKickstartDsPage.nodes.map((node) => {
+    'newsItems':  data.allKickstartDsPage.nodes.map((node) => {
       return {
         image: '/images/dummy/16-9-m.png',
         date: node.date,

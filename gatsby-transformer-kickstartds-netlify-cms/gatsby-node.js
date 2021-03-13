@@ -33,9 +33,9 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     if (node && node.frontmatter && node.frontmatter.keyvisual) {
       if (node.frontmatter.keyvisual.media && node.frontmatter.keyvisual.media.mode === 'image' && node.frontmatter.keyvisual.media.image) {
         // TODO integrate with images more elegantly in kickstartDS components, at least generate correct srcSet / versions of image for keyvisual here!
-        page.keyvisual.media.image.src_mobile = node.frontmatter.keyvisual.media.image.src_mobile;
-        page.keyvisual.media.image.src_tablet = node.frontmatter.keyvisual.media.image.src_tablet;
-        page.keyvisual.media.image.src_desktop = node.frontmatter.keyvisual.media.image.src_desktop;
+        page.keyvisual.media.image.srcMobile = node.frontmatter.keyvisual.media.image.srcMobile;
+        page.keyvisual.media.image.srcTablet = node.frontmatter.keyvisual.media.image.srcTablet;
+        page.keyvisual.media.image.srcDesktop = node.frontmatter.keyvisual.media.image.srcDesktop;
       }
     }
 

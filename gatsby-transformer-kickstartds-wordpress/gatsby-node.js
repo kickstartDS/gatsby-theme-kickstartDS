@@ -16,7 +16,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 
 exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest }) => {
-  const { createNode, createParentChildLink, createNodeField } = actions;
+  const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === 'WpPost') {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsWordpressPage`);
@@ -41,15 +41,15 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.localFile) {
       // TODO integrate with images more elegantly in kickstartDS components, at least generate correct srcSet / versions of image for keyvisual here!
       page.keyvisual = {
-        background_color: '#ccc',
+        backgroundColor: '#ccc',
         small: false,
         show: true,
         media: {
           mode: 'image',
           image: {
-            src_mobile: node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src,
-            src_tablet: node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src,
-            src_desktop: node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src,
+            srcMobile: node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src,
+            srcTablet: node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src,
+            srcDesktop: node.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src,
           }
         },
         box: {

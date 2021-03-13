@@ -3,14 +3,14 @@ Id: 659fa4a0-34a9-11ea-8000-01
 layout: default
 title: Seite 01
 keyvisual:
-  background-color: "#ccc"
+  backgroundColor: "#ccc"
   small: true
   media:
     mode: image
     image:
-      src_mobile: /images/keyvisual.jpg
-      src_tablet: /images/keyvisual.jpg
-      src_desktop: /images/keyvisual.jpg
+      srcMobile: /images/keyvisual.jpg
+      srcTablet: /images/keyvisual.jpg
+      srcDesktop: /images/keyvisual.jpg
   box:
     enabled: true
     horizontal: left
@@ -24,8 +24,8 @@ keyvisual:
     headline: Lorem Ipsum dolor
     vertical: center
     link:
-      link-button-text: Button
-      button--outline-inverted: true
+      linkButton-Text: Button
+      buttonOutlineInverted: true
   show: true
 heading: Seite 01
 content:

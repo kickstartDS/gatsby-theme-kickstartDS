@@ -28,7 +28,7 @@ collections:
         widget: object
         fields:
           - label: Background Color
-            name: background-color
+            name: backgroundColor
             widget: string
             default: '#ccc'
             hint: Background HEX Color
@@ -58,17 +58,17 @@ collections:
                 widget: object
                 fields:
                   - label: Image (mobile)
-                    name: src_mobile
+                    name: srcMobile
                     widget: image
                     default: dummy/64-27-l.png
                     hint: Image for mobile verison
                   - label: Image (tablet)
-                    name: src_tablet
+                    name: srcTablet
                     widget: image
                     default: dummy/64-27-xl.png
                     hint: Image for tablet version
                   - label: Image (desktop)
-                    name: src_desktop
+                    name: srcDesktop
                     widget: image
                     default: dummy/64-27-xxxl.png
                     hint: Image for desktop version
@@ -104,12 +104,12 @@ collections:
                 widget: object
                 fields:
                   - label: Link button text
-                    name: link-button-text
+                    name: linkButtonText
                     widget: string
                     default: 'Button'
                     hint: Text for link button
                   - label: Link Button Outline inverted
-                    name: button--outline-inverted
+                    name: buttonOutlineInverted
                     widget: boolean
                     default: true
                     hint: Use outline style for button

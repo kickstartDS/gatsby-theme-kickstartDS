@@ -12,8 +12,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   createTypes(`
     type KickstartDsKeyvisualComponentBoxLink {
-      link_button_text: String
-      button__outline_inverted: Boolean
+      linkButtonText: String
+      buttonOutlineInverted: Boolean
     }
 
     type KickstartDsKeyvisualComponentBox {
@@ -29,9 +29,9 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type KickstartDsKeyvisualComponentMediaImage {
-      src_mobile: String
-      src_tablet: String
-      src_desktop: String
+      srcMobile: String
+      srcTablet: String
+      srcDesktop: String
     }
 
     type KickstartDsKeyvisualComponentMedia {
