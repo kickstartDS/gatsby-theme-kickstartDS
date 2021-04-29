@@ -5,9 +5,9 @@ import { Footer } from "@rm-frontend/base/source/3-organisms/footer/FooterCompon
 import { IconSprite } from "./IconSpriteComponent";
 
 // TODO those could possibly be better inlined with Gatsby itself
-import "../assets/css/base.inline.css";
-import "../assets/css/news.inline.css";
-import "../assets/css/visuals.inline.css";
+// import "../assets/css/base.inline.css";
+// import "../assets/css/news.inline.css";
+// import "../assets/css/visuals.inline.css";
 
 // TODO integrate `IconSprite` from generated frontend build
 // TODO: inject dynamic data into keyvisual, heading

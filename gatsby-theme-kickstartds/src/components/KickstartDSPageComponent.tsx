@@ -1,8 +1,10 @@
 import { FunctionComponent } from 'react';
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
-import { Keyvisual } from '@rm-frontend/visuals/source/2-molecules/keyvisual/keyvisual/KeyvisualComponent';
-import { NewsList } from '@rm-frontend/news/source/3-organisms/news/news-list/NewsListComponent';
-import { TextMedia } from '@rm-frontend/base/source/2-molecules/text-media/TextMediaComponent';
+
+import { Visual } from '@kickstartds/content';
+import { NewsList } from '@kickstartds/blog';
+import { TextMedia } from '@kickstartds/base';
+
 import { KickstartDSPageProps } from './KickstartDSPageProps';
 
 const elementCounter = [];
@@ -27,7 +29,7 @@ export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
   content,
 }) => (
   <KickstartDSLayout>
-    {keyvisual && <Keyvisual {...keyvisual} />}
+    {keyvisual && <Visual {...keyvisual} />}
 
     <div className="l-section">
       <div className="l-main-wrap">
