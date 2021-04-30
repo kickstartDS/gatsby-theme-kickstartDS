@@ -28,8 +28,8 @@
     "react-markdown": "^5.0.3"
   },
   "dependencies": {
-    "@kickstartds/base": "^1.0.0-alpha.8",
-    "@kickstartds/blog": "^1.0.0-alpha.8",
-    "@kickstartds/content": "^1.0.0-alpha.8"
+    "@kickstartds/base": "^1.0.0-alpha.9",
+    "@kickstartds/blog": "^1.0.0-alpha.9",
+    "@kickstartds/content": "^1.0.0-alpha.9"
   }
 }
