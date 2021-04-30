@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Layout from '../templates/Layout';
-import { Keyvisual } from '@rm-frontend/visuals/source/2-molecules/keyvisual/keyvisual/KeyvisualComponent';
-import { TextMedia } from '@rm-frontend/base/source/2-molecules/text-media/TextMediaComponent';
+import { Visual } from '@kickstartds/content';
+import { TextMedia } from '@kickstartds/base';
+
+import Layout from './Layout';
 
 const elementCounter = [];
 
@@ -24,7 +25,7 @@ export const PageTemplate = ({
   content,
 }) => (
   <Layout>
-    {keyvisual && keyvisual.show && <Keyvisual {...keyvisual} />}
+    {keyvisual && keyvisual.show && <Visual {...keyvisual} />}
 
     <div className="l-section">
       <div className="l-main-wrap">
