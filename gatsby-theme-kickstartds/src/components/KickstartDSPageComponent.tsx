@@ -23,6 +23,7 @@ const getComponent = (element) => {
   }
 };
 
+// TODO add `KickstertLayoutProps`
 export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
   keyvisual,
   heading,

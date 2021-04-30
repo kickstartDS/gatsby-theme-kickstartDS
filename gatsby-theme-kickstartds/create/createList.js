@@ -9,7 +9,7 @@ module.exports = async ({ actions, graphql }) => {
       allKickstartDsPage {
         nodes {
           id
-          date(formatString: "D. MMMM YYYY", locale: "de")
+          date(formatString: "x")
           title
           description
           layout
@@ -85,7 +85,7 @@ module.exports = async ({ actions, graphql }) => {
     'newsItems':  data.allKickstartDsPage.nodes.map((node) => {
       return {
         image: '/images/dummy/16-9-m.png',
-        date: node.date,
+        date: parseInt(node.date, 10),
         link: `/page/${slugify(node.heading)}`,
         title: node.title,
         body: node.description,
