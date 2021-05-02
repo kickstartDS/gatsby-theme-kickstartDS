@@ -41,7 +41,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type KickstartDsKeyvisualComponent {
-      background_color: String
+      backgroundColor: String
       small: Boolean
       media: KickstartDsKeyvisualComponentMedia
       box: KickstartDsKeyvisualComponentBox 

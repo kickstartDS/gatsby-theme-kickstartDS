@@ -1,37 +1,39 @@
 import { FunctionComponent } from 'react';
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
-
-import { Visual } from '@kickstartds/content';
-import { NewsList } from '@kickstartds/blog';
-import { TextMedia } from '@kickstartds/base';
-
 import { KickstartDSPageProps } from './KickstartDSPageProps';
 
-const elementCounter = [];
+import * as baseLib from '@kickstartds/base';
+import * as blogLib from '@kickstartds/blog';
+import * as contentLib from '@kickstartds/content';
 
-const getComponent = (element) => {
-  elementCounter[element.type] = elementCounter[element.type]+1 || 1;
-  const key = `${element.type}-${elementCounter[element.type]}`;
+import baseExports from '@kickstartds/base/lib/exports.json';
+import blogExports from '@kickstartds/blog/lib/exports.json';
+import contentExports from '@kickstartds/content/lib/exports.json';
 
-  switch (element.type) {
-    case 'text-media':
-      return <TextMedia key={key} {...element} />
-    case 'news-list':
-      return <NewsList key={key} {...element} />;
-    default:
-      return `No component definition for type: ${element.type}`;
+const libs = { ...baseLib, ...blogLib, ...contentLib };
+const components = {};
+
+Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
+  if (key.indexOf('/') === -1 && value.length > 0) {
+    components[key] = libs[value[0]];
   }
+});
+
+const elementCounter = [];
+function getComponent(element) {
+    elementCounter[element.type] = elementCounter[element.type]+1 || 1;
+    const key = element.type+'-'+elementCounter[element.type];
+
+    const Component = components[element.type];
+    return <Component key={key} { ...element } />
 };
 
-// TODO add `KickstertLayoutProps`
+// TODO add `KickstartDSPageProps`
 export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
-  keyvisual,
   heading,
   content,
 }) => (
   <KickstartDSLayout>
-    {keyvisual && <Visual {...keyvisual} />}
-
     <div className="l-section">
       <div className="l-main-wrap">
         <header className="content-headline content-headline--page-header">

@@ -4,7 +4,7 @@ import { SettingsNavigationTemplate } from '../templates/SettingsNavigationTempl
 
 const SettingsNavigationPreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS();
-console.log(data);
+  
   if (data) {
     return (
       <SettingsNavigationTemplate

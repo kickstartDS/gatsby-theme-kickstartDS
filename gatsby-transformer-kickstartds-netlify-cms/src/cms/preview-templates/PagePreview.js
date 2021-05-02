@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { PageTemplate } from '../templates/PageTemplate';
-
-import assets from '../../../../gatsby-theme-kickstartds/src/assets/asset-paths.json';
+import { KickstartDSPage } from 'gatsby-theme-kickstartds/src/components/KickstartDSPageComponent';
 
 class PagePreview extends Component {
   componentDidMount() {
-    const { document } = this.props;
+    [...document.getElementsByTagName('style')].forEach((styleTag) => {
+      if (styleTag.type && styleTag.type === 'text/css') {
+        const style = document.createElement('style');
+        
+        style.type = 'text/css';
+        style.innerHTML = styleTag.innerHTML;
 
-    [...assets.js].forEach((asset) => {
-      const script = document.createElement('script');
-      script.src = `..${asset}`;
-      document.head.appendChild(script);
+        this.props.document.head.appendChild(style);
+      }
     });
   }
 
@@ -21,8 +22,7 @@ class PagePreview extends Component {
   
     if (data) {
       return (
-        <PageTemplate
-          keyvisual={data.keyvisual}
+        <KickstartDSPage
           heading={data.heading}
           content={data.content}
         />

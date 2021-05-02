@@ -49,36 +49,6 @@ module.exports = async ({ actions, graphql }) => {
   const chunkedContentNodes = chunk(data.allKickstartDsPage.nodes, perPage)
 
   // TODO should not be hard-coded
-  const keyvisual = {
-    "small": true,
-    "media": {
-      "mode": "image",
-      "image": {
-        "srcMobile": "/keyvisual.jpg",
-        "srcTablet": "/keyvisual.jpg",
-        "srcDesktop": "/keyvisual.jpg"
-      }
-    },
-    "box": {
-      "enabled": false,
-      "inbox": false,
-      "center": false,
-      "top": false,
-      "bottom": false,
-      "left": false,
-      "right": false,
-      "light": false,
-      "transparent": false,
-      "headline": "Lorem Ipsum",
-      "text": "Lorem Ipsum",
-      "link": {
-        "linkButtonText": "Button",
-        "buttonOutlineInverted": true
-      }
-    }
-  };
-
-  // TODO should not be hard-coded
   const heading = "Aktuelle Artikel";
 
   const content = [{
@@ -101,7 +71,6 @@ module.exports = async ({ actions, graphql }) => {
         path: `/`,
         context: {
           page: {
-            keyvisual,
             heading,
             content,
           },
