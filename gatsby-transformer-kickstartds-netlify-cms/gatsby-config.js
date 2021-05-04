@@ -4,7 +4,7 @@ module.exports = {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
-        customizeWebpackConfig: (config, { rules }) => {
+        customizeWebpackConfig: (config) => {
           config.module.rules.push(
             {
               test: /\.[t|j]sx?$/,

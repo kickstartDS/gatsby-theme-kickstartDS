@@ -9,6 +9,8 @@ import * as contentLib from '@kickstartds/content';
 import baseExports from '@kickstartds/base/lib/exports.json';
 import blogExports from '@kickstartds/blog/lib/exports.json';
 import contentExports from '@kickstartds/content/lib/exports.json';
+import { Headline } from '@kickstartds/base/lib/headline';
+import { Section } from '@kickstartds/base';
 
 const libs = { ...baseLib, ...blogLib, ...contentLib };
 const components = {};
@@ -34,14 +36,12 @@ export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
   content,
 }) => (
   <KickstartDSLayout>
-    <div className="l-section">
-      <div className="l-main-wrap">
-        <header className="content-headline content-headline--page-header">
-          <h1>{heading}</h1>
-        </header>
-      </div>
-    </div>
+    <Section>
+      <Headline content={heading} level="h1" />
+    </Section>
 
-    {content && content.length > 0 && content.map((element) => getComponent(element))}
+    <Section>
+      {content && content.length > 0 && content.map((element) => getComponent(element))}
+    </Section>
   </KickstartDSLayout>
 );

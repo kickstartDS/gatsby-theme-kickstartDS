@@ -5,7 +5,7 @@ class PagePreview extends Component {
   componentDidMount() {
     [...document.getElementsByTagName('style')].forEach((styleTag) => {
       if (styleTag.type && styleTag.type === 'text/css') {
-        const style = document.createElement('style');
+        const style = this.props.document.createElement('style');
         
         style.type = 'text/css';
         style.innerHTML = styleTag.innerHTML;
@@ -13,6 +13,10 @@ class PagePreview extends Component {
         this.props.document.head.appendChild(style);
       }
     });
+
+    /*const script = this.props.document.createElement('script');
+    script.src = '/component---gatsby-theme-kickstartds-src-templates-page-js.js';
+    this.props.document.head.appendChild(script);*/
   }
 
   render() {
