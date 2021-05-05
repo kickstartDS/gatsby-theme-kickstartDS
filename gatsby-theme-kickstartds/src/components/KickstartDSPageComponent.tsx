@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
+// TODO add `KickstartDSPageProps`
 import { KickstartDSPageProps } from './KickstartDSPageProps';
 
 import * as baseLib from '@kickstartds/base';
@@ -9,6 +10,7 @@ import * as contentLib from '@kickstartds/content';
 import baseExports from '@kickstartds/base/lib/exports.json';
 import blogExports from '@kickstartds/blog/lib/exports.json';
 import contentExports from '@kickstartds/content/lib/exports.json';
+
 import { Headline } from '@kickstartds/base/lib/headline';
 import { Section } from '@kickstartds/base';
 
@@ -27,10 +29,17 @@ function getComponent(element) {
     const key = element.type+'-'+elementCounter[element.type];
 
     const Component = components[element.type];
-    return <Component key={key} { ...element } />
+    if (element.type === 'section') {
+      return (
+        <Component key={key} { ...element }>
+          {element && element.content && element.content.length > 0 && element.content.map((element) => getComponent(element))}
+        </Component>
+      )
+    } else {
+      return <Component key={key} { ...element } />
+    }
 };
 
-// TODO add `KickstartDSPageProps`
 export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
   heading,
   content,
@@ -40,8 +49,6 @@ export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
       <Headline content={heading} level="h1" />
     </Section>
 
-    <Section>
-      {content && content.length > 0 && content.map((element) => getComponent(element))}
-    </Section>
+    {content && content.length > 0 && content.map((element) => getComponent(element))}
   </KickstartDSLayout>
 );
