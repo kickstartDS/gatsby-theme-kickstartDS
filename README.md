@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Workspace for kickstartds Gatsby theme
+  Workspace for kickstartDS Gatsby theme
 </h1>
 
 ## Installation
@@ -17,7 +17,7 @@ yarn install
 ```text
 .
 ├── README.md
-├── gatsby-theme-kickstartds
+├── gatsby-theme-kickstartDS
 │   ├── README.md
 │   ├── gatsby-config.js
 │   ├── index.js
@@ -33,9 +33,9 @@ yarn install
 3 directories, 10 files
 ```
 
-### `gatsby-theme-kickstartds`
+### `gatsby-theme-kickstartDS`
 
-- `gatsby-theme-kickstartds/`
+- `gatsby-theme-kickstartDS/`
   - `gatsby-config.js`: An empty gatsby-config that you can use as a starting point for building functionality into your theme.
   - `index.js`: Since themes also function as plugins, this is an empty file that
     gatsby needs to use this theme as a plugin.
@@ -43,7 +43,7 @@ yarn install
 
 ### `example`
 
-This is an example usage of the kickstartds theme. It should look the same as the
+This is an example usage of the kickstartDS theme. It should look the same as the
 site of someone who installs and uses this theme from npm.
 
 - `example/`
