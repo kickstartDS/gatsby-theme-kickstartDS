@@ -71,4 +71,5 @@ yarn-error.log
 !.env.example
 .DS_Store
 
-
+static/index.js
+static/index.css

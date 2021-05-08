@@ -28,8 +28,9 @@
     "react-markdown": "^5.0.3"
   },
   "dependencies": {
-    "@kickstartds/base": "^1.0.0-alpha.13",
-    "@kickstartds/blog": "^1.0.0-alpha.13",
-    "@kickstartds/content": "^1.0.0-alpha.13"
+    "@kickstartds/base": "^1.0.0-alpha.15",
+    "@kickstartds/blog": "^1.0.0-alpha.15",
+    "@kickstartds/content": "^1.0.0-alpha.15",
+    "@kickstartds/core": "^1.0.0-alpha.13"
   }
 }

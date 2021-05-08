@@ -1,40 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { KickstartDSPage } from 'gatsby-theme-kickstartds/src/components/KickstartDSPageComponent';
 
-class PagePreview extends Component {
-  componentDidMount() {
-    [...document.getElementsByTagName('style')].forEach((styleTag) => {
-      if (styleTag.type && styleTag.type === 'text/css') {
-        const style = this.props.document.createElement('style');
-        
-        style.type = 'text/css';
-        style.innerHTML = styleTag.innerHTML;
+const PagePreview = React.memo(({ entry }) => {
+  const [data, setData] = React.useState({});
 
-        this.props.document.head.appendChild(style);
-      }
-    });
+  React.useEffect(
+    () => {
+      setData(entry.getIn(['data']).toJS());
+    },
+    [entry]
+  );
 
-    /*const script = this.props.document.createElement('script');
-    script.src = '/component---gatsby-theme-kickstartds-src-templates-page-js.js';
-    this.props.document.head.appendChild(script);*/
-  }
+  React.useEffect(
+    () => {
+      const iframe = document.getElementsByTagName('iframe')[0];
 
-  render() {
-    const { entry } = this.props; 
-    const data = entry.getIn(['data']).toJS();
-    data.content = data.content || [];
+      const link = iframe.contentDocument.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '/index.css';
+      iframe.contentDocument.head.appendChild(link);
   
-    if (data) {
-      return (
-        <KickstartDSPage
-          heading={data.heading}
-          content={data.content}
-        />
-      );
-    } else {
-      return <div>Loading...</div>;
-    }
-  }
-}
+      const script = iframe.contentDocument.createElement('script');
+      script.src = '/index.js';
+      iframe.contentDocument.body.appendChild(script);
+    },
+    []
+  );
+
+  return (
+    <KickstartDSPage
+      content={data.content}
+    />
+  );
+});
 
 export default PagePreview;

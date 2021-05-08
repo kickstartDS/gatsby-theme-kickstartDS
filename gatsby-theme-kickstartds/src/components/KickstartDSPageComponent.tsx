@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { FunctionComponent } from 'react';
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
 // TODO add `KickstartDSPageProps`
@@ -11,11 +13,9 @@ import baseExports from '@kickstartds/base/lib/exports.json';
 import blogExports from '@kickstartds/blog/lib/exports.json';
 import contentExports from '@kickstartds/content/lib/exports.json';
 
-import { Headline } from '@kickstartds/base/lib/headline';
-import { Section } from '@kickstartds/base';
-
 const libs = { ...baseLib, ...blogLib, ...contentLib };
 const components = {};
+const elementCounter = [];
 
 Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
@@ -23,32 +23,36 @@ Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([
   }
 });
 
-const elementCounter = [];
-function getComponent(element) {
-    elementCounter[element.type] = elementCounter[element.type]+1 || 1;
-    const key = element.type+'-'+elementCounter[element.type];
+const getComponent = (element) => {
+  elementCounter[element.type] = elementCounter[element.type]+1 || 1;
+  const key = element.type+'-'+elementCounter[element.type];
 
-    const Component = components[element.type];
-    if (element.type === 'section') {
-      return (
-        <Component key={key} { ...element }>
-          {element && element.content && element.content.length > 0 && element.content.map((element) => getComponent(element))}
-        </Component>
-      )
-    } else {
-      return <Component key={key} { ...element } />
-    }
+  const Component = React.memo(components[element.type]);
+
+  if (element.type === 'section') {
+    const content = element.content;
+    delete element.content;
+
+    return (
+      <Component key={key} { ...element }>
+        {getContent(content)}
+      </Component>
+    )
+  } else {
+    return <Component key={key} { ...element } />
+  }
+};
+
+const getContent = (content) => {
+  if (content && content.length > 0) {
+    return content.map((element) => getComponent(element));
+  } 
 };
 
 export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
-  heading,
   content,
 }) => (
   <KickstartDSLayout>
-    <Section>
-      <Headline content={heading} level="h1" />
-    </Section>
-
-    {content && content.length > 0 && content.map((element) => getComponent(element))}
+    {getContent(content)}
   </KickstartDSLayout>
 );

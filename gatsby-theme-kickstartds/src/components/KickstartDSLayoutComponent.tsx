@@ -6,9 +6,7 @@ import "@kickstartds/core/lib/design-tokens/tokens.css";
 
 // TODO add `KickstartDSLayoutProps`
 export const KickstartDSLayout: FunctionComponent<KickstartDSLayoutProps> = ({ children }) => (
-  <div className="page-wrap__content">
-    <main className="content-wrap" id="content" tabIndex={-1}>
-      {children}
-    </main>
-  </div>
+  <main tabIndex={-1}>
+    {children}
+  </main>
 );

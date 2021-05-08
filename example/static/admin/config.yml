@@ -73,6 +73,8 @@ collections:
                     value: default
                   - label: tile
                     value: tile
+                  - label: list
+                    value: list
               - name: background
                 widget: select
                 default: default
@@ -206,16 +208,6 @@ collections:
                         name: disabled
                         widget: boolean
                         default: false
-                        required: false
-                  - label: Collapsible Box
-                    name: collapsible-box
-                    widget: object
-                    fields:
-                      - name: header-text
-                        widget: string
-                        required: false
-                      - name: collapsed-box
-                        widget: string
                         required: false
                   - label: Content-Box
                     name: content-box
@@ -794,6 +786,18 @@ collections:
                         default: false
                         hint: Toggle is disabled
                         required: true
+                  - label: Collapsible Box
+                    name: collapsible-box
+                    widget: object
+                    fields:
+                      - name: summary
+                        widget: string
+                        default: Lorem ipsum dolor sit amet
+                        required: true
+                      - name: text
+                        widget: string
+                        default: Lorem ipsum dolor sit amet
+                        required: false
                   - label: Quote
                     name: quote
                     widget: object
