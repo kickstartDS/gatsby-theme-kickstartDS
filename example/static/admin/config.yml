@@ -149,7 +149,7 @@ collections:
                     widget: string
                     default: Headline
                     hint: Text content for the headline
-                    required: true
+                    required: false
                   - label: Subheadline
                     name: subheadline
                     widget: string
@@ -517,7 +517,7 @@ collections:
                         widget: string
                         default: Headline
                         hint: Text content for the headline
-                        required: true
+                        required: false
                       - label: Subheadline
                         name: subheadline
                         widget: string
@@ -1453,7 +1453,7 @@ collections:
                                 widget: string
                                 default: Headline
                                 hint: Text content for the headline
-                                required: true
+                                required: false
                               - label: Subheadline
                                 name: subheadline
                                 widget: string
