@@ -15,7 +15,7 @@ import contentExports from '@kickstartds/content/lib/exports.json';
 
 const libs = { ...baseLib, ...blogLib, ...contentLib };
 const components = {};
-const elementCounter = [];
+const componentCounter = [];
 
 Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
@@ -24,8 +24,8 @@ Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([
 });
 
 const getComponent = (element) => {
-  elementCounter[element.type] = elementCounter[element.type]+1 || 1;
-  const key = element.type+'-'+elementCounter[element.type];
+  componentCounter[element.type] = componentCounter[element.type]+1 || 1;
+  const key = element.type+'-'+componentCounter[element.type];
 
   const Component = React.memo(components[element.type]);
 
