@@ -324,12 +324,12 @@ collections:
                             value: '16:9'
                           - label: '1:1'
                             value: '1:1'
-                      - label: Image alignment
+                      - label: Alignment
                         name: alignement
                         widget: select
                         default: left
                         hint: >-
-                          Choose an alignment for the image inside its box, only
+                          Choose an alignment for the box. For the image it only
                           applies for a `ratio` value of `none`
                         required: true
                         options:
@@ -1096,13 +1096,15 @@ collections:
                               - label: Thumbnail Source
                                 name: thumb
                                 widget: image
-                                default: images/dummy/16-9-s.png
+                                default: >-
+                                  https://picsum.photos/seed/kdslightboximage/600/338
                                 hint: Thumbnail Source
                                 required: false
                               - label: Lightbox Image Source
                                 name: image
                                 widget: image
-                                default: images/dummy/16-9-xxxl.png
+                                default: >-
+                                  https://picsum.photos/seed/kdslightboximage/1800/1013
                                 hint: Lightbox Image Source
                                 required: false
                               - label: Width
@@ -1206,6 +1208,155 @@ collections:
                           Include the text for the collapsible that should be
                           visible after opening
                         required: true
+                  - label: Count Up
+                    name: count-up
+                    widget: object
+                    fields:
+                      - label: Number
+                        name: to
+                        default: 1200
+                        hint: Final number to count to
+                        required: true
+                      - label: Icon
+                        name: icon
+                        widget: object
+                        fields:
+                          - label: Icon identifier
+                            name: icon
+                            widget: string
+                            required: false
+                          - label: Aria role
+                            name: role
+                            widget: string
+                            required: false
+                          - label: additional class
+                            name: className
+                            widget: string
+                            required: false
+                      - label: Topic
+                        name: topic
+                        widget: string
+                        default: Lorem Ipsum
+                        hint: >-
+                          Topic for the count-up box. Displayed before the text,
+                          in bold
+                        required: false
+                      - label: Text content
+                        name: text
+                        widget: markdown
+                        default: >-
+                          Consequuntur est quia atque eum ducimus. Consequatur
+                          fugiat hic eos perferendis. Libero unde omnis dolorem
+                          maxime occaecati sapiente distinctio. Consectetur non
+                          placeat dolorem est animi.
+                        hint: Copy text for the element
+                        required: false
+                      - label: Link Button
+                        name: link
+                        widget: object
+                        fields:
+                          - label: Label
+                            name: label
+                            widget: string
+                            default: Lorem Ipsum
+                            hint: Text used on button
+                            required: true
+                          - label: Button Style
+                            name: variant
+                            widget: select
+                            default: solid
+                            hint: Choose one of the styles from the list
+                            required: true
+                            options:
+                              - label: solid
+                                value: solid
+                              - label: solid-inverted
+                                value: solid-inverted
+                              - label: clear
+                                value: clear
+                              - label: clear-inverted
+                                value: clear-inverted
+                              - label: outline
+                                value: outline
+                              - label: outline-inverted
+                                value: outline-inverted
+                          - label: Button Size
+                            name: size
+                            widget: select
+                            default: medium
+                            hint: Choose a size between small, medium and large
+                            required: true
+                            options:
+                              - label: small
+                                value: small
+                              - label: medium
+                                value: medium
+                              - label: large
+                                value: large
+                          - label: Additional Classes
+                            name: className
+                            widget: string
+                            hint: >-
+                              Add additional css classes that should be applied
+                              to the button
+                            required: false
+                          - label: Icon
+                            name: icon
+                            widget: object
+                            fields:
+                              - label: Icon identifier
+                                name: icon
+                                widget: string
+                                required: false
+                              - label: Aria role
+                                name: role
+                                widget: string
+                                required: false
+                              - label: additional class
+                                name: className
+                                widget: string
+                                required: false
+                          - label: Icon before button
+                            name: iconBefore
+                            widget: boolean
+                            default: false
+                            hint: Display icon before the button text
+                            required: false
+                          - label: Icon after button
+                            name: iconAfter
+                            widget: boolean
+                            default: false
+                            hint: Display icon after the button text
+                            required: false
+                          - label: '`data-component` attribute'
+                            name: dataComponent
+                            widget: string
+                            hint: Overwrite the data-component to use for rendering
+                            required: false
+                          - label: Fill Animation
+                            name: fillAnimation
+                            widget: boolean
+                            default: false
+                            hint: Add fill animation on hover
+                            required: false
+                          - label: Icon Animation
+                            name: iconAnimation
+                            widget: boolean
+                            default: false
+                            hint: Add icon animation on hover
+                            required: false
+                          - label: Button href?
+                            name: href
+                            widget: string
+                            default: https://example.com
+                            hint: Link used for button
+                            required: true
+                          - label: Open link in new Tab
+                            name: newTab
+                            widget: boolean
+                            default: false
+                            hint: Open link in new Tab
+                            required: false
                   - label: Quote
                     name: quote
                     widget: object
