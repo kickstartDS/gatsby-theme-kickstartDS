@@ -7,39 +7,69 @@ module.exports = async ({ actions, graphql }) => {
   const { data } = await graphql(/* GraphQL */ `
     {
       allKickstartDsPage {
-        nodes {
-          id
-          date(formatString: "x")
-          title
-          description
-          layout
-          keyvisual {
-            backgroundColor
-            small
-            media {
+        edges {
+          node {
+            id
+            title
+            content {
+              background
+              gutter
               mode
-              image {
-                srcMobile
-                srcTablet
-                srcDesktop
+              spaceAfter
+              spaceBefore
+              space_after
+              space_before
+              type
+              width
+              headline {
+                align
+                content
+                level
+                pageHeader
+                spaceAfter
+                subheadline
               }
-            }
-            box {
-              enabled
-              inbox
-              indent
-              headline
-              text
-              link {
-                linkButtonText
-                buttonOutlineInverted
+              content {
+                ... on ContentBoxSchema {
+                  topic
+                  alignement
+                  type
+                  text
+                  ratio
+                  image
+                }
+                ... on CountUpSchema {
+                  topic
+                  text
+                  to
+                  link {
+                    className
+                    dataComponent
+                    fillAnimation
+                    href
+                    iconAfter
+                    iconAnimation
+                    iconBefore
+                    label
+                    newTab
+                    variant
+                    size
+                    icon {
+                      className
+                      icon
+                      role
+                    }
+                  }
+                  icon {
+                    className
+                    icon
+                    role
+                  }
+                }
+                text
               }
-              horizontal
-              vertical
-              style
             }
           }
-          heading
         }
       }
     }

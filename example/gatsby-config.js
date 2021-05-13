@@ -62,7 +62,7 @@ module.exports = {
       },
     },
     { resolve: `gatsby-theme-kickstartds`, options: {} },
-    { resolve: `gatsby-transformer-kickstartds-wordpress`, options: {} },
+    //{ resolve: `gatsby-transformer-kickstartds-wordpress`, options: {} },
     { resolve: `gatsby-transformer-kickstartds-netlify-cms`, options: {} },
   ],
 }

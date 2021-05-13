@@ -5,12 +5,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     type KickstartDsWordpressPage implements Node & KickstartDsPage {
       id: ID!
       layout: String!
-      keyvisual: KickstartDsKeyvisualComponent
-      heading: String
       description: String
       title: String
       date: Date @dateformat
-      content: [KickstartDsContentTextMediaComponent]
+      content: [SectionSchema]
     }
   `);
 };

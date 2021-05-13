@@ -14,9 +14,9 @@
     "example"
   ],
   "dependencies": {
-    "@kickstartds/base": "^1.0.0-alpha.15",
-    "@kickstartds/blog": "^1.0.0-alpha.15",
-    "@kickstartds/content": "^1.0.0-alpha.15",
-    "@kickstartds/core": "^1.0.0-alpha.13"
+    "@kickstartds/base": "^1.0.0-alpha.17",
+    "@kickstartds/blog": "^1.0.0-alpha.17",
+    "@kickstartds/content": "^1.0.0-alpha.17",
+    "@kickstartds/core": "^1.0.0-alpha.14"
   }
 }

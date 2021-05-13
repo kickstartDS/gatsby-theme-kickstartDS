@@ -5,12 +5,11 @@ exports.createSchemaCustomization = ({ actions }) => {
     type KickstartDsNetlifyCMSPage implements Node & KickstartDsPage {
       id: ID!
       layout: String!
-      keyvisual: KickstartDsKeyvisualComponent
-      heading: String
+      heading: String!
       description: String
       title: String
       date: Date @dateformat
-      content: [KickstartDsContentTextMediaComponent]
+      content: [SectionSchema]
     }
   `);
 };
@@ -29,15 +28,6 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       date: new Date(parent.ctimeMs).toISOString(),
       ...node.frontmatter
     };
-
-    if (node && node.frontmatter && node.frontmatter.keyvisual) {
-      if (node.frontmatter.keyvisual.media && node.frontmatter.keyvisual.media.mode === 'image' && node.frontmatter.keyvisual.media.image) {
-        // TODO integrate with images more elegantly in kickstartDS components, at least generate correct srcSet / versions of image for keyvisual here!
-        page.keyvisual.media.image.srcMobile = node.frontmatter.keyvisual.media.image.srcMobile;
-        page.keyvisual.media.image.srcTablet = node.frontmatter.keyvisual.media.image.srcTablet;
-        page.keyvisual.media.image.srcDesktop = node.frontmatter.keyvisual.media.image.srcDesktop;
-      }
-    }
 
     page.internal = {
       contentDigest: createContentDigest(page),
