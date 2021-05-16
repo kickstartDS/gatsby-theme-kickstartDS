@@ -31,8 +31,40 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     
     """Button: Component to display links and call-to-actions"""
     type ButtonComponent implements ContentComponent {
-      """'type' attribute: Select the type attribute for the button"""
-      type: ButtonComponentType!
+      """Label: Text used on button"""
+      label: String
+    
+      """Button Style: Choose one of the styles from the list"""
+      variant: ButtonComponentVariant!
+    
+      """Button Size: Choose a size between small, medium and large"""
+      size: ButtonComponentSize!
+    
+      """
+      Additional Classes: Add additional css classes that should be applied to the button
+      """
+      className: String
+      icon: IconComponent
+    
+      """Icon before button: Display icon before the button text"""
+      iconBefore: Boolean
+    
+      """Icon after button: Display icon after the button text"""
+      iconAfter: Boolean
+    
+      """
+      'data-component' attribute: Overwrite the data-component to use for rendering
+      """
+      dataComponent: String
+    
+      """Fill Animation: Add fill animation on hover"""
+      fillAnimation: Boolean
+    
+      """Icon Animation: Add icon animation on hover"""
+      iconAnimation: Boolean
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String!
     
       """'value' attribute: Define a value attribute for the button"""
       value: String
@@ -42,16 +74,23 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     
       """'disabled' attribute: Set the disabled attribute for the button"""
       disabled: Boolean
-    
-      """Internal type: Internal type for interface resolution"""
-      internalType: String
     }
     
-    """'type' attribute: Select the type attribute for the button"""
-    enum ButtonComponentType {
-      button
-      submit
-      reset
+    """Button Size: Choose a size between small, medium and large"""
+    enum ButtonComponentSize {
+      small
+      medium
+      large
+    }
+    
+    """Button Style: Choose one of the styles from the list"""
+    enum ButtonComponentVariant {
+      solid
+      solid_inverted
+      clear
+      clear_inverted
+      outline
+      outline_inverted
     }
     
     """Collapsible Box: Component to conditionally show additional info"""
@@ -67,17 +106,41 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       text: String!
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
+    }
+    
+    """Contact: Component to show contact information"""
+    type ContactComponent implements ContentComponent {
+      """Title: Name, company name, etc."""
+      title: String
+    
+      """Subtitle: Position, profession, department, location, etc."""
+      subtitle: String
+    
+      """Phone number"""
+      phone: String
+    
+      """Email address"""
+      email: String
+    
+      """Copy text"""
+      copy: String
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
     }
     
     type Container implements ContentComponent {
       width: ContainerWidth
       gutter: ContainerGutter
       mode: ContainerMode
+      content: [ContainerContent!]
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
+    
+    union ContainerContent = QuotesSliderComponent | LinkButtonComponent | ToggleComponent | ButtonComponent | TagLabelComponent | VisualComponent | QuoteComponent | VisualSliderComponent | ContactComponent | StorytellingComponent | CollapsibleBoxComponent | CountUpComponent | ContentBoxComponent | HeadlineComponent | TextMediaComponent | TeaserBoxComponent | TeaserRowComponent
     
     enum ContainerGutter {
       large
@@ -127,7 +190,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       link: ContentBoxComponentLink
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """
@@ -169,7 +232,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       link: LinkButtonComponent
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Headline: Headline"""
@@ -195,7 +258,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       pageHeader: Boolean
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Alignment: Choose an alignment for the headline"""
@@ -234,7 +297,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       className: String
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Lazy Lightbox Image: Lazy Lightbox Image"""
@@ -270,19 +333,68 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       class: String
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Link Button: link-button"""
     type LinkButtonComponent implements ContentComponent {
+      """Label: Text used on button"""
+      label: String
+    
+      """Button Style: Choose one of the styles from the list"""
+      variant: LinkButtonComponentVariant!
+    
+      """Button Size: Choose a size between small, medium and large"""
+      size: LinkButtonComponentSize!
+    
+      """
+      Additional Classes: Add additional css classes that should be applied to the button
+      """
+      className: String
+      icon: IconComponent
+    
+      """Icon before button: Display icon before the button text"""
+      iconBefore: Boolean
+    
+      """Icon after button: Display icon after the button text"""
+      iconAfter: Boolean
+    
+      """
+      'data-component' attribute: Overwrite the data-component to use for rendering
+      """
+      dataComponent: String
+    
+      """Fill Animation: Add fill animation on hover"""
+      fillAnimation: Boolean
+    
+      """Icon Animation: Add icon animation on hover"""
+      iconAnimation: Boolean
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
+    
       """Button href?: Link used for button"""
       href: String!
     
       """Open link in new Tab: Open link in new Tab"""
       newTab: Boolean
+    }
     
-      """Internal type: Internal type for interface resolution"""
-      internalType: String
+    """Button Size: Choose a size between small, medium and large"""
+    enum LinkButtonComponentSize {
+      small
+      medium
+      large
+    }
+    
+    """Button Style: Choose one of the styles from the list"""
+    enum LinkButtonComponentVariant {
+      solid
+      solid_inverted
+      clear
+      clear_inverted
+      outline
+      outline_inverted
     }
     
     """Picture: Base component to display a picture"""
@@ -332,7 +444,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       pictureClassName: String
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Object fit: Select a value for the picture object fit"""
@@ -356,13 +468,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     }
     
     type Query {
-      collapsibleBoxComponents: [CollapsibleBoxComponent]
-      countUpComponents: [CountUpComponent]
-      quotesSliderComponents: [QuotesSliderComponent]
-      quoteComponents: [QuoteComponent]
-      visualSlidePreviewComponents: [VisualSlidePreviewComponent]
-      storytellingComponents: [StorytellingComponent]
-      visualSliderComponents: [VisualSliderComponent]
       buttonComponents: [ButtonComponent]
       contentBoxComponents: [ContentBoxComponent]
       headlineComponents: [HeadlineComponent]
@@ -382,7 +487,18 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       teaserComponents: [TeaserComponent]
       teaserBoxComponents: [TeaserBoxComponent]
       teaserRowComponents: [TeaserRowComponent]
+      fullComponents: [Boolean]
+      textMediaComponents: [TextMediaComponent]
       toggleComponents: [ToggleComponent]
+      collapsibleBoxComponents: [CollapsibleBoxComponent]
+      contactComponents: [ContactComponent]
+      countUpComponents: [CountUpComponent]
+      quoteComponents: [QuoteComponent]
+      quotesSliderComponents: [QuotesSliderComponent]
+      visualSlidePreviewComponents: [VisualSlidePreviewComponent]
+      storytellingComponents: [StorytellingComponent]
+      visualComponents: [VisualComponent]
+      visualSliderComponents: [VisualSliderComponent]
     }
     
     """Quote: Component to display a rich quote"""
@@ -400,7 +516,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       date: String
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Quotes Slider"""
@@ -408,25 +524,43 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       slides: [QuoteComponent!]
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Section"""
-    type SectionComponent {
+    type SectionComponent implements ContentComponent {
+      width: SectionComponentWidth
+      gutter: SectionComponentGutter
+      mode: SectionComponentMode
+      content: [ContentComponent]
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
       background: SectionComponentBackground
       spaceBefore: SectionComponentSpaceBefore
       spaceAfter: SectionComponentSpaceAfter
       headline: HeadlineComponent
-      content: [ContentComponent]
-    
-      """Internal type: Internal type for interface resolution"""
-      internalType: String
     }
     
     enum SectionComponentBackground {
       default
       accent
       dark
+    }
+    
+    union SectionComponentContent = QuotesSliderComponent | LinkButtonComponent | ToggleComponent | ButtonComponent | TagLabelComponent | VisualComponent | QuoteComponent | VisualSliderComponent | ContactComponent | StorytellingComponent | CollapsibleBoxComponent | CountUpComponent | ContentBoxComponent | HeadlineComponent | TextMediaComponent | TeaserBoxComponent | TeaserRowComponent
+    
+    enum SectionComponentGutter {
+      large
+      default
+      small
+      none
+    }
+    
+    enum SectionComponentMode {
+      default
+      tile
+      list
     }
     
     enum SectionComponentSpaceAfter {
@@ -441,6 +575,14 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       none
     }
     
+    enum SectionComponentWidth {
+      full
+      max
+      wide
+      default
+      narrow
+    }
+    
     """Slide: Slide"""
     type Slide implements ContentComponent {
       """slide component: slide component"""
@@ -453,7 +595,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       previewLabel: String!
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Slider: Slider"""
@@ -464,7 +606,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       arrows: Arrows
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """
@@ -487,7 +629,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       box: StorytellingComponentBox!
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Text box: Text content to display"""
@@ -612,7 +754,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       removable: Boolean
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Size: Choose a size to scale the tag label up or down"""
@@ -624,6 +766,19 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     
     """Teaser Box: Component to tease external content"""
     type TeaserBoxComponent implements ContentComponent {
+      """Topic: Topic for the teaser box. Displayed before the text, in bold"""
+      topic: String
+    
+      """Text content: Text for the teaser box"""
+      text: String
+    
+      """Dark variant: Optionally use this to apply a dark variant to the box"""
+      darkStyle: Boolean
+      link: TeaserBoxComponentLink
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
+    
       """
       Image source: Select an image to display inside the teaser box, at the top
       """
@@ -634,9 +789,11 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     
       """Image spacing: Optionally add inner spacing to the displayed image"""
       imageSpacing: Boolean
+    }
     
-      """Internal type: Internal type for interface resolution"""
-      internalType: String
+    type TeaserBoxComponentLink {
+      """Hide link: Hides the link. The box as a whole keeps being clickable"""
+      hidden: Boolean
     }
     
     """Image ratio: Choose the ratio used to crop and display the image"""
@@ -648,14 +805,109 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     
     """Teaser: Component to tease external content"""
     type TeaserComponent implements ContentComponent {
-      internalType: String
-      _empty: String
+      """Topic: Topic for the teaser box. Displayed before the text, in bold"""
+      topic: String
+    
+      """Text content: Text for the teaser box"""
+      text: String
+    
+      """Dark variant: Optionally use this to apply a dark variant to the box"""
+      darkStyle: Boolean
+      link: TeaserComponentLink
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
+    }
+    
+    type TeaserComponentLink {
+      """Hide link: Hides the link. The box as a whole keeps being clickable"""
+      hidden: Boolean
     }
     
     """Teaser Row: Component to tease external content"""
     type TeaserRowComponent implements ContentComponent {
-      internalType: String
-      _empty: String
+      """Topic: Topic for the teaser box. Displayed before the text, in bold"""
+      topic: String
+    
+      """Text content: Text for the teaser box"""
+      text: String
+    
+      """Dark variant: Optionally use this to apply a dark variant to the box"""
+      darkStyle: Boolean
+      link: TeaserRowComponentLink
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
+    }
+    
+    type TeaserRowComponentLink {
+      """Hide link: Hides the link. The box as a whole keeps being clickable"""
+      hidden: Boolean
+    }
+    
+    """Text Media: Component to display copy text, including media"""
+    type TextMediaComponent implements ContentComponent {
+      """Text content: Copy text for the element"""
+      text: String!
+    
+      """Media alignment: In relation to the text content"""
+      mediaAlignment: TextMediaComponentMediaAlignment!
+    
+      """Media: Collection of media items to display"""
+      media: [TextMediaComponentMedia!]
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
+    }
+    
+    union TextMediaComponentMedia = TextMediaComponentMedia0 | TextMediaComponentMedia1 | TextMediaComponentMedia2
+    
+    type TextMediaComponentMedia0 {
+      """Video: Video item to display"""
+      video: TextMediaComponentMedia0Video
+      full: Boolean
+    }
+    
+    """Video: Video item to display"""
+    type TextMediaComponentMedia0Video {
+      """Source: Url (mp4) for the video to display"""
+      src: String!
+    
+      """Embedded (iframe): Use an iframe embed"""
+      iframe: Boolean
+    
+      """Video title: Title to use for the video"""
+      title: String
+    
+      """Width: Width of the video"""
+      width: Int!
+    
+      """Height: Height of the video"""
+      height: Int!
+    }
+    
+    type TextMediaComponentMedia1 {
+      image: PictureComponent
+      full: Boolean
+    }
+    
+    type TextMediaComponentMedia2 {
+      lightboxImage: LightboxLazyImageComponent
+      full: Boolean
+    }
+    
+    """Media alignment: In relation to the text content"""
+    enum TextMediaComponentMediaAlignment {
+      above_left
+      above_center
+      above_right
+      beside_left
+      beside_right
+      intext_left
+      intext_right
+      below_left
+      below_center
+      below_right
     }
     
     """Toggle Switch: Toggle Switch"""
@@ -673,7 +925,168 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       disabled: Boolean!
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
+    }
+    
+    """Visual: visual"""
+    type VisualComponent implements ContentComponent {
+      """Height"""
+      height: VisualComponentHeight
+    
+      """Media Wrapper: Wrapper for all media types"""
+      media: VisualComponentMedia
+    
+      """Grid layer: Enable grid layer"""
+      overlay: Boolean
+    
+      """Text box: Content and style configuration for the text box"""
+      box: VisualComponentBox
+    
+      """Custom background color: Custom css background color"""
+      backgroundColor: String
+    
+      """Inbox: The text box is in front of the image on small screens"""
+      inbox: Boolean
+    
+      """Skip Button: Show skip button"""
+      skipButton: Boolean
+    
+      """Additional Classes"""
+      className: String
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
+    }
+    
+    """Text box: Content and style configuration for the text box"""
+    type VisualComponentBox {
+      """Display box: Toggles visibility of the box"""
+      enabled: Boolean
+    
+      """Headline: Text box headline"""
+      headline: String
+    
+      """Text: Text box copy text"""
+      text: String
+    
+      """Link: Text box link configuration"""
+      link: VisualComponentBoxLink
+    
+      """Indent: The text box is aligned inside the content grid"""
+      indent: Boolean
+    
+      """
+      Horizontal orientation: Horizontal orientation of the box inside the keyvisual
+      """
+      horizontal: VisualComponentBoxHorizontal
+    
+      """
+      Vertical orientation: Vertical orientation of the box inside the keyvisual
+      """
+      vertical: VisualComponentBoxVertical
+    
+      """Style of the box: Choose a style for the box"""
+      background: VisualComponentBoxBackground
+    }
+    
+    """Style of the box: Choose a style for the box"""
+    enum VisualComponentBoxBackground {
+      default
+      light
+      transparent
+    }
+    
+    """
+    Horizontal orientation: Horizontal orientation of the box inside the keyvisual
+    """
+    enum VisualComponentBoxHorizontal {
+      left
+      center
+      right
+    }
+    
+    """Link: Text box link configuration"""
+    type VisualComponentBoxLink {
+      """Display Link: Toggles visibility of the link"""
+      enabled: Boolean
+    }
+    
+    """
+    Vertical orientation: Vertical orientation of the box inside the keyvisual
+    """
+    enum VisualComponentBoxVertical {
+      top
+      center
+      bottom
+    }
+    
+    """Height"""
+    enum VisualComponentHeight {
+      small
+      default
+      fullImage
+      fullScreen
+    }
+    
+    """Media Wrapper: Wrapper for all media types"""
+    type VisualComponentMedia {
+      """Media Type: Choose a media type between image, video and none"""
+      mode: VisualComponentMediaMode
+    
+      """
+      Background image: Sources of background images for different screen sizes
+      """
+      image: VisualComponentMediaImage
+    
+      """
+      Background video: Sources of background videos for different screen sizes
+      """
+      video: VisualComponentMediaVideo
+    }
+    
+    """
+    Background image: Sources of background images for different screen sizes
+    """
+    type VisualComponentMediaImage {
+      """Mobile image source: Background image source for small screens"""
+      srcMobile: String!
+    
+      """Tablet image source: Background image source for medium screens"""
+      srcTablet: String!
+    
+      """Desktop image source: Background image source for large screens"""
+      srcDesktop: String!
+    
+      """Image indent: Choose to indent the image horizontally on small screens"""
+      indent: VisualComponentMediaImageIndent
+    }
+    
+    """Image indent: Choose to indent the image horizontally on small screens"""
+    enum VisualComponentMediaImageIndent {
+      none
+      left
+      right
+    }
+    
+    """Media Type: Choose a media type between image, video and none"""
+    enum VisualComponentMediaMode {
+      image
+      video
+      none
+    }
+    
+    """
+    Background video: Sources of background videos for different screen sizes
+    """
+    type VisualComponentMediaVideo {
+      """Mobile video source: Background video source for small screens"""
+      srcMobile: String!
+    
+      """Tablet video source: Background video source for medium screens"""
+      srcTablet: String!
+    
+      """Desktop video source: Background video source for large screens"""
+      srcDesktop: String!
     }
     
     """Visual Slide Preview: Visual slide preview"""
@@ -682,7 +1095,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       previewLabel: String
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     """Visual Slider: Visual Slider"""
@@ -691,13 +1104,171 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       slides: [VisualSliderComponentSlides!]!
     
       """Internal type: Internal type for interface resolution"""
-      internalType: String
+      type: String
     }
     
     type VisualSliderComponentSlides {
+      """Height"""
+      height: VisualSliderComponentSlidesHeight
+    
+      """Media Wrapper: Wrapper for all media types"""
+      media: VisualSliderComponentSlidesMedia
+    
+      """Grid layer: Enable grid layer"""
+      overlay: Boolean
+    
+      """Text box: Content and style configuration for the text box"""
+      box: VisualSliderComponentSlidesBox
+    
+      """Custom background color: Custom css background color"""
+      backgroundColor: String
+    
+      """Inbox: The text box is in front of the image on small screens"""
+      inbox: Boolean
+    
+      """Skip Button: Show skip button"""
+      skipButton: Boolean
+    
+      """Additional Classes"""
+      className: String
+    
+      """Internal type: Internal type for interface resolution"""
+      type: String
+    
       """Slide preview label: preview label"""
       label: String
-    }  
+    }
+    
+    """Text box: Content and style configuration for the text box"""
+    type VisualSliderComponentSlidesBox {
+      """Display box: Toggles visibility of the box"""
+      enabled: Boolean
+    
+      """Headline: Text box headline"""
+      headline: String
+    
+      """Text: Text box copy text"""
+      text: String
+    
+      """Link: Text box link configuration"""
+      link: VisualSliderComponentSlidesBoxLink
+    
+      """Indent: The text box is aligned inside the content grid"""
+      indent: Boolean
+    
+      """
+      Horizontal orientation: Horizontal orientation of the box inside the keyvisual
+      """
+      horizontal: VisualSliderComponentSlidesBoxHorizontal
+    
+      """
+      Vertical orientation: Vertical orientation of the box inside the keyvisual
+      """
+      vertical: VisualSliderComponentSlidesBoxVertical
+    
+      """Style of the box: Choose a style for the box"""
+      background: VisualSliderComponentSlidesBoxBackground
+    }
+    
+    """Style of the box: Choose a style for the box"""
+    enum VisualSliderComponentSlidesBoxBackground {
+      default
+      light
+      transparent
+    }
+    
+    """
+    Horizontal orientation: Horizontal orientation of the box inside the keyvisual
+    """
+    enum VisualSliderComponentSlidesBoxHorizontal {
+      left
+      center
+      right
+    }
+    
+    """Link: Text box link configuration"""
+    type VisualSliderComponentSlidesBoxLink {
+      """Display Link: Toggles visibility of the link"""
+      enabled: Boolean
+    }
+    
+    """
+    Vertical orientation: Vertical orientation of the box inside the keyvisual
+    """
+    enum VisualSliderComponentSlidesBoxVertical {
+      top
+      center
+      bottom
+    }
+    
+    """Height"""
+    enum VisualSliderComponentSlidesHeight {
+      small
+      default
+      fullImage
+      fullScreen
+    }
+    
+    """Media Wrapper: Wrapper for all media types"""
+    type VisualSliderComponentSlidesMedia {
+      """Media Type: Choose a media type between image, video and none"""
+      mode: VisualSliderComponentSlidesMediaMode
+    
+      """
+      Background image: Sources of background images for different screen sizes
+      """
+      image: VisualSliderComponentSlidesMediaImage
+    
+      """
+      Background video: Sources of background videos for different screen sizes
+      """
+      video: VisualSliderComponentSlidesMediaVideo
+    }
+    
+    """
+    Background image: Sources of background images for different screen sizes
+    """
+    type VisualSliderComponentSlidesMediaImage {
+      """Mobile image source: Background image source for small screens"""
+      srcMobile: String!
+    
+      """Tablet image source: Background image source for medium screens"""
+      srcTablet: String!
+    
+      """Desktop image source: Background image source for large screens"""
+      srcDesktop: String!
+    
+      """Image indent: Choose to indent the image horizontally on small screens"""
+      indent: VisualSliderComponentSlidesMediaImageIndent
+    }
+    
+    """Image indent: Choose to indent the image horizontally on small screens"""
+    enum VisualSliderComponentSlidesMediaImageIndent {
+      none
+      left
+      right
+    }
+    
+    """Media Type: Choose a media type between image, video and none"""
+    enum VisualSliderComponentSlidesMediaMode {
+      image
+      video
+      none
+    }
+    
+    """
+    Background video: Sources of background videos for different screen sizes
+    """
+    type VisualSliderComponentSlidesMediaVideo {
+      """Mobile video source: Background video source for small screens"""
+      srcMobile: String!
+    
+      """Tablet video source: Background video source for medium screens"""
+      srcTablet: String!
+    
+      """Desktop video source: Background video source for large screens"""
+      srcDesktop: String!
+    }
 
     interface KickstartDsPage implements Node {
       id: ID!
