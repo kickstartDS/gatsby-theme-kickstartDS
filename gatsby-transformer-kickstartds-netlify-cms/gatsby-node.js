@@ -9,7 +9,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       title: String
       date: Date @dateformat
-      content: [SectionSchema]
+      content: [SectionComponent]
     }
   `);
 };

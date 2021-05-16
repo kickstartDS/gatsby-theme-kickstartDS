@@ -75,7 +75,6 @@ module.exports = async ({ actions, graphql }) => {
 
   await Promise.all(
     data.allKickstartDsPage.edges.map(async (page) => {
-      console.log('page heading:', page.node.heading);
       await actions.createPage({
         component: require.resolve('../src/templates/page.js'),
         path: `page/${slugify(page.node.heading)}`,
