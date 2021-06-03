@@ -1728,28 +1728,6 @@
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
 
-"@kickstartds/base@^1.0.0-alpha.17":
-  version "1.0.0-alpha.17"
-  resolved "https://registry.npmjs.org/@kickstartds/base/-/base-1.0.0-alpha.17.tgz#855a9e7193468cb165c037361227092203f24290"
-  integrity sha512-j+353Ptywc7m0YSRCvOj0EkCm3wqVO+PoN/4FiRAF2xDV2Y1e+F4rw6JvVidKVV6vaXh+9PGojNJquma/g4tzA==
-  dependencies:
-    "@babel/runtime" "^7.13.17"
-    "@glidejs/glide" "git://github.com/glidejs/glide.git#master"
-    "@kickstartds/core" "^1.0.0-alpha.14"
-    classnames "^2.2.6"
-    css-element-queries "^1.2.3"
-    date-fns "^2.19.0"
-    focus-visible "^5.0.2"
-    formbouncerjs "^1.4.6"
-    lazysizes "^5.3.2"
-    lodash-es "^4.17.21"
-    objectFitPolyfill "^2.3.0"
-    photoswipe "^4.1.3"
-    pikaday "^1.8.0"
-    react-markdown "^5.0.3"
-    simplebar "^5.0.7"
-    stickybits "^3.7.0"
-
 "@kickstartds/base@^1.0.0-alpha.18":
   version "1.0.0-alpha.18"
   resolved "https://registry.npmjs.org/@kickstartds/base/-/base-1.0.0-alpha.18.tgz#899c9a6ad3d9948026861a52349318e12db6e93f"
@@ -1772,15 +1750,27 @@
     simplebar "^5.0.7"
     stickybits "^3.7.0"
 
-"@kickstartds/blog@^1.0.0-alpha.17":
-  version "1.0.0-alpha.17"
-  resolved "https://registry.npmjs.org/@kickstartds/blog/-/blog-1.0.0-alpha.17.tgz#9396a1b04eec80c5970aa259cc278a4ac5f6117c"
-  integrity sha512-IFfPl1jpIE9+ySJKy1k8DJKZlCfim2Lj/93mW47R4fskIwZSB4g45VVfV02e6u5ArXdKkx268UT+vCYjfgOF5w==
+"@kickstartds/base@^1.0.0-alpha.19", "@kickstartds/base@^1.0.0-alpha.21":
+  version "1.0.0-alpha.21"
+  resolved "https://registry.npmjs.org/@kickstartds/base/-/base-1.0.0-alpha.21.tgz#8f17fd57ac8d2339e225b94be3bb1f820190b07a"
+  integrity sha512-b0ZFgArGLmW/3QRn2CfKukzDw/Vme0n2i/Aa6IYEOsFk9lY1Rajwf0nZ0EVUcX2aMkCRNMNDLBHxrY+wDQWywg==
   dependencies:
     "@babel/runtime" "^7.13.17"
-    "@kickstartds/base" "^1.0.0-alpha.17"
+    "@glidejs/glide" "git://github.com/glidejs/glide.git#master"
     "@kickstartds/core" "^1.0.0-alpha.14"
+    classnames "^2.2.6"
+    css-element-queries "^1.2.3"
     date-fns "^2.19.0"
+    focus-visible "^5.0.2"
+    formbouncerjs "^1.4.6"
+    lazysizes "^5.3.2"
+    lodash-es "^4.17.21"
+    objectFitPolyfill "^2.3.0"
+    photoswipe "^4.1.3"
+    pikaday "^1.8.0"
+    react-markdown "^5.0.3"
+    simplebar "^5.0.7"
+    stickybits "^3.7.0"
 
 "@kickstartds/blog@^1.0.0-alpha.18":
   version "1.0.0-alpha.18"
@@ -1792,18 +1782,15 @@
     "@kickstartds/core" "^1.0.0-alpha.14"
     date-fns "^2.19.0"
 
-"@kickstartds/content@^1.0.0-alpha.17":
-  version "1.0.0-alpha.17"
-  resolved "https://registry.npmjs.org/@kickstartds/content/-/content-1.0.0-alpha.17.tgz#ab4dbdbbbb59a86af301896ae3966c86330b5419"
-  integrity sha512-0C4if1eLpXyXQabyqFDFhum7TFG1mjLpRu9TS/5IqATyfblZGtqO9iUIr8L37OZTYO9Nli0SRWD6zmbqATXPCw==
+"@kickstartds/blog@^1.0.0-alpha.19":
+  version "1.0.0-alpha.21"
+  resolved "https://registry.npmjs.org/@kickstartds/blog/-/blog-1.0.0-alpha.21.tgz#b3adcab2abb851d04c0217dd1c706e747e5de91c"
+  integrity sha512-cULCF7txdBEGXtAV4zIvEm14bmNTfAUXYWiJGMQy+FgUIImx89F+/4fjkUyV8DR3v0QsOhyK4+JsQg+Axfe9aw==
   dependencies:
     "@babel/runtime" "^7.13.17"
-    "@kickstartds/base" "^1.0.0-alpha.17"
+    "@kickstartds/base" "^1.0.0-alpha.21"
     "@kickstartds/core" "^1.0.0-alpha.14"
-    classnames "^2.2.6"
-    countup.js "^2.0.7"
     date-fns "^2.19.0"
-    objectFitPolyfill "^2.3.0"
 
 "@kickstartds/content@^1.0.0-alpha.18":
   version "1.0.0-alpha.18"
@@ -1812,6 +1799,19 @@
   dependencies:
     "@babel/runtime" "^7.13.17"
     "@kickstartds/base" "^1.0.0-alpha.18"
+    "@kickstartds/core" "^1.0.0-alpha.14"
+    classnames "^2.2.6"
+    countup.js "^2.0.7"
+    date-fns "^2.19.0"
+    objectFitPolyfill "^2.3.0"
+
+"@kickstartds/content@^1.0.0-alpha.19":
+  version "1.0.0-alpha.21"
+  resolved "https://registry.npmjs.org/@kickstartds/content/-/content-1.0.0-alpha.21.tgz#afbddc94f07bb96b0342e580d7279425779ff036"
+  integrity sha512-drLcdWrmWsC/rnG7Yp/8ae2s6AfQ3pfMNs0KXlVLx45VKrH43n7FIPRjcI9GecRbduEzJT/vhvWHkJ9U3CgUFQ==
+  dependencies:
+    "@babel/runtime" "^7.13.17"
+    "@kickstartds/base" "^1.0.0-alpha.21"
     "@kickstartds/core" "^1.0.0-alpha.14"
     classnames "^2.2.6"
     countup.js "^2.0.7"
@@ -6756,6 +6756,13 @@ gatsby-plugin-catch-links@^3.4.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
     escape-string-regexp "^1.0.5"
+
+gatsby-plugin-graphql-tag-loader@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/gatsby-plugin-graphql-tag-loader/-/gatsby-plugin-graphql-tag-loader-1.0.1.tgz#b2e79de021483d7a4dec280d269ba75239f87091"
+  integrity sha512-Q7StJpFKAjXag6X8Y0tbkWKxROYz5Wsow2oAg7DXyKEx5Wwa5NwTD7JYDeUQylQl8JmNorZ2Jid9M/dPSQCdOw==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
 
 gatsby-plugin-image@^1.0.0:
   version "1.4.1"
