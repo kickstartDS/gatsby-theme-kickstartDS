@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import { FunctionComponent } from 'react';
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
@@ -17,22 +18,15 @@ const libs = { ...baseLib, ...blogLib, ...contentLib };
 const components = {};
 const componentCounter = [];
 
-console.log(contentExports);
-
 Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
-  console.log(key);
   if (key.indexOf('/') === -1 && value.length > 0) {
     components[key] = libs[value[0]];
   }
 });
 
-console.log(components);
-
 const getComponent = (element) => {
   componentCounter[element.type] = componentCounter[element.type]+1 || 1;
   const key = element.type+'-'+componentCounter[element.type];
-
-  console.log(element);
 
   const Component = React.memo(components[element.type]);
 
