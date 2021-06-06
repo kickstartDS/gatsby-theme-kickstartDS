@@ -1,10 +1,7 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 
 import { FunctionComponent } from 'react';
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
-// TODO add `KickstartDSPageProps`
-import { KickstartDSPageProps } from './KickstartDSPageProps';
 
 import * as baseLib from '@kickstartds/base';
 import * as blogLib from '@kickstartds/blog';
@@ -50,7 +47,7 @@ const getContent = (content) => {
   } 
 };
 
-export const KickstartDSPage: FunctionComponent<KickstartDSPageProps> = ({
+export const KickstartDSPage: FunctionComponent<any> = ({
   content,
 }) => (
   <KickstartDSLayout>
