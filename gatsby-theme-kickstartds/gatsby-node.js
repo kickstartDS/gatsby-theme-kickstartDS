@@ -328,14 +328,14 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     """Icon Animation: Add icon animation on hover"""
     iconAnimation: Boolean
   
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  
     """Button href?: Link used for button"""
     href: String!
   
     """Open link in new Tab: Open link in new Tab"""
     newTab: Boolean
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
   }
   
   """Button Style: Choose one of the styles from the list"""
@@ -425,14 +425,11 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     type: String
   }
   
-  type Container implements ContentComponent {
+  type Container {
     width: ContainerWidth
     gutter: ContainerGutter
     mode: ContainerMode
     content: [ContainerContent!]
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
   }
   
   enum ContainerWidth {
@@ -1129,9 +1126,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     darkStyle: Boolean
     link: TeaserBoxComponentLink
   
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  
     """
     Image source: Select an image to display inside the teaser box, at the top
     """
@@ -1142,6 +1136,9 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   
     """Image spacing: Optionally add inner spacing to the displayed image"""
     imageSpacing: Boolean
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
   }
   
   type TeaserBoxComponentLink {
@@ -1187,14 +1184,11 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   }
   
   """Section"""
-  type SectionComponent implements ContentComponent {
+  type SectionComponent {
     width: SectionComponentWidth
     gutter: SectionComponentGutter
     mode: SectionComponentMode
-    content: [SectionComponentContent!]
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
+    content: [ContentComponent!]
     background: SectionComponentBackground
     spaceBefore: SectionComponentSpaceBefore
     spaceAfter: SectionComponentSpaceAfter
@@ -1252,7 +1246,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   }
   
   """Slide: Slide"""
-  type Slide implements ContentComponent {
+  type Slide {
     """slide component: slide component"""
     slideComponent: String!
   
@@ -1261,9 +1255,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   
     """preview label: preview label"""
     previewLabel: String!
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
   }
   
   """Slider: Slider"""
@@ -1306,6 +1297,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     """Internal type: Internal type for interface resolution"""
     type: String
   }
+  
   
 
     interface KickstartDsPage implements Node {

@@ -35,6 +35,10 @@ module.exports = async ({ actions, graphql }) => {
       'CountUpComponentDeepNesting',
       'IconComponentDeepNesting',
       'LinkButtonComponentDeepNesting',
+      'SectionComponentDeepNesting',
+      'ContentBoxComponentDeepNesting',
+      'HeadlineComponentDeepNesting',
+      'ContentBoxComponentLinkDeepNesting',
     ])}
     {
       allKickstartDsPage {
@@ -42,8 +46,10 @@ module.exports = async ({ actions, graphql }) => {
           node {
             heading
             content {
+              ...SectionComponentDeepNesting
               content {
                 ...CountUpComponentDeepNesting
+                ...ContentBoxComponentDeepNesting
               }
             }
           }
