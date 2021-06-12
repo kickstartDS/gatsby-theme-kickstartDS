@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const pascalCase =  require('change-case').pascalCase;
 
-const createList = require(`./create/createList`);
+// const createList = require(`./create/createList`);
 const createPages = require(`./create/createPages.js`);
 
 const typesString = fs.readFileSync(path.resolve(__dirname, 'types.graphql'), "utf8");
@@ -25,7 +25,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 
   createTypes([
     typesString,
-    `interface KickstartDsPage implements Node {
+    `interface KickstartDsPage implements Node @dontInfer {
       id: ID!
       layout: String!
       heading: String!

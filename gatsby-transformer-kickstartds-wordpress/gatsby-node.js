@@ -2,7 +2,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   createTypes(`
-    type KickstartDsWordpressPage implements Node & KickstartDsPage {
+    type KickstartDsWordpressPage implements Node & KickstartDsPage @dontInfer {
       id: ID!
       layout: String!
       description: String

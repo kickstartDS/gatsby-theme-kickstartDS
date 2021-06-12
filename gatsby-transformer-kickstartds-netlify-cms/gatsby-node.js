@@ -2,7 +2,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
   createTypes(`
-    type KickstartDsNetlifyCMSPage implements Node & KickstartDsPage {
+    type KickstartDsNetlifyCMSPage implements Node & KickstartDsPage @dontInfer {
       id: ID!
       layout: String!
       heading: String!

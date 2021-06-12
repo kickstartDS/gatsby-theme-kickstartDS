@@ -32,13 +32,7 @@ const collectGraphQLFragments = async (fragmentsNamesToExtract) => {
 module.exports = async ({ actions, graphql }) => {
   const { data } = await graphql(/* GraphQL */ `
     ${await collectGraphQLFragments([
-      'CountUpComponentDeepNesting',
-      'IconComponentDeepNesting',
-      'LinkButtonComponentDeepNesting',
       'SectionComponentDeepNesting',
-      'ContentBoxComponentDeepNesting',
-      'HeadlineComponentDeepNesting',
-      'ContentBoxComponentLinkDeepNesting',
     ])}
     {
       allKickstartDsPage {
@@ -47,10 +41,6 @@ module.exports = async ({ actions, graphql }) => {
             heading
             content {
               ...SectionComponentDeepNesting
-              content {
-                ...CountUpComponentDeepNesting
-                ...ContentBoxComponentDeepNesting
-              }
             }
           }
         }
