@@ -21,6 +21,16 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 
   createTypes([`
   type Query {
+    collapsibleBoxComponents: [CollapsibleBoxComponent]
+    contactComponents: [ContactComponent]
+    countUpComponents: [CountUpComponent]
+    logoTilesComponents: [LogoTilesComponent]
+    quoteComponents: [QuoteComponent]
+    quotesSliderComponents: [QuotesSliderComponent]
+    storytellingComponents: [StorytellingComponent]
+    visualSlidePreviewComponents: [VisualSlidePreviewComponent]
+    visualComponents: [VisualComponent]
+    visualSliderComponents: [VisualSliderComponent]
     buttonComponents: [ButtonComponent]
     contentBoxComponents: [ContentBoxComponent]
     dividerComponents: [DividerComponent]
@@ -44,34 +54,165 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     fullComponents: [Boolean]
     textMediaComponents: [TextMediaComponent]
     toggleComponents: [ToggleComponent]
-    collapsibleBoxComponents: [CollapsibleBoxComponent]
-    contactComponents: [ContactComponent]
-    countUpComponents: [CountUpComponent]
-    logoTilesComponents: [LogoTilesComponent]
-    quoteComponents: [QuoteComponent]
-    quotesSliderComponents: [QuotesSliderComponent]
-    visualSlidePreviewComponents: [VisualSlidePreviewComponent]
-    storytellingComponents: [StorytellingComponent]
-    visualComponents: [VisualComponent]
-    visualSliderComponents: [VisualSliderComponent]
   }
   
-  """Button: Component to display links and call-to-actions"""
-  type ButtonComponent implements ContentComponent {
-    """Label: Text used on button"""
-    label: String
+  """Collapsible Box: Component to conditionally show additional info"""
+  type CollapsibleBoxComponent implements ContentComponent {
+    """
+    Summary text for the collapsible: Include the text for the collapsible that should be visible before opening
+    """
+    summary: String!
   
-    """Button Style: Choose one of the styles from the list"""
-    variant: ButtonComponentVariant!
+    """
+    Content of the collapsible: Include the text for the collapsible that should be visible after opening
+    """
+    text: String!
   
-    """Button Size: Choose a size between small, medium and large"""
-    size: ButtonComponentSize!
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
+  
+  """Contact: Component to show contact information"""
+  type ContactComponent implements ContentComponent {
+    image: PictureComponent
+  
+    """Title: Name, company name, etc."""
+    title: String
+  
+    """Subtitle: Position, profession, department, location, etc."""
+    subtitle: String
+  
+    """Phone number"""
+    phone: String
+  
+    """Email address"""
+    email: String
+  
+    """Copy text"""
+    copy: String
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
+  
+  """Picture: Base component to display a picture"""
+  type PictureComponent implements ContentComponent {
+    """Source: Picture source"""
+    src: String
+  
+    """Picture sourceset: Use a srcSet to display picture"""
+    srcSet: String
+  
+    """Alt text: Alt text to display for picture"""
+    alt: String
+  
+    """Width: Width of the picture"""
+    width__f9f3: Int
+  
+    """Height: Height of the picture"""
+    height__b919: Int
   
     """
     Additional Classes: Add additional css classes that should be applied to the button
     """
-    className: String
+    className__6ef8: String
+  
+    """Id: Add id attribute to the image"""
+    id__bfb7: String
+  
+    """'itemprop' attribute: Define an itemprop attribute for the picture"""
+    itemProp: String
+  
+    """'style' attribute: Define a style attribute for the picture"""
+    style: String
+  
+    """Object fit: Select a value for the picture object fit"""
+    objectFit: PictureComponentObjectFit
+  
+    """Noscript: Render noscript fallback"""
+    noscript: Boolean
+  
+    """Lazy: Load the picture lazily"""
+    lazy: Boolean
+  
+    """Sources: Additional sources. This will result in a 'picture'-Element"""
+    sources: [PictureComponentSources!]
+  
+    """'class' attribute: Set additional class(es) to the picture"""
+    pictureClassName: String
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
+  
+  """Object fit: Select a value for the picture object fit"""
+  enum PictureComponentObjectFit {
+    contain
+    cover
+    fill
+    none
+    scale_down
+  }
+  
+  type PictureComponentSources {
+    """Picture sourceset: Use a srcSet to display picture"""
+    srcSet: String
+  
+    """TODO MEDIA TITLE: TODO MEDIA DESCRIPTION"""
+    media: String
+  
+    """TODO TYPE TITLE: TODO TYPE DESCRIPTION"""
+    type: String
+  }
+  
+  """Count Up: Component to to increase a number up to a final value"""
+  type CountUpComponent implements ContentComponent {
+    """Number: Final number to count to"""
+    to: Int!
     icon: IconComponent
+  
+    """Topic: Topic for the count-up box. Displayed before the text, in bold"""
+    topic: String
+  
+    """Text content: Copy text for the element"""
+    text__9f33: String
+    link: LinkButtonComponent
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
+  
+  """Icon: Icon"""
+  type IconComponent implements ContentComponent {
+    """Icon identifier"""
+    icon__3475: String
+  
+    """Aria role"""
+    role: String
+  
+    """additional class"""
+    className__f0c2: String
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
+  
+  """Link Button: link-button"""
+  type LinkButtonComponent implements ContentComponent {
+    """Label: Text used on button"""
+    label: String
+  
+    """Button Style: Choose one of the styles from the list"""
+    variant: LinkButtonComponentVariant!
+  
+    """Button Size: Choose a size between small, medium and large"""
+    size: LinkButtonComponentSize!
+  
+    """
+    Additional Classes: Add additional css classes that should be applied to the button
+    """
+    className__6ef8: String
+    icon__2933: IconComponent
   
     """Icon before button: Display icon before the button text"""
     iconBefore: Boolean
@@ -90,21 +231,18 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     """Icon Animation: Add icon animation on hover"""
     iconAnimation: Boolean
   
+    """Button href?: Link used for button"""
+    href: String!
+  
+    """Open link in new Tab: Open link in new Tab"""
+    newTab: Boolean
+  
     """Internal type: Internal type for interface resolution"""
-    type: String!
-  
-    """'value' attribute: Define a value attribute for the button"""
-    value: String
-  
-    """'name' attribute: Define a name attribute for the button"""
-    name: String
-  
-    """'disabled' attribute: Set the disabled attribute for the button"""
-    disabled: Boolean
+    type: String
   }
   
   """Button Style: Choose one of the styles from the list"""
-  enum ButtonComponentVariant {
+  enum LinkButtonComponentVariant {
     solid
     solid_inverted
     clear
@@ -114,98 +252,155 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   }
   
   """Button Size: Choose a size between small, medium and large"""
-  enum ButtonComponentSize {
+  enum LinkButtonComponentSize {
     small
     medium
     large
   }
   
-  """Icon: Icon"""
-  type IconComponent implements ContentComponent {
-    """Icon identifier"""
-    icon: String
-  
-    """Aria role"""
-    role: String
-  
-    """additional class"""
-    className: String
+  """Logo Tiles: Component to list logos or seals"""
+  type LogoTilesComponent implements ContentComponent {
+    """Logos"""
+    logos: [PictureComponent!]
   
     """Internal type: Internal type for interface resolution"""
     type: String
   }
   
-  """Content Box: Component to display content in a condensed, boxed form"""
-  type ContentBoxComponent implements ContentComponent {
-    """
-    Image ratio: Choose one of the set ratios, all ratios except 'none' stretch the image to 100% width
-    """
-    ratio: ContentBoxComponentRatio!
+  """Quote: Component to display a rich quote"""
+  type QuoteComponent implements ContentComponent {
+    """Image source: Select an image to display inside the quote, to the left"""
+    image__a25b: String
   
-    """
-    Alignment: Choose an alignment for the box. For the image it only applies for a 'ratio' value of 'none'
-    """
-    alignement: ContentBoxComponentAlignement!
+    """Text content: Copy text for the element"""
+    text__b748: String
   
-    """
-    Image source: Select an image to display inside the content box, at the top
-    """
-    image: String
+    """Source: Optionally display the source for the quote"""
+    source: String
   
-    """Topic: Topic for the content box. Displayed before the text, in bold"""
-    topic: String
+    """Date: Optionally display a date for the quote"""
+    date: String
   
-    """Text content: Text for the content box"""
-    text: String
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
   
-    """Link: Content box link configuration"""
-    link: ContentBoxComponentLink
+  """Quotes Slider"""
+  type QuotesSliderComponent implements ContentComponent {
+    slides: [QuoteComponent!]
   
     """Internal type: Internal type for interface resolution"""
     type: String
   }
   
   """
-  Image ratio: Choose one of the set ratios, all ratios except 'none' stretch the image to 100% width
+  Storytelling: Component to present rich combinations of text and media, best used sequentially
   """
-  enum ContentBoxComponentRatio {
-    none
+  type StorytellingComponent implements ContentComponent {
+    """Background image: Background image for the whole element"""
+    backgroundImage: String
+  
+    """Background color: Background color for the whole element"""
+    backgroundColor: String
+  
+    """Full size image: Display a full sized version of the image"""
+    full: Boolean
+  
+    """Image: Image displayed alongside the text content"""
+    image__195f: StorytellingComponentImage
+  
+    """Text box: Text content to display"""
+    box: StorytellingComponentBox!
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
+  
+  """Image: Image displayed alongside the text content"""
+  type StorytellingComponentImage {
+    """Image source: Image source to use"""
+    source: String
+  
+    """
+    Image aspect ratio: Select an aspect ratio to use for cropping and displaying the image
+    """
+    ratio: StorytellingComponentImageRatio
+  
+    """Image vertical alignment: Select a vertical alignment for the image"""
+    vAlign: StorytellingComponentImageVAlign
+  
+    """
+    Image horizontal alignment: Select a horizontal alignment for the image
+    """
+    hAlign: StorytellingComponentImageHAlign
+  
+    """Order: Choose what comes first on mobile and desktop: image or text"""
+    order: StorytellingComponentImageOrder
+  }
+  
+  """
+  Image aspect ratio: Select an aspect ratio to use for cropping and displaying the image
+  """
+  enum StorytellingComponentImageRatio {
     VALUE_4_3
+    VALUE_3_2
     VALUE_16_9
     VALUE_1_1
+    none
   }
   
-  """
-  Alignment: Choose an alignment for the box. For the image it only applies for a 'ratio' value of 'none'
-  """
-  enum ContentBoxComponentAlignement {
-    left
+  """Image vertical alignment: Select a vertical alignment for the image"""
+  enum StorytellingComponentImageVAlign {
     center
+    top
+    top_edge
+    bottom
+    bottom_edge
+  }
+  
+  """
+  Image horizontal alignment: Select a horizontal alignment for the image
+  """
+  enum StorytellingComponentImageHAlign {
+    center
+    left
+    left_edge
     right
+    right_edge
   }
   
-  """Link: Content box link configuration"""
-  type ContentBoxComponentLink {
-    """Display link: Toggles visibility of the link"""
-    enabled: Boolean
+  """Order: Choose what comes first on mobile and desktop: image or text"""
+  type StorytellingComponentImageOrder {
+    """
+    Mobile image after text: Switch to displaying the image after the text on mobile
+    """
+    mobileImageLast: Boolean
+  
+    """
+    Desktop image after text: Switch to displaying the image after the text on desktop
+    """
+    desktopImageLast: Boolean
   }
   
-  """
-  Divider: Dividers bring clarity to a layout by grouping and dividing content in close proximity.
-  """
-  type DividerComponent implements ContentComponent {
-    """Style of the divider: Choose a variant for the divider"""
-    variant: DividerComponentVariant
+  """Text box: Text content to display"""
+  type StorytellingComponentBox {
+    headline: HeadlineComponent
   
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
+    """Text: Text content to display inside the element"""
+    text: String
   
-  """Style of the divider: Choose a variant for the divider"""
-  enum DividerComponentVariant {
-    default
-    accent
-    dark
+    """Text alignment: Switch text alignment between left and center"""
+    textAlign: StorytellingComponentBoxTextAlign
+  
+    """Text color: Overwrite the color to use for the text content"""
+    textColor: String
+  
+    """Box vertical alignment: Select a vertical alignment for the box"""
+    vAlign: StorytellingComponentBoxVAlign
+  
+    """Box horizontal alignment: Select a horizontal alignment for the box"""
+    hAlign: StorytellingComponentBoxHAlign
+    link: LinkButtonComponent
   }
   
   """Headline: Headline"""
@@ -258,270 +453,33 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     large
   }
   
-  """Lazy Lightbox Image: Lazy Lightbox Image"""
-  type LightboxLazyImageComponent implements ContentComponent {
-    """Thumbnail Source: Thumbnail Source"""
-    thumb: String
+  """Text alignment: Switch text alignment between left and center"""
+  enum StorytellingComponentBoxTextAlign {
+    left
+    center
+  }
   
-    """Lightbox Image Source: Lightbox Image Source"""
-    image: String
+  """Box vertical alignment: Select a vertical alignment for the box"""
+  enum StorytellingComponentBoxVAlign {
+    center
+    top
+    bottom
+  }
   
-    """Width: Width"""
-    width: Int
+  """Box horizontal alignment: Select a horizontal alignment for the box"""
+  enum StorytellingComponentBoxHAlign {
+    center
+    left
+    right
+  }
   
-    """Height: height"""
-    height: Int
-  
-    """Hover Zoom Icon: Hover Zoom Icon"""
-    zoomIcon: Boolean
-  
-    """Caption: Caption"""
-    caption: String
-  
-    """Hide caption visually: Hide caption visually"""
-    hideCaption: Boolean
-  
-    """Gallery identifier: Gallery identifier"""
-    gallery: String
-  
-    """ID: ID"""
-    id: String
-  
-    """Additional Image Class: Additional Image Class"""
-    class: String
+  """Visual Slide Preview: Visual slide preview"""
+  type VisualSlidePreviewComponent implements ContentComponent {
+    """Preview label: Preview label for slide in slider"""
+    previewLabel: String
   
     """Internal type: Internal type for interface resolution"""
     type: String
-  }
-  
-  """Link Button: link-button"""
-  type LinkButtonComponent implements ContentComponent {
-    """Label: Text used on button"""
-    label: String
-  
-    """Button Style: Choose one of the styles from the list"""
-    variant: LinkButtonComponentVariant!
-  
-    """Button Size: Choose a size between small, medium and large"""
-    size: LinkButtonComponentSize!
-  
-    """
-    Additional Classes: Add additional css classes that should be applied to the button
-    """
-    className: String
-    icon: IconComponent
-  
-    """Icon before button: Display icon before the button text"""
-    iconBefore: Boolean
-  
-    """Icon after button: Display icon after the button text"""
-    iconAfter: Boolean
-  
-    """
-    'data-component' attribute: Overwrite the data-component to use for rendering
-    """
-    dataComponent: String
-  
-    """Fill Animation: Add fill animation on hover"""
-    fillAnimation: Boolean
-  
-    """Icon Animation: Add icon animation on hover"""
-    iconAnimation: Boolean
-  
-    """Button href?: Link used for button"""
-    href: String!
-  
-    """Open link in new Tab: Open link in new Tab"""
-    newTab: Boolean
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
-  
-  """Button Style: Choose one of the styles from the list"""
-  enum LinkButtonComponentVariant {
-    solid
-    solid_inverted
-    clear
-    clear_inverted
-    outline
-    outline_inverted
-  }
-  
-  """Button Size: Choose a size between small, medium and large"""
-  enum LinkButtonComponentSize {
-    small
-    medium
-    large
-  }
-  
-  """Picture: Base component to display a picture"""
-  type PictureComponent implements ContentComponent {
-    """Source: Picture source"""
-    src: String
-  
-    """Picture sourceset: Use a srcSet to display picture"""
-    srcSet: String
-  
-    """Alt text: Alt text to display for picture"""
-    alt: String
-  
-    """Width: Width of the picture"""
-    width: Int
-  
-    """Height: Height of the picture"""
-    height: Int
-  
-    """
-    Additional Classes: Add additional css classes that should be applied to the button
-    """
-    className: String
-  
-    """Id: Add id attribute to the image"""
-    id: String
-  
-    """'itemprop' attribute: Define an itemprop attribute for the picture"""
-    itemProp: String
-  
-    """'style' attribute: Define a style attribute for the picture"""
-    style: String
-  
-    """Object fit: Select a value for the picture object fit"""
-    objectFit: PictureComponentObjectFit
-  
-    """Noscript: Render noscript fallback"""
-    noscript: Boolean
-  
-    """Lazy: Load the picture lazily"""
-    lazy: Boolean
-  
-    """Sources: Additional sources. This will result in a 'picture'-Element"""
-    sources: [PictureComponentSources!]
-  
-    """'class' attribute: Set additional class(es) to the picture"""
-    pictureClassName: String
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
-  
-  """Object fit: Select a value for the picture object fit"""
-  enum PictureComponentObjectFit {
-    contain
-    cover
-    fill
-    none
-    scale_down
-  }
-  
-  type PictureComponentSources {
-    """Picture sourceset: Use a srcSet to display picture"""
-    srcSet: String
-  
-    """TODO MEDIA TITLE: TODO MEDIA DESCRIPTION"""
-    media: String
-  
-    """TODO TYPE TITLE: TODO TYPE DESCRIPTION"""
-    type: String
-  }
-  
-  type Container {
-    width: ContainerWidth
-    gutter: ContainerGutter
-    mode: ContainerMode
-    content: [ContainerContent!]
-  }
-  
-  enum ContainerWidth {
-    full
-    max
-    wide
-    default
-    narrow
-  }
-  
-  enum ContainerGutter {
-    large
-    default
-    small
-    none
-  }
-  
-  enum ContainerMode {
-    default
-    tile
-    list
-  }
-  
-  union ContainerContent = QuotesSliderComponent | LinkButtonComponent | ToggleComponent | ButtonComponent | TagLabelComponent | VisualComponent | QuoteComponent | VisualSliderComponent | ContactComponent | StorytellingComponent | CollapsibleBoxComponent | CountUpComponent | ContentBoxComponent | HeadlineComponent | TextMediaComponent | TeaserBoxComponent | LogoTilesComponent | TeaserRowComponent
-  
-  """Quotes Slider"""
-  type QuotesSliderComponent implements ContentComponent {
-    slides: [QuoteComponent!]
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
-  
-  """Quote: Component to display a rich quote"""
-  type QuoteComponent implements ContentComponent {
-    """Image source: Select an image to display inside the quote, to the left"""
-    image: String
-  
-    """Text content: Copy text for the element"""
-    text: String!
-  
-    """Source: Optionally display the source for the quote"""
-    source: String
-  
-    """Date: Optionally display a date for the quote"""
-    date: String
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
-  
-  """Toggle Switch: Toggle Switch"""
-  type ToggleComponent implements ContentComponent {
-    """ID: Input id"""
-    id: String!
-  
-    """Name: Name"""
-    name: String!
-  
-    """Checked: Toggle is checked"""
-    checked: Boolean!
-  
-    """Disabled: Toggle is disabled"""
-    disabled: Boolean!
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
-  
-  """Tag Label: Component to render a pill / tag / label"""
-  type TagLabelComponent implements ContentComponent {
-    """Label: Text to display inside tag label"""
-    label: String!
-  
-    """Size: Choose a size to scale the tag label up or down"""
-    size: TagLabelComponentSize!
-  
-    """Link Target: Set optional href to link the tag"""
-    link: String
-  
-    """Removable: Choose whether the element is removable or not"""
-    removable: Boolean
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
-  
-  """Size: Choose a size to scale the tag label up or down"""
-  enum TagLabelComponentSize {
-    s
-    m
-    l
   }
   
   """Visual: visual"""
@@ -536,10 +494,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     overlay: Boolean
   
     """Text box: Content and style configuration for the text box"""
-    box: VisualComponentBox
+    box__4bb5: VisualComponentBox
   
     """Custom background color: Custom css background color"""
-    backgroundColor: String
+    backgroundColor__7e4c: String
   
     """Inbox: The text box is in front of the image on small screens"""
     inbox: Boolean
@@ -691,7 +649,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   """Visual Slider: Visual Slider"""
   type VisualSliderComponent implements ContentComponent {
     autoplay: Boolean
-    slides: [VisualSliderComponentSlides!]!
+    slides__8de2: [VisualSliderComponentSlides!]
   
     """Internal type: Internal type for interface resolution"""
     type: String
@@ -708,10 +666,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     overlay: Boolean
   
     """Text box: Content and style configuration for the text box"""
-    box: VisualSliderComponentSlidesBox
+    box__4bb5: VisualSliderComponentSlidesBox
   
     """Custom background color: Custom css background color"""
-    backgroundColor: String
+    backgroundColor__7e4c: String
   
     """Inbox: The text box is in front of the image on small screens"""
     inbox: Boolean
@@ -863,202 +821,262 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     transparent
   }
   
-  """Contact: Component to show contact information"""
-  type ContactComponent implements ContentComponent {
-    image: PictureComponent
+  """Button: Component to display links and call-to-actions"""
+  type ButtonComponent implements ContentComponent {
+    """Label: Text used on button"""
+    label: String
   
-    """Title: Name, company name, etc."""
-    title: String
+    """Button Style: Choose one of the styles from the list"""
+    variant: ButtonComponentVariant!
   
-    """Subtitle: Position, profession, department, location, etc."""
-    subtitle: String
+    """Button Size: Choose a size between small, medium and large"""
+    size: ButtonComponentSize!
   
-    """Phone number"""
-    phone: String
+    """
+    Additional Classes: Add additional css classes that should be applied to the button
+    """
+    className__6ef8: String
+    icon__2933: IconComponent
   
-    """Email address"""
-    email: String
+    """Icon before button: Display icon before the button text"""
+    iconBefore: Boolean
   
-    """Copy text"""
-    copy: String
+    """Icon after button: Display icon after the button text"""
+    iconAfter: Boolean
+  
+    """
+    'data-component' attribute: Overwrite the data-component to use for rendering
+    """
+    dataComponent: String
+  
+    """Fill Animation: Add fill animation on hover"""
+    fillAnimation: Boolean
+  
+    """Icon Animation: Add icon animation on hover"""
+    iconAnimation: Boolean
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String!
+  
+    """'value' attribute: Define a value attribute for the button"""
+    value: String
+  
+    """'name' attribute: Define a name attribute for the button"""
+    name: String
+  
+    """'disabled' attribute: Set the disabled attribute for the button"""
+    disabled: Boolean
+  }
+  
+  """Button Style: Choose one of the styles from the list"""
+  enum ButtonComponentVariant {
+    solid
+    solid_inverted
+    clear
+    clear_inverted
+    outline
+    outline_inverted
+  }
+  
+  """Button Size: Choose a size between small, medium and large"""
+  enum ButtonComponentSize {
+    small
+    medium
+    large
+  }
+  
+  """Content Box: Component to display content in a condensed, boxed form"""
+  type ContentBoxComponent implements ContentComponent {
+    """
+    Image ratio: Choose one of the set ratios, all ratios except 'none' stretch the image to 100% width
+    """
+    ratio: ContentBoxComponentRatio!
+  
+    """
+    Alignment: Choose an alignment for the box. For the image it only applies for a 'ratio' value of 'none'
+    """
+    alignement: ContentBoxComponentAlignement!
+  
+    """
+    Image source: Select an image to display inside the content box, at the top
+    """
+    image__dc48: String
+  
+    """Topic: Topic for the content box. Displayed before the text, in bold"""
+    topic__7881: String
+  
+    """Text content: Text for the content box"""
+    text__082a: String
+  
+    """Link: Content box link configuration"""
+    link__360a: ContentBoxComponentLink
   
     """Internal type: Internal type for interface resolution"""
     type: String
   }
   
   """
-  Storytelling: Component to present rich combinations of text and media, best used sequentially
+  Image ratio: Choose one of the set ratios, all ratios except 'none' stretch the image to 100% width
   """
-  type StorytellingComponent implements ContentComponent {
-    """Background image: Background image for the whole element"""
-    backgroundImage: String
-  
-    """Background color: Background color for the whole element"""
-    backgroundColor: String
-  
-    """Full size image: Display a full sized version of the image"""
-    full: Boolean
-  
-    """Image: Image displayed alongside the text content"""
-    image: StorytellingComponentImage!
-  
-    """Text box: Text content to display"""
-    box: StorytellingComponentBox!
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
-  
-  """Image: Image displayed alongside the text content"""
-  type StorytellingComponentImage {
-    """Image source: Image source to use"""
-    source: String
-  
-    """
-    Image aspect ratio: Select an aspect ratio to use for cropping and displaying the image
-    """
-    ratio: StorytellingComponentImageRatio
-  
-    """Image vertical alignment: Select a vertical alignment for the image"""
-    vAlign: StorytellingComponentImageVAlign
-  
-    """
-    Image horizontal alignment: Select a horizontal alignment for the image
-    """
-    hAlign: StorytellingComponentImageHAlign
-  
-    """Order: Choose what comes first on mobile and desktop: image or text"""
-    order: StorytellingComponentImageOrder
-  }
-  
-  """
-  Image aspect ratio: Select an aspect ratio to use for cropping and displaying the image
-  """
-  enum StorytellingComponentImageRatio {
+  enum ContentBoxComponentRatio {
+    none
     VALUE_4_3
-    VALUE_3_2
     VALUE_16_9
     VALUE_1_1
+  }
+  
+  """
+  Alignment: Choose an alignment for the box. For the image it only applies for a 'ratio' value of 'none'
+  """
+  enum ContentBoxComponentAlignement {
+    left
+    center
+    right
+  }
+  
+  """Link: Content box link configuration"""
+  type ContentBoxComponentLink {
+    """Display link: Toggles visibility of the link"""
+    enabled: Boolean
+  }
+  
+  """
+  Divider: Dividers bring clarity to a layout by grouping and dividing content in close proximity.
+  """
+  type DividerComponent implements ContentComponent {
+    """Style of the divider: Choose a variant for the divider"""
+    variant__023f: DividerComponentVariant
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
+  
+  """Style of the divider: Choose a variant for the divider"""
+  enum DividerComponentVariant {
+    default
+    accent
+    dark
+  }
+  
+  """Lazy Lightbox Image: Lazy Lightbox Image"""
+  type LightboxLazyImageComponent implements ContentComponent {
+    """Thumbnail Source: Thumbnail Source"""
+    thumb: String
+  
+    """Lightbox Image Source: Lightbox Image Source"""
+    image__a266: String
+  
+    """Width: Width"""
+    width: Int
+  
+    """Height: height"""
+    height__8840: Int
+  
+    """Hover Zoom Icon: Hover Zoom Icon"""
+    zoomIcon: Boolean
+  
+    """Caption: Caption"""
+    caption: String
+  
+    """Hide caption visually: Hide caption visually"""
+    hideCaption: Boolean
+  
+    """Gallery identifier: Gallery identifier"""
+    gallery: String
+  
+    """ID: ID"""
+    id: String
+  
+    """Additional Image Class: Additional Image Class"""
+    class: String
+  
+    """Internal type: Internal type for interface resolution"""
+    type: String
+  }
+  
+  type Container {
+    width__aa24: ContainerWidth
+    gutter: ContainerGutter
+    mode: ContainerMode
+    content__2b4b: [ContainerContent!]
+  }
+  
+  enum ContainerWidth {
+    full
+    max
+    wide
+    default
+    narrow
+  }
+  
+  enum ContainerGutter {
+    large
+    default
+    small
     none
   }
   
-  """Image vertical alignment: Select a vertical alignment for the image"""
-  enum StorytellingComponentImageVAlign {
-    center
-    top
-    top_edge
-    bottom
-    bottom_edge
+  enum ContainerMode {
+    default
+    tile
+    list
   }
   
-  """
-  Image horizontal alignment: Select a horizontal alignment for the image
-  """
-  enum StorytellingComponentImageHAlign {
-    center
-    left
-    left_edge
-    right
-    right_edge
-  }
+  union ContainerContent = QuotesSliderComponent | LinkButtonComponent | ToggleComponent | ButtonComponent | TagLabelComponent | VisualComponent | QuoteComponent | VisualSliderComponent | ContactComponent | StorytellingComponent | CollapsibleBoxComponent | CountUpComponent | ContentBoxComponent | HeadlineComponent | TextMediaComponent | TeaserBoxComponent | LogoTilesComponent | TeaserRowComponent
   
-  """Order: Choose what comes first on mobile and desktop: image or text"""
-  type StorytellingComponentImageOrder {
-    """
-    Mobile image after text: Switch to displaying the image after the text on mobile
-    """
-    mobileImageLast: Boolean
+  """Toggle Switch: Toggle Switch"""
+  type ToggleComponent implements ContentComponent {
+    """ID: Input id"""
+    id__72fa: String
   
-    """
-    Desktop image after text: Switch to displaying the image after the text on desktop
-    """
-    desktopImageLast: Boolean
-  }
+    """Name: Name"""
+    name: String!
   
-  """Text box: Text content to display"""
-  type StorytellingComponentBox {
-    headline: HeadlineComponent
+    """Checked: Toggle is checked"""
+    checked: Boolean!
   
-    """Text: Text content to display inside the element"""
-    text: String
-  
-    """Text alignment: Switch text alignment between left and center"""
-    textAlign: StorytellingComponentBoxTextAlign
-  
-    """Text color: Overwrite the color to use for the text content"""
-    textColor: String
-  
-    """Box vertical alignment: Select a vertical alignment for the box"""
-    vAlign: StorytellingComponentBoxVAlign
-  
-    """Box horizontal alignment: Select a horizontal alignment for the box"""
-    hAlign: StorytellingComponentBoxHAlign
-    link: LinkButtonComponent
-  }
-  
-  """Text alignment: Switch text alignment between left and center"""
-  enum StorytellingComponentBoxTextAlign {
-    left
-    center
-  }
-  
-  """Box vertical alignment: Select a vertical alignment for the box"""
-  enum StorytellingComponentBoxVAlign {
-    center
-    top
-    bottom
-  }
-  
-  """Box horizontal alignment: Select a horizontal alignment for the box"""
-  enum StorytellingComponentBoxHAlign {
-    center
-    left
-    right
-  }
-  
-  """Collapsible Box: Component to conditionally show additional info"""
-  type CollapsibleBoxComponent implements ContentComponent {
-    """
-    Summary text for the collapsible: Include the text for the collapsible that should be visible before opening
-    """
-    summary: String!
-  
-    """
-    Content of the collapsible: Include the text for the collapsible that should be visible after opening
-    """
-    text: String!
+    """Disabled: Toggle is disabled"""
+    disabled: Boolean!
   
     """Internal type: Internal type for interface resolution"""
     type: String
   }
   
-  """Count Up: Component to to increase a number up to a final value"""
-  type CountUpComponent implements ContentComponent {
-    """Number: Final number to count to"""
-    to: Int!
-    icon: IconComponent
+  """Tag Label: Component to render a pill / tag / label"""
+  type TagLabelComponent implements ContentComponent {
+    """Label: Text to display inside tag label"""
+    label__8347: String
   
-    """Topic: Topic for the count-up box. Displayed before the text, in bold"""
-    topic: String
+    """Size: Choose a size to scale the tag label up or down"""
+    size__0e1b: TagLabelComponentSize
   
-    """Text content: Copy text for the element"""
-    text: String
-    link: LinkButtonComponent
+    """Link Target: Set optional href to link the tag"""
+    link__88be: String
+  
+    """Removable: Choose whether the element is removable or not"""
+    removable: Boolean
   
     """Internal type: Internal type for interface resolution"""
     type: String
+  }
+  
+  """Size: Choose a size to scale the tag label up or down"""
+  enum TagLabelComponentSize {
+    s
+    m
+    l
   }
   
   """Text Media: Component to display copy text, including media"""
   type TextMediaComponent implements ContentComponent {
     """Text content: Copy text for the element"""
-    text: String!
+    text__b748: String
   
     """Media alignment: In relation to the text content"""
     mediaAlignment: TextMediaComponentMediaAlignment!
   
     """Media: Collection of media items to display"""
-    media: [TextMediaComponentMedia!]
+    media__4c5e: [TextMediaComponentMedia!]
   
     """Internal type: Internal type for interface resolution"""
     type: String
@@ -1117,14 +1135,14 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   """Teaser Box: Component to tease external content"""
   type TeaserBoxComponent implements ContentComponent {
     """Topic: Topic for the teaser box. Displayed before the text, in bold"""
-    topic: String
+    topic__d291: String
   
     """Text content: Text for the teaser box"""
-    text: String
+    text__bfb6: String
   
     """Dark variant: Optionally use this to apply a dark variant to the box"""
     darkStyle: Boolean
-    link: TeaserBoxComponentLink
+    link__397b: TeaserBoxComponentLink
   
     """
     Image source: Select an image to display inside the teaser box, at the top
@@ -1153,26 +1171,17 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     VALUE_1_1
   }
   
-  """Logo Tiles: Component to list logos or seals"""
-  type LogoTilesComponent implements ContentComponent {
-    """Logos"""
-    logos: [PictureComponent!]
-  
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
-  
   """Teaser Row: Component to tease external content"""
   type TeaserRowComponent implements ContentComponent {
     """Topic: Topic for the teaser box. Displayed before the text, in bold"""
-    topic: String
+    topic__d291: String
   
     """Text content: Text for the teaser box"""
-    text: String
+    text__bfb6: String
   
     """Dark variant: Optionally use this to apply a dark variant to the box"""
     darkStyle: Boolean
-    link: TeaserRowComponentLink
+    link__397b: TeaserRowComponentLink
   
     """Internal type: Internal type for interface resolution"""
     type: String
@@ -1185,10 +1194,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   
   """Section"""
   type SectionComponent {
-    width: SectionComponentWidth
+    width__aa24: SectionComponentWidth
     gutter: SectionComponentGutter
     mode: SectionComponentMode
-    content: [ContentComponent!]
+    content__2b4b: [ContentComponent!]
     background: SectionComponentBackground
     spaceBefore: SectionComponentSpaceBefore
     spaceAfter: SectionComponentSpaceAfter
@@ -1254,13 +1263,13 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     previewComponent: String!
   
     """preview label: preview label"""
-    previewLabel: String!
+    previewLabel__99dc: String
   }
   
   """Slider: Slider"""
   type SliderComponent implements ContentComponent {
-    autoplay: Boolean
-    className: String
+    autoplay__17e7: Boolean
+    className__a697: String
     component: String
     arrows: Arrows
   
@@ -1271,14 +1280,14 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   """Teaser: Component to tease external content"""
   type TeaserComponent implements ContentComponent {
     """Topic: Topic for the teaser box. Displayed before the text, in bold"""
-    topic: String
+    topic__d291: String
   
     """Text content: Text for the teaser box"""
-    text: String
+    text__bfb6: String
   
     """Dark variant: Optionally use this to apply a dark variant to the box"""
     darkStyle: Boolean
-    link: TeaserComponentLink
+    link__397b: TeaserComponentLink
   
     """Internal type: Internal type for interface resolution"""
     type: String
@@ -1289,14 +1298,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     hidden: Boolean
   }
   
-  """Visual Slide Preview: Visual slide preview"""
-  type VisualSlidePreviewComponent implements ContentComponent {
-    """Preview label: Preview label for slide in slider"""
-    previewLabel: String
   
-    """Internal type: Internal type for interface resolution"""
-    type: String
-  }
   
   
 
