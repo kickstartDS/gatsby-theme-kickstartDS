@@ -18,9 +18,9 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   const contentInterface = schema.buildInterfaceType({
     name: `ContentComponent`,
     fields: {
-      type: 'String',
+      internalType: 'String',
     },
-    resolveType: value => `${pascalCase(value.type)}Component`,
+    resolveType: value => `${pascalCase(value.internalType)}Component`,
   })
 
   createTypes([

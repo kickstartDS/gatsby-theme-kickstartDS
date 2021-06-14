@@ -1,3 +1,6 @@
+const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
+const typeResolutionField = 'internalType';
+
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
@@ -20,6 +23,19 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.Id) {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
     const parent = getNode(node.parent);
+
+    node.frontmatter.content.map((section) => {
+      section.content.forEach((contentComponent, index) => {
+        const hashedContentComponent = {};
+        Object.keys(contentComponent).forEach((fieldName) => {
+          if (fieldName !== typeResolutionField)
+            hashedContentComponent[hashFieldName(fieldName, contentComponent[typeResolutionField])] = contentComponent[fieldName];
+        });
+        section.content[index] = hashedContentComponent;
+      });
+
+      return section;
+    });
 
     const page = {
       id: kickstartDSPageId,
