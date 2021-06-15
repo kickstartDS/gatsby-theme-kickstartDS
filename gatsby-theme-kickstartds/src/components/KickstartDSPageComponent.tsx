@@ -15,29 +15,62 @@ const libs = { ...baseLib, ...blogLib, ...contentLib };
 const components = {};
 const componentCounter = [];
 
+const typeResolutionField = 'internalType';
+
 Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
     components[key] = libs[value[0]];
   }
 });
 
+const cleanFieldName = (fieldName) => fieldName.replace(/__.*/i, '');
+
+const cleanObjectKeys = (obj) => {
+  const cleanedObject = {};
+
+  Object.keys(obj).forEach((property) => {
+    if (property === typeResolutionField) {
+      cleanedObject[typeResolutionField] = obj[typeResolutionField];
+    } else {
+      if (Array.isArray(obj[property])) {
+        cleanedObject[cleanFieldName(property)] = obj[property].map((item) => {
+          return cleanObjectKeys(item);
+        });
+      } else if (typeof obj[property] === 'object') {
+        cleanedObject[cleanFieldName(property)] = 
+          obj[property] === null
+            ? null
+            : cleanObjectKeys(obj[property]);
+      } else {
+        cleanedObject[cleanFieldName(property)] = obj[property] || null;
+      }
+    }
+  });
+
+  return cleanedObject;
+};
+
 const getComponent = (element) => {
-  componentCounter[element.type] = componentCounter[element.type]+1 || 1;
-  const key = element.type+'-'+componentCounter[element.type];
+  const cleanedElement = cleanObjectKeys(element);
 
-  const Component = React.memo(components[element.type]);
-
-  if (element.type === 'section') {
-    const content = element.content;
-    delete element.content;
-
-    return (
-      <Component key={key} { ...element }>
-        {getContent(content)}
-      </Component>
-    )
-  } else {
-    return <Component key={key} { ...element } />
+  if (cleanedElement['internalType']) {
+    componentCounter[cleanedElement['internalType']] = componentCounter[cleanedElement['internalType']]+1 || 1;
+    const key = cleanedElement['internalType']+'-'+componentCounter[cleanedElement['internalType']];
+  
+    const Component = React.memo(components[cleanedElement['internalType']]);
+  
+    if (cleanedElement['type'] === 'section') {
+      const content = cleanedElement['content'];
+      delete cleanedElement['content'];
+  
+      return (
+        <Component key={key} { ...cleanedElement }>
+          {getContent(content)}
+        </Component>
+      )
+    } else {
+      return <Component key={key} { ...cleanedElement } />
+    }  
   }
 };
 

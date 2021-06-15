@@ -17,6 +17,28 @@ exports.createSchemaCustomization = ({ actions }) => {
   `);
 };
 
+const hashObjectKeys = (obj) => {
+  const hashedObj = {};
+
+  Object.keys(obj).forEach((property) => {
+    if (property === typeResolutionField) {
+      hashedObj[typeResolutionField] = obj[typeResolutionField];
+    } else {
+      if (Array.isArray(obj[property])) {
+        hashedObj[hashFieldName(property, obj[typeResolutionField])] = obj[property].map((item) => {
+          return hashObjectKeys(item);
+        });
+      } else if (typeof obj[property] === 'object') {
+        hashedObj[hashFieldName(property, obj[typeResolutionField])] = hashObjectKeys(obj[property])
+      } else {
+        hashedObj[hashFieldName(property, obj[typeResolutionField])] = obj[property];
+      }
+    }
+  });
+
+  return hashedObj;
+};
+
 exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
@@ -24,23 +46,12 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
     const parent = getNode(node.parent);
 
-    node.frontmatter.content.map((section) => {
-      section.content.forEach((contentComponent, index) => {
-        const hashedContentComponent = {};
-        Object.keys(contentComponent).forEach((fieldName) => {
-          if (fieldName !== typeResolutionField)
-            hashedContentComponent[hashFieldName(fieldName, contentComponent[typeResolutionField])] = contentComponent[fieldName];
-        });
-        section.content[index] = hashedContentComponent;
-      });
-
-      return section;
-    });
+    node.frontmatter.content = node.frontmatter.content.map((section) => hashObjectKeys(section));
 
     const page = {
       id: kickstartDSPageId,
       title: node.frontmatter.heading,
-      description: node.frontmatter.content[0].text,
+      description: `${node.frontmatter.heading} page`,
       date: new Date(parent.ctimeMs).toISOString(),
       ...node.frontmatter
     };

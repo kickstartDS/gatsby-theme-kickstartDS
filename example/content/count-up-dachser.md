@@ -6,7 +6,7 @@ title: Count Up Dachser
 content:
   - mode: default
     width: default
-    space-before: default
+    spaceBefore: default
     background: default
     headline:
       level: h2
@@ -15,9 +15,9 @@ content:
       spaceAfter: none
       pageHeader: false
       subheadline: Your partner in logistics
-    space-after: none
+    spaceAfter: none
     content:
-      - type: count-up
+      - internalType: count-up
         to: "30782"
         topic: Employees
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -33,7 +33,7 @@ content:
           label: Career
           newTab: false
           iconBefore: false
-      - type: count-up
+      - internalType: count-up
         to: "387"
         topic: "Locations (worldwide) "
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -49,7 +49,7 @@ content:
           label: Global Search
           newTab: false
           iconBefore: false
-      - type: count-up
+      - internalType: count-up
         to: "42"
         topic: "Country orgs (worldwide) "
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -65,11 +65,11 @@ content:
           label: Local Search
           newTab: false
           iconBefore: false
-    type: section
+    internalType: section
     gutter: large
   - mode: default
     width: narrow
-    space-before: none
+    spaceBefore: none
     background: default
     headline:
       level: h2
@@ -77,9 +77,9 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
-    space-after: default
+    spaceAfter: default
     content:
-      - type: count-up
+      - internalType: count-up
         to: "78616400"
         topic: Shipments
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -95,7 +95,7 @@ content:
           label: Stats
           newTab: false
           iconBefore: false
-      - type: count-up
+      - internalType: count-up
         to: "39793200"
         topic: Tonnage
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -111,6 +111,6 @@ content:
           label: Pledge
           newTab: false
           iconBefore: false
-    type: section
+    internalType: section
     gutter: large
 ---

@@ -1,25 +1,18 @@
 type Query {
-  buttonComponents: [ButtonComponent]
   contentBoxComponents: [ContentBoxComponent]
+  buttonComponents: [ButtonComponent]
   dividerComponents: [DividerComponent]
   headlineComponents: [HeadlineComponent]
   iconComponents: [IconComponent]
   lightboxLazyImageComponents: [LightboxLazyImageComponent]
   linkButtonComponents: [LinkButtonComponent]
   pictureComponents: [PictureComponent]
-  containerComponents: [Container]
   sectionComponents: [SectionComponent]
-  autoplayComponents: [Boolean]
-  classNameComponents: [String]
-  componentComponents: [String]
-  arrowsComponents: [Arrows]
-  slideComponents: [Slide]
   sliderComponents: [SliderComponent]
   tagLabelComponents: [TagLabelComponent]
   teaserComponents: [TeaserComponent]
   teaserBoxComponents: [TeaserBoxComponent]
   teaserRowComponents: [TeaserRowComponent]
-  fullComponents: [Boolean]
   textMediaComponents: [TextMediaComponent]
   toggleComponents: [ToggleComponent]
   collapsibleBoxComponents: [CollapsibleBoxComponent]
@@ -34,7 +27,134 @@ type Query {
   visualSliderComponents: [VisualSliderComponent]
 }
 
-"""Button: Component to display links and call-to-actions"""
+"""Content Box: Component to display content in a condensed, boxed form"""
+type ContentBoxComponent implements ContentComponent {
+  """
+  Image ratio: Choose one of the set ratios, all ratios except 'none' stretch the image to 100% width
+  """
+  ratio__30c5: ContentBoxComponentRatio
+
+  """
+  Alignment: Choose an alignment for the box. For the image it only applies for a 'ratio' value of 'none'
+  """
+  alignement__7c67: ContentBoxComponentAlignement
+
+  """
+  Image source: Select an image to display inside the content box, at the top
+  """
+  image__b7d7: String
+
+  """Topic: Topic for the content box. Displayed before the text, in bold"""
+  topic__ed87: String
+
+  """Text content: Text for the content box"""
+  text__b5a1: String
+
+  """Link: Content box link configuration"""
+  link__4433: ContentBoxComponentLink
+
+  """Internal type: Internal type for interface resolution"""
+  internalType: String
+}
+
+interface ContentComponent {
+  internalType: String
+}
+
+"""
+Image ratio: Choose one of the set ratios, all ratios except 'none' stretch the image to 100% width
+"""
+enum ContentBoxComponentRatio {
+  none
+  VALUE_4_3
+  VALUE_16_9
+  VALUE_1_1
+}
+
+"""
+Alignment: Choose an alignment for the box. For the image it only applies for a 'ratio' value of 'none'
+"""
+enum ContentBoxComponentAlignement {
+  left
+  center
+  right
+}
+
+type ContentBoxComponentLink {
+  """Display link: Toggles visibility of the link"""
+  enabled__191b: Boolean
+
+  """Label: Text used on button"""
+  label__d5dc: String
+
+  """Button Style: Choose one of the styles from the list"""
+  variant__282a: ContentBoxComponentLinkVariant
+
+  """Button Size: Choose a size between small, medium and large"""
+  size__107e: ContentBoxComponentLinkSize
+
+  """
+  Additional Classes: Add additional css classes that should be applied to the button
+  """
+  className__7e61: String
+  icon__ba1c: IconComponent
+
+  """Icon before button: Display icon before the button text"""
+  iconBefore__51ac: Boolean
+
+  """Icon after button: Display icon after the button text"""
+  iconAfter__5469: Boolean
+
+  """
+  'data-component' attribute: Overwrite the data-component to use for rendering
+  """
+  dataComponent__4a1c: String
+
+  """Fill Animation: Add fill animation on hover"""
+  fillAnimation__6a72: Boolean
+
+  """Icon Animation: Add icon animation on hover"""
+  iconAnimation__92d3: Boolean
+
+  """Button href?: Link used for button"""
+  href__5fa6: String
+
+  """Open link in new Tab: Open link in new Tab"""
+  newTab__4d0d: Boolean
+}
+
+"""Button Style: Choose one of the styles from the list"""
+enum ContentBoxComponentLinkVariant {
+  solid
+  solid_inverted
+  clear
+  clear_inverted
+  outline
+  outline_inverted
+}
+
+"""Button Size: Choose a size between small, medium and large"""
+enum ContentBoxComponentLinkSize {
+  small
+  medium
+  large
+}
+
+"""Icon: Icon"""
+type IconComponent implements ContentComponent {
+  """Icon identifier"""
+  icon__dcfe: String
+
+  """Aria role"""
+  role__ea32: String
+
+  """additional class"""
+  className__251a: String
+
+  """Internal type: Internal type for interface resolution"""
+  internalType: String
+}
+
 type ButtonComponent implements ContentComponent {
   """Label: Text used on button"""
   label__634c: String
@@ -81,11 +201,7 @@ type ButtonComponent implements ContentComponent {
   disabled__f1d0: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  type: String
-}
-
-interface ContentComponent {
-  type: String
+  internalType: String
 }
 
 """Button Style: Choose one of the styles from the list"""
@@ -105,81 +221,11 @@ enum ButtonComponentSize {
   large
 }
 
-"""Icon: Icon"""
-type IconComponent implements ContentComponent {
-  """Icon identifier"""
-  icon__dcfe: String
-
-  """Aria role"""
-  role__ea32: String
-
-  """additional class"""
-  className__251a: String
-
-  """Internal type: Internal type for interface resolution"""
-  type: String
-}
-
 """'type' attribute: Select the type attribute for the button"""
 enum ButtonComponentTypeAttr {
   button
   submit
   reset
-}
-
-"""Content Box: Component to display content in a condensed, boxed form"""
-type ContentBoxComponent implements ContentComponent {
-  """
-  Image ratio: Choose one of the set ratios, all ratios except 'none' stretch the image to 100% width
-  """
-  ratio__30c5: ContentBoxComponentRatio
-
-  """
-  Alignment: Choose an alignment for the box. For the image it only applies for a 'ratio' value of 'none'
-  """
-  alignement__7c67: ContentBoxComponentAlignement
-
-  """
-  Image source: Select an image to display inside the content box, at the top
-  """
-  image__b7d7: String
-
-  """Topic: Topic for the content box. Displayed before the text, in bold"""
-  topic__ed87: String
-
-  """Text content: Text for the content box"""
-  text__b5a1: String
-
-  """Link: Content box link configuration"""
-  link__4433: ContentBoxComponentLink
-
-  """Internal type: Internal type for interface resolution"""
-  type: String
-}
-
-"""
-Image ratio: Choose one of the set ratios, all ratios except 'none' stretch the image to 100% width
-"""
-enum ContentBoxComponentRatio {
-  none
-  VALUE_4_3
-  VALUE_16_9
-  VALUE_1_1
-}
-
-"""
-Alignment: Choose an alignment for the box. For the image it only applies for a 'ratio' value of 'none'
-"""
-enum ContentBoxComponentAlignement {
-  left
-  center
-  right
-}
-
-"""Link: Content box link configuration"""
-type ContentBoxComponentLink {
-  """Display link: Toggles visibility of the link"""
-  enabled: Boolean
 }
 
 """
@@ -190,7 +236,7 @@ type DividerComponent implements ContentComponent {
   variant__fdb0: DividerComponentVariant
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Style of the divider: Choose a variant for the divider"""
@@ -223,7 +269,7 @@ type HeadlineComponent implements ContentComponent {
   pageHeader__5c3f: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Level: Select the headline level to use, or p alternatively"""
@@ -283,10 +329,9 @@ type LightboxLazyImageComponent implements ContentComponent {
   class__b1f4: String
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
-"""Link Button: link-button"""
 type LinkButtonComponent implements ContentComponent {
   """Label: Text used on button"""
   label__b988: String
@@ -327,7 +372,7 @@ type LinkButtonComponent implements ContentComponent {
   newTab__dc35: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Button Style: Choose one of the styles from the list"""
@@ -394,7 +439,7 @@ type PictureComponent implements ContentComponent {
   pictureClassName__9f3e: String
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Object fit: Select a value for the picture object fit"""
@@ -408,23 +453,30 @@ enum PictureComponentObjectFit {
 
 type PictureComponentSources {
   """Picture sourceset: Use a srcSet to display picture"""
-  srcSet: String
+  srcSet__866d: String
 
   """TODO MEDIA TITLE: TODO MEDIA DESCRIPTION"""
-  media: String
+  media__420c: String
 
   """TODO TYPE TITLE: TODO TYPE DESCRIPTION"""
-  type: String
+  type__5ef8: String
 }
 
-type Container {
-  width: ContainerWidth
-  gutter: ContainerGutter
-  mode: ContainerMode
-  content: [ContainerContent!]
+type SectionComponent implements ContentComponent {
+  width__c976: SectionComponentWidth
+  gutter__7060: SectionComponentGutter
+  mode__123d: SectionComponentMode
+  content__2cb4: [ContentComponent!]
+  background__44d0: SectionComponentBackground
+  spaceBefore__8a4a: SectionComponentSpaceBefore
+  spaceAfter__9774: SectionComponentSpaceAfter
+  headline__77a3: HeadlineComponent
+
+  """Internal type: Internal type for interface resolution"""
+  internalType: String
 }
 
-enum ContainerWidth {
+enum SectionComponentWidth {
   full
   max
   wide
@@ -432,27 +484,27 @@ enum ContainerWidth {
   narrow
 }
 
-enum ContainerGutter {
+enum SectionComponentGutter {
   large
   default
   small
   none
 }
 
-enum ContainerMode {
+enum SectionComponentMode {
   default
   tile
   list
 }
 
-union ContainerContent = QuotesSliderComponent | LinkButtonComponent | ToggleComponent | ButtonComponent | TagLabelComponent | VisualComponent | QuoteComponent | VisualSliderComponent | ContactComponent | StorytellingComponent | CollapsibleBoxComponent | CountUpComponent | ContentBoxComponent | HeadlineComponent | TextMediaComponent | TeaserBoxComponent | LogoTilesComponent | TeaserRowComponent
+union SectionComponentContent = QuotesSliderComponent | LinkButtonComponent | ToggleComponent | ButtonComponent | TagLabelComponent | VisualComponent | QuoteComponent | VisualSliderComponent | ContactComponent | StorytellingComponent | CollapsibleBoxComponent | CountUpComponent | ContentBoxComponent | HeadlineComponent | TextMediaComponent | TeaserBoxComponent | LogoTilesComponent | TeaserRowComponent
 
 """Quotes Slider"""
 type QuotesSliderComponent implements ContentComponent {
   slides__d47f: [QuoteComponent!]
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Quote: Component to display a rich quote"""
@@ -470,7 +522,7 @@ type QuoteComponent implements ContentComponent {
   date__3f4e: String
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Toggle Switch: Toggle Switch"""
@@ -488,7 +540,7 @@ type ToggleComponent implements ContentComponent {
   disabled__d11c: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Tag Label: Component to render a pill / tag / label"""
@@ -506,7 +558,7 @@ type TagLabelComponent implements ContentComponent {
   removable__7eaf: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Size: Choose a size to scale the tag label up or down"""
@@ -543,7 +595,7 @@ type VisualComponent implements ContentComponent {
   className__d3dc: String
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Height"""
@@ -557,17 +609,17 @@ enum VisualComponentHeight {
 """Media Wrapper: Wrapper for all media types"""
 type VisualComponentMedia {
   """Media Type: Choose a media type between image, video and none"""
-  mode: VisualComponentMediaMode
+  mode__0c0c: VisualComponentMediaMode
 
   """
   Background image: Sources of background images for different screen sizes
   """
-  image: VisualComponentMediaImage
+  image__e376: VisualComponentMediaImage
 
   """
   Background video: Sources of background videos for different screen sizes
   """
-  video: VisualComponentMediaVideo
+  video__a9a8: VisualComponentMediaVideo
 }
 
 """Media Type: Choose a media type between image, video and none"""
@@ -582,19 +634,19 @@ Background image: Sources of background images for different screen sizes
 """
 type VisualComponentMediaImage {
   """Mobile image source: Background image source for small screens"""
-  srcMobile: String!
+  srcMobile__d852: String
 
   """Tablet image source: Background image source for medium screens"""
-  srcTablet: String!
+  srcTablet__5f96: String
 
   """Desktop image source: Background image source for large screens"""
-  srcDesktop: String!
+  srcDesktop__6fc8: String
 
   """Image indent: Choose to indent the image horizontally on small screens"""
-  indent: VisualComponentMediaImageIndent
+  indent__a206: VisualComponentMediaImageIndent
 
   """Alt text: Alt text to display for picture"""
-  alt: String
+  alt__0d80: String
 }
 
 """Image indent: Choose to indent the image horizontally on small screens"""
@@ -609,50 +661,104 @@ Background video: Sources of background videos for different screen sizes
 """
 type VisualComponentMediaVideo {
   """Mobile video source: Background video source for small screens"""
-  srcMobile: String!
+  srcMobile__d852: String
 
   """Tablet video source: Background video source for medium screens"""
-  srcTablet: String!
+  srcTablet__5f96: String
 
   """Desktop video source: Background video source for large screens"""
-  srcDesktop: String!
+  srcDesktop__6fc8: String
 }
 
 """Text box: Content and style configuration for the text box"""
 type VisualComponentBox {
   """Display box: Toggles visibility of the box"""
-  enabled: Boolean
+  enabled__2a36: Boolean
 
   """Headline: Text box headline"""
-  headline: String
+  headline__6888: String
 
   """Text: Text box copy text"""
-  text: String
+  text__e470: String
 
   """Link: Text box link configuration"""
-  link: VisualComponentBoxLink
+  link__76eb: VisualComponentBoxLink
 
   """Indent: The text box is aligned inside the content grid"""
-  indent: Boolean
+  indent__a206: Boolean
 
   """
   Horizontal orientation: Horizontal orientation of the box inside the keyvisual
   """
-  horizontal: VisualComponentBoxHorizontal
+  horizontal__c3de: VisualComponentBoxHorizontal
 
   """
   Vertical orientation: Vertical orientation of the box inside the keyvisual
   """
-  vertical: VisualComponentBoxVertical
+  vertical__f41c: VisualComponentBoxVertical
 
   """Style of the box: Choose a style for the box"""
-  background: VisualComponentBoxBackground
+  background__c2d1: VisualComponentBoxBackground
 }
 
-"""Link: Text box link configuration"""
 type VisualComponentBoxLink {
   """Display Link: Toggles visibility of the link"""
-  enabled: Boolean
+  enabled__2a36: Boolean
+
+  """Label: Text used on button"""
+  label__3a22: String
+
+  """Button Style: Choose one of the styles from the list"""
+  variant__8ad7: VisualComponentBoxLinkVariant
+
+  """Button Size: Choose a size between small, medium and large"""
+  size__9939: VisualComponentBoxLinkSize
+
+  """
+  Additional Classes: Add additional css classes that should be applied to the button
+  """
+  className__d3dc: String
+  icon__8111: IconComponent
+
+  """Icon before button: Display icon before the button text"""
+  iconBefore__ed1a: Boolean
+
+  """Icon after button: Display icon after the button text"""
+  iconAfter__82f7: Boolean
+
+  """
+  'data-component' attribute: Overwrite the data-component to use for rendering
+  """
+  dataComponent__37f1: String
+
+  """Fill Animation: Add fill animation on hover"""
+  fillAnimation__e697: Boolean
+
+  """Icon Animation: Add icon animation on hover"""
+  iconAnimation__87e9: Boolean
+
+  """Button href?: Link used for button"""
+  href__8857: String
+
+  """Open link in new Tab: Open link in new Tab"""
+  newTab__449f: Boolean
+}
+
+"""Button Style: Choose one of the styles from the list"""
+enum VisualComponentBoxLinkVariant {
+  solid
+  solid_inverted
+  clear
+  clear_inverted
+  outline
+  outline_inverted
+}
+
+"""Button Size: Choose a size between small, medium and large"""
+enum VisualComponentBoxLinkSize {
+  small
+  medium
+  large
 }
 
 """
@@ -686,9 +792,10 @@ type VisualSliderComponent implements ContentComponent {
   slides__e195: [VisualSliderComponentSlides!]
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
+"""Visual: visual"""
 type VisualSliderComponentSlides {
   """Height"""
   height__f2ca: VisualSliderComponentSlidesHeight
@@ -715,10 +822,10 @@ type VisualSliderComponentSlides {
   className__d3dc: String
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType__aecc: String
 
   """Slide preview label: preview label"""
-  label: String
+  label__cd20: String
 }
 
 """Height"""
@@ -732,17 +839,17 @@ enum VisualSliderComponentSlidesHeight {
 """Media Wrapper: Wrapper for all media types"""
 type VisualSliderComponentSlidesMedia {
   """Media Type: Choose a media type between image, video and none"""
-  mode: VisualSliderComponentSlidesMediaMode
+  mode__c9af: VisualSliderComponentSlidesMediaMode
 
   """
   Background image: Sources of background images for different screen sizes
   """
-  image: VisualSliderComponentSlidesMediaImage
+  image__417b: VisualSliderComponentSlidesMediaImage
 
   """
   Background video: Sources of background videos for different screen sizes
   """
-  video: VisualSliderComponentSlidesMediaVideo
+  video__053f: VisualSliderComponentSlidesMediaVideo
 }
 
 """Media Type: Choose a media type between image, video and none"""
@@ -757,19 +864,19 @@ Background image: Sources of background images for different screen sizes
 """
 type VisualSliderComponentSlidesMediaImage {
   """Mobile image source: Background image source for small screens"""
-  srcMobile: String!
+  srcMobile__3296: String
 
   """Tablet image source: Background image source for medium screens"""
-  srcTablet: String!
+  srcTablet__ec7d: String
 
   """Desktop image source: Background image source for large screens"""
-  srcDesktop: String!
+  srcDesktop__7ece: String
 
   """Image indent: Choose to indent the image horizontally on small screens"""
-  indent: VisualSliderComponentSlidesMediaImageIndent
+  indent__73f9: VisualSliderComponentSlidesMediaImageIndent
 
   """Alt text: Alt text to display for picture"""
-  alt: String
+  alt__686c: String
 }
 
 """Image indent: Choose to indent the image horizontally on small screens"""
@@ -784,50 +891,104 @@ Background video: Sources of background videos for different screen sizes
 """
 type VisualSliderComponentSlidesMediaVideo {
   """Mobile video source: Background video source for small screens"""
-  srcMobile: String!
+  srcMobile__3296: String
 
   """Tablet video source: Background video source for medium screens"""
-  srcTablet: String!
+  srcTablet__ec7d: String
 
   """Desktop video source: Background video source for large screens"""
-  srcDesktop: String!
+  srcDesktop__7ece: String
 }
 
 """Text box: Content and style configuration for the text box"""
 type VisualSliderComponentSlidesBox {
   """Display box: Toggles visibility of the box"""
-  enabled: Boolean
+  enabled__bbdd: Boolean
 
   """Headline: Text box headline"""
-  headline: String
+  headline__841b: String
 
   """Text: Text box copy text"""
-  text: String
+  text__d008: String
 
   """Link: Text box link configuration"""
-  link: VisualSliderComponentSlidesBoxLink
+  link__95a0: VisualSliderComponentSlidesBoxLink
 
   """Indent: The text box is aligned inside the content grid"""
-  indent: Boolean
+  indent__73f9: Boolean
 
   """
   Horizontal orientation: Horizontal orientation of the box inside the keyvisual
   """
-  horizontal: VisualSliderComponentSlidesBoxHorizontal
+  horizontal__9f0a: VisualSliderComponentSlidesBoxHorizontal
 
   """
   Vertical orientation: Vertical orientation of the box inside the keyvisual
   """
-  vertical: VisualSliderComponentSlidesBoxVertical
+  vertical__fd20: VisualSliderComponentSlidesBoxVertical
 
   """Style of the box: Choose a style for the box"""
-  background: VisualSliderComponentSlidesBoxBackground
+  background__7293: VisualSliderComponentSlidesBoxBackground
 }
 
-"""Link: Text box link configuration"""
 type VisualSliderComponentSlidesBoxLink {
   """Display Link: Toggles visibility of the link"""
-  enabled: Boolean
+  enabled__bbdd: Boolean
+
+  """Label: Text used on button"""
+  label__cd20: String
+
+  """Button Style: Choose one of the styles from the list"""
+  variant__9cf5: VisualSliderComponentSlidesBoxLinkVariant
+
+  """Button Size: Choose a size between small, medium and large"""
+  size__0caa: VisualSliderComponentSlidesBoxLinkSize
+
+  """
+  Additional Classes: Add additional css classes that should be applied to the button
+  """
+  className__ce8d: String
+  icon__2395: IconComponent
+
+  """Icon before button: Display icon before the button text"""
+  iconBefore__f3d8: Boolean
+
+  """Icon after button: Display icon after the button text"""
+  iconAfter__5027: Boolean
+
+  """
+  'data-component' attribute: Overwrite the data-component to use for rendering
+  """
+  dataComponent__fb41: String
+
+  """Fill Animation: Add fill animation on hover"""
+  fillAnimation__a759: Boolean
+
+  """Icon Animation: Add icon animation on hover"""
+  iconAnimation__0e1c: Boolean
+
+  """Button href?: Link used for button"""
+  href__d3a7: String
+
+  """Open link in new Tab: Open link in new Tab"""
+  newTab__0a14: Boolean
+}
+
+"""Button Style: Choose one of the styles from the list"""
+enum VisualSliderComponentSlidesBoxLinkVariant {
+  solid
+  solid_inverted
+  clear
+  clear_inverted
+  outline
+  outline_inverted
+}
+
+"""Button Size: Choose a size between small, medium and large"""
+enum VisualSliderComponentSlidesBoxLinkSize {
+  small
+  medium
+  large
 }
 
 """
@@ -875,7 +1036,7 @@ type ContactComponent implements ContentComponent {
   copy__cda3: String
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """
@@ -898,29 +1059,29 @@ type StorytellingComponent implements ContentComponent {
   box__5f7a: StorytellingComponentBox
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Image: Image displayed alongside the text content"""
 type StorytellingComponentImage {
   """Image source: Image source to use"""
-  source: String
+  source__20fd: String
 
   """
   Image aspect ratio: Select an aspect ratio to use for cropping and displaying the image
   """
-  ratio: StorytellingComponentImageRatio
+  ratio__f5fa: StorytellingComponentImageRatio
 
   """Image vertical alignment: Select a vertical alignment for the image"""
-  vAlign: StorytellingComponentImageVAlign
+  vAlign__9bd7: StorytellingComponentImageVAlign
 
   """
   Image horizontal alignment: Select a horizontal alignment for the image
   """
-  hAlign: StorytellingComponentImageHAlign
+  hAlign__9705: StorytellingComponentImageHAlign
 
   """Order: Choose what comes first on mobile and desktop: image or text"""
-  order: StorytellingComponentImageOrder
+  order__eda1: StorytellingComponentImageOrder
 }
 
 """
@@ -959,33 +1120,33 @@ type StorytellingComponentImageOrder {
   """
   Mobile image after text: Switch to displaying the image after the text on mobile
   """
-  mobileImageLast: Boolean
+  mobileImageLast__f625: Boolean
 
   """
   Desktop image after text: Switch to displaying the image after the text on desktop
   """
-  desktopImageLast: Boolean
+  desktopImageLast__ed82: Boolean
 }
 
 """Text box: Text content to display"""
 type StorytellingComponentBox {
-  headline: HeadlineComponent
+  headline__7c3f: HeadlineComponent
 
   """Text: Text content to display inside the element"""
-  text: String
+  text__a401: String
 
   """Text alignment: Switch text alignment between left and center"""
-  textAlign: StorytellingComponentBoxTextAlign
+  textAlign__4df6: StorytellingComponentBoxTextAlign
 
   """Text color: Overwrite the color to use for the text content"""
-  textColor: String
+  textColor__ad35: String
 
   """Box vertical alignment: Select a vertical alignment for the box"""
-  vAlign: StorytellingComponentBoxVAlign
+  vAlign__9bd7: StorytellingComponentBoxVAlign
 
   """Box horizontal alignment: Select a horizontal alignment for the box"""
-  hAlign: StorytellingComponentBoxHAlign
-  link: LinkButtonComponent
+  hAlign__9705: StorytellingComponentBoxHAlign
+  link__5d0d: LinkButtonComponent
 }
 
 """Text alignment: Switch text alignment between left and center"""
@@ -1021,7 +1182,7 @@ type CollapsibleBoxComponent implements ContentComponent {
   text__9abc: String
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Count Up: Component to to increase a number up to a final value"""
@@ -1038,7 +1199,7 @@ type CountUpComponent implements ContentComponent {
   link__ac78: LinkButtonComponent
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Text Media: Component to display copy text, including media"""
@@ -1053,7 +1214,7 @@ type TextMediaComponent implements ContentComponent {
   media__d3b5: [TextMediaComponentMedia!]
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 """Media alignment: In relation to the text content"""
@@ -1070,43 +1231,42 @@ enum TextMediaComponentMediaAlignment {
   below_right
 }
 
-union TextMediaComponentMedia = TextMediaComponentMedia0 | TextMediaComponentMedia1 | TextMediaComponentMedia2
+union TextMediaComponentMedia = Video | Image | LightboxImage
 
-type TextMediaComponentMedia0 {
+type Video {
   """Video: Video item to display"""
-  video: TextMediaComponentMedia0Video
-  full: Boolean
+  video__e832: VideoVideo
+  full__b18e: Boolean
 }
 
 """Video: Video item to display"""
-type TextMediaComponentMedia0Video {
+type VideoVideo {
   """Source: Url (mp4) for the video to display"""
-  src: String!
+  src__25d9: String
 
   """Embedded (iframe): Use an iframe embed"""
-  iframe: Boolean
+  iframe__a598: Boolean
 
   """Video title: Title to use for the video"""
-  title: String
+  title__d5d3: String
 
   """Width: Width of the video"""
-  width: Int!
+  width__eaae: Int
 
   """Height: Height of the video"""
-  height: Int!
+  height__b435: Int
 }
 
-type TextMediaComponentMedia1 {
-  image: PictureComponent
-  full: Boolean
+type Image {
+  image__aea8: PictureComponent
+  full__b18e: Boolean
 }
 
-type TextMediaComponentMedia2 {
-  lightboxImage: LightboxLazyImageComponent
-  full: Boolean
+type LightboxImage {
+  lightboxImage__9a34: LightboxLazyImageComponent
+  full__b18e: Boolean
 }
 
-"""Teaser Box: Component to tease external content"""
 type TeaserBoxComponent implements ContentComponent {
   """Topic: Topic for the teaser box. Displayed before the text, in bold"""
   topic__8a0d: String
@@ -1130,12 +1290,67 @@ type TeaserBoxComponent implements ContentComponent {
   imageSpacing__2828: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 type TeaserBoxComponentLink {
+  """Label: Text used on button"""
+  label__2879: String
+
+  """Button Style: Choose one of the styles from the list"""
+  variant__aef7: TeaserBoxComponentLinkVariant
+
+  """Button Size: Choose a size between small, medium and large"""
+  size__f9e3: TeaserBoxComponentLinkSize
+
+  """
+  Additional Classes: Add additional css classes that should be applied to the button
+  """
+  className__e53a: String
+  icon__c8bc: IconComponent
+
+  """Icon before button: Display icon before the button text"""
+  iconBefore__e3e2: Boolean
+
+  """Icon after button: Display icon after the button text"""
+  iconAfter__0381: Boolean
+
+  """
+  'data-component' attribute: Overwrite the data-component to use for rendering
+  """
+  dataComponent__6581: String
+
+  """Fill Animation: Add fill animation on hover"""
+  fillAnimation__3883: Boolean
+
+  """Icon Animation: Add icon animation on hover"""
+  iconAnimation__de53: Boolean
+
+  """Button href?: Link used for button"""
+  href__81a9: String
+
+  """Open link in new Tab: Open link in new Tab"""
+  newTab__8646: Boolean
+
   """Hide link: Hides the link. The box as a whole keeps being clickable"""
-  hidden: Boolean
+  hidden__8022: Boolean
+}
+
+"""Button Style: Choose one of the styles from the list"""
+enum TeaserBoxComponentLinkVariant {
+  solid
+  solid_inverted
+  clear
+  clear_inverted
+  outline
+  outline_inverted
+}
+
+"""Button Size: Choose a size between small, medium and large"""
+enum TeaserBoxComponentLinkSize {
+  small
+  medium
+  large
 }
 
 """Image ratio: Choose the ratio used to crop and display the image"""
@@ -1151,10 +1366,9 @@ type LogoTilesComponent implements ContentComponent {
   logos__8ff6: [PictureComponent!]
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
-"""Teaser Row: Component to tease external content"""
 type TeaserRowComponent implements ContentComponent {
   """Topic: Topic for the teaser box. Displayed before the text, in bold"""
   topic__eb4b: String
@@ -1167,48 +1381,68 @@ type TeaserRowComponent implements ContentComponent {
   link__2757: TeaserRowComponentLink
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 type TeaserRowComponentLink {
+  """Label: Text used on button"""
+  label__a6f8: String
+
+  """Button Style: Choose one of the styles from the list"""
+  variant__86d9: TeaserRowComponentLinkVariant
+
+  """Button Size: Choose a size between small, medium and large"""
+  size__2530: TeaserRowComponentLinkSize
+
+  """
+  Additional Classes: Add additional css classes that should be applied to the button
+  """
+  className__ad8d: String
+  icon__b08c: IconComponent
+
+  """Icon before button: Display icon before the button text"""
+  iconBefore__984e: Boolean
+
+  """Icon after button: Display icon after the button text"""
+  iconAfter__7ed4: Boolean
+
+  """
+  'data-component' attribute: Overwrite the data-component to use for rendering
+  """
+  dataComponent__b7c0: String
+
+  """Fill Animation: Add fill animation on hover"""
+  fillAnimation__bc5a: Boolean
+
+  """Icon Animation: Add icon animation on hover"""
+  iconAnimation__ed85: Boolean
+
+  """Button href?: Link used for button"""
+  href__98a1: String
+
+  """Open link in new Tab: Open link in new Tab"""
+  newTab__69f7: Boolean
+
   """Hide link: Hides the link. The box as a whole keeps being clickable"""
-  hidden: Boolean
+  hidden__3cb3: Boolean
 }
 
-"""Section"""
-type SectionComponent {
-  width__c976: SectionComponentWidth
-  gutter__7060: SectionComponentGutter
-  mode__123d: SectionComponentMode
-  content__2cb4: [SectionComponentContent!]
-  background__44d0: SectionComponentBackground
-  spaceBefore__8a4a: SectionComponentSpaceBefore
-  spaceAfter__9774: SectionComponentSpaceAfter
-  headline__77a3: HeadlineComponent
+"""Button Style: Choose one of the styles from the list"""
+enum TeaserRowComponentLinkVariant {
+  solid
+  solid_inverted
+  clear
+  clear_inverted
+  outline
+  outline_inverted
 }
 
-enum SectionComponentWidth {
-  full
-  max
-  wide
-  default
-  narrow
-}
-
-enum SectionComponentGutter {
-  large
-  default
+"""Button Size: Choose a size between small, medium and large"""
+enum TeaserRowComponentLinkSize {
   small
-  none
+  medium
+  large
 }
-
-enum SectionComponentMode {
-  default
-  tile
-  list
-}
-
-union SectionComponentContent = QuotesSliderComponent | LinkButtonComponent | ToggleComponent | ButtonComponent | TagLabelComponent | VisualComponent | QuoteComponent | VisualSliderComponent | ContactComponent | StorytellingComponent | CollapsibleBoxComponent | CountUpComponent | ContentBoxComponent | HeadlineComponent | TextMediaComponent | TeaserBoxComponent | LogoTilesComponent | TeaserRowComponent
 
 enum SectionComponentBackground {
   default
@@ -1228,6 +1462,17 @@ enum SectionComponentSpaceAfter {
   none
 }
 
+"""Slider: Slider"""
+type SliderComponent implements ContentComponent {
+  autoplay__5854: Boolean
+  className__6e21: String
+  component__655b: String
+  arrows__f98f: Arrows
+
+  """Internal type: Internal type for interface resolution"""
+  internalType: String
+}
+
 """
 Arrows: Add arrows on the left and right to navigate to next or previous slide
 """
@@ -1237,30 +1482,6 @@ enum Arrows {
   inner
 }
 
-"""Slide: Slide"""
-type Slide {
-  """slide component: slide component"""
-  slideComponent: String!
-
-  """preview component: preview component"""
-  previewComponent: String!
-
-  """preview label: preview label"""
-  previewLabel: String!
-}
-
-"""Slider: Slider"""
-type SliderComponent implements ContentComponent {
-  autoplay__5854: Boolean
-  className__6e21: String
-  component__655b: String
-  arrows__f98f: Arrows
-
-  """Internal type: Internal type for interface resolution"""
-  type: String
-}
-
-"""Teaser: Component to tease external content"""
 type TeaserComponent implements ContentComponent {
   """Topic: Topic for the teaser box. Displayed before the text, in bold"""
   topic__d049: String
@@ -1273,12 +1494,67 @@ type TeaserComponent implements ContentComponent {
   link__a055: TeaserComponentLink
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }
 
 type TeaserComponentLink {
+  """Label: Text used on button"""
+  label__0cb2: String
+
+  """Button Style: Choose one of the styles from the list"""
+  variant__664a: TeaserComponentLinkVariant
+
+  """Button Size: Choose a size between small, medium and large"""
+  size__9ba0: TeaserComponentLinkSize
+
+  """
+  Additional Classes: Add additional css classes that should be applied to the button
+  """
+  className__70fc: String
+  icon__6211: IconComponent
+
+  """Icon before button: Display icon before the button text"""
+  iconBefore__bf0f: Boolean
+
+  """Icon after button: Display icon after the button text"""
+  iconAfter__7e6e: Boolean
+
+  """
+  'data-component' attribute: Overwrite the data-component to use for rendering
+  """
+  dataComponent__efae: String
+
+  """Fill Animation: Add fill animation on hover"""
+  fillAnimation__bd8e: Boolean
+
+  """Icon Animation: Add icon animation on hover"""
+  iconAnimation__e67d: Boolean
+
+  """Button href?: Link used for button"""
+  href__1f3e: String
+
+  """Open link in new Tab: Open link in new Tab"""
+  newTab__ba61: Boolean
+
   """Hide link: Hides the link. The box as a whole keeps being clickable"""
-  hidden: Boolean
+  hidden__d38f: Boolean
+}
+
+"""Button Style: Choose one of the styles from the list"""
+enum TeaserComponentLinkVariant {
+  solid
+  solid_inverted
+  clear
+  clear_inverted
+  outline
+  outline_inverted
+}
+
+"""Button Size: Choose a size between small, medium and large"""
+enum TeaserComponentLinkSize {
+  small
+  medium
+  large
 }
 
 """Visual Slide Preview: Visual slide preview"""
@@ -1287,5 +1563,5 @@ type VisualSlidePreviewComponent implements ContentComponent {
   previewLabel__516c: String
 
   """Internal type: Internal type for interface resolution"""
-  type: String
+  internalType: String
 }

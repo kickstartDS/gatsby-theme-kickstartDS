@@ -6,7 +6,7 @@ title: Content Box
 content:
   - mode: default
     width: default
-    space-before: default
+    spaceBefore: default
     background: default
     headline:
       level: h2
@@ -14,9 +14,9 @@ content:
       content: Headline
       spaceAfter: none
       pageHeader: false
-    space-after: default
+    spaceAfter: default
     content:
-      - type: content-box
+      - internalType: content-box
         ratio: none
         alignement: left
         image: https://picsum.photos/seed/kdscontentbox/500/300
@@ -35,7 +35,7 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-      - type: content-box
+      - internalType: content-box
         ratio: none
         alignement: left
         image: https://picsum.photos/seed/kdscontentbox/500/300
@@ -54,6 +54,6 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-    type: section
+    internalType: section
     gutter: default
 ---

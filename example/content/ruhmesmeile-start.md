@@ -6,7 +6,7 @@ title: ruhmesmeile Startpage
 content:
   - mode: list
     width: full
-    space-before: none
+    spaceBefore: none
     background: default
     headline:
       level: h2
@@ -14,9 +14,9 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
-    space-after: default
+    spaceAfter: default
     content:
-      - type: visual
+      - internalType: visual
         height: small
         media:
           mode: image
@@ -52,11 +52,11 @@ content:
         backgroundColor: "#ccc"
         inbox: false
         skipButton: false
-    type: section
+    internalType: section
     gutter: default
   - mode: list
     width: narrow
-    space-before: default
+    spaceBefore: default
     background: default
     headline:
       level: h1
@@ -65,43 +65,43 @@ content:
       spaceAfter: none
       pageHeader: false
       subheadline: Mit Pattern zum optimalen Ergebnis
-    space-after: default
+    spaceAfter: default
     content:
-      - type: headline
+      - internalType: headline
         level: h2
         align: left
         content: Wir entwickeln Websites.
         spaceAfter: none
         pageHeader: true
-      - type: text-media
+      - internalType: text-media
         text: >-
           Dies tun wir auf Basis einer Idee, die sich von anderen unterscheidet:
           **Pattern**\
 
           Pattern (Deutsch: Muster) sind bewährte Lösungsschablonen für wiederkehrende Aufgabenstellungen.
-        mediaAlignment: above-center
+        mediaAlignment: above_center
         media: []
-      - type: headline
+      - internalType: headline
         level: h2
         align: left
         content: Warum sind Pattern so gut?
         spaceAfter: none
         pageHeader: true
-      - type: text-media
+      - internalType: text-media
         text: Pattern ermöglichen schnelles Arbeiten und Automatisierung. Sie bieten
           dennoch Freiraum für Anpassungen und Individualität. Wenn Sie schon
           einmal zu lange auf Ergebnisse gewartet haben oder eine fertige Lösung
           nicht gehalten hat, was sie versprochen hat, verstehen Sie warum
           beides so wichtig ist.
-        mediaAlignment: above-center
+        mediaAlignment: above_center
         media: []
-      - type: headline
+      - internalType: headline
         level: h2
         align: left
         content: Pattern stecken bei uns in allem drin.
         spaceAfter: none
         pageHeader: true
-      - type: text-media
+      - internalType: text-media
         text: >-
           Insbesondere nutzen wir Pattern im
           Bereich [Frontend](https://ruhmesmeile.com/web-frontends/website-frontends).
@@ -113,13 +113,13 @@ content:
           oder [Netlify CMS](https://ruhmesmeile.com/netlify-cms) umsetzen.\
 
           Bei uns stecken Pattern in jedem Projekt.
-        mediaAlignment: above-center
+        mediaAlignment: above_center
         media: []
-    type: section
+    internalType: section
     gutter: default
   - mode: default
     width: default
-    space-before: default
+    spaceBefore: default
     background: default
     headline:
       level: h2
@@ -127,9 +127,9 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
-    space-after: default
+    spaceAfter: default
     content:
-      - type: content-box
+      - internalType: content-box
         ratio: none
         alignement: left
         image: https://ruhmesmeile.com/fileadmin/_processed_/7/8/csm_Agentur-und-Kunden_6accaa9169.jpg
@@ -150,7 +150,7 @@ content:
           label: Hier entlang bitte
           newTab: false
           iconBefore: false
-      - type: content-box
+      - internalType: content-box
         ratio: none
         alignement: left
         image: https://ruhmesmeile.com/fileadmin/_processed_/5/0/csm_Entwickler-Setup_cc528d479f.jpg
@@ -169,11 +169,11 @@ content:
           label: Unsere Services
           newTab: false
           iconBefore: false
-    type: section
+    internalType: section
     gutter: default
   - mode: list
     width: full
-    space-before: default
+    spaceBefore: default
     background: default
     headline:
       level: h2
@@ -181,13 +181,13 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
-    space-after: default
+    spaceAfter: default
     content:
-      - type: storytelling
+      - internalType: storytelling
         full: false
         image:
           source: https://ruhmesmeile.com/fileadmin/_processed_/5/c/csm_Websites-TYPO3-PP_7270dc3fa5.png
-          ratio: 1:1
+          ratio: VALUE_1_1
           vAlign: center
           hAlign: center
           order:
@@ -222,7 +222,7 @@ content:
             newTab: false
             iconBefore: false
         backgroundColor: "#edf3f3"
-      - type: storytelling
+      - internalType: storytelling
         full: false
         image:
           source: https://ruhmesmeile.com/fileadmin/_processed_/9/b/csm_Webdesign-PP_6311df9338.png
@@ -256,7 +256,7 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
-      - type: storytelling
+      - internalType: storytelling
         full: false
         image:
           source: https://ruhmesmeile.com/fileadmin/users/redakteur/redakteur_upload/Websites/Web-Analyse-desktop-bg1.jpg
@@ -297,7 +297,7 @@ content:
             iconBefore: false
         backgroundImage: ""
         backgroundColor: "#f0f0f0"
-      - type: storytelling
+      - internalType: storytelling
         full: false
         image:
           source: https://ruhmesmeile.com/fileadmin/_processed_/1/7/csm_iMac_Mockup_685a9bc620.png
@@ -337,7 +337,7 @@ content:
             newTab: false
             iconBefore: false
         backgroundImage: ""
-      - type: visual
+      - internalType: visual
         height: small
         media:
           mode: image
@@ -374,11 +374,11 @@ content:
         backgroundColor: "#ccc"
         inbox: false
         skipButton: false
-    type: section
+    internalType: section
     gutter: default
   - mode: default
     width: narrow
-    space-before: default
+    spaceBefore: default
     background: default
     headline:
       level: h2
@@ -386,14 +386,14 @@ content:
       content: Projekte & Case Studies
       spaceAfter: none
       pageHeader: false
-    space-after: default
+    spaceAfter: default
     content:
-      - type: teaser-box
+      - internalType: teaser-box
         image: https://ruhmesmeile.com/fileadmin/_processed_/a/f/csm_217021_N3_website_61d26e296c.jpg
         topic: HPP Architekten
         text: Corporate Website Relaunch auf Basis von TYPO3
         darkStyle: true
-        ratio: 16:9
+        ratio: VALUE_16_9
         imageSpacing: false
         link:
           size: medium
@@ -406,12 +406,12 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-      - type: teaser-box
+      - internalType: teaser-box
         image: https://ruhmesmeile.com/fileadmin/_processed_/8/6/csm_Dachser_Teaser_4zu3_2a78fedb41.png
         topic: Dachser
         text: Digitales Design-System
         darkStyle: true
-        ratio: 16:9
+        ratio: VALUE_16_9
         imageSpacing: false
         link:
           size: medium
@@ -424,6 +424,6 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-    type: section
+    internalType: section
     gutter: default
 ---
