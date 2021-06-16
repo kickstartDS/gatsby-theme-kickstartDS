@@ -14,6 +14,7 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
+      internalType: headline
     spaceAfter: default
     content:
       - internalType: visual
@@ -45,6 +46,7 @@ content:
             label: Lorem Ipsum
             newTab: false
             iconBefore: false
+            internalType: link-button
           indent: false
           horizontal: left
           vertical: center
@@ -65,6 +67,7 @@ content:
       spaceAfter: none
       pageHeader: false
       subheadline: Mit Pattern zum optimalen Ergebnis
+      internalType: headline
     spaceAfter: default
     content:
       - internalType: headline
@@ -127,6 +130,7 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
+      internalType: headline
     spaceAfter: default
     content:
       - internalType: content-box
@@ -150,6 +154,7 @@ content:
           label: Hier entlang bitte
           newTab: false
           iconBefore: false
+          internalType: link-button
       - internalType: content-box
         ratio: none
         alignement: left
@@ -169,6 +174,7 @@ content:
           label: Unsere Services
           newTab: false
           iconBefore: false
+          internalType: link-button
     internalType: section
     gutter: default
   - mode: list
@@ -181,6 +187,7 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
+      internalType: headline
     spaceAfter: default
     content:
       - internalType: storytelling
@@ -200,6 +207,7 @@ content:
             content: Content Management Systeme
             spaceAfter: none
             pageHeader: false
+            internalType: headline
           text: >-
             Im Bereich der Webentwicklung mit Content Management Systemen
             greifen wir vor allem auf zwei Technologien zurück:
@@ -221,6 +229,7 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
+            internalType: link-button
         backgroundColor: "#edf3f3"
       - internalType: storytelling
         full: false
@@ -239,6 +248,7 @@ content:
             content: Webdesign und UX Design
             spaceAfter: none
             pageHeader: false
+            internalType: headline
           text: "[Erfahren Sie
             mehr](https://ruhmesmeile.com/websites/website-ux-und-webdesign) zu
             den Qualitätsfaktoren User Experience, Usability, Kompatibilität
@@ -256,6 +266,7 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
+            internalType: link-button
       - internalType: storytelling
         full: false
         image:
@@ -273,6 +284,7 @@ content:
             content: "Online Marketing "
             spaceAfter: none
             pageHeader: false
+            internalType: headline
           text: >-
             Benötigen Sie für eine Kampagne eine [Landing
             Page](https://ruhmesmeile.com/websites/landing-pages) oder wollen
@@ -295,6 +307,7 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
+            internalType: link-button
         backgroundImage: ""
         backgroundColor: "#f0f0f0"
       - internalType: storytelling
@@ -314,6 +327,7 @@ content:
             content: "Frontends für Webprojekte "
             spaceAfter: none
             pageHeader: false
+            internalType: headline
           text: >-
             Services für
             [Website-Frontends](https://ruhmesmeile.com/web-frontends/website-frontends)
@@ -336,6 +350,7 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
+            internalType: link-button
         backgroundImage: ""
       - internalType: visual
         height: small
@@ -367,6 +382,7 @@ content:
             label: Sprechen Sie uns an.
             newTab: false
             iconBefore: false
+            internalType: link-button
           indent: false
           horizontal: center
           vertical: center
@@ -386,6 +402,7 @@ content:
       content: Projekte & Case Studies
       spaceAfter: none
       pageHeader: false
+      internalType: headline
     spaceAfter: default
     content:
       - internalType: teaser-box
@@ -406,6 +423,7 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
+          internalType: link-button
       - internalType: teaser-box
         image: https://ruhmesmeile.com/fileadmin/_processed_/8/6/csm_Dachser_Teaser_4zu3_2a78fedb41.png
         topic: Dachser
@@ -424,6 +442,7 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
+          internalType: link-button
     internalType: section
     gutter: default
 ---

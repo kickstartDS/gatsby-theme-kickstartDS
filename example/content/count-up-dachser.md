@@ -15,6 +15,7 @@ content:
       spaceAfter: none
       pageHeader: false
       subheadline: Your partner in logistics
+      internalType: headline
     spaceAfter: none
     content:
       - internalType: count-up
@@ -49,6 +50,7 @@ content:
           label: Global Search
           newTab: false
           iconBefore: false
+          internalType: link-button
       - internalType: count-up
         to: "42"
         topic: "Country orgs (worldwide) "
@@ -65,6 +67,7 @@ content:
           label: Local Search
           newTab: false
           iconBefore: false
+          internalType: link-button
     internalType: section
     gutter: large
   - mode: default
@@ -77,6 +80,7 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
+      internalType: headline
     spaceAfter: default
     content:
       - internalType: count-up
@@ -95,6 +99,7 @@ content:
           label: Stats
           newTab: false
           iconBefore: false
+          internalType: link-button
       - internalType: count-up
         to: "39793200"
         topic: Tonnage
@@ -111,6 +116,7 @@ content:
           label: Pledge
           newTab: false
           iconBefore: false
+          internalType: link-button
     internalType: section
     gutter: large
 ---

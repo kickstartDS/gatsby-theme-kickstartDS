@@ -14,6 +14,7 @@ content:
       content: Headline
       spaceAfter: none
       pageHeader: false
+      internalType: headline
     spaceAfter: default
     content:
       - internalType: content-box
@@ -35,6 +36,7 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
+          internalType: link-button
       - internalType: content-box
         ratio: none
         alignement: left
@@ -54,6 +56,7 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
+          internalType: link-button
     internalType: section
     gutter: default
 ---

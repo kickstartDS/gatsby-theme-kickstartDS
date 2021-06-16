@@ -41,6 +41,7 @@ const cleanObjectKeys = (obj) => {
           obj[property] === null
             ? null
             : cleanObjectKeys(obj[property]);
+      } else if (obj[property] === null) {
       } else {
         cleanedObject[cleanFieldName(property)] = obj[property] || null;
       }
@@ -51,15 +52,17 @@ const cleanObjectKeys = (obj) => {
 };
 
 const getComponent = (element) => {
+  const componentType = element['internalType'];
   const cleanedElement = cleanObjectKeys(element);
+  delete cleanedElement['internalType'];
 
-  if (cleanedElement['internalType']) {
-    componentCounter[cleanedElement['internalType']] = componentCounter[cleanedElement['internalType']]+1 || 1;
-    const key = cleanedElement['internalType']+'-'+componentCounter[cleanedElement['internalType']];
+  if (componentType) {
+    componentCounter[componentType] = componentCounter[componentType]+1 || 1;
+    const key = componentType+'-'+componentCounter[componentType];
   
-    const Component = React.memo(components[cleanedElement['internalType']]);
+    const Component = React.memo(components[componentType]);
   
-    if (cleanedElement['type'] === 'section') {
+    if (componentType === 'section') {
       const content = cleanedElement['content'];
       delete cleanedElement['content'];
   
