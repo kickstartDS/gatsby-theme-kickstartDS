@@ -324,7 +324,7 @@ content:
           headline:
             level: h2
             align: center
-            content: "Frontends für Webprojekte "
+            content: "Frontends für Webprojekte"
             spaceAfter: none
             pageHeader: false
             internalType: headline
@@ -376,7 +376,7 @@ content:
             fillAnimation: false
             enabled: true
             iconAfter: false
-            variant: outline-inverted
+            variant: outline_inverted
             iconAnimation: false
             href: https://example.com
             label: Sprechen Sie uns an.
