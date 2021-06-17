@@ -17,7 +17,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   `);
 };
 
-const hashObjectKeys = (obj) => {
+const hashObjectKeys = (obj, outerComponent) => {
   const hashedObj = {};
 
   Object.keys(obj).forEach((property) => {
@@ -25,13 +25,14 @@ const hashObjectKeys = (obj) => {
       hashedObj[typeResolutionField] = obj[typeResolutionField];
     } else {
       if (Array.isArray(obj[property])) {
-        hashedObj[hashFieldName(property, obj[typeResolutionField])] = obj[property].map((item) => {
-          return hashObjectKeys(item);
+        hashedObj[hashFieldName(property, outerComponent)] = obj[property].map((item) => {
+          return hashObjectKeys(item, outerComponent === 'section' ? item['internalType'] : outerComponent);
         });
       } else if (typeof obj[property] === 'object') {
-        hashedObj[hashFieldName(property, obj[typeResolutionField])] = hashObjectKeys(obj[property])
+        // TODO add correct headline-handling
+        hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], outerComponent === 'section' ? obj[property]['internalType'] : property === 'headline' ? 'headline' : outerComponent);
       } else {
-        hashedObj[hashFieldName(property, obj[typeResolutionField])] = obj[property];
+        hashedObj[hashFieldName(property, outerComponent)] = obj[property];
       }
     }
   });
@@ -46,7 +47,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
     const parent = getNode(node.parent);
 
-    node.frontmatter.content = node.frontmatter.content.map((section) => hashObjectKeys(section));
+    node.frontmatter.content = node.frontmatter.content.map((section) => hashObjectKeys(section, 'section'));
 
     const page = {
       id: kickstartDSPageId,

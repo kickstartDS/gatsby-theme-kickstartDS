@@ -24,7 +24,6 @@ Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([
 });
 
 const cleanFieldName = (fieldName) => fieldName.replace(/__.*/i, '');
-
 const cleanObjectKeys = (obj) => {
   const cleanedObject = {};
 
