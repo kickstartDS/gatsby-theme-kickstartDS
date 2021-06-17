@@ -29,9 +29,7 @@ const cleanObjectKeys = (obj) => {
   const cleanedObject = {};
 
   Object.keys(obj).forEach((property) => {
-    if (property === typeResolutionField) {
-      cleanedObject[typeResolutionField] = obj[typeResolutionField];
-    } else {
+    if (property !== typeResolutionField) {
       if (Array.isArray(obj[property])) {
         cleanedObject[cleanFieldName(property)] = obj[property].map((item) => {
           return cleanObjectKeys(item);
@@ -41,9 +39,8 @@ const cleanObjectKeys = (obj) => {
           obj[property] === null
             ? null
             : cleanObjectKeys(obj[property]);
-      } else if (obj[property] === null) {
-      } else {
-        cleanedObject[cleanFieldName(property)] = obj[property] || null;
+      } else if (obj[property]) {
+        cleanedObject[cleanFieldName(property)] = obj[property];
       }
     }
   });
@@ -51,35 +48,39 @@ const cleanObjectKeys = (obj) => {
   return cleanedObject;
 };
 
-const getComponent = (element) => {
-  const componentType = element['internalType'];
-  const cleanedElement = cleanObjectKeys(element);
-  delete cleanedElement['internalType'];
+const getComponent = (element, isSection = false) => {
+  const componentType = isSection ? 'section' : element['internalType'];
 
-  if (componentType) {
-    componentCounter[componentType] = componentCounter[componentType]+1 || 1;
-    const key = componentType+'-'+componentCounter[componentType];
-  
-    const Component = React.memo(components[componentType]);
-  
-    if (componentType === 'section') {
-      const content = cleanedElement['content'];
-      delete cleanedElement['content'];
-  
-      return (
-        <Component key={key} { ...cleanedElement }>
-          {getContent(content)}
-        </Component>
-      )
-    } else {
-      return <Component key={key} { ...cleanedElement } />
-    }  
+  componentCounter[componentType] = componentCounter[componentType]+1 || 1;
+  const key = componentType+'-'+componentCounter[componentType];
+
+  const Component = React.memo(components[componentType]);
+
+  if (isSection) {
+    let content;
+
+    Object.keys(element).forEach((property) => {
+      if (property.includes('content__')) {
+        content = element[property];
+        delete element[property];
+      }
+    });
+    const cleanedElement = cleanObjectKeys(element);
+    
+    return (
+      <Component key={key} { ...cleanedElement }>
+        {getContent(content)}
+      </Component>
+    );
   }
+
+  const cleanedElement = cleanObjectKeys(element);
+  return <Component key={key} { ...cleanedElement } />;
 };
 
-const getContent = (content) => {
+const getContent = (content, sections = false) => {
   if (content && content.length > 0) {
-    return content.map((element) => getComponent(element));
+    return content.map((element) => getComponent(element, sections));
   } 
 };
 
@@ -87,6 +88,6 @@ export const KickstartDSPage: FunctionComponent<any> = ({
   content,
 }) => (
   <KickstartDSLayout>
-    {getContent(content)}
+    {getContent(content, true)}
   </KickstartDSLayout>
 );
