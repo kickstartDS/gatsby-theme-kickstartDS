@@ -29,8 +29,7 @@ const hashObjectKeys = (obj, outerComponent) => {
           return hashObjectKeys(item, outerComponent === 'section' ? item['internalType'] : outerComponent);
         });
       } else if (typeof obj[property] === 'object') {
-        // TODO add correct headline-handling
-        hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], outerComponent === 'section' ? obj[property]['internalType'] : property === 'headline' ? 'headline' : outerComponent);
+        hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], obj[property]['internalType'] || outerComponent);
       } else {
         hashedObj[hashFieldName(property, outerComponent)] = obj[property];
       }
