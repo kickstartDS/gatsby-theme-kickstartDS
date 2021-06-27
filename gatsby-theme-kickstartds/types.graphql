@@ -1,7 +1,7 @@
 type Query {
   buttonComponents: [ButtonComponent]
-  dividerComponents: [DividerComponent]
   contentBoxComponents: [ContentBoxComponent]
+  dividerComponents: [DividerComponent]
   headlineComponents: [HeadlineComponent]
   iconComponents: [IconComponent]
   lightboxLazyImageComponents: [LightboxLazyImageComponent]
@@ -61,7 +61,7 @@ type ButtonComponent implements ContentComponent {
   iconAnimation__a42f: Boolean
 
   """'type' attribute: Select the type attribute for the button"""
-  typeAttr__b95e: ButtonComponentTypeAttr
+  type__803a: ButtonComponentType
 
   """'value' attribute: Define a value attribute for the button"""
   value__ed44: String
@@ -113,28 +113,10 @@ type IconComponent implements ContentComponent {
 }
 
 """'type' attribute: Select the type attribute for the button"""
-enum ButtonComponentTypeAttr {
+enum ButtonComponentType {
   button
   submit
   reset
-}
-
-"""
-Divider: Dividers bring clarity to a layout by grouping and dividing content in close proximity.
-"""
-type DividerComponent implements ContentComponent {
-  """Style of the divider: Choose a variant for the divider"""
-  variant__fdb0: DividerComponentVariant
-
-  """Internal type: Internal type for interface resolution"""
-  internalType: String
-}
-
-"""Style of the divider: Choose a variant for the divider"""
-enum DividerComponentVariant {
-  default
-  accent
-  dark
 }
 
 """Content Box: Component to display content in a condensed, boxed form"""
@@ -244,6 +226,24 @@ enum ContentBoxComponentLinkSize {
   small
   medium
   large
+}
+
+"""
+Divider: Dividers bring clarity to a layout by grouping and dividing content in close proximity.
+"""
+type DividerComponent implements ContentComponent {
+  """Style of the divider: Choose a variant for the divider"""
+  variant__fdb0: DividerComponentVariant
+
+  """Internal type: Internal type for interface resolution"""
+  internalType: String
+}
+
+"""Style of the divider: Choose a variant for the divider"""
+enum DividerComponentVariant {
+  default
+  accent
+  dark
 }
 
 """Headline: Headline"""
@@ -829,38 +829,41 @@ enum TextMediaComponentMediaAlignment {
   below_right
 }
 
-union TextMediaComponentMedia = Video | Image | LightboxImage
+union TextMediaComponentMedia = TextMediaComponentMedia0 | TextMediaComponentMedia1 | TextMediaComponentMedia2
 
-type Video {
+"""Video: Video item to display"""
+type TextMediaComponentMedia0 {
   """Video: Video item to display"""
-  video__e832: VideoVideo
+  video__e832: TextMediaComponentMedia0Video
   full__b18e: Boolean
 }
 
 """Video: Video item to display"""
-type VideoVideo {
+type TextMediaComponentMedia0Video {
   """Source: Url (mp4) for the video to display"""
-  src__25d9: String
+  src__bf37: String
 
   """Embedded (iframe): Use an iframe embed"""
-  iframe__a598: Boolean
+  iframe__98ef: Boolean
 
   """Video title: Title to use for the video"""
-  title__d5d3: String
+  title__26af: String
 
   """Width: Width of the video"""
-  width__eaae: Int
+  width__70a5: Int
 
   """Height: Height of the video"""
-  height__b435: Int
+  height__86cb: Int
 }
 
-type Image {
+"""Image: Image item to display"""
+type TextMediaComponentMedia1 {
   image__aea8: PictureComponent
   full__b18e: Boolean
 }
 
-type LightboxImage {
+"""LightboxImage: LightboxImage item to display"""
+type TextMediaComponentMedia2 {
   lightboxImage__9a34: LightboxLazyImageComponent
   full__b18e: Boolean
 }
@@ -1343,31 +1346,28 @@ type VisualSliderComponent implements ContentComponent {
 """Visual: visual"""
 type VisualSliderComponentSlides {
   """Height"""
-  height__f2ca: VisualSliderComponentSlidesHeight
+  height__b6f2: VisualSliderComponentSlidesHeight
 
   """Media Wrapper: Wrapper for all media types"""
-  media__8f99: VisualSliderComponentSlidesMedia
+  media__127a: VisualSliderComponentSlidesMedia
 
   """Grid layer: Enable grid layer"""
-  overlay__6df1: Boolean
+  overlay__9abc: Boolean
 
   """Text box: Content and style configuration for the text box"""
-  box__5bd7: VisualSliderComponentSlidesBox
+  box__9e9c: VisualSliderComponentSlidesBox
 
   """Custom background color: Custom css background color"""
-  backgroundColor__4ca8: String
+  backgroundColor__9731: String
 
   """Inbox: The text box is in front of the image on small screens"""
-  inbox__8206: Boolean
+  inbox__5a33: Boolean
 
   """Skip Button: Show skip button"""
-  skipButton__bf9d: Boolean
+  skipButton__dbef: Boolean
 
   """Additional Classes"""
-  className__d3dc: String
-
-  """Internal type: Internal type for interface resolution"""
-  internalType__aecc: String
+  className__ce8d: String
 
   """Slide preview label: preview label"""
   label__cd20: String

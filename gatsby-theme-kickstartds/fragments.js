@@ -16,7 +16,7 @@ export const ButtonComponentFragment = graphql`fragment ButtonComponent on Butto
   dataComponent__fb24
   fillAnimation__a843
   iconAnimation__a42f
-  typeAttr__b95e
+  type__803a
   value__ed44
   name__6a5d
   disabled__f1d0
@@ -28,12 +28,6 @@ export const IconComponentFragment = graphql`fragment IconComponent on IconCompo
   icon__dcfe
   role__ea32
   className__251a
-  internalType
-}
-`
-
-export const DividerComponentFragment = graphql`fragment DividerComponent on DividerComponent {
-  variant__fdb0
   internalType
 }
 `
@@ -67,6 +61,12 @@ export const ContentBoxComponentLinkFragment = graphql`fragment ContentBoxCompon
   iconAnimation__92d3
   href__5fa6
   newTab__4d0d
+}
+`
+
+export const DividerComponentFragment = graphql`fragment DividerComponent on DividerComponent {
+  variant__fdb0
+  internalType
 }
 `
 
@@ -150,8 +150,8 @@ export const SectionComponentFragment = graphql`fragment SectionComponent on Sec
   content__2cb4 {
     ...ButtonComponentNoNesting,
     ...IconComponentNoNesting,
-    ...DividerComponentNoNesting,
     ...ContentBoxComponentNoNesting,
+    ...DividerComponentNoNesting,
     ...HeadlineComponentNoNesting,
     ...LightboxLazyImageComponentNoNesting,
     ...LinkButtonComponentNoNesting,
@@ -298,32 +298,32 @@ export const TextMediaComponentFragment = graphql`fragment TextMediaComponent on
   text__117a
   mediaAlignment__0da3
   media__d3b5 {
-    ...VideoNoNesting,
-    ...ImageNoNesting,
-    ...LightboxImageNoNesting
+    ...TextMediaComponentMedia0NoNesting,
+    ...TextMediaComponentMedia1NoNesting,
+    ...TextMediaComponentMedia2NoNesting
   }
   internalType
 }
 `
 
-export const VideoFragment = graphql`fragment Video on Video {
+export const TextMediaComponentMedia0Fragment = graphql`fragment TextMediaComponentMedia0 on TextMediaComponentMedia0 {
   video__e832 {
-    ...VideoVideoNoNesting
+    ...TextMediaComponentMedia0VideoNoNesting
   }
   full__b18e
 }
 `
 
-export const VideoVideoFragment = graphql`fragment VideoVideo on VideoVideo {
-  src__25d9
-  iframe__a598
-  title__d5d3
-  width__eaae
-  height__b435
+export const TextMediaComponentMedia0VideoFragment = graphql`fragment TextMediaComponentMedia0Video on TextMediaComponentMedia0Video {
+  src__bf37
+  iframe__98ef
+  title__26af
+  width__70a5
+  height__86cb
 }
 `
 
-export const ImageFragment = graphql`fragment Image on Image {
+export const TextMediaComponentMedia1Fragment = graphql`fragment TextMediaComponentMedia1 on TextMediaComponentMedia1 {
   image__aea8 {
     ...PictureComponentNoNesting
   }
@@ -331,7 +331,7 @@ export const ImageFragment = graphql`fragment Image on Image {
 }
 `
 
-export const LightboxImageFragment = graphql`fragment LightboxImage on LightboxImage {
+export const TextMediaComponentMedia2Fragment = graphql`fragment TextMediaComponentMedia2 on TextMediaComponentMedia2 {
   lightboxImage__9a34 {
     ...LightboxLazyImageComponentNoNesting
   }
@@ -546,19 +546,18 @@ export const VisualSliderComponentFragment = graphql`fragment VisualSliderCompon
 `
 
 export const VisualSliderComponentSlidesFragment = graphql`fragment VisualSliderComponentSlides on VisualSliderComponentSlides {
-  height__f2ca
-  media__8f99 {
+  height__b6f2
+  media__127a {
     ...VisualSliderComponentSlidesMediaNoNesting
   }
-  overlay__6df1
-  box__5bd7 {
+  overlay__9abc
+  box__9e9c {
     ...VisualSliderComponentSlidesBoxNoNesting
   }
-  backgroundColor__4ca8
-  inbox__8206
-  skipButton__bf9d
-  className__d3dc
-  internalType__aecc
+  backgroundColor__9731
+  inbox__5a33
+  skipButton__dbef
+  className__ce8d
   label__cd20
 }
 `
@@ -634,7 +633,7 @@ export const ButtonComponentNoNestingFragment = graphql`fragment ButtonComponent
   dataComponent__fb24
   fillAnimation__a843
   iconAnimation__a42f
-  typeAttr__b95e
+  type__803a
   value__ed44
   name__6a5d
   disabled__f1d0
@@ -646,12 +645,6 @@ export const IconComponentNoNestingFragment = graphql`fragment IconComponentNoNe
   icon__dcfe
   role__ea32
   className__251a
-  internalType
-}
-`
-
-export const DividerComponentNoNestingFragment = graphql`fragment DividerComponentNoNesting on DividerComponent {
-  variant__fdb0
   internalType
 }
 `
@@ -679,6 +672,12 @@ export const ContentBoxComponentLinkNoNestingFragment = graphql`fragment Content
   iconAnimation__92d3
   href__5fa6
   newTab__4d0d
+}
+`
+
+export const DividerComponentNoNestingFragment = graphql`fragment DividerComponentNoNesting on DividerComponent {
+  variant__fdb0
+  internalType
 }
 `
 
@@ -859,26 +858,26 @@ export const TextMediaComponentNoNestingFragment = graphql`fragment TextMediaCom
 }
 `
 
-export const VideoNoNestingFragment = graphql`fragment VideoNoNesting on Video {
+export const TextMediaComponentMedia0NoNestingFragment = graphql`fragment TextMediaComponentMedia0NoNesting on TextMediaComponentMedia0 {
   full__b18e
 }
 `
 
-export const VideoVideoNoNestingFragment = graphql`fragment VideoVideoNoNesting on VideoVideo {
-  src__25d9
-  iframe__a598
-  title__d5d3
-  width__eaae
-  height__b435
+export const TextMediaComponentMedia0VideoNoNestingFragment = graphql`fragment TextMediaComponentMedia0VideoNoNesting on TextMediaComponentMedia0Video {
+  src__bf37
+  iframe__98ef
+  title__26af
+  width__70a5
+  height__86cb
 }
 `
 
-export const ImageNoNestingFragment = graphql`fragment ImageNoNesting on Image {
+export const TextMediaComponentMedia1NoNestingFragment = graphql`fragment TextMediaComponentMedia1NoNesting on TextMediaComponentMedia1 {
   full__b18e
 }
 `
 
-export const LightboxImageNoNestingFragment = graphql`fragment LightboxImageNoNesting on LightboxImage {
+export const TextMediaComponentMedia2NoNestingFragment = graphql`fragment TextMediaComponentMedia2NoNesting on TextMediaComponentMedia2 {
   full__b18e
 }
 `
@@ -1039,13 +1038,12 @@ export const VisualSliderComponentNoNestingFragment = graphql`fragment VisualSli
 `
 
 export const VisualSliderComponentSlidesNoNestingFragment = graphql`fragment VisualSliderComponentSlidesNoNesting on VisualSliderComponentSlides {
-  height__f2ca
-  overlay__6df1
-  backgroundColor__4ca8
-  inbox__8206
-  skipButton__bf9d
-  className__d3dc
-  internalType__aecc
+  height__b6f2
+  overlay__9abc
+  backgroundColor__9731
+  inbox__5a33
+  skipButton__dbef
+  className__ce8d
   label__cd20
 }
 `
@@ -1112,7 +1110,7 @@ export const ButtonComponentDeepNestingFragment = graphql`fragment ButtonCompone
   dataComponent__fb24
   fillAnimation__a843
   iconAnimation__a42f
-  typeAttr__b95e
+  type__803a
   value__ed44
   name__6a5d
   disabled__f1d0
@@ -1124,12 +1122,6 @@ export const IconComponentDeepNestingFragment = graphql`fragment IconComponentDe
   icon__dcfe
   role__ea32
   className__251a
-  internalType
-}
-`
-
-export const DividerComponentDeepNestingFragment = graphql`fragment DividerComponentDeepNesting on DividerComponent {
-  variant__fdb0
   internalType
 }
 `
@@ -1163,6 +1155,12 @@ export const ContentBoxComponentLinkDeepNestingFragment = graphql`fragment Conte
   iconAnimation__92d3
   href__5fa6
   newTab__4d0d
+}
+`
+
+export const DividerComponentDeepNestingFragment = graphql`fragment DividerComponentDeepNesting on DividerComponent {
+  variant__fdb0
+  internalType
 }
 `
 
@@ -1246,8 +1244,8 @@ export const SectionComponentDeepNestingFragment = graphql`fragment SectionCompo
   content__2cb4 {
     ...ButtonComponentDeepNesting,
     ...IconComponentDeepNesting,
-    ...DividerComponentDeepNesting,
     ...ContentBoxComponentDeepNesting,
+    ...DividerComponentDeepNesting,
     ...HeadlineComponentDeepNesting,
     ...LightboxLazyImageComponentDeepNesting,
     ...LinkButtonComponentDeepNesting,
@@ -1394,32 +1392,32 @@ export const TextMediaComponentDeepNestingFragment = graphql`fragment TextMediaC
   text__117a
   mediaAlignment__0da3
   media__d3b5 {
-    ...VideoDeepNesting,
-    ...ImageDeepNesting,
-    ...LightboxImageDeepNesting
+    ...TextMediaComponentMedia0DeepNesting,
+    ...TextMediaComponentMedia1DeepNesting,
+    ...TextMediaComponentMedia2DeepNesting
   }
   internalType
 }
 `
 
-export const VideoDeepNestingFragment = graphql`fragment VideoDeepNesting on Video {
+export const TextMediaComponentMedia0DeepNestingFragment = graphql`fragment TextMediaComponentMedia0DeepNesting on TextMediaComponentMedia0 {
   video__e832 {
-    ...VideoVideoDeepNesting
+    ...TextMediaComponentMedia0VideoDeepNesting
   }
   full__b18e
 }
 `
 
-export const VideoVideoDeepNestingFragment = graphql`fragment VideoVideoDeepNesting on VideoVideo {
-  src__25d9
-  iframe__a598
-  title__d5d3
-  width__eaae
-  height__b435
+export const TextMediaComponentMedia0VideoDeepNestingFragment = graphql`fragment TextMediaComponentMedia0VideoDeepNesting on TextMediaComponentMedia0Video {
+  src__bf37
+  iframe__98ef
+  title__26af
+  width__70a5
+  height__86cb
 }
 `
 
-export const ImageDeepNestingFragment = graphql`fragment ImageDeepNesting on Image {
+export const TextMediaComponentMedia1DeepNestingFragment = graphql`fragment TextMediaComponentMedia1DeepNesting on TextMediaComponentMedia1 {
   image__aea8 {
     ...PictureComponentDeepNesting
   }
@@ -1427,7 +1425,7 @@ export const ImageDeepNestingFragment = graphql`fragment ImageDeepNesting on Ima
 }
 `
 
-export const LightboxImageDeepNestingFragment = graphql`fragment LightboxImageDeepNesting on LightboxImage {
+export const TextMediaComponentMedia2DeepNestingFragment = graphql`fragment TextMediaComponentMedia2DeepNesting on TextMediaComponentMedia2 {
   lightboxImage__9a34 {
     ...LightboxLazyImageComponentDeepNesting
   }
@@ -1642,19 +1640,18 @@ export const VisualSliderComponentDeepNestingFragment = graphql`fragment VisualS
 `
 
 export const VisualSliderComponentSlidesDeepNestingFragment = graphql`fragment VisualSliderComponentSlidesDeepNesting on VisualSliderComponentSlides {
-  height__f2ca
-  media__8f99 {
+  height__b6f2
+  media__127a {
     ...VisualSliderComponentSlidesMediaDeepNesting
   }
-  overlay__6df1
-  box__5bd7 {
+  overlay__9abc
+  box__9e9c {
     ...VisualSliderComponentSlidesBoxDeepNesting
   }
-  backgroundColor__4ca8
-  inbox__8206
-  skipButton__bf9d
-  className__d3dc
-  internalType__aecc
+  backgroundColor__9731
+  inbox__5a33
+  skipButton__dbef
+  className__ce8d
   label__cd20
 }
 `
