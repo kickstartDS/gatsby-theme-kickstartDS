@@ -12,6 +12,7 @@ import blogExports from '@kickstartds/blog/lib/exports.json';
 import contentExports from '@kickstartds/content/lib/exports.json';
 
 const libs = { ...baseLib, ...blogLib, ...contentLib };
+
 const components = {};
 const componentCounter = [];
 
@@ -48,7 +49,7 @@ const cleanObjectKeys = (obj) => {
 };
 
 const getComponent = (element, isSection = false) => {
-  const componentType = isSection ? 'section' : element['internalType'];
+  const componentType = isSection ? 'section' : element['internalType'] || element['type'];
 
   componentCounter[componentType] = componentCounter[componentType]+1 || 1;
   const key = componentType+'-'+componentCounter[componentType];
@@ -59,7 +60,7 @@ const getComponent = (element, isSection = false) => {
     let content;
 
     Object.keys(element).forEach((property) => {
-      if (property.includes('content__')) {
+      if (property.includes('content__') || property.includes('content')) {
         content = element[property];
         delete element[property];
       }

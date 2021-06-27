@@ -29,7 +29,7 @@ const PagePreview = React.memo(({ entry }) => {
 
   return (
     <KickstartDSPage
-      content={data.content}
+      content={data.sections}
     />
   );
 });
