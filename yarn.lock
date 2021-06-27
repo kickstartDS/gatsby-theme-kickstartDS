@@ -1723,14 +1723,14 @@
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
 
-"@kickstartds/base@^1.0.0-alpha.18", "@kickstartds/base@^1.0.0-alpha.19", "@kickstartds/base@^1.0.0-alpha.23":
-  version "1.0.0-alpha.23"
-  resolved "https://registry.npmjs.org/@kickstartds/base/-/base-1.0.0-alpha.23.tgz#d0d5ba595cfa537a2d1388c3b969c7d04d4d5521"
-  integrity sha512-ZA50i19JBldY9nWZDhDRzm2Dxj0wmyluy4KQLawj3xaXFkz+KzSI63gshLsjNevmspOT6q3NZfpzpuX1s47q/A==
+"@kickstartds/base@^1.0.0-alpha.28":
+  version "1.0.0-alpha.28"
+  resolved "https://registry.npmjs.org/@kickstartds/base/-/base-1.0.0-alpha.28.tgz#ed462994df29d00a35399946599ea66097567a72"
+  integrity sha512-pEXXSyTS8hwDL9AQin7s2p0gF7bX/deVxKQeHR2OCVwtNNpMkcP8yPVqIZ2gJtc9BkoI4Y7ZaJM6hw3PUqec7g==
   dependencies:
     "@babel/runtime" "^7.13.17"
     "@glidejs/glide" "git://github.com/glidejs/glide.git#master"
-    "@kickstartds/core" "^1.0.0-alpha.15"
+    "@kickstartds/core" "^1.0.0-alpha.16"
     classnames "^2.2.6"
     css-element-queries "^1.2.3"
     date-fns "^2.19.0"
@@ -1744,33 +1744,33 @@
     simplebar "^5.0.7"
     stickybits "^3.7.0"
 
-"@kickstartds/blog@^1.0.0-alpha.18", "@kickstartds/blog@^1.0.0-alpha.19":
-  version "1.0.0-alpha.23"
-  resolved "https://registry.npmjs.org/@kickstartds/blog/-/blog-1.0.0-alpha.23.tgz#c7a85ef644f6c24868696c26cb89206d0ea63a75"
-  integrity sha512-c6AOIfcDPY/oW2rb4WXymxS0N7tmgrEThgAH8LHmqk4jJ2HFYWCOTknj2cB7ZIstfFlBWzlHA4ZLlcw0uWSZGA==
+"@kickstartds/blog@^1.0.0-alpha.28":
+  version "1.0.0-alpha.28"
+  resolved "https://registry.npmjs.org/@kickstartds/blog/-/blog-1.0.0-alpha.28.tgz#cffb678f362b718824cc5ccf6fe48e4f7ecacccb"
+  integrity sha512-tgElwQhL+TbQWe6H83wWACFGy34ZKtwwqCcQOOx77dL3F6xRQfqCSrGh0Z5mDuqAF3qv7yxKFicq8/wRUqUxUw==
   dependencies:
     "@babel/runtime" "^7.13.17"
-    "@kickstartds/base" "^1.0.0-alpha.23"
-    "@kickstartds/core" "^1.0.0-alpha.15"
+    "@kickstartds/base" "^1.0.0-alpha.28"
+    "@kickstartds/core" "^1.0.0-alpha.16"
     date-fns "^2.19.0"
 
-"@kickstartds/content@^1.0.0-alpha.18", "@kickstartds/content@^1.0.0-alpha.19":
-  version "1.0.0-alpha.25"
-  resolved "https://registry.npmjs.org/@kickstartds/content/-/content-1.0.0-alpha.25.tgz#13b6c8fa98f250f1bbdb32995892cb4097463031"
-  integrity sha512-U4YqlTLSn55TX4PDSD4+HPDuswUjBgqYVHBTs1bhtOLP1/CAWgGvI4InPRzkdFlX09eMp+kphRvDAImAmkNXHA==
+"@kickstartds/content@^1.0.0-alpha.30":
+  version "1.0.0-alpha.30"
+  resolved "https://registry.npmjs.org/@kickstartds/content/-/content-1.0.0-alpha.30.tgz#e8da7347b313893af9214260093f2585939c8484"
+  integrity sha512-cwxamcN3lTTkIQHijzSKq9fbqLwVtzqG093DSEQjm92H6jf/btqbqcNHR9fmLCuCWfl2BJwsQSv0e0rnszLv9A==
   dependencies:
     "@babel/runtime" "^7.13.17"
-    "@kickstartds/base" "^1.0.0-alpha.23"
-    "@kickstartds/core" "^1.0.0-alpha.15"
+    "@kickstartds/base" "^1.0.0-alpha.28"
+    "@kickstartds/core" "^1.0.0-alpha.16"
     classnames "^2.2.6"
     countup.js "^2.0.7"
     date-fns "^2.19.0"
     objectFitPolyfill "^2.3.0"
 
-"@kickstartds/core@^1.0.0-alpha.14", "@kickstartds/core@^1.0.0-alpha.15":
-  version "1.0.0-alpha.15"
-  resolved "https://registry.npmjs.org/@kickstartds/core/-/core-1.0.0-alpha.15.tgz#5773ef7c64d69d3d290eaed6b617ae6b95425b91"
-  integrity sha512-bEXs8DSUikmw77iJSUBiSlTDOGaiVP1XRT9gVxCk9wScVnZCLXxn21JzOKjfilYRrqFYLs3b0HtIvdRnYnvJ+w==
+"@kickstartds/core@^1.0.0-alpha.16":
+  version "1.0.0-alpha.16"
+  resolved "https://registry.npmjs.org/@kickstartds/core/-/core-1.0.0-alpha.16.tgz#eb2e9f9583fa7e6efdfb7723bb54795a620ac65e"
+  integrity sha512-MrMXkBms+5jCViDykA6UJxD8yQ1UfaYA1mKVpKeKiiMeVDyKGtf9uo/0eD06sGLZb+E4xdIkMYmooThmqaeZQg==
   dependencies:
     "@babel/runtime" "^7.13.17"
     bourbon "^7.0.0"
