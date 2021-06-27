@@ -18,9 +18,9 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   const contentInterface = schema.buildInterfaceType({
     name: `ContentComponent`,
     fields: {
-      internalType: 'String',
+      type: 'String',
     },
-    resolveType: value => `${pascalCase(value.internalType)}Component`,
+    resolveType: value => `${pascalCase(value.type)}Component`,
   })
 
   createTypes([
@@ -28,11 +28,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     `interface KickstartDsPage implements Node @dontInfer {
       id: ID!
       layout: String!
-      heading: String!
-      description: String
       title: String
-      date: Date @dateformat
-      content: [SectionComponent]
+      sections: [SectionComponent]
     }
   `, contentInterface]);
 };

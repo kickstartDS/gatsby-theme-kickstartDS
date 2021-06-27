@@ -1,9 +1,8 @@
 ---
-Id: a0497490-b41a-11eb-ac27-59ada86bb225
+id: a0497490-b41a-11eb-ac27-59ada86bb225
 layout: default
-heading: Content Box
 title: Content Box
-content:
+sections:
   - mode: default
     width: default
     spaceBefore: default
@@ -14,10 +13,10 @@ content:
       content: Headline
       spaceAfter: none
       pageHeader: false
-      internalType: headline
+      type: headline
     spaceAfter: default
     content:
-      - internalType: content-box
+      - type: content-box
         ratio: none
         alignement: left
         image: https://picsum.photos/seed/kdscontentbox/500/300
@@ -36,8 +35,8 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-          internalType: link-button
-      - internalType: content-box
+          type: link-button
+      - type: content-box
         ratio: none
         alignement: left
         image: https://picsum.photos/seed/kdscontentbox/500/300
@@ -56,7 +55,7 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-          internalType: link-button
-    internalType: section
+          type: link-button
+    type: section
     gutter: default
 ---

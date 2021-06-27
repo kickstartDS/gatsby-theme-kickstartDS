@@ -1,12 +1,11 @@
 ---
-Id: fd055920-b0fe-11eb-9ce8-bdbc5d8289d5
+id: fd055920-b0fe-11eb-9ce8-bdbc5d8289d5
 layout: default
-heading: ruhmesmeile Startpage
 title: ruhmesmeile Startpage
-content:
+sections:
   - mode: list
-    width: full
     spaceBefore: none
+    width: full
     background: default
     headline:
       level: h2
@@ -14,10 +13,10 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
-      internalType: headline
+      type: headline
     spaceAfter: default
     content:
-      - internalType: visual
+      - type: visual
         height: small
         media:
           mode: image
@@ -46,7 +45,7 @@ content:
             label: Lorem Ipsum
             newTab: false
             iconBefore: false
-            internalType: link-button
+            type: link-button
           indent: false
           horizontal: left
           vertical: center
@@ -54,11 +53,11 @@ content:
         backgroundColor: "#ccc"
         inbox: false
         skipButton: false
-    internalType: section
+    type: section
     gutter: default
   - mode: list
-    width: narrow
     spaceBefore: default
+    width: narrow
     background: default
     headline:
       level: h1
@@ -67,16 +66,16 @@ content:
       spaceAfter: none
       pageHeader: false
       subheadline: Mit Pattern zum optimalen Ergebnis
-      internalType: headline
+      type: headline
     spaceAfter: default
     content:
-      - internalType: headline
+      - type: headline
         level: h2
         align: left
         content: Wir entwickeln Websites.
         spaceAfter: none
         pageHeader: true
-      - internalType: text-media
+      - type: text-media
         text: >-
           Dies tun wir auf Basis einer Idee, die sich von anderen unterscheidet:
           **Pattern**\
@@ -84,13 +83,13 @@ content:
           Pattern (Deutsch: Muster) sind bewährte Lösungsschablonen für wiederkehrende Aufgabenstellungen.
         mediaAlignment: above_center
         media: []
-      - internalType: headline
+      - type: headline
         level: h2
         align: left
         content: Warum sind Pattern so gut?
         spaceAfter: none
         pageHeader: true
-      - internalType: text-media
+      - type: text-media
         text: Pattern ermöglichen schnelles Arbeiten und Automatisierung. Sie bieten
           dennoch Freiraum für Anpassungen und Individualität. Wenn Sie schon
           einmal zu lange auf Ergebnisse gewartet haben oder eine fertige Lösung
@@ -98,13 +97,13 @@ content:
           beides so wichtig ist.
         mediaAlignment: above_center
         media: []
-      - internalType: headline
+      - type: headline
         level: h2
         align: left
         content: Pattern stecken bei uns in allem drin.
         spaceAfter: none
         pageHeader: true
-      - internalType: text-media
+      - type: text-media
         text: >-
           Insbesondere nutzen wir Pattern im
           Bereich [Frontend](https://ruhmesmeile.com/web-frontends/website-frontends).
@@ -118,11 +117,11 @@ content:
           Bei uns stecken Pattern in jedem Projekt.
         mediaAlignment: above_center
         media: []
-    internalType: section
+    type: section
     gutter: default
   - mode: default
-    width: default
     spaceBefore: default
+    width: default
     background: default
     headline:
       level: h2
@@ -130,10 +129,10 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
-      internalType: headline
+      type: headline
     spaceAfter: default
     content:
-      - internalType: content-box
+      - type: content-box
         ratio: none
         alignement: left
         image: https://ruhmesmeile.com/fileadmin/_processed_/7/8/csm_Agentur-und-Kunden_6accaa9169.jpg
@@ -154,8 +153,8 @@ content:
           label: Hier entlang bitte
           newTab: false
           iconBefore: false
-          internalType: link-button
-      - internalType: content-box
+          type: link-button
+      - type: content-box
         ratio: none
         alignement: left
         image: https://ruhmesmeile.com/fileadmin/_processed_/5/0/csm_Entwickler-Setup_cc528d479f.jpg
@@ -174,12 +173,12 @@ content:
           label: Unsere Services
           newTab: false
           iconBefore: false
-          internalType: link-button
-    internalType: section
+          type: link-button
+    type: section
     gutter: default
   - mode: list
-    width: full
     spaceBefore: default
+    width: full
     background: default
     headline:
       level: h2
@@ -187,10 +186,10 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
-      internalType: headline
+      type: headline
     spaceAfter: default
     content:
-      - internalType: storytelling
+      - type: storytelling
         full: false
         image:
           source: https://ruhmesmeile.com/fileadmin/_processed_/5/c/csm_Websites-TYPO3-PP_7270dc3fa5.png
@@ -207,7 +206,7 @@ content:
             content: Content Management Systeme
             spaceAfter: none
             pageHeader: false
-            internalType: headline
+            type: headline
           text: >-
             Im Bereich der Webentwicklung mit Content Management Systemen
             greifen wir vor allem auf zwei Technologien zurück:
@@ -229,9 +228,9 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
-            internalType: link-button
+            type: link-button
         backgroundColor: "#edf3f3"
-      - internalType: storytelling
+      - type: storytelling
         full: false
         image:
           source: https://ruhmesmeile.com/fileadmin/_processed_/9/b/csm_Webdesign-PP_6311df9338.png
@@ -248,7 +247,7 @@ content:
             content: Webdesign und UX Design
             spaceAfter: none
             pageHeader: false
-            internalType: headline
+            type: headline
           text: "[Erfahren Sie
             mehr](https://ruhmesmeile.com/websites/website-ux-und-webdesign) zu
             den Qualitätsfaktoren User Experience, Usability, Kompatibilität
@@ -266,8 +265,8 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
-            internalType: link-button
-      - internalType: storytelling
+            type: link-button
+      - type: storytelling
         full: false
         image:
           source: https://ruhmesmeile.com/fileadmin/users/redakteur/redakteur_upload/Websites/Web-Analyse-desktop-bg1.jpg
@@ -284,7 +283,7 @@ content:
             content: "Online Marketing "
             spaceAfter: none
             pageHeader: false
-            internalType: headline
+            type: headline
           text: >-
             Benötigen Sie für eine Kampagne eine [Landing
             Page](https://ruhmesmeile.com/websites/landing-pages) oder wollen
@@ -307,10 +306,10 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
-            internalType: link-button
+            type: link-button
         backgroundImage: ""
         backgroundColor: "#f0f0f0"
-      - internalType: storytelling
+      - type: storytelling
         full: false
         image:
           source: https://ruhmesmeile.com/fileadmin/_processed_/1/7/csm_iMac_Mockup_685a9bc620.png
@@ -324,10 +323,10 @@ content:
           headline:
             level: h2
             align: center
-            content: "Frontends für Webprojekte"
+            content: Frontends für Webprojekte
             spaceAfter: none
             pageHeader: false
-            internalType: headline
+            type: headline
           text: >-
             Services für
             [Website-Frontends](https://ruhmesmeile.com/web-frontends/website-frontends)
@@ -350,9 +349,9 @@ content:
             label: Mehr erfahren
             newTab: false
             iconBefore: false
-            internalType: link-button
+            type: link-button
         backgroundImage: ""
-      - internalType: visual
+      - type: visual
         height: small
         media:
           mode: image
@@ -382,7 +381,7 @@ content:
             label: Sprechen Sie uns an.
             newTab: false
             iconBefore: false
-            internalType: link-button
+            type: link-button
           indent: false
           horizontal: center
           vertical: center
@@ -390,11 +389,11 @@ content:
         backgroundColor: "#ccc"
         inbox: false
         skipButton: false
-    internalType: section
+    type: section
     gutter: default
   - mode: default
-    width: narrow
     spaceBefore: default
+    width: narrow
     background: default
     headline:
       level: h2
@@ -402,10 +401,10 @@ content:
       content: Projekte & Case Studies
       spaceAfter: none
       pageHeader: false
-      internalType: headline
+      type: headline
     spaceAfter: default
     content:
-      - internalType: teaser-box
+      - type: teaser-box
         image: https://ruhmesmeile.com/fileadmin/_processed_/a/f/csm_217021_N3_website_61d26e296c.jpg
         topic: HPP Architekten
         text: Corporate Website Relaunch auf Basis von TYPO3
@@ -423,8 +422,8 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-          internalType: link-button
-      - internalType: teaser-box
+          type: link-button
+      - type: teaser-box
         image: https://ruhmesmeile.com/fileadmin/_processed_/8/6/csm_Dachser_Teaser_4zu3_2a78fedb41.png
         topic: Dachser
         text: Digitales Design-System
@@ -442,7 +441,7 @@ content:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-          internalType: link-button
-    internalType: section
+          type: link-button
+    type: section
     gutter: default
 ---

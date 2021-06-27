@@ -18,7 +18,6 @@ collections:
     folder: content
     create: true
     delete: true
-    identifier_field: id
     extension: md
     slug: 'page/{{slug}}'
     fields:
@@ -32,6 +31,11 @@ collections:
         widget: string
         default: default
         hint: Choose a layout for the page
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        hint: Title for the page
         required: false
       - label: Sections
         name: sections
@@ -96,7 +100,7 @@ collections:
                     fields:
                       - label: Image
                         name: image
-                        widget: string
+                        widget: image
                         default: 'https://picsum.photos/seed/kdsquote/300/300'
                         hint: >-
                           Select an image to display inside the quote, to the
@@ -104,7 +108,7 @@ collections:
                         required: false
                       - label: Text
                         name: text
-                        widget: string
+                        widget: markdown
                         default: >-
                           Consequuntur est quia atque eum ducimus. Consequatur
                           fugiat hic eos perferendis. Libero unde omnis dolorem
@@ -131,6 +135,10 @@ collections:
                         default: '2021-03-29'
                         hint: Optionally display a date for the quote
                         required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: quotes-slider
                 hint: Quotes Slider
                 required: false
               - label: Link Button
@@ -264,6 +272,10 @@ collections:
                     widget: boolean
                     hint: Toggle is disabled
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: toggle
                 hint: Toggle Switch
                 required: false
               - label: Button
@@ -423,6 +435,10 @@ collections:
                     widget: boolean
                     hint: Choose whether the element is removable or not
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: tag-label
                 hint: Component to render a pill / tag / label
                 required: false
               - label: Visual
@@ -467,19 +483,19 @@ collections:
                         fields:
                           - label: SrcMobile
                             name: srcMobile
-                            widget: string
+                            widget: image
                             default: 'https://picsum.photos/seed/kdsvisual/640/270'
                             hint: Background image source for small screens
                             required: false
                           - label: SrcTablet
                             name: srcTablet
-                            widget: string
+                            widget: image
                             default: 'https://picsum.photos/seed/kdsvisual/1280/540'
                             hint: Background image source for medium screens
                             required: false
                           - label: SrcDesktop
                             name: srcDesktop
-                            widget: string
+                            widget: image
                             default: 'https://picsum.photos/seed/kdsvisual/1920/810'
                             hint: Background image source for large screens
                             required: false
@@ -747,6 +763,10 @@ collections:
                     widget: string
                     hint: Additional Classes
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: visual
                 hint: visual
                 required: false
               - label: Quote
@@ -755,13 +775,13 @@ collections:
                 fields:
                   - label: Image
                     name: image
-                    widget: string
+                    widget: image
                     default: 'https://picsum.photos/seed/kdsquote/300/300'
                     hint: 'Select an image to display inside the quote, to the left'
                     required: false
                   - label: Text
                     name: text
-                    widget: string
+                    widget: markdown
                     default: >-
                       Consequuntur est quia atque eum ducimus. Consequatur
                       fugiat hic eos perferendis. Libero unde omnis dolorem
@@ -787,6 +807,10 @@ collections:
                     default: '2021-03-29'
                     hint: Optionally display a date for the quote
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: quote
                 hint: Component to display a rich quote
                 required: false
               - label: Visual Slider
@@ -844,19 +868,19 @@ collections:
                             fields:
                               - label: SrcMobile
                                 name: srcMobile
-                                widget: string
+                                widget: image
                                 default: 'https://picsum.photos/seed/kdsvisual/640/270'
                                 hint: Background image source for small screens
                                 required: false
                               - label: SrcTablet
                                 name: srcTablet
-                                widget: string
+                                widget: image
                                 default: 'https://picsum.photos/seed/kdsvisual/1280/540'
                                 hint: Background image source for medium screens
                                 required: false
                               - label: SrcDesktop
                                 name: srcDesktop
-                                widget: string
+                                widget: image
                                 default: 'https://picsum.photos/seed/kdsvisual/1920/810'
                                 hint: Background image source for large screens
                                 required: false
@@ -1135,6 +1159,10 @@ collections:
                         widget: string
                         hint: preview label
                         required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: visual-slider
                 hint: Visual Slider
                 required: false
               - label: Contact
@@ -1147,13 +1175,13 @@ collections:
                     fields:
                       - label: Src
                         name: src
-                        widget: string
+                        widget: image
                         default: 'https://picsum.photos/seed/kdspicture/300/300'
                         hint: Picture source
                         required: false
                       - label: SrcSet
                         name: srcSet
-                        widget: string
+                        widget: image
                         hint: Use a srcSet to display picture
                         required: false
                       - label: Alt
@@ -1234,7 +1262,7 @@ collections:
                         fields:
                           - label: SrcSet
                             name: srcSet
-                            widget: string
+                            widget: image
                             hint: Use a srcSet to display picture
                             required: false
                           - label: Media
@@ -1283,6 +1311,10 @@ collections:
                     widget: string
                     hint: Copy text
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: contact
                 hint: Component to show contact information
                 required: false
               - label: Storytelling
@@ -1291,7 +1323,7 @@ collections:
                 fields:
                   - label: BackgroundImage
                     name: backgroundImage
-                    widget: string
+                    widget: image
                     hint: Background image for the whole element
                     required: false
                   - label: BackgroundColor
@@ -1310,7 +1342,7 @@ collections:
                     fields:
                       - label: Source
                         name: source
-                        widget: string
+                        widget: image
                         default: 'https://picsum.photos/seed/kdsstorytelling/400/300'
                         hint: Image source to use
                         required: false
@@ -1470,7 +1502,7 @@ collections:
                         required: false
                       - label: Text
                         name: text
-                        widget: string
+                        widget: markdown
                         default: >-
                           Autem voluptas quis facere et qui voluptate earum.
                           Dolorum totam animi perferendis. Est est et dolor
@@ -1632,6 +1664,10 @@ collections:
                         required: false
                     hint: Text content to display
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: storytelling
                 hint: >-
                   Component to present rich combinations of text and media, best
                   used sequentially
@@ -1650,7 +1686,7 @@ collections:
                     required: false
                   - label: Text
                     name: text
-                    widget: string
+                    widget: markdown
                     default: >-
                       Proin risus est, rhoncus ut neque iaculis, rhoncus semper
                       felis. Phasellus vel erat interdum, blandit metus et,
@@ -1666,6 +1702,10 @@ collections:
                       Include the text for the collapsible that should be
                       visible after opening
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: collapsible-box
                 hint: Component to conditionally show additional info
                 required: false
               - label: Count Up
@@ -1710,7 +1750,7 @@ collections:
                     required: false
                   - label: Text
                     name: text
-                    widget: string
+                    widget: markdown
                     default: >-
                       Consequuntur est quia atque eum ducimus. Consequatur
                       fugiat hic eos perferendis. Libero unde omnis dolorem
@@ -1825,6 +1865,10 @@ collections:
                         hint: Open link in new Tab
                         required: false
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: count-up
                 hint: Component to to increase a number up to a final value
                 required: false
               - label: Content Box
@@ -1865,7 +1909,7 @@ collections:
                     required: false
                   - label: Image
                     name: image
-                    widget: string
+                    widget: image
                     default: 'https://picsum.photos/seed/kdscontentbox/500/300'
                     hint: >-
                       Select an image to display inside the content box, at the
@@ -1881,7 +1925,7 @@ collections:
                     required: false
                   - label: Text
                     name: text
-                    widget: string
+                    widget: markdown
                     default: >-
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Lorem ispum dolor distinctio minima unde voluptatum aut.
@@ -2000,6 +2044,10 @@ collections:
                         hint: Open link in new Tab
                         required: false
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: content-box
                 hint: 'Component to display content in a condensed, boxed form'
                 required: false
               - label: Headline
@@ -2069,6 +2117,10 @@ collections:
                       Set the headline as a page header, triggering special css
                       treatment
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: headline
                 hint: Headline
                 required: false
               - label: Text Media
@@ -2077,7 +2129,7 @@ collections:
                 fields:
                   - label: Text
                     name: text
-                    widget: string
+                    widget: markdown
                     default: >-
                       Consequuntur est quia atque eum ducimus. Consequatur
                       fugiat hic eos perferendis. Libero unde omnis dolorem
@@ -2179,13 +2231,13 @@ collections:
                             fields:
                               - label: Src
                                 name: src
-                                widget: string
+                                widget: image
                                 default: 'https://picsum.photos/seed/kdspicture/300/300'
                                 hint: Picture source
                                 required: false
                               - label: SrcSet
                                 name: srcSet
-                                widget: string
+                                widget: image
                                 hint: Use a srcSet to display picture
                                 required: false
                               - label: Alt
@@ -2268,7 +2320,7 @@ collections:
                                 fields:
                                   - label: SrcSet
                                     name: srcSet
-                                    widget: string
+                                    widget: image
                                     hint: Use a srcSet to display picture
                                     required: false
                                   - label: Media
@@ -2305,14 +2357,14 @@ collections:
                             fields:
                               - label: Thumb
                                 name: thumb
-                                widget: string
+                                widget: image
                                 default: >-
                                   https://picsum.photos/seed/kdslightboximage/600/338
                                 hint: Thumbnail Source
                                 required: false
                               - label: Image
                                 name: image
-                                widget: string
+                                widget: image
                                 default: >-
                                   https://picsum.photos/seed/kdslightboximage/1800/1013
                                 hint: Lightbox Image Source
@@ -2374,6 +2426,10 @@ collections:
                         required: false
                     hint: 'Component to display copy text, including media'
                     required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: text-media
                 hint: 'Component to display copy text, including media'
                 required: false
               - label: Teaser Box
@@ -2390,7 +2446,7 @@ collections:
                     required: false
                   - label: Text
                     name: text
-                    widget: string
+                    widget: markdown
                     default: >-
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Lorem ispum dolor distinctio minima unde voluptatum aut.
@@ -2518,7 +2574,7 @@ collections:
                     required: false
                   - label: Image
                     name: image
-                    widget: string
+                    widget: image
                     default: 'https://picsum.photos/seed/kdsteaserbox/500/300'
                     hint: >-
                       Select an image to display inside the teaser box, at the
@@ -2555,13 +2611,13 @@ collections:
                     fields:
                       - label: Src
                         name: src
-                        widget: string
+                        widget: image
                         default: 'https://picsum.photos/seed/kdspicture/300/300'
                         hint: Picture source
                         required: false
                       - label: SrcSet
                         name: srcSet
-                        widget: string
+                        widget: image
                         hint: Use a srcSet to display picture
                         required: false
                       - label: Alt
@@ -2642,7 +2698,7 @@ collections:
                         fields:
                           - label: SrcSet
                             name: srcSet
-                            widget: string
+                            widget: image
                             hint: Use a srcSet to display picture
                             required: false
                           - label: Media
@@ -2660,6 +2716,10 @@ collections:
                         widget: string
                         hint: Set additional class(es) to the picture
                         required: false
+                  - name: type
+                    widget: hidden
+                    description: Internal type for interface resolution
+                    default: logo-tiles
                 hint: Component to list logos or seals
                 required: false
               - label: Teaser Row
@@ -2676,7 +2736,7 @@ collections:
                     required: false
                   - label: Text
                     name: text
-                    widget: string
+                    widget: markdown
                     default: >-
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Lorem ispum dolor distinctio minima unde voluptatum aut.
@@ -2908,5 +2968,17 @@ collections:
                   Set the headline as a page header, triggering special css
                   treatment
                 required: false
+              - name: type
+                widget: hidden
+                description: Internal type for interface resolution
+                default: headline
             hint: Headline
             required: false
+          - name: type
+            widget: hidden
+            description: Internal type for interface resolution
+            default: sections
+      - name: type
+        widget: hidden
+        description: Internal type for interface resolution
+        default: page

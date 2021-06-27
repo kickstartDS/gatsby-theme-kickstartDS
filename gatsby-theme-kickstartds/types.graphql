@@ -73,11 +73,11 @@ type ButtonComponent implements ContentComponent {
   disabled__f1d0: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 interface ContentComponent {
-  internalType: String
+  type: String
 }
 
 """Button Style: Choose one of the styles from the list"""
@@ -109,7 +109,7 @@ type IconComponent implements ContentComponent {
   className__251a: String
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """'type' attribute: Select the type attribute for the button"""
@@ -146,7 +146,7 @@ type ContentBoxComponent implements ContentComponent {
   link__4433: ContentBoxComponentLink
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """
@@ -236,7 +236,7 @@ type DividerComponent implements ContentComponent {
   variant__fdb0: DividerComponentVariant
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Style of the divider: Choose a variant for the divider"""
@@ -269,7 +269,7 @@ type HeadlineComponent implements ContentComponent {
   pageHeader__5c3f: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Level: Select the headline level to use, or p alternatively"""
@@ -329,7 +329,7 @@ type LightboxLazyImageComponent implements ContentComponent {
   class__b1f4: String
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 type LinkButtonComponent implements ContentComponent {
@@ -372,7 +372,7 @@ type LinkButtonComponent implements ContentComponent {
   newTab__dc35: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Button Style: Choose one of the styles from the list"""
@@ -439,7 +439,7 @@ type PictureComponent implements ContentComponent {
   pictureClassName__9f3e: String
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Object fit: Select a value for the picture object fit"""
@@ -520,7 +520,7 @@ type SliderComponent implements ContentComponent {
   arrows__f98f: Arrows
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """
@@ -547,7 +547,7 @@ type TagLabelComponent implements ContentComponent {
   removable__7eaf: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Size: Choose a size to scale the tag label up or down"""
@@ -569,7 +569,7 @@ type TeaserComponent implements ContentComponent {
   link__a055: TeaserComponentLink
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 type TeaserComponentLink {
@@ -655,7 +655,7 @@ type TeaserBoxComponent implements ContentComponent {
   imageSpacing__2828: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 type TeaserBoxComponentLink {
@@ -737,7 +737,7 @@ type TeaserRowComponent implements ContentComponent {
   link__2757: TeaserRowComponentLink
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 type TeaserRowComponentLink {
@@ -812,7 +812,7 @@ type TextMediaComponent implements ContentComponent {
   media__d3b5: [TextMediaComponentMedia!]
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Media alignment: In relation to the text content"""
@@ -883,7 +883,7 @@ type ToggleComponent implements ContentComponent {
   disabled__d11c: Boolean
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Collapsible Box: Component to conditionally show additional info"""
@@ -899,7 +899,7 @@ type CollapsibleBoxComponent implements ContentComponent {
   text__9abc: String
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Contact: Component to show contact information"""
@@ -922,7 +922,7 @@ type ContactComponent implements ContentComponent {
   copy__cda3: String
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Count Up: Component to to increase a number up to a final value"""
@@ -939,7 +939,7 @@ type CountUpComponent implements ContentComponent {
   link__ac78: LinkButtonComponent
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Logo Tiles: Component to list logos or seals"""
@@ -948,7 +948,7 @@ type LogoTilesComponent implements ContentComponent {
   logos__8ff6: [PictureComponent!]
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Quote: Component to display a rich quote"""
@@ -966,7 +966,7 @@ type QuoteComponent implements ContentComponent {
   date__3f4e: String
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Quotes Slider"""
@@ -974,7 +974,7 @@ type QuotesSliderComponent implements ContentComponent {
   slides__d47f: [QuoteComponent!]
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Visual Slide Preview: Visual slide preview"""
@@ -983,7 +983,7 @@ type VisualSlidePreviewComponent implements ContentComponent {
   previewLabel__516c: String
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """
@@ -1006,7 +1006,7 @@ type StorytellingComponent implements ContentComponent {
   box__5f7a: StorytellingComponentBox
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Image: Image displayed alongside the text content"""
@@ -1143,7 +1143,7 @@ type VisualComponent implements ContentComponent {
   className__d3dc: String
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Height"""
@@ -1340,7 +1340,7 @@ type VisualSliderComponent implements ContentComponent {
   slides__e195: [VisualSliderComponentSlides!]
 
   """Internal type: Internal type for interface resolution"""
-  internalType: String
+  type: String
 }
 
 """Visual: visual"""

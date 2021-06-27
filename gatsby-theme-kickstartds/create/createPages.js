@@ -61,8 +61,8 @@ module.exports = async ({ actions, graphql }) => {
       allKickstartDsPage {
         edges {
           node {
-            heading
-            content {
+            title
+            sections {
               ...SectionComponentDeepNesting
             }
           }
@@ -75,7 +75,7 @@ module.exports = async ({ actions, graphql }) => {
     data.allKickstartDsPage.edges.map(async (page) => {
       await actions.createPage({
         component: require.resolve('../src/templates/page.js'),
-        path: `page/${slugify(page.node.heading)}`,
+        path: `page/${slugify(page.node.title)}`,
         context: {
           page: page.node
         },

@@ -1,9 +1,8 @@
 ---
-Id: bff34890-b297-11eb-aba2-9d45a4718acf
+id: bff34890-b297-11eb-aba2-9d45a4718acf
 layout: default
-heading: Dachser in figures 2020
 title: Count Up Dachser
-content:
+sections:
   - mode: default
     width: default
     spaceBefore: default
@@ -15,10 +14,10 @@ content:
       spaceAfter: none
       pageHeader: false
       subheadline: Your partner in logistics
-      internalType: headline
+      type: headline
     spaceAfter: none
     content:
-      - internalType: count-up
+      - type: count-up
         to: "30782"
         topic: Employees
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -34,7 +33,7 @@ content:
           label: Career
           newTab: false
           iconBefore: false
-      - internalType: count-up
+      - type: count-up
         to: "387"
         topic: "Locations (worldwide) "
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -50,8 +49,8 @@ content:
           label: Global Search
           newTab: false
           iconBefore: false
-          internalType: link-button
-      - internalType: count-up
+          type: link-button
+      - type: count-up
         to: "42"
         topic: "Country orgs (worldwide) "
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -67,8 +66,8 @@ content:
           label: Local Search
           newTab: false
           iconBefore: false
-          internalType: link-button
-    internalType: section
+          type: link-button
+    type: section
     gutter: large
   - mode: default
     width: narrow
@@ -80,10 +79,10 @@ content:
       content: ""
       spaceAfter: none
       pageHeader: false
-      internalType: headline
+      type: headline
     spaceAfter: default
     content:
-      - internalType: count-up
+      - type: count-up
         to: "78616400"
         topic: Shipments
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -99,8 +98,8 @@ content:
           label: Stats
           newTab: false
           iconBefore: false
-          internalType: link-button
-      - internalType: count-up
+          type: link-button
+      - type: count-up
         to: "39793200"
         topic: Tonnage
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
@@ -116,7 +115,7 @@ content:
           label: Pledge
           newTab: false
           iconBefore: false
-          internalType: link-button
-    internalType: section
+          type: link-button
+    type: section
     gutter: large
 ---

@@ -5,10 +5,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     type KickstartDsWordpressPage implements Node & KickstartDsPage @dontInfer {
       id: ID!
       layout: String!
-      description: String
       title: String
-      date: Date @dateformat
-      content: [SectionSchema]
+      sections: [SectionSchema]
     }
   `);
 };

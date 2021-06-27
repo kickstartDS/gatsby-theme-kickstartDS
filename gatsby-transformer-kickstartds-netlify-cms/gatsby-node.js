@@ -1,5 +1,5 @@
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
-const typeResolutionField = 'internalType';
+const typeResolutionField = 'type';
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
@@ -8,11 +8,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     type KickstartDsNetlifyCMSPage implements Node & KickstartDsPage @dontInfer {
       id: ID!
       layout: String!
-      heading: String!
-      description: String
       title: String
-      date: Date @dateformat
-      content: [SectionComponent]
+      sections: [SectionComponent]
     }
   `);
 };
@@ -26,10 +23,10 @@ const hashObjectKeys = (obj, outerComponent) => {
     } else {
       if (Array.isArray(obj[property])) {
         hashedObj[hashFieldName(property, outerComponent)] = obj[property].map((item) => {
-          return hashObjectKeys(item, outerComponent === 'section' ? item['internalType'] : outerComponent);
+          return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
         });
       } else if (typeof obj[property] === 'object') {
-        hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], obj[property]['internalType'] || outerComponent);
+        hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], obj[property][typeResolutionField] || outerComponent);
       } else {
         hashedObj[hashFieldName(property, outerComponent)] = obj[property];
       }
@@ -42,17 +39,14 @@ const hashObjectKeys = (obj, outerComponent) => {
 exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
-  if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.Id) {
+  if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.id) {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
-    const parent = getNode(node.parent);
+    delete node.frontmatter.id;
 
-    node.frontmatter.content = node.frontmatter.content.map((section) => hashObjectKeys(section, 'section'));
+    node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
 
     const page = {
       id: kickstartDSPageId,
-      title: node.frontmatter.heading,
-      description: `${node.frontmatter.heading} page`,
-      date: new Date(parent.ctimeMs).toISOString(),
       ...node.frontmatter
     };
 

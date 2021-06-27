@@ -16,7 +16,7 @@ const libs = { ...baseLib, ...blogLib, ...contentLib };
 const components = {};
 const componentCounter = [];
 
-const typeResolutionField = 'internalType';
+const typeResolutionField = 'type';
 
 Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
@@ -49,7 +49,7 @@ const cleanObjectKeys = (obj) => {
 };
 
 const getComponent = (element, isSection = false) => {
-  const componentType = isSection ? 'section' : element['internalType'] || element['type'];
+  const componentType = isSection ? 'section' : element['type'];
 
   componentCounter[componentType] = componentCounter[componentType]+1 || 1;
   const key = componentType+'-'+componentCounter[componentType];
@@ -66,6 +66,7 @@ const getComponent = (element, isSection = false) => {
       }
     });
     const cleanedElement = cleanObjectKeys(element);
+    cleanedElement['headline'].type = 'headline';
     
     return (
       <Component key={key} { ...cleanedElement }>
@@ -85,9 +86,9 @@ const getContent = (content, sections = false) => {
 };
 
 export const KickstartDSPage: FunctionComponent<any> = ({
-  content,
+  sections,
 }) => (
   <KickstartDSLayout>
-    {getContent(content, true)}
+    {getContent(sections, true)}
   </KickstartDSLayout>
 );

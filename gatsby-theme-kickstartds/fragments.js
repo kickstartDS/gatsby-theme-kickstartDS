@@ -20,7 +20,7 @@ export const ButtonComponentFragment = graphql`fragment ButtonComponent on Butto
   value__ed44
   name__6a5d
   disabled__f1d0
-  internalType
+  type
 }
 `
 
@@ -28,7 +28,7 @@ export const IconComponentFragment = graphql`fragment IconComponent on IconCompo
   icon__dcfe
   role__ea32
   className__251a
-  internalType
+  type
 }
 `
 
@@ -41,7 +41,7 @@ export const ContentBoxComponentFragment = graphql`fragment ContentBoxComponent 
   link__4433 {
     ...ContentBoxComponentLinkNoNesting
   }
-  internalType
+  type
 }
 `
 
@@ -66,7 +66,7 @@ export const ContentBoxComponentLinkFragment = graphql`fragment ContentBoxCompon
 
 export const DividerComponentFragment = graphql`fragment DividerComponent on DividerComponent {
   variant__fdb0
-  internalType
+  type
 }
 `
 
@@ -77,7 +77,7 @@ export const HeadlineComponentFragment = graphql`fragment HeadlineComponent on H
   subheadline__aa93
   spaceAfter__6f7d
   pageHeader__5c3f
-  internalType
+  type
 }
 `
 
@@ -92,7 +92,7 @@ export const LightboxLazyImageComponentFragment = graphql`fragment LightboxLazyI
   gallery__d524
   id__5744
   class__b1f4
-  internalType
+  type
 }
 `
 
@@ -111,7 +111,7 @@ export const LinkButtonComponentFragment = graphql`fragment LinkButtonComponent 
   iconAnimation__9933
   href__11db
   newTab__dc35
-  internalType
+  type
 }
 `
 
@@ -132,7 +132,7 @@ export const PictureComponentFragment = graphql`fragment PictureComponent on Pic
     ...PictureComponentSourcesNoNesting
   }
   pictureClassName__9f3e
-  internalType
+  type
 }
 `
 
@@ -188,7 +188,7 @@ export const SliderComponentFragment = graphql`fragment SliderComponent on Slide
   className__6e21
   component__655b
   arrows__f98f
-  internalType
+  type
 }
 `
 
@@ -197,7 +197,7 @@ export const TagLabelComponentFragment = graphql`fragment TagLabelComponent on T
   size__d93f
   link__6ced
   removable__7eaf
-  internalType
+  type
 }
 `
 
@@ -208,7 +208,7 @@ export const TeaserComponentFragment = graphql`fragment TeaserComponent on Tease
   link__a055 {
     ...TeaserComponentLinkNoNesting
   }
-  internalType
+  type
 }
 `
 
@@ -241,7 +241,7 @@ export const TeaserBoxComponentFragment = graphql`fragment TeaserBoxComponent on
   image__5eb9
   ratio__d62c
   imageSpacing__2828
-  internalType
+  type
 }
 `
 
@@ -271,7 +271,7 @@ export const TeaserRowComponentFragment = graphql`fragment TeaserRowComponent on
   link__2757 {
     ...TeaserRowComponentLinkNoNesting
   }
-  internalType
+  type
 }
 `
 
@@ -302,7 +302,7 @@ export const TextMediaComponentFragment = graphql`fragment TextMediaComponent on
     ...TextMediaComponentMedia1NoNesting,
     ...TextMediaComponentMedia2NoNesting
   }
-  internalType
+  type
 }
 `
 
@@ -344,14 +344,14 @@ export const ToggleComponentFragment = graphql`fragment ToggleComponent on Toggl
   name__f2d9
   checked__90a6
   disabled__d11c
-  internalType
+  type
 }
 `
 
 export const CollapsibleBoxComponentFragment = graphql`fragment CollapsibleBoxComponent on CollapsibleBoxComponent {
   summary__919d
   text__9abc
-  internalType
+  type
 }
 `
 
@@ -364,7 +364,7 @@ export const ContactComponentFragment = graphql`fragment ContactComponent on Con
   phone__520b
   email__70d5
   copy__cda3
-  internalType
+  type
 }
 `
 
@@ -378,7 +378,7 @@ export const CountUpComponentFragment = graphql`fragment CountUpComponent on Cou
   link__ac78 {
     ...LinkButtonComponentNoNesting
   }
-  internalType
+  type
 }
 `
 
@@ -386,7 +386,7 @@ export const LogoTilesComponentFragment = graphql`fragment LogoTilesComponent on
   logos__8ff6 {
     ...PictureComponentNoNesting
   }
-  internalType
+  type
 }
 `
 
@@ -395,7 +395,7 @@ export const QuoteComponentFragment = graphql`fragment QuoteComponent on QuoteCo
   text__b65e
   source__86ac
   date__3f4e
-  internalType
+  type
 }
 `
 
@@ -403,13 +403,13 @@ export const QuotesSliderComponentFragment = graphql`fragment QuotesSliderCompon
   slides__d47f {
     ...QuoteComponentNoNesting
   }
-  internalType
+  type
 }
 `
 
 export const VisualSlidePreviewComponentFragment = graphql`fragment VisualSlidePreviewComponent on VisualSlidePreviewComponent {
   previewLabel__516c
-  internalType
+  type
 }
 `
 
@@ -423,7 +423,7 @@ export const StorytellingComponentFragment = graphql`fragment StorytellingCompon
   box__5f7a {
     ...StorytellingComponentBoxNoNesting
   }
-  internalType
+  type
 }
 `
 
@@ -472,7 +472,7 @@ export const VisualComponentFragment = graphql`fragment VisualComponent on Visua
   inbox__8206
   skipButton__bf9d
   className__d3dc
-  internalType
+  type
 }
 `
 
@@ -541,7 +541,7 @@ export const VisualSliderComponentFragment = graphql`fragment VisualSliderCompon
   slides__e195 {
     ...VisualSliderComponentSlidesNoNesting
   }
-  internalType
+  type
 }
 `
 
@@ -637,7 +637,7 @@ export const ButtonComponentNoNestingFragment = graphql`fragment ButtonComponent
   value__ed44
   name__6a5d
   disabled__f1d0
-  internalType
+  type
 }
 `
 
@@ -645,7 +645,7 @@ export const IconComponentNoNestingFragment = graphql`fragment IconComponentNoNe
   icon__dcfe
   role__ea32
   className__251a
-  internalType
+  type
 }
 `
 
@@ -655,7 +655,7 @@ export const ContentBoxComponentNoNestingFragment = graphql`fragment ContentBoxC
   image__b7d7
   topic__ed87
   text__b5a1
-  internalType
+  type
 }
 `
 
@@ -677,7 +677,7 @@ export const ContentBoxComponentLinkNoNestingFragment = graphql`fragment Content
 
 export const DividerComponentNoNestingFragment = graphql`fragment DividerComponentNoNesting on DividerComponent {
   variant__fdb0
-  internalType
+  type
 }
 `
 
@@ -688,7 +688,7 @@ export const HeadlineComponentNoNestingFragment = graphql`fragment HeadlineCompo
   subheadline__aa93
   spaceAfter__6f7d
   pageHeader__5c3f
-  internalType
+  type
 }
 `
 
@@ -703,7 +703,7 @@ export const LightboxLazyImageComponentNoNestingFragment = graphql`fragment Ligh
   gallery__d524
   id__5744
   class__b1f4
-  internalType
+  type
 }
 `
 
@@ -719,7 +719,7 @@ export const LinkButtonComponentNoNestingFragment = graphql`fragment LinkButtonC
   iconAnimation__9933
   href__11db
   newTab__dc35
-  internalType
+  type
 }
 `
 
@@ -737,7 +737,7 @@ export const PictureComponentNoNestingFragment = graphql`fragment PictureCompone
   noscript__ec26
   lazy__55bf
   pictureClassName__9f3e
-  internalType
+  type
 }
 `
 
@@ -763,7 +763,7 @@ export const SliderComponentNoNestingFragment = graphql`fragment SliderComponent
   className__6e21
   component__655b
   arrows__f98f
-  internalType
+  type
 }
 `
 
@@ -772,7 +772,7 @@ export const TagLabelComponentNoNestingFragment = graphql`fragment TagLabelCompo
   size__d93f
   link__6ced
   removable__7eaf
-  internalType
+  type
 }
 `
 
@@ -780,7 +780,7 @@ export const TeaserComponentNoNestingFragment = graphql`fragment TeaserComponent
   topic__d049
   text__cc83
   darkStyle__d107
-  internalType
+  type
 }
 `
 
@@ -807,7 +807,7 @@ export const TeaserBoxComponentNoNestingFragment = graphql`fragment TeaserBoxCom
   image__5eb9
   ratio__d62c
   imageSpacing__2828
-  internalType
+  type
 }
 `
 
@@ -831,7 +831,7 @@ export const TeaserRowComponentNoNestingFragment = graphql`fragment TeaserRowCom
   topic__eb4b
   text__003d
   darkStyle__4848
-  internalType
+  type
 }
 `
 
@@ -854,7 +854,7 @@ export const TeaserRowComponentLinkNoNestingFragment = graphql`fragment TeaserRo
 export const TextMediaComponentNoNestingFragment = graphql`fragment TextMediaComponentNoNesting on TextMediaComponent {
   text__117a
   mediaAlignment__0da3
-  internalType
+  type
 }
 `
 
@@ -887,14 +887,14 @@ export const ToggleComponentNoNestingFragment = graphql`fragment ToggleComponent
   name__f2d9
   checked__90a6
   disabled__d11c
-  internalType
+  type
 }
 `
 
 export const CollapsibleBoxComponentNoNestingFragment = graphql`fragment CollapsibleBoxComponentNoNesting on CollapsibleBoxComponent {
   summary__919d
   text__9abc
-  internalType
+  type
 }
 `
 
@@ -904,7 +904,7 @@ export const ContactComponentNoNestingFragment = graphql`fragment ContactCompone
   phone__520b
   email__70d5
   copy__cda3
-  internalType
+  type
 }
 `
 
@@ -912,12 +912,12 @@ export const CountUpComponentNoNestingFragment = graphql`fragment CountUpCompone
   to__fc5f
   topic__b6c8
   text__0f41
-  internalType
+  type
 }
 `
 
 export const LogoTilesComponentNoNestingFragment = graphql`fragment LogoTilesComponentNoNesting on LogoTilesComponent {
-  internalType
+  type
 }
 `
 
@@ -926,18 +926,18 @@ export const QuoteComponentNoNestingFragment = graphql`fragment QuoteComponentNo
   text__b65e
   source__86ac
   date__3f4e
-  internalType
+  type
 }
 `
 
 export const QuotesSliderComponentNoNestingFragment = graphql`fragment QuotesSliderComponentNoNesting on QuotesSliderComponent {
-  internalType
+  type
 }
 `
 
 export const VisualSlidePreviewComponentNoNestingFragment = graphql`fragment VisualSlidePreviewComponentNoNesting on VisualSlidePreviewComponent {
   previewLabel__516c
-  internalType
+  type
 }
 `
 
@@ -945,7 +945,7 @@ export const StorytellingComponentNoNestingFragment = graphql`fragment Storytell
   backgroundImage__cb66
   backgroundColor__291a
   full__be79
-  internalType
+  type
 }
 `
 
@@ -979,7 +979,7 @@ export const VisualComponentNoNestingFragment = graphql`fragment VisualComponent
   inbox__8206
   skipButton__bf9d
   className__d3dc
-  internalType
+  type
 }
 `
 
@@ -1033,7 +1033,7 @@ export const VisualComponentBoxLinkNoNestingFragment = graphql`fragment VisualCo
 
 export const VisualSliderComponentNoNestingFragment = graphql`fragment VisualSliderComponentNoNesting on VisualSliderComponent {
   autoplay__e333
-  internalType
+  type
 }
 `
 
@@ -1114,7 +1114,7 @@ export const ButtonComponentDeepNestingFragment = graphql`fragment ButtonCompone
   value__ed44
   name__6a5d
   disabled__f1d0
-  internalType
+  type
 }
 `
 
@@ -1122,7 +1122,7 @@ export const IconComponentDeepNestingFragment = graphql`fragment IconComponentDe
   icon__dcfe
   role__ea32
   className__251a
-  internalType
+  type
 }
 `
 
@@ -1135,7 +1135,7 @@ export const ContentBoxComponentDeepNestingFragment = graphql`fragment ContentBo
   link__4433 {
     ...ContentBoxComponentLinkDeepNesting
   }
-  internalType
+  type
 }
 `
 
@@ -1160,7 +1160,7 @@ export const ContentBoxComponentLinkDeepNestingFragment = graphql`fragment Conte
 
 export const DividerComponentDeepNestingFragment = graphql`fragment DividerComponentDeepNesting on DividerComponent {
   variant__fdb0
-  internalType
+  type
 }
 `
 
@@ -1171,7 +1171,7 @@ export const HeadlineComponentDeepNestingFragment = graphql`fragment HeadlineCom
   subheadline__aa93
   spaceAfter__6f7d
   pageHeader__5c3f
-  internalType
+  type
 }
 `
 
@@ -1186,7 +1186,7 @@ export const LightboxLazyImageComponentDeepNestingFragment = graphql`fragment Li
   gallery__d524
   id__5744
   class__b1f4
-  internalType
+  type
 }
 `
 
@@ -1205,7 +1205,7 @@ export const LinkButtonComponentDeepNestingFragment = graphql`fragment LinkButto
   iconAnimation__9933
   href__11db
   newTab__dc35
-  internalType
+  type
 }
 `
 
@@ -1226,7 +1226,7 @@ export const PictureComponentDeepNestingFragment = graphql`fragment PictureCompo
     ...PictureComponentSourcesDeepNesting
   }
   pictureClassName__9f3e
-  internalType
+  type
 }
 `
 
@@ -1282,7 +1282,7 @@ export const SliderComponentDeepNestingFragment = graphql`fragment SliderCompone
   className__6e21
   component__655b
   arrows__f98f
-  internalType
+  type
 }
 `
 
@@ -1291,7 +1291,7 @@ export const TagLabelComponentDeepNestingFragment = graphql`fragment TagLabelCom
   size__d93f
   link__6ced
   removable__7eaf
-  internalType
+  type
 }
 `
 
@@ -1302,7 +1302,7 @@ export const TeaserComponentDeepNestingFragment = graphql`fragment TeaserCompone
   link__a055 {
     ...TeaserComponentLinkDeepNesting
   }
-  internalType
+  type
 }
 `
 
@@ -1335,7 +1335,7 @@ export const TeaserBoxComponentDeepNestingFragment = graphql`fragment TeaserBoxC
   image__5eb9
   ratio__d62c
   imageSpacing__2828
-  internalType
+  type
 }
 `
 
@@ -1365,7 +1365,7 @@ export const TeaserRowComponentDeepNestingFragment = graphql`fragment TeaserRowC
   link__2757 {
     ...TeaserRowComponentLinkDeepNesting
   }
-  internalType
+  type
 }
 `
 
@@ -1396,7 +1396,7 @@ export const TextMediaComponentDeepNestingFragment = graphql`fragment TextMediaC
     ...TextMediaComponentMedia1DeepNesting,
     ...TextMediaComponentMedia2DeepNesting
   }
-  internalType
+  type
 }
 `
 
@@ -1438,14 +1438,14 @@ export const ToggleComponentDeepNestingFragment = graphql`fragment ToggleCompone
   name__f2d9
   checked__90a6
   disabled__d11c
-  internalType
+  type
 }
 `
 
 export const CollapsibleBoxComponentDeepNestingFragment = graphql`fragment CollapsibleBoxComponentDeepNesting on CollapsibleBoxComponent {
   summary__919d
   text__9abc
-  internalType
+  type
 }
 `
 
@@ -1458,7 +1458,7 @@ export const ContactComponentDeepNestingFragment = graphql`fragment ContactCompo
   phone__520b
   email__70d5
   copy__cda3
-  internalType
+  type
 }
 `
 
@@ -1472,7 +1472,7 @@ export const CountUpComponentDeepNestingFragment = graphql`fragment CountUpCompo
   link__ac78 {
     ...LinkButtonComponentDeepNesting
   }
-  internalType
+  type
 }
 `
 
@@ -1480,7 +1480,7 @@ export const LogoTilesComponentDeepNestingFragment = graphql`fragment LogoTilesC
   logos__8ff6 {
     ...PictureComponentDeepNesting
   }
-  internalType
+  type
 }
 `
 
@@ -1489,7 +1489,7 @@ export const QuoteComponentDeepNestingFragment = graphql`fragment QuoteComponent
   text__b65e
   source__86ac
   date__3f4e
-  internalType
+  type
 }
 `
 
@@ -1497,13 +1497,13 @@ export const QuotesSliderComponentDeepNestingFragment = graphql`fragment QuotesS
   slides__d47f {
     ...QuoteComponentDeepNesting
   }
-  internalType
+  type
 }
 `
 
 export const VisualSlidePreviewComponentDeepNestingFragment = graphql`fragment VisualSlidePreviewComponentDeepNesting on VisualSlidePreviewComponent {
   previewLabel__516c
-  internalType
+  type
 }
 `
 
@@ -1517,7 +1517,7 @@ export const StorytellingComponentDeepNestingFragment = graphql`fragment Storyte
   box__5f7a {
     ...StorytellingComponentBoxDeepNesting
   }
-  internalType
+  type
 }
 `
 
@@ -1566,7 +1566,7 @@ export const VisualComponentDeepNestingFragment = graphql`fragment VisualCompone
   inbox__8206
   skipButton__bf9d
   className__d3dc
-  internalType
+  type
 }
 `
 
@@ -1635,7 +1635,7 @@ export const VisualSliderComponentDeepNestingFragment = graphql`fragment VisualS
   slides__e195 {
     ...VisualSliderComponentSlidesDeepNesting
   }
-  internalType
+  type
 }
 `
 
