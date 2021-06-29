@@ -10,21 +10,19 @@
     "develop": "gatsby develop"
   },
   "peerDependencies": {
-    "gatsby-plugin-netlify-cms": "^5.6.0",
+    "gatsby-plugin-netlify-cms": "^5.8.0",
     "html-webpack-plugin": "^5.3.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
-  },
-  "devDependencies": {
-    "gatsby-plugin-netlify-cms": "^5.6.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "text-transform-loader": "^2.0.0",
-    "vhtml": "^2.2.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "dependencies": {
+    "gatsby-plugin-netlify-cms": "^5.8.0",
     "netlify-cms-app": "^2.15.0",
-    "netlify-cms-widget-simple-uuid": "^0.0.2"
+    "netlify-cms-widget-simple-uuid": "^0.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "text-transform-loader": "^2.0.0",
+    "vhtml": "^2.2.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
