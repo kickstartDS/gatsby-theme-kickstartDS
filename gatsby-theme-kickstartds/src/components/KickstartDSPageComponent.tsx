@@ -4,21 +4,23 @@ import { FunctionComponent } from 'react';
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
 
 import * as baseLib from '@kickstartds/base';
-import * as blogLib from '@kickstartds/blog';
+// import * as blogLib from '@kickstartds/blog';
 import * as contentLib from '@kickstartds/content';
 
 import baseExports from '@kickstartds/base/lib/exports.json';
-import blogExports from '@kickstartds/blog/lib/exports.json';
+// import blogExports from '@kickstartds/blog/lib/exports.json';
 import contentExports from '@kickstartds/content/lib/exports.json';
 
-const libs = { ...baseLib, ...blogLib, ...contentLib };
+// const libs = { ...baseLib, ...blogLib, ...contentLib };
+const libs = { ...baseLib, ...contentLib };
 
 const components = {};
 const componentCounter = [];
 
 const typeResolutionField = 'type';
 
-Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
+// Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
+Object.entries({ ...baseExports, ...contentExports }).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
     components[key] = libs[value[0]];
   }
