@@ -13,10 +13,10 @@
     "gatsby-transformer-kickstartds-netlify-cms",
     "example"
   ],
-  "dependencies": {
-    "@kickstartds/base": "^1.0.0-alpha.28",
-    "@kickstartds/blog": "^1.0.0-alpha.28",
-    "@kickstartds/content": "^1.0.0-alpha.30",
-    "@kickstartds/core": "^1.0.0-alpha.16"
+  "devDependencies": {
+    "@auto-it/npm": "^10.29.3",
+    "@auto-it/released": "^10.29.3",
+    "auto": "^10.29.3",
+    "lerna": "^4.0.0"
   }
 }

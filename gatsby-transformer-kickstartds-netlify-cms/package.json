@@ -25,5 +25,9 @@
   "dependencies": {
     "netlify-cms-app": "^2.15.0",
     "netlify-cms-widget-simple-uuid": "^0.0.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "restricted"
   }
 }

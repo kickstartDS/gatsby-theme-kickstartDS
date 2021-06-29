@@ -2,6 +2,7 @@
   "name": "example",
   "description": "example gatsby project to test kickstartds theme with wordpress as a source",
   "license": "UNLICENSED",
+  "private": true,
   "version": "0.0.1",
   "author": {
     "name": "Jonas Ulrich",
