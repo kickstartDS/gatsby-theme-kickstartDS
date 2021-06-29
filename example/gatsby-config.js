@@ -1,22 +1,11 @@
 require("dotenv").config({
   path: `.env`,
-})
+});
 
 // require .env.development or .env.production
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
-
-/*
-    {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/assets/images/uploads`,
-        name: 'uploads',
-      },
-    },
-*/
+});
 
 module.exports = {
   siteMetadata: {
