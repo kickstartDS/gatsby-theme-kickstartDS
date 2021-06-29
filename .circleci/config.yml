@@ -29,12 +29,13 @@ aliases:
 jobs:
   release:
     <<: *defaults
-    pre:
-      - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /mnt/ramdisk/.npmrc
     steps:
       - checkout
       - restore_cache: *restore-cache-yarn
       - restore_cache: *restore-cache-node
+      - run:
+          name: Set NPM_TOKEN into .npmrc
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /mnt/ramdisk/.npmrc
       - run:
           name: Set Yarn Cache Directory
           command: yarn config set cache-folder /mnt/ramdisk/.yarn-cache
@@ -46,7 +47,6 @@ jobs:
       - run:
           name: Create Release
           command: yarn auto shipit
-
 
 workflows:
   release:
