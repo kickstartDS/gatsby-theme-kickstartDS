@@ -44,7 +44,7 @@ jobs:
           command: yarn install --frozen-lockfile --cache-folder /mnt/ramdisk/.yarn-cache
       - run:
           name: Remove .npmrc before releasing
-          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /mnt/ramdisk/.npmrc
+          command: rm /mnt/ramdisk/.npmrc
       - save_cache: *save-cache-yarn
       - save_cache: *save-cache-node
       - run:
