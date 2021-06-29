@@ -20,48 +20,18 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `kickstartDS WordPress Twenty Twenty`,
-    description: `kickstartDS starter site for Twenty Twenty Theme.`,
+    title: `kickstartDS Gatsby Theme Demosite`,
+    description: `kickstartDS demo site for the kickstartDS Gatsby Theme.`,
     author: `@kickstartds`,
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-filesystem',
+    { 
+      resolve: `@kickstartds/gatsby-theme-kickstartds`,
       options: {
-        path: `${__dirname}/static/images`,
-        name: 'images',
-      },
+        contentPath: "content",
+        basePath: "/",
+      } 
     },
-    { resolve: 'gatsby-source-filesystem', options: { path: `${__dirname}/content`, name: 'pages' } },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'images'
-            },
-          },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 2048,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: {
-              destinationDir: 'static',
-            },
-          },
-        ],
-      },
-    },
-    { resolve: `@kickstartds/gatsby-theme-kickstartds`, options: {} },
     //{ resolve: `@kickstartds/gatsby-transformer-kickstartds-wordpress`, options: {} },
     { resolve: `@kickstartds/gatsby-transformer-kickstartds-netlify-cms`, options: {} },
   ],
