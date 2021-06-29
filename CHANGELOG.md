@@ -1,5 +1,18 @@
 # (Tue Jun 29 2021)
 
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@1.0.2`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.0.2`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.0.2`
+  - fix(dependencies): clean up dependencies [#1](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/1) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Tue Jun 29 2021)
+
 #### ⚠️ Pushed to `master`
 
 - ci: add publishconfig to package.json ([@lmestel](https://github.com/lmestel))

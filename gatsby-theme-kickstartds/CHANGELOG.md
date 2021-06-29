@@ -1,3 +1,16 @@
+# v1.0.2 (Tue Jun 29 2021)
+
+#### 🐛 Bug Fix
+
+- fix(dependencies): clean up dependencies [#1](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/1) ([@julrich](https://github.com/julrich))
+- fix(dependencies): clean up dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.0.1 (Tue Jun 29 2021)
 
 #### ⚠️ Pushed to `master`
