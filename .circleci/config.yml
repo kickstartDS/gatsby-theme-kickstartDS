@@ -45,6 +45,10 @@ jobs:
           name: Create Release
           command: yarn auto shipit
 
+dependencies:
+  pre:
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /mnt/ramdisk/.npmrc
+
 workflows:
   release:
     jobs:
