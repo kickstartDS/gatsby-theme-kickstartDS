@@ -3,7 +3,7 @@
   "description": "example gatsby project to test kickstartds theme with wordpress as a source",
   "license": "UNLICENSED",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Jonas Ulrich",
     "email": "jonas.ulrich@ruhmesmeile.com"
@@ -19,15 +19,15 @@
     "kickstart": "rm-frontend build"
   },
   "dependencies": {
+    "@kickstartds/gatsby-theme-kickstartds": "^1.0.1",
+    "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^1.0.1",
+    "@kickstartds/gatsby-transformer-kickstartds-wordpress": "^1.0.1",
     "dotenv": "^8.2.0",
     "gatsby": "^3.6.2",
     "gatsby-remark-copy-linked-files": "^3.0.0",
     "gatsby-remark-images": "^4.0.0",
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-source-filesystem": "^3.0.0",
-    "@kickstartds/gatsby-theme-kickstartds": "*",
-    "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "*",
-    "@kickstartds/gatsby-transformer-kickstartds-wordpress": "*",
     "gatsby-transformer-remark": "^3.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
