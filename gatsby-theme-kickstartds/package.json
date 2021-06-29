@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-theme-kickstartds",
+  "name": "@kickstartds/gatsby-theme-kickstartds",
   "version": "1.0.0",
   "main": "index.js",
   "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",

@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-transformer-kickstartds-netlify-cms",
+  "name": "@kickstartds/gatsby-transformer-kickstartds-netlify-cms",
   "version": "1.0.0",
   "main": "index.js",
   "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",

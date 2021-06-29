@@ -61,8 +61,8 @@ module.exports = {
         ],
       },
     },
-    { resolve: `gatsby-theme-kickstartds`, options: {} },
-    //{ resolve: `gatsby-transformer-kickstartds-wordpress`, options: {} },
-    { resolve: `gatsby-transformer-kickstartds-netlify-cms`, options: {} },
+    { resolve: `@kickstartds/gatsby-theme-kickstartds`, options: {} },
+    //{ resolve: `@kickstartds/gatsby-transformer-kickstartds-wordpress`, options: {} },
+    { resolve: `@kickstartds/gatsby-transformer-kickstartds-netlify-cms`, options: {} },
   ],
 }

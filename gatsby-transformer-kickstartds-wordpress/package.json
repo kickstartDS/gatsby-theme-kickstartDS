@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-transformer-kickstartds-wordpress",
+  "name": "@kickstartds/gatsby-transformer-kickstartds-wordpress",
   "version": "1.0.0",
   "main": "index.js",
   "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
