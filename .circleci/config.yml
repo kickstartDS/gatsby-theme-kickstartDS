@@ -29,9 +29,8 @@ aliases:
 jobs:
   release:
     <<: *defaults
-    dependencies:
-      pre:
-        - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /mnt/ramdisk/.npmrc
+    pre:
+      - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /mnt/ramdisk/.npmrc
     steps:
       - checkout
       - restore_cache: *restore-cache-yarn
