@@ -1,3 +1,17 @@
+# v1.0.3 (Wed Jun 30 2021)
+
+#### 🐛 Bug Fix
+
+- Clean up dependencies to make theme installable in projects [#2](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/2) ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into feature/clean-up-dependencies ([@julrich](https://github.com/julrich))
+- fix(dependencies): add missing dependency ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.0.2 (Tue Jun 29 2021)
 
 #### 🐛 Bug Fix
