@@ -18,7 +18,9 @@ module.exports = {
       resolve: `@kickstartds/gatsby-theme-kickstartds`,
       options: {
         contentPath: "content",
-        basePath: "/",
+        urlSegment: "pages",
+        gqlPath: "dist",
+        netlifyConfigPath: "dist"
       } 
     },
     //{ resolve: `@kickstartds/gatsby-transformer-kickstartds-wordpress`, options: {} },

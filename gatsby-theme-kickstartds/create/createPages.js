@@ -6,9 +6,9 @@ const GatsbyParser = require('gatsby/dist/query/file-parser').default;
  * Collect all graphql fragments from a directory
  * @see https://github.com/gatsbyjs/gatsby/issues/12155#issuecomment-618424527
  */
-const collectGraphQLFragments = async (fragmentNamesToExtract) => {
+const collectGraphQLFragments = async (fragmentNamesToExtract, gqlPath) => {
   const parser = new GatsbyParser();
-  const result = await parser.parseFile(path.resolve(__dirname, '../fragments.js'));
+  const result = await parser.parseFile(`${gqlPath}/page.fragments.js`);
 
   const collectFromSpreads = (fragment) => fragment.selectionSet.selections
     .flatMap((item) => item.selectionSet ? item.selectionSet.selections : [])
@@ -52,11 +52,13 @@ const collectGraphQLFragments = async (fragmentNamesToExtract) => {
     .join("\n");
 };
 
-module.exports = async ({ actions, graphql }) => {
+module.exports = async ({ actions, graphql }, options) => {
+  const { gqlPath } = options;
+
   const { data } = await graphql(/* GraphQL */ `
     ${await collectGraphQLFragments([
       'SectionComponentDeepNesting',
-    ])}
+    ], gqlPath)}
     {
       allKickstartDsPage {
         edges {

@@ -1,6 +1,6 @@
-module.exports = ({ contentPath = "content", basePath = "/" }) => ({
+module.exports = ({ contentPath = "content", urlSegment = "pages", gqlPath = "dist", netlifyConfigPath = "dist" }) => ({
   plugins: [
-    { resolve: 'gatsby-source-filesystem', options: { path: contentPath, name: 'pages' } },
+    { resolve: 'gatsby-source-filesystem', options: { path: contentPath, name: urlSegment } },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
