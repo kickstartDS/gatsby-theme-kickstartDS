@@ -27,9 +27,9 @@
     "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^1.0.2",
     "@kickstartds/gatsby-transformer-kickstartds-wordpress": "^1.0.2",
     "dotenv": "^8.2.0",
-    "gatsby": "^3.6.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "gatsby": "^3.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "slugify": "^1.4.7"
   },
   "devDependencies": {
