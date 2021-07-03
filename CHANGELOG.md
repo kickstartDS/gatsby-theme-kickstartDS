@@ -1,3 +1,16 @@
+# (Wed Jun 30 2021)
+
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@1.0.3`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.0.3`
+  - Clean up dependencies to make theme installable in projects [#2](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/2) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Tue Jun 29 2021)
 
 #### 🐛 Bug Fix

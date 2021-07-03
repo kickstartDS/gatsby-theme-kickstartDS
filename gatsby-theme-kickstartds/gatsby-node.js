@@ -1,19 +1,19 @@
 const fs = require('fs');
-const path = require('path');
 const pascalCase =  require('change-case').pascalCase;
 
 // const createList = require(`./create/createList`);
 const createPages = require(`./create/createPages.js`);
 
-const typesString = fs.readFileSync(path.resolve(__dirname, 'types.graphql'), "utf8");
-
-exports.createPages = async (props) => {
+exports.createPages = async (props, options) => {
   // await createList(props);
-  await createPages(props);
+  await createPages(props, options);
 };
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = ({ actions, schema }, options) => {
   const { createTypes } = actions;
+  const { gqlPath } = options;
+
+  const typesString = fs.readFileSync(`${gqlPath}/page.graphql`, "utf8");
 
   const contentInterface = schema.buildInterfaceType({
     name: `ContentComponent`,

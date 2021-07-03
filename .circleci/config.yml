@@ -34,11 +34,17 @@ jobs:
       - restore_cache: *restore-cache-yarn
       - restore_cache: *restore-cache-node
       - run:
+          name: Set NPM_TOKEN into .npmrc
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /mnt/ramdisk/.npmrc
+      - run:
           name: Set Yarn Cache Directory
           command: yarn config set cache-folder /mnt/ramdisk/.yarn-cache
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile --cache-folder /mnt/ramdisk/.yarn-cache
+      - run:
+          name: Remove .npmrc before releasing
+          command: rm /mnt/ramdisk/.npmrc
       - save_cache: *save-cache-yarn
       - save_cache: *save-cache-node
       - run:
