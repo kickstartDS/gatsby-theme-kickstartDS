@@ -28,7 +28,7 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
     `interface KickstartDsPage implements Node @dontInfer {
       id: ID!
       layout: String!
-      title: String
+      title: String!
       slug: String!
       sections: [SectionComponent]
     }
