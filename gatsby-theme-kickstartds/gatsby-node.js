@@ -29,6 +29,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       id: ID!
       layout: String!
       title: String
+      slug: String!
       sections: [SectionComponent]
     }
   `, contentInterface]);

@@ -1,5 +1,3 @@
-const path = require('path');
-const slugify = require('slugify');
 const GatsbyParser = require('gatsby/dist/query/file-parser').default;
 
 /**
@@ -61,7 +59,7 @@ module.exports = async ({ actions, graphql }) => {
       allKickstartDsPage {
         edges {
           node {
-            title
+            slug
             sections {
               ...SectionComponentDeepNesting
             }
@@ -75,7 +73,7 @@ module.exports = async ({ actions, graphql }) => {
     data.allKickstartDsPage.edges.map(async (page) => {
       await actions.createPage({
         component: require.resolve('../src/templates/page.js'),
-        path: `page/${slugify(page.node.title)}`,
+        path: page.node.slug,
         context: {
           page: page.node
         },

@@ -6,6 +6,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: ID!
       layout: String!
       title: String
+      slug: String!
       sections: [SectionSchema]
     }
   `);
