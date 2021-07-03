@@ -73,5 +73,5 @@ yarn-error.log
 
 static/index.js
 static/index.css
-dist/*
 static/admin/config.yml
+dist/*

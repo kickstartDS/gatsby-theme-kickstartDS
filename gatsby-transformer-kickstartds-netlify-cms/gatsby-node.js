@@ -8,7 +8,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     type KickstartDsNetlifyCMSPage implements Node & KickstartDsPage @dontInfer {
       id: ID!
       layout: String!
-      title: String
+      title: String!
+      slug: String!
       sections: [SectionComponent]
     }
   `);
