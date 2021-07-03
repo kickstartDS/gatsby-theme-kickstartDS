@@ -1,3 +1,18 @@
+# v1.0.3 (Sat Jul 03 2021)
+
+#### 🐛 Bug Fix
+
+- fix(slug): use explicit slug instead of title [#3](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/3) ([@julrich](https://github.com/julrich))
+- fix: make title required for pages ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into fix/use-explicit-slug-instead-of-title ([@julrich](https://github.com/julrich))
+- fix(slug): use explicit slug instead of title ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.0.2 (Tue Jun 29 2021)
 
 #### 🐛 Bug Fix

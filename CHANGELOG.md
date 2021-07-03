@@ -1,3 +1,16 @@
+# (Sat Jul 03 2021)
+
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@1.0.4`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.0.4`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.0.3`
+  - fix(slug): use explicit slug instead of title [#3](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/3) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Wed Jun 30 2021)
 
 #### 🐛 Bug Fix
