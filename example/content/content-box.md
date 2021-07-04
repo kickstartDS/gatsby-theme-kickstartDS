@@ -2,6 +2,7 @@
 id: a0497490-b41a-11eb-ac27-59ada86bb225
 layout: default
 title: Content Box
+slug: content-box
 sections:
   - mode: default
     width: default

@@ -14,14 +14,14 @@ module.exports = {
     author: `@kickstartds`,
   },
   plugins: [
-    { 
+    {
       resolve: `@kickstartds/gatsby-theme-kickstartds`,
       options: {
         contentPath: "content",
         urlSegment: "pages",
         gqlPath: "dist",
         netlifyConfigPath: "dist"
-      } 
+      }
     },
     //{ resolve: `@kickstartds/gatsby-transformer-kickstartds-wordpress`, options: {} },
     { resolve: `@kickstartds/gatsby-transformer-kickstartds-netlify-cms`, options: {} },

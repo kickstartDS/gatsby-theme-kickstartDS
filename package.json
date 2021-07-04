@@ -5,7 +5,9 @@
   "main": "index.js",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "yarn workspace example build"
+    "build": "yarn workspace example build",
+    "bundle": "node node_modules/@kickstartds/core/bundle/index.js example/static/",
+    "generate": "node node_modules/@kickstartds/generate-from-schema/dist/index.js && yarn graphql codegen && cp dist/config.yml example/static/admin/config.yml"
   },
   "workspaces": [
     "gatsby-theme-kickstartds",
@@ -14,10 +16,16 @@
     "example"
   ],
   "devDependencies": {
+    "@graphql-cli/codegen": "^1.17.25",
+    "@graphql-codegen/cli": "^1.21.6",
     "@auto-it/npm": "^10.29.3",
     "@auto-it/released": "^10.29.3",
     "auto": "^10.29.3",
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "graphql": "15.5.1"
+  },
+  "resolutions": {
+    "graphql": "15.5.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

@@ -2,6 +2,7 @@
 id: fd055920-b0fe-11eb-9ce8-bdbc5d8289d5
 layout: default
 title: ruhmesmeile Startpage
+slug: ruhmesmeile-startpage
 sections:
   - mode: list
     spaceBefore: none
