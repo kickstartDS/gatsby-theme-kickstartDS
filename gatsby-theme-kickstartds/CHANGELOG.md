@@ -1,3 +1,15 @@
+# v1.0.5 (Sun Jul 04 2021)
+
+#### ⚠️ Pushed to `master`
+
+- feat: add blog modules to page component ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.0.4 (Sat Jul 03 2021)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,16 @@
+# (Sun Jul 04 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.0.5`
+  - feat: add blog modules to page component ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sat Jul 03 2021)
 
 #### 🐛 Bug Fix
