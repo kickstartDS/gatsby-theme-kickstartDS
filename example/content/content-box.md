@@ -5,8 +5,8 @@ title: Content Box
 slug: content-box
 sections:
   - mode: default
-    width: default
     spaceBefore: default
+    width: default
     background: default
     headline:
       level: h2
@@ -20,7 +20,7 @@ sections:
       - type: content-box
         ratio: none
         alignement: left
-        image: https://picsum.photos/seed/kdscontentbox/500/300
+        image: /images/image-1-.png
         topic: Lorem Ipsum
         text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ispum
           dolor distinctio minima unde voluptatum aut. Lorem ipsum dolor sit
@@ -40,7 +40,7 @@ sections:
       - type: content-box
         ratio: none
         alignement: left
-        image: https://picsum.photos/seed/kdscontentbox/500/300
+        image: /images/kickstartds-some_640x640.png
         topic: Lorem Ipsum
         text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ispum
           dolor distinctio minima unde voluptatum aut. Lorem ipsum dolor sit
