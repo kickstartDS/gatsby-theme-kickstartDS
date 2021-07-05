@@ -1,5 +1,17 @@
 # (Mon Jul 05 2021)
 
+#### ⚠️ Pushed to `master`
+
+- feat: add some local images, as an example ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Jul 05 2021)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-theme-kickstartds@1.1.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.1.0`
