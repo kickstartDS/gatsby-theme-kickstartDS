@@ -34,6 +34,7 @@ sections:
           label: Career
           newTab: false
           iconBefore: false
+          type: link-button
       - type: count-up
         to: "387"
         topic: "Locations (worldwide) "
