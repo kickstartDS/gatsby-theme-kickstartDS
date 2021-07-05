@@ -1,3 +1,19 @@
+# v1.1.0 (Mon Jul 05 2021)
+
+#### 🚀 Enhancement
+
+- fix: fix first few cases of missing fields [#4](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/4) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: fix first few cases of missing fields ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.0.5 (Sun Jul 04 2021)
 
 #### ⚠️ Pushed to `master`

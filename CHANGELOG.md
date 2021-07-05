@@ -1,3 +1,16 @@
+# (Mon Jul 05 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.1.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.1.0`
+  - fix: fix first few cases of missing fields [#4](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/4) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Jul 04 2021)
 
 #### ⚠️ Pushed to `master`
