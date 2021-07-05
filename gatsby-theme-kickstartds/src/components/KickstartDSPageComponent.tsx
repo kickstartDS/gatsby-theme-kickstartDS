@@ -31,16 +31,20 @@ const cleanObjectKeys = (obj) => {
   Object.keys(obj).forEach((property) => {
     if (property !== typeResolutionField) {
       if (Array.isArray(obj[property])) {
-        cleanedObject[cleanFieldName(property)] = obj[property].map((item) => {
-          return cleanObjectKeys(item);
-        });
+        if (obj[property].length > 0) {
+          cleanedObject[cleanFieldName(property)] = obj[property].map((item) => {
+            return cleanObjectKeys(item);
+          });
+        }
       } else if (typeof obj[property] === 'object') {
-        cleanedObject[cleanFieldName(property)] = 
-          obj[property] === null
-            ? null
-            : cleanObjectKeys(obj[property]);
+        if (obj[property] !== null) {
+          cleanedObject[cleanFieldName(property)] = 
+            cleanObjectKeys(obj[property]);
+        }
       } else if (obj[property]) {
-        cleanedObject[cleanFieldName(property)] = obj[property];
+        if (obj[property] !== null) {
+          cleanedObject[cleanFieldName(property)] = obj[property];
+        }
       }
     }
   });
@@ -67,7 +71,7 @@ const getComponent = (element, isSection = false) => {
     });
     const cleanedElement = cleanObjectKeys(element);
     cleanedElement['headline'].type = 'headline';
-    
+
     return (
       <Component key={key} { ...cleanedElement }>
         {getContent(content)}

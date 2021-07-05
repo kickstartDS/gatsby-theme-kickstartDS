@@ -29,7 +29,7 @@ const hashObjectKeys = (obj, outerComponent) => {
       } else if (typeof obj[property] === 'object') {
         hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], obj[property][typeResolutionField] || outerComponent);
       } else {
-        hashedObj[hashFieldName(property, outerComponent)] = obj[property];
+        hashedObj[hashFieldName(property, outerComponent === 'section' ? 'section' : (obj[typeResolutionField] || outerComponent))] = obj[property];
       }
     }
   });
