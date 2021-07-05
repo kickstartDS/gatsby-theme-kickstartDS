@@ -42,6 +42,7 @@ sections:
             variant: solid
             size: medium
             href: https://preview.kickstartds.com/
+            type: link-button
           horizontal: left
           vertical: center
           background: default
@@ -157,6 +158,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
+          type: link-button
       - type: content-box
         ratio: none
         alignement: left
@@ -171,6 +173,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
+          type: link-button
       - type: content-box
         ratio: none
         alignement: left
@@ -184,6 +187,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
+          type: link-button
       - type: content-box
         ratio: none
         alignement: left
@@ -198,6 +202,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
+          type: link-button
     type: sections
     gutter: default
   - mode: list
@@ -241,6 +246,7 @@ sections:
             variant: solid
             size: medium
             href: https://example.com
+            type: link-button
       - type: storytelling
         image:
           source: https://picsum.photos/seed/kdsstorytelling/400/300
@@ -270,6 +276,7 @@ sections:
             variant: solid
             size: medium
             href: https://example.com
+            type: link-button
       - type: storytelling
         image:
           source: https://picsum.photos/seed/kdsstorytelling/400/300
@@ -291,6 +298,7 @@ sections:
             variant: solid
             size: medium
             href: https://example.com
+            type: link-button
       - type: storytelling
         image:
           source: https://picsum.photos/seed/kdsstorytelling/400/300
@@ -319,6 +327,7 @@ sections:
             variant: solid
             size: medium
             href: https://example.com
+            type: link-button
       - type: storytelling
         image:
           source: https://picsum.photos/seed/kdsstorytelling/400/300
@@ -340,6 +349,7 @@ sections:
             variant: solid
             size: medium
             href: https://example.com
+            type: link-button
     type: sections
     gutter: default
   - mode: default
@@ -409,7 +419,7 @@ sections:
     headline:
       level: h2
       align: center
-      content: What kickstartDS can do to for you?
+      content: What kickstartDS can do for you?
       spaceAfter: none
       type: headline
     spaceAfter: default
@@ -424,6 +434,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
+          type: link-button
         image: https://picsum.photos/seed/kdsteaserbox/500/300
         ratio: VALUE_16_9
       - type: teaser-box
@@ -436,6 +447,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
+          type: link-button
         image: https://picsum.photos/seed/kdsteaserbox/500/300
         ratio: VALUE_16_9
       - type: teaser-box
@@ -448,6 +460,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
+          type: link-button
         image: https://picsum.photos/seed/kdsteaserbox/500/300
         ratio: VALUE_16_9
     type: sections
