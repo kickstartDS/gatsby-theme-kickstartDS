@@ -7,12 +7,6 @@ module.exports = ({ contentPath = "content", urlSegment = "pages", gqlPath = "di
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'images'
-            },
-          },
-          {
             resolve: 'gatsby-remark-images',
             options: {
               // It's important to specify the maxWidth (in pixels) of
