@@ -1,3 +1,4 @@
+const { fmImagesToRelative } = require('gatsby-remark-relative-source');
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
 const typeResolutionField = 'type';
 
@@ -39,7 +40,8 @@ const hashObjectKeys = (obj, outerComponent) => {
 
 exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
-
+  fmImagesToRelative(node);
+  
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.id) {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
     delete node.frontmatter.id;
@@ -48,12 +50,15 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
 
     const page = {
       id: kickstartDSPageId,
+      parent: node.id,
       ...node.frontmatter
     };
 
     page.internal = {
       contentDigest: createContentDigest(page),
+      content: JSON.stringify(page),
       type: 'KickstartDsNetlifyCMSPage',
+      description: `Netlify CMS implementation of the kickstartDS page interface`,
     };
 
     createNode(page);
