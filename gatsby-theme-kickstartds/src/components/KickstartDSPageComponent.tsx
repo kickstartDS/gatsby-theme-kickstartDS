@@ -1,11 +1,15 @@
 import React from 'react';
 
 import { FunctionComponent } from 'react';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
 
 import * as baseLib from '@kickstartds/base';
 import * as blogLib from '@kickstartds/blog';
 import * as contentLib from '@kickstartds/content';
+
+import { PictureContext } from "@kickstartds/base/lib/picture";
 
 import baseExports from '@kickstartds/base/lib/exports.json';
 import blogExports from '@kickstartds/blog/lib/exports.json';
@@ -89,10 +93,23 @@ const getContent = (content, sections = false) => {
   } 
 };
 
+const WrappedImage = (props) => {
+  const image = getImage(props.src);
+  return (
+    <GatsbyImage image={image} alt="test" />
+  );
+}
+
+const PictureProvider = (props) => (
+  <PictureContext.Provider value={WrappedImage} {...props} />
+);
+
 export const KickstartDSPage: FunctionComponent<any> = ({
   sections,
 }) => (
   <KickstartDSLayout>
-    {getContent(sections, true)}
+    <PictureProvider>
+      {getContent(sections, true)}
+    </PictureProvider>
   </KickstartDSLayout>
 );

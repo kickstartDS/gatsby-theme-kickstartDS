@@ -23,7 +23,7 @@
     "gatsby-plugin-sharp": "^3.8.0",
     "gatsby-remark-copy-linked-files": "^4.5.0",
     "gatsby-remark-images": "^5.5.0",
-    "gatsby-remark-relative-images": "^2.0.2",
+    "gatsby-remark-relative-source": "^0.0.5",
     "gatsby-source-filesystem": "^3.8.0",
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.8.0",

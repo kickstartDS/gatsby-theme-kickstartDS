@@ -21,8 +21,8 @@ sections:
         media:
           mode: image
           image:
-            srcMobile: https://images.unsplash.com/photo-1554675427-1d637bdb5a12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80
-            srcTablet: https://images.unsplash.com/photo-1554675427-1d637bdb5a12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80
+            srcMobile: https://solidstarts.com/wp-content/uploads/Lemon_edited-480x320.webp
+            srcTablet: https://solidstarts.com/wp-content/uploads/Lemon_edited-480x320.webp
             srcDesktop: https://images.unsplash.com/photo-1554675427-1d637bdb5a12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80
             indent: none
           video:
@@ -66,63 +66,63 @@ sections:
     content:
       - type: logo-tiles
         logos:
-          - src: https://www-cdn.bigcommerce.com/assets/mediakit/logo-plain.png
+          - src: /images/bigcommerce.png
             width: 300
             height: 300
             objectFit: none
             noscript: true
             lazy: true
             type: picture
-          - src: https://d21buns5ku92am.cloudfront.net/41748/images/177922-logo-d8345a-large-1441290673.png
+          - src: /images/contentful.png
             width: 300
             height: 300
             objectFit: none
             noscript: true
             lazy: true
             type: picture
-          - src: https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg
+          - src: /images/react.png
             width: 300
             height: 300
             objectFit: none
             noscript: true
             lazy: true
             type: picture
-          - src: https://timotheebinet.com/static/fa38ab30a9b8abb4a1ff8c0b7fb86cef/00d43/gatsby.png
+          - src: /images/gatsby.png
             width: 300
             height: 300
             objectFit: none
             noscript: true
             lazy: true
             type: picture
-          - src: https://imgee.s3.amazonaws.com/imgee/40d52c694e8f46ae8a17534a740a8314_w770_h274.png
+          - src: /images/netlify.png
             width: 300
             height: 300
             objectFit: none
             noscript: true
             lazy: true
             type: picture
-          - src: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/640px-Shopify_logo_2018.svg.png
+          - src: /images/shopify.png
             width: 300
             height: 300
             objectFit: none
             noscript: true
             lazy: true
             type: picture
-          - src: https://logovtor.com/wp-content/uploads/2020/10/vercel-inc-logo-vector.png
+          - src: /images/vercel.png
             width: 300
             height: 300
             objectFit: none
             noscript: true
             lazy: true
             type: picture
-          - src: https://s.w.org/style/images/about/WordPress-logotype-standard.png
+          - src: /images/wordpress.png
             width: 300
             height: 300
             objectFit: none
             noscript: true
             lazy: true
             type: picture
-          - src: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/640px-Nextjs-logo.svg.png
+          - src: /images/next.png
             width: 300
             height: 300
             objectFit: none

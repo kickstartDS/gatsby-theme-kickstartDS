@@ -1,14 +1,16 @@
 module.exports = ({ contentPath = "content", urlSegment = "pages", gqlPath = "dist", netlifyConfigPath = "dist" }) => ({
   plugins: [
+    { resolve: 'gatsby-source-filesystem', options: { path: 'static', name: 'images' } },
     { resolve: 'gatsby-source-filesystem', options: { path: contentPath, name: urlSegment } },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-relative-images',
+            resolve: `gatsby-remark-relative-source`,
             options: {
-              name: 'images'
+              name: `images`,
+              htmlSources: [{tagName: `post-video`, attributes: [`image`]}] // post-video is a component referenced later by gatsby-remark-custom-image-component
             },
           },
           {
@@ -17,7 +19,7 @@ module.exports = ({ contentPath = "content", urlSegment = "pages", gqlPath = "di
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 2048,
+              maxWidth: 1600,
             },
           },
           {
@@ -31,7 +33,24 @@ module.exports = ({ contentPath = "content", urlSegment = "pages", gqlPath = "di
     },
     `gatsby-plugin-react-helmet`, 
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 50,
+          breakpoints: [750, 1080, 1366, 1920],
+          backgroundColor: `transparent`,
+          tracedSVGOptions: {},
+          blurredOptions: {},
+          jpgOptions: {},
+          pngOptions: {},
+          webpOptions: {},
+          avifOptions: {},
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
    ],
 });
