@@ -1,3 +1,18 @@
+# v1.1.1 (Sat Jul 10 2021)
+
+#### 🐛 Bug Fix
+
+- fix: add fixed demo content, load images [#5](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/5) ([@julrich](https://github.com/julrich))
+- feat: use Gatsby images in Page component ([@julrich](https://github.com/julrich))
+- fix: generated image urls ([@julrich](https://github.com/julrich))
+- fix: add fixed demo content, load images ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.1.0 (Mon Jul 05 2021)
 
 #### 🚀 Enhancement

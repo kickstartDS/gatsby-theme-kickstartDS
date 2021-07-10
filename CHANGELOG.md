@@ -1,3 +1,20 @@
+# (Sat Jul 10 2021)
+
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@1.1.1`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.1.1`
+  - fix: add fixed demo content, load images [#5](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/5) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- feat: add some local images, as an example ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Jul 05 2021)
 
 #### ⚠️ Pushed to `master`
