@@ -25,12 +25,23 @@ const hashObjectKeys = (obj, outerComponent) => {
     } else {
       if (Array.isArray(obj[property])) {
         hashedObj[hashFieldName(property, outerComponent)] = obj[property].map((item) => {
-          return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
+          // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / picture
+          if (outerComponent === 'logo-tiles') {
+            return hashObjectKeys(item, 'picture');
+          } else {
+            return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
+          }
         });
       } else if (typeof obj[property] === 'object') {
-        hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], obj[property][typeResolutionField] || outerComponent);
+        // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / link-button
+        const outer = outerComponent === 'section' ? obj[property][typeResolutionField] : outerComponent;
+        if (outer === 'storytelling' && property === 'link') {
+          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'link-button');
+        } else {
+          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], outer);
+        }
       } else {
-        hashedObj[hashFieldName(property, outerComponent === 'section' ? 'section' : (obj[typeResolutionField] || outerComponent))] = obj[property];
+        hashedObj[hashFieldName(property, outerComponent === 'section' ? 'section' : outerComponent)] = obj[property];
       }
     }
   });
