@@ -1,3 +1,16 @@
+# (Sun Jul 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.1.2`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.1.2`
+  - fix: move image handling into gatsby land ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sat Jul 10 2021)
 
 #### 🐛 Bug Fix
