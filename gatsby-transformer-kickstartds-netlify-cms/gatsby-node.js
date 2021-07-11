@@ -1,4 +1,6 @@
 const { fmImagesToRelative } = require('gatsby-remark-relative-source');
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
+const path = require('path');
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
 const typeResolutionField = 'type';
 
@@ -49,8 +51,48 @@ const hashObjectKeys = (obj, outerComponent) => {
   return hashedObj;
 };
 
-exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
+exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest, store, cache }) => {
   const { createNode, createParentChildLink } = actions;
+
+  const addRemoteImages = async (obj, parentId) => {
+    Object.keys(obj).forEach(async (property) => {
+      if (Array.isArray(obj[property])) {
+        obj[property].map(async (item) => {
+          await addRemoteImages(item, parentId);
+        });
+      } else if (typeof obj[property] === 'object') {
+        await addRemoteImages(obj[property], parentId);
+      } else {
+        if (typeof obj[property] === 'string' && (obj[property].indexOf('http') > -1) && (
+          property.indexOf('src') > -1 || 
+          property.indexOf('image') > -1
+        )) {
+          console.log('before fileNode');
+          const fileNode = await createRemoteFileNode({
+            url: obj[property],
+            parentNodeId: parentId,
+            createNode,
+            createNodeId,
+            cache,
+            store,
+          });
+          console.log('after fileNode');
+
+          // console.log(fileNode);
+
+          if (fileNode) {
+            console.log('fileNode', fileNode);
+            // console.log(fileNode.id, path.relative(path.join(node.fileAbsolutePath, ".."), fileNode.relativePath));
+            obj[property] = path.relative(path.join(node.fileAbsolutePath, ".."), fileNode.relativePath);
+          }
+        }
+      }
+    });
+
+    console.log(obj);
+    return obj;
+  };
+
   fmImagesToRelative(node);
   
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.id) {
@@ -58,6 +100,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     delete node.frontmatter.id;
 
     node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
+    node.frontmatter.sections = node.frontmatter.sections.map(async (section) => await addRemoteImages(section, kickstartDSPageId));
 
     const page = {
       id: kickstartDSPageId,
