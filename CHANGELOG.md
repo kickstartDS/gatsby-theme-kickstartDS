@@ -1,3 +1,16 @@
+# (Mon Jul 12 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.1.3`
+  - fix: quote element hashing, add images ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Jul 11 2021)
 
 #### ⚠️ Pushed to `master`
