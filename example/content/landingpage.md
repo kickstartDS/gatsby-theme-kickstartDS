@@ -21,9 +21,9 @@ sections:
         media:
           mode: image
           image:
-            srcMobile: https://solidstarts.com/wp-content/uploads/Lemon_edited-480x320.webp
-            srcTablet: https://solidstarts.com/wp-content/uploads/Lemon_edited-480x320.webp
-            srcDesktop: https://images.unsplash.com/photo-1554675427-1d637bdb5a12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80
+            srcMobile: /images/visual_lemon.png
+            srcTablet: /images/visual_lemon.png
+            srcDesktop: /images/visual_lemon.png
             indent: none
           video:
             srcMobile: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
@@ -47,7 +47,7 @@ sections:
           vertical: center
           background: default
         backgroundColor: "#ccc"
-        overlay: true
+        overlay: false
         inbox: true
         skipButton: true
     type: sections
