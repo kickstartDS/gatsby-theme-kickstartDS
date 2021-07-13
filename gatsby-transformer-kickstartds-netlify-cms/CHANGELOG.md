@@ -1,3 +1,15 @@
+# v1.1.4 (Tue Jul 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- feat: load tokens inside Netlify CMS preview ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.1.3 (Mon Jul 12 2021)
 
 #### ⚠️ Pushed to `master`

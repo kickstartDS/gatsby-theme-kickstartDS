@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.1.4`
+  - feat: load tokens inside Netlify CMS preview ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Tue Jul 13 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.1.3`
   - fix: handle dashing in button field variant for now ([@julrich](https://github.com/julrich))
 
