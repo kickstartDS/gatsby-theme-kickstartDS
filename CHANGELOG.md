@@ -1,3 +1,16 @@
+# (Tue Jul 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.1.3`
+  - fix: handle dashing in button field variant for now ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Jul 12 2021)
 
 #### ⚠️ Pushed to `master`

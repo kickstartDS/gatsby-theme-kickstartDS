@@ -1,3 +1,15 @@
+# v1.1.3 (Tue Jul 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: handle dashing in button field variant for now ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.1.2 (Sun Jul 11 2021)
 
 #### ⚠️ Pushed to `master`
