@@ -415,7 +415,7 @@ sections:
   - mode: default
     spaceBefore: default
     width: default
-    background: default
+    background: dark
     headline:
       level: h2
       align: center
@@ -431,12 +431,13 @@ sections:
           amet.
         link:
           label: Lorem Ipsum
-          variant: solid
+          variant: outline_inverted
           size: medium
           href: https://example.com
           type: link-button
         image: https://picsum.photos/seed/kdsteaserbox/500/300
         ratio: VALUE_16_9
+        darkStyle: true
       - type: teaser-box
         topic: Lorem Ipsum
         text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ispum
@@ -444,12 +445,13 @@ sections:
           amet.
         link:
           label: Lorem Ipsum
-          variant: solid
+          variant: outline_inverted
           size: medium
           href: https://example.com
           type: link-button
         image: https://picsum.photos/seed/kdsteaserbox/500/300
         ratio: VALUE_16_9
+        darkStyle: true
       - type: teaser-box
         topic: Lorem Ipsum
         text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ispum
@@ -457,12 +459,13 @@ sections:
           amet.
         link:
           label: Lorem Ipsum
-          variant: solid
+          variant: outline_inverted
           size: medium
           href: https://example.com
           type: link-button
         image: https://picsum.photos/seed/kdsteaserbox/500/300
         ratio: VALUE_16_9
+        darkStyle: true
     type: sections
     gutter: default
 type: page
