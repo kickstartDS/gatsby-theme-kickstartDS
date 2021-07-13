@@ -15,10 +15,15 @@ const PagePreview = React.memo(({ entry }) => {
     () => {
       const iframe = document.getElementsByTagName('iframe')[0];
 
-      const link = iframe.contentDocument.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = '/index.css';
-      iframe.contentDocument.head.appendChild(link);
+      const linkIndex = iframe.contentDocument.createElement('link');
+      linkIndex.rel = 'stylesheet';
+      linkIndex.href = '/index.css';
+      iframe.contentDocument.head.appendChild(linkIndex);
+
+      const linkTokens = iframe.contentDocument.createElement('link');
+      linkTokens.rel = 'stylesheet';
+      linkTokens.href = '/tokens.css';
+      iframe.contentDocument.head.appendChild(linkTokens);
 
       const script = iframe.contentDocument.createElement('script');
       script.src = '/index.js';
