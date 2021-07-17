@@ -1,3 +1,15 @@
+# v1.2.1 (Sat Jul 17 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: add missing null check to image wrapper ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.0 (Sat Jul 17 2021)
 
 #### 🚀 Enhancement

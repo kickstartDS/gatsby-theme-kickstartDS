@@ -1,5 +1,18 @@
 # (Sat Jul 17 2021)
 
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.2.1`
+  - fix: add missing null check to image wrapper ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Jul 17 2021)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-theme-kickstartds@1.2.0`
