@@ -1,3 +1,16 @@
+# (Sat Jul 17 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.2.0`
+  - feature: add support for svgs [#20](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/20) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Tue Jul 13 2021)
 
 #### ⚠️ Pushed to `master`
