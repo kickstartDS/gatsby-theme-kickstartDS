@@ -55,42 +55,45 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
   const { createNode, createParentChildLink } = actions;
 
   const addRemoteImages = async (obj, parentId) => {
-    Object.keys(obj).forEach(async (property) => {
-      if (Array.isArray(obj[property])) {
-        obj[property].map(async (item) => {
-          await addRemoteImages(item, parentId);
-        });
-      } else if (typeof obj[property] === 'object') {
-        await addRemoteImages(obj[property], parentId);
-      } else {
-        if (typeof obj[property] === 'string' && (obj[property].indexOf('http') > -1) && (
-          property.indexOf('src') > -1 || 
-          property.indexOf('image') > -1
-        )) {
-          console.log('before fileNode');
-          const fileNode = await createRemoteFileNode({
-            url: obj[property],
-            parentNodeId: parentId,
-            createNode,
-            createNodeId,
-            cache,
-            store,
+    const promise = new Promise((resolve, reject) => {
+      Object.keys(obj).forEach(async (property) => {
+        if (Array.isArray(obj[property])) {
+          obj[property].map(async (item) => {
+            await addRemoteImages(item, parentId);
           });
-          console.log('after fileNode');
-
-          // console.log(fileNode);
-
-          if (fileNode) {
-            console.log('fileNode', fileNode);
-            // console.log(fileNode.id, path.relative(path.join(node.fileAbsolutePath, ".."), fileNode.relativePath));
-            obj[property] = path.relative(path.join(node.fileAbsolutePath, ".."), fileNode.relativePath);
+        } else if (typeof obj[property] === 'object') {
+          await addRemoteImages(obj[property], parentId);
+        } else {
+          if (typeof obj[property] === 'string' && (obj[property].indexOf('http') > -1) && (
+            property.indexOf('src') > -1 || 
+            property.indexOf('image') > -1
+          )) {
+            // console.log('before fileNode');
+            const fileNode = await createRemoteFileNode({
+              url: obj[property],
+              parentNodeId: parentId,
+              createNode,
+              createNodeId,
+              cache,
+              store,
+            });
+            // console.log('after fileNode');
+  
+            // console.log(fileNode);
+  
+            if (fileNode) {
+              // console.log('fileNode', fileNode);
+              // console.log(fileNode.id, path.relative(path.join(node.fileAbsolutePath, ".."), fileNode.relativePath));
+              obj[property] = path.relative(path.join(node.fileAbsolutePath, ".."), fileNode.relativePath);
+            }
           }
         }
-      }
+      });
+
+      resolve(obj);
     });
 
-    console.log(obj);
-    return obj;
+    return promise;
   };
 
   fmImagesToRelative(node);
@@ -100,7 +103,12 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     delete node.frontmatter.id;
 
     node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
-    node.frontmatter.sections = node.frontmatter.sections.map(async (section) => await addRemoteImages(section, kickstartDSPageId));
+    node.frontmatter.sections = node.frontmatter.sections.map(async (section) => {
+      console.log('section before', section);
+      const tmp = await addRemoteImages(section, kickstartDSPageId);
+      console.log('section after', tmp);
+      return tmp;
+    });
 
     const page = {
       id: kickstartDSPageId,
