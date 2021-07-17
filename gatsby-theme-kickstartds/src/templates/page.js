@@ -6,7 +6,7 @@ import { KickstartDSPage } from "../components/KickstartDSPageComponent";
 const WrappedImage = (props) => 
   props.src && props.src.childImageSharp
     ? <GatsbyImage image={getImage(props.src)} alt="TODO add useful image alt" />
-    : props.src.publicURL
+    : props.src && props.src.publicURL
       ? <PictureContextDefault src={props.src.publicURL} />
       : null;
 
