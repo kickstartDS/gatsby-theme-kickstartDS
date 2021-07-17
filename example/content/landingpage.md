@@ -11,7 +11,7 @@ sections:
     headline:
       level: h1
       align: center
-      content: Draft version
+      content: ""
       spaceAfter: none
       type: headline
     spaceAfter: default
@@ -435,7 +435,7 @@ sections:
           size: medium
           href: https://example.com
           type: link-button
-        image: https://picsum.photos/seed/kdsteaserbox/500/300
+        image: /images/quote-dark.svg
         ratio: VALUE_16_9
         darkStyle: true
       - type: teaser-box
