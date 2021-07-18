@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Gatsby develop",
+        "type": "pwa-node",
+        "request": "launch",
+        "program": "node_modules/.bin/gatsby",
+        "args": ["develop"],
+        "runtimeArgs": ["--nolazy"],
+        "cwd": "${workspaceRoot}/example",
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "Gatsby build",
+        "type": "pwa-node",
+        "request": "launch",
+        "program": "node_modules/.bin/gatsby",
+        "args": ["build"],
+        "runtimeArgs": ["--nolazy"],
+        "cwd": "${workspaceRoot}/example",
+        "console": "integratedTerminal"
+      }
+    ]
+  }
