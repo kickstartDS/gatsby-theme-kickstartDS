@@ -18,6 +18,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   `);
 };
 
+// TODO dedupe this
 const hashObjectKeys = (obj, outerComponent) => {
   const hashedObj = {};
 

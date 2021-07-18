@@ -23,7 +23,7 @@ module.exports = {
         netlifyConfigPath: "dist"
       }
     },
-    //{ resolve: `@kickstartds/gatsby-transformer-kickstartds-wordpress`, options: {} },
+    { resolve: `@kickstartds/gatsby-transformer-kickstartds-wordpress`, options: {} },
     { resolve: `@kickstartds/gatsby-transformer-kickstartds-netlify-cms`, options: {} },
   ],
 }
