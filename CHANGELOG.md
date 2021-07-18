@@ -1,5 +1,18 @@
 # (Sun Jul 18 2021)
 
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.2.1`
+  - fix: headline in storytelling element ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Jul 18 2021)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.2.0`
