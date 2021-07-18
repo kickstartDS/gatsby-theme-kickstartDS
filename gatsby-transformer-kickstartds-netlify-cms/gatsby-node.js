@@ -54,22 +54,21 @@ const hashObjectKeys = (obj, outerComponent) => {
 exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest, store, cache }) => {
   const { createNode, createParentChildLink } = actions;
 
-  const addRemoteImages = async (obj, parentId) => {
-    const promise = new Promise((resolve, reject) => {
-      Object.keys(obj).forEach(async (property) => {
-        if (Array.isArray(obj[property])) {
-          obj[property].map(async (item) => {
-            await addRemoteImages(item, parentId);
-          });
-        } else if (typeof obj[property] === 'object') {
-          await addRemoteImages(obj[property], parentId);
-        } else {
-          if (typeof obj[property] === 'string' && (obj[property].indexOf('http') > -1) && (
-            property.indexOf('src') > -1 || 
-            property.indexOf('image') > -1
-          )) {
-            // console.log('before fileNode');
-            const fileNode = await createRemoteFileNode({
+  const addRemoteImages = (obj, parentId) => {
+    return Promise.all(Object.keys(obj).map((property) => {
+      if (Array.isArray(obj[property])) {
+        return Promise.all(obj[property].map((item) => {
+          return addRemoteImages(item, parentId);
+        }));
+      } else if (typeof obj[property] === 'object') {
+        return addRemoteImages(obj[property], parentId);
+      } else {
+        if (typeof obj[property] === 'string' && (obj[property].indexOf('http') > -1) && (
+          property.indexOf('src') > -1 || 
+          property.indexOf('image') > -1
+        )) {
+          return new Promise((resolve, reject) => {
+            const fileNode = createRemoteFileNode({
               url: obj[property],
               parentNodeId: parentId,
               createNode,
@@ -77,23 +76,21 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
               cache,
               store,
             });
-            // console.log('after fileNode');
-  
-            // console.log(fileNode);
-  
-            if (fileNode) {
-              // console.log('fileNode', fileNode);
-              // console.log(fileNode.id, path.relative(path.join(node.fileAbsolutePath, ".."), fileNode.relativePath));
-              obj[property] = path.relative(path.join(node.fileAbsolutePath, ".."), fileNode.relativePath);
-            }
-          }
+
+            fileNode.then((file) => {
+              if (file) {
+                obj[property] = path.relative(path.join(node.fileAbsolutePath, ".."), file.relativePath);
+                resolve();
+              } else {
+                reject();
+              }
+            });
+          });
+        } else {
+          return Promise.resolve();
         }
-      });
-
-      resolve(obj);
-    });
-
-    return promise;
+      }
+    }));
   };
 
   fmImagesToRelative(node);
@@ -103,12 +100,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     delete node.frontmatter.id;
 
     node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
-    node.frontmatter.sections = node.frontmatter.sections.map(async (section) => {
-      console.log('section before', section);
-      const tmp = await addRemoteImages(section, kickstartDSPageId);
-      console.log('section after', tmp);
-      return tmp;
-    });
+    await Promise.all(node.frontmatter.sections.map(async (section) => await addRemoteImages(section, kickstartDSPageId)));
 
     const page = {
       id: kickstartDSPageId,
