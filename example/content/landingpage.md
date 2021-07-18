@@ -11,7 +11,7 @@ sections:
     headline:
       level: h1
       align: center
-      content: Draft version
+      content: ""
       spaceAfter: none
       type: headline
     spaceAfter: default
@@ -21,9 +21,9 @@ sections:
         media:
           mode: image
           image:
-            srcMobile: https://solidstarts.com/wp-content/uploads/Lemon_edited-480x320.webp
-            srcTablet: https://solidstarts.com/wp-content/uploads/Lemon_edited-480x320.webp
-            srcDesktop: https://images.unsplash.com/photo-1554675427-1d637bdb5a12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80
+            srcMobile: /images/visual_lemon.png
+            srcTablet: /images/visual_lemon.png
+            srcDesktop: /images/visual_lemon.png
             indent: none
           video:
             srcMobile: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
@@ -47,7 +47,7 @@ sections:
           vertical: center
           background: default
         backgroundColor: "#ccc"
-        overlay: true
+        overlay: false
         inbox: true
         skipButton: true
     type: sections
@@ -415,7 +415,7 @@ sections:
   - mode: default
     spaceBefore: default
     width: default
-    background: default
+    background: dark
     headline:
       level: h2
       align: center
@@ -431,12 +431,13 @@ sections:
           amet.
         link:
           label: Lorem Ipsum
-          variant: solid
+          variant: outline_inverted
           size: medium
           href: https://example.com
           type: link-button
-        image: https://picsum.photos/seed/kdsteaserbox/500/300
+        image: /images/quote-dark.svg
         ratio: VALUE_16_9
+        darkStyle: true
       - type: teaser-box
         topic: Lorem Ipsum
         text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ispum
@@ -444,12 +445,13 @@ sections:
           amet.
         link:
           label: Lorem Ipsum
-          variant: solid
+          variant: outline_inverted
           size: medium
           href: https://example.com
           type: link-button
         image: https://picsum.photos/seed/kdsteaserbox/500/300
         ratio: VALUE_16_9
+        darkStyle: true
       - type: teaser-box
         topic: Lorem Ipsum
         text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ispum
@@ -457,12 +459,13 @@ sections:
           amet.
         link:
           label: Lorem Ipsum
-          variant: solid
+          variant: outline_inverted
           size: medium
           href: https://example.com
           type: link-button
         image: https://picsum.photos/seed/kdsteaserbox/500/300
         ratio: VALUE_16_9
+        darkStyle: true
     type: sections
     gutter: default
 type: page

@@ -1,14 +1,14 @@
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { PictureContext } from "@kickstartds/base/lib/picture";
+import { PictureContextDefault, PictureContext } from "@kickstartds/base/lib/picture";
 import { KickstartDSPage } from "../components/KickstartDSPageComponent";
 
-const WrappedImage = (props) => {
-  const image = getImage(props.src);
-  return (
-    <GatsbyImage image={image} alt="test" />
-  );
-}
+const WrappedImage = (props) => 
+  props.src && props.src.childImageSharp
+    ? <GatsbyImage image={getImage(props.src)} alt="TODO add useful image alt" />
+    : props.src && props.src.publicURL
+      ? <PictureContextDefault src={props.src.publicURL} />
+      : null;
 
 const PictureProvider = (props) => (
   <PictureContext.Provider value={WrappedImage} {...props} />

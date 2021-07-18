@@ -30,6 +30,8 @@ const hashObjectKeys = (obj, outerComponent) => {
           // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / picture
           if (outerComponent === 'logo-tiles') {
             return hashObjectKeys(item, 'picture');
+          } else if (outerComponent === 'quotes-slider') {
+            return hashObjectKeys(item, 'quote');
           } else {
             return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
           }

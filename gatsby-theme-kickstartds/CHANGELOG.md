@@ -1,3 +1,43 @@
+# v1.2.1 (Sat Jul 17 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: add missing null check to image wrapper ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.2.0 (Sat Jul 17 2021)
+
+#### 🚀 Enhancement
+
+- feature: add support for svgs [#20](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/20) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add support for svgs ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.1.3 (Tue Jul 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: handle dashing in button field variant for now ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.1.2 (Sun Jul 11 2021)
 
 #### ⚠️ Pushed to `master`

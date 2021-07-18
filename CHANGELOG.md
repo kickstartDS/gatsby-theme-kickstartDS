@@ -1,3 +1,68 @@
+# (Sat Jul 17 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.2.1`
+  - fix: add missing null check to image wrapper ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Jul 17 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.2.0`
+  - feature: add support for svgs [#20](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/20) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Tue Jul 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.1.4`
+  - feat: load tokens inside Netlify CMS preview ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Tue Jul 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.1.3`
+  - fix: handle dashing in button field variant for now ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Jul 12 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.1.3`
+  - fix: quote element hashing, add images ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Jul 11 2021)
 
 #### ⚠️ Pushed to `master`

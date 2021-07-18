@@ -44,7 +44,12 @@ const cleanObjectKeys = (obj) => {
         }
       } else if (obj[property]) {
         if (obj[property] !== null) {
-          cleanedObject[cleanFieldName(property)] = obj[property];
+          // TODO re-simplify this... only needed because of inconsistent handling of `-` vs `_` in schema enum values
+          if (cleanFieldName(property) === 'variant') {
+            cleanedObject[cleanFieldName(property)] = obj[property].replace('_', '-');
+          } else {
+            cleanedObject[cleanFieldName(property)] = obj[property];
+          }
         }
       }
     }
@@ -54,7 +59,6 @@ const cleanObjectKeys = (obj) => {
 };
 
 const getComponent = (element, isSection = false) => {
-  console.log(element['type'], element);
   const componentType = isSection ? 'section' : element['type'];
 
   componentCounter[componentType] = componentCounter[componentType]+1 || 1;
