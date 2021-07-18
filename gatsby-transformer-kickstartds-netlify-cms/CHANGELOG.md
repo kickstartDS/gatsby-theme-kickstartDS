@@ -1,3 +1,23 @@
+# v1.2.0 (Sun Jul 18 2021)
+
+#### 🚀 Enhancement
+
+- feature: support remote images in gatsby sourcing [#6](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/6) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: add missing field names to external image resolution ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into feature/support-remote-gatsby-images ([@julrich](https://github.com/julrich))
+- fix: fix promises in remote image fetching ([@julrich](https://github.com/julrich))
+- fix: fix promise, still not working quite right ([@julrich](https://github.com/julrich))
+- feat: general logic to add remote filenames ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.1.4 (Tue Jul 13 2021)
 
 #### ⚠️ Pushed to `master`

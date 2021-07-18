@@ -1,3 +1,16 @@
+# (Sun Jul 18 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.2.0`
+  - feature: support remote images in gatsby sourcing [#6](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/6) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sat Jul 17 2021)
 
 #### ⚠️ Pushed to `master`
