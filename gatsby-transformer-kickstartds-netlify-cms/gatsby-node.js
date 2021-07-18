@@ -1,4 +1,6 @@
 const { fmImagesToRelative } = require('gatsby-remark-relative-source');
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
+const path = require('path');
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
 const typeResolutionField = 'type';
 
@@ -51,8 +53,52 @@ const hashObjectKeys = (obj, outerComponent) => {
   return hashedObj;
 };
 
-exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
+exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest, store, cache }) => {
   const { createNode, createParentChildLink } = actions;
+
+  const addRemoteImages = (obj, parentId) => {
+    return Promise.all(Object.keys(obj).map((property) => {
+      if (Array.isArray(obj[property])) {
+        return Promise.all(obj[property].map((item) => {
+          return addRemoteImages(item, parentId);
+        }));
+      } else if (typeof obj[property] === 'object') {
+        return addRemoteImages(obj[property], parentId);
+      } else {
+        if (typeof obj[property] === 'string' && (obj[property].indexOf('http') > -1) && (
+          property.indexOf('src') > -1 || 
+          property.indexOf('image') > -1 || 
+          property.indexOf('source') > -1 || 
+          property.indexOf('srcMobile') > -1 || 
+          property.indexOf('srcTable') > -1 || 
+          property.indexOf('srcMobile') > -1
+        )) {
+          return new Promise((resolve, reject) => {
+            const fileNode = createRemoteFileNode({
+              url: obj[property],
+              parentNodeId: parentId,
+              createNode,
+              createNodeId,
+              cache,
+              store,
+            });
+
+            fileNode.then((file) => {
+              if (file) {
+                obj[property] = path.relative(path.join(node.fileAbsolutePath, ".."), file.relativePath);
+                resolve();
+              } else {
+                reject();
+              }
+            });
+          });
+        } else {
+          return Promise.resolve();
+        }
+      }
+    }));
+  };
+
   fmImagesToRelative(node);
   
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.id) {
@@ -60,6 +106,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     delete node.frontmatter.id;
 
     node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
+    await Promise.all(node.frontmatter.sections.map(async (section) => await addRemoteImages(section, kickstartDSPageId)));
 
     const page = {
       id: kickstartDSPageId,
