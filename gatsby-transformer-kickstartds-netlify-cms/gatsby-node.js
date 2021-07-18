@@ -67,7 +67,11 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       } else {
         if (typeof obj[property] === 'string' && (obj[property].indexOf('http') > -1) && (
           property.indexOf('src') > -1 || 
-          property.indexOf('image') > -1
+          property.indexOf('image') > -1 || 
+          property.indexOf('source') > -1 || 
+          property.indexOf('srcMobile') > -1 || 
+          property.indexOf('srcTable') > -1 || 
+          property.indexOf('srcMobile') > -1
         )) {
           return new Promise((resolve, reject) => {
             const fileNode = createRemoteFileNode({
