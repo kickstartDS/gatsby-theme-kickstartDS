@@ -25,10 +25,6 @@ sections:
             srcTablet: /images/visual_lemon.png
             srcDesktop: /images/visual_lemon.png
             indent: none
-          video:
-            srcMobile: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
-            srcTablet: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
-            srcDesktop: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
         box:
           enabled: true
           headline: Building a design system for all your digital products  is now like
