@@ -1,3 +1,15 @@
+# (Sat Aug 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore(content): remove videos from demo content ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Jul 18 2021)
 
 #### ⚠️ Pushed to `master`
