@@ -70,12 +70,12 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     page.sections = [{
       "mode": "list",
       "spaceBefore": "none",
-      "width": "full",
+      "width": "wide",
       "background": "default",
       "headline": {
         "level": "h1",
         "align": "center",
-        "content": new Date(node.date).toISOString(),
+        "content": new Date(node.date).toDateString(),
         "spaceAfter": "none",
         "type": "headline"
       },
