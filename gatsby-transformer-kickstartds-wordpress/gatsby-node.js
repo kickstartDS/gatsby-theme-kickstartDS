@@ -75,7 +75,8 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       "headline": {
         "level": "h1",
         "align": "center",
-        "content": new Date(node.date).toDateString(),
+        "content": node.title,
+        "subheadline": `published on: ${new Date(node.date).toDateString()}`,
         "spaceAfter": "none",
         "type": "headline"
       },
@@ -113,7 +114,6 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
           },
           "box": {
             "enabled": true,
-            "headline": node.title,
             "text": node.excerpt,
             "link": {
               "enabled": false,
@@ -132,25 +132,8 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
           "inbox": true,
           "skipButton": true
         });
-      } else {
-        page.sections[0].content.unshift({
-          "level": "h2",
-          "align": "center",
-          "content": node.title,
-          "spaceAfter": "none",
-          "type": "headline"
-        });
       }
-    } else {
-      page.sections[0].content.unshift({
-        "level": "h2",
-        "align": "center",
-        "content": node.title,
-        "spaceAfter": "none",
-        "type": "headline"
-      });
-    }
-    ;
+    };
 
     if (page.sections && page.sections.length > 0) {
       page.sections = page.sections.map((section) => hashObjectKeys(section, 'section'));
