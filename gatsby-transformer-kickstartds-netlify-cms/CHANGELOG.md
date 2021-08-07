@@ -1,3 +1,15 @@
+# v1.2.1 (Sun Jul 18 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: headline in storytelling element ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.0 (Sun Jul 18 2021)
 
 #### 🚀 Enhancement
