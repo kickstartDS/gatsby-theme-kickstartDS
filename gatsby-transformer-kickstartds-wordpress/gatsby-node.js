@@ -19,6 +19,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 const hashObjectKeys = (obj, outerComponent) => {
   const hashedObj = {};
 
+  if (!obj) return obj;
+
   Object.keys(obj).forEach((property) => {
     if (property === typeResolutionField) {
       hashedObj[typeResolutionField] = obj[typeResolutionField];
@@ -66,7 +68,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     };
 
     page.sections = [{
-      "mode": "default",
+      "mode": "list",
       "spaceBefore": "none",
       "width": "full",
       "background": "default",
@@ -79,10 +81,8 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       },
       "spaceAfter": "default",
       "content": [{
-        "type": "text-media",
-        "text": node.content,
-        "mediaAlignment": "above_center",
-        "media": []
+        "type": "html",
+        "html": node.content,
       }],
       "type": "sections",
       "gutter": "default"

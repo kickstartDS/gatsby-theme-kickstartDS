@@ -26,10 +26,6 @@ sections:
             srcTablet: https://ruhmesmeile.com/fileadmin/_processed_/2/0/csm_frontend-matters-Keyvisual_01_de2dde03e2.jpg
             srcDesktop: https://ruhmesmeile.com/fileadmin/_processed_/2/0/csm_frontend-matters-Keyvisual_01_de2dde03e2.jpg
             indent: none
-          video:
-            srcMobile: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
-            srcTablet: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
-            srcDesktop: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
         overlay: false
         box:
           enabled: true
@@ -361,10 +357,6 @@ sections:
             srcTablet: https://ruhmesmeile.com/fileadmin/users/redakteur/redakteur_upload/allgemeine_Grafiken/background_red.svg
             srcDesktop: https://ruhmesmeile.com/fileadmin/users/redakteur/redakteur_upload/allgemeine_Grafiken/background_red.svg
             indent: none
-          video:
-            srcMobile: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
-            srcTablet: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
-            srcDesktop: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4
         overlay: false
         box:
           enabled: true

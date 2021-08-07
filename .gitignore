@@ -3,3 +3,4 @@ public
 node_modules
 yarn-error.log
 .yarn-cache
+dist/*
