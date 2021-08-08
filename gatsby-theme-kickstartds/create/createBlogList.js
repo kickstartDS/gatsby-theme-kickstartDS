@@ -1,4 +1,5 @@
 const GatsbyParser = require('gatsby/dist/query/file-parser').default;
+const stripHtml = require('string-strip-html').stripHtml;
 
 /**
  * Collect all graphql fragments from a directory
@@ -58,10 +59,17 @@ module.exports = async ({ actions, graphql }, options) => {
       'SectionComponentDeepNesting',
     ], gqlPath)}
     {
-      allKickstartDsPage {
+      allKickstartDsWordpressPage {
         edges {
           node {
             slug
+            title
+            excerpt
+            date
+            author
+            categories {
+              ...TagLabelComponentDeepNesting
+            }
             sections {
               ...SectionComponentDeepNesting
             }
@@ -71,15 +79,47 @@ module.exports = async ({ actions, graphql }, options) => {
     }
   `);
 
-  await Promise.all(
-    data.allKickstartDsPage.edges.map(async (page) => {
-      await actions.createPage({
-        component: require.resolve('../src/templates/page.js'),
-        path: page.node.slug,
-        context: {
-          page: page.node
-        },
-      });
-    })
-  )
+  const heading = "Latest blog posts";
+  const sections = [{
+    "mode": "default",
+    "spaceBefore": "none",
+    "width": "wide",
+    "background": "default",
+    "headline": {
+      "level": "h1",
+      "align": "center",
+      "content": heading,
+      "subheadline": "kickstartDS releases, updates, background info",
+      "spaceAfter": "none",
+      "type": "headline"
+    },
+    "spaceAfter": "default",
+    "type": "sections",
+    "gutter": "default"
+  }];
+
+  sections[0].content = data.allKickstartDsWordpressPage.edges.map((page, index) => {
+    return {
+      "date": page.node.date,
+      "link": {
+        "href": `/${page.node.slug}`,
+        "label": "read more..."
+      },
+      "title": stripHtml(page.node.title).result,
+      "body": `${stripHtml(page.node.excerpt).result}  \nby *${page.node.author}*`,
+      "categories": page.node.categories,
+      "index": index,
+      "type": "post-teaser"
+    };
+  });
+
+  await actions.createPage({
+    component: require.resolve('../src/templates/page.js'),
+    path: `/blog`,
+    context: {
+      page: {
+        sections
+      },
+    },
+  });
 }

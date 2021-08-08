@@ -1,4 +1,5 @@
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
+const path = require('path');
 const typeResolutionField = 'type';
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -10,6 +11,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       layout: String!
       title: String!
       slug: String!
+      excerpt: String!
+      author: String!
+      date: Date! @dateformat
+      categories: [TagLabelComponent]
       sections: [SectionComponent]
     }
   `);
@@ -32,6 +37,8 @@ const hashObjectKeys = (obj, outerComponent) => {
             return hashObjectKeys(item, 'picture');
           } else if (outerComponent === 'quotes-slider') {
             return hashObjectKeys(item, 'quote');
+          } else if (outerComponent === 'post-head' && property === 'categories') {
+            return hashObjectKeys(item, 'tag-label');
           } else {
             return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
           }
@@ -59,11 +66,26 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
   if (node.internal.type === 'WpPost') {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsWordpressPage`);
 
+    const categories = node.categories.nodes.map((categoryNode) => {
+      const category = getNode(categoryNode.id);
+
+      return {
+        "label": category.name,
+        "type": "tag-label"
+      };
+    });
+
+    const author = getNode(node.author.node.id);
+
     const page = {
       id: kickstartDSPageId,
       parent: node.id,
       title: node.title,
-      slug: node.slug,
+      slug: `blog/${node.slug}`,
+      excerpt: node.excerpt,
+      date: node.date,
+      author: author.name,
+      categories: categories.map((category) => hashObjectKeys(category, 'tag-label')),
       layout: 'default',
     };
 
@@ -73,72 +95,51 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       "width": "wide",
       "background": "default",
       "headline": {
-        "level": "h1",
+        "level": "p",
         "align": "center",
-        "content": node.title,
-        "subheadline": `published on: ${new Date(node.date).toDateString()}`,
+        "content": "",
         "spaceAfter": "none",
         "type": "headline"
       },
       "spaceAfter": "default",
       "content": [{
+        "type": "post-head",
+        "date": node.date,
+        "headline": {
+          "level": "h1",
+          "align": "left",
+          "content": node.title,
+          "subheadline": `published by: ${author.name}`,
+          "spaceAfter": "none",
+          "type": "headline"
+        },
+        "categories": categories
+      }, {
         "type": "html",
         "html": node.content,
       }],
       "type": "sections",
       "gutter": "default"
     }];
-    
+
     if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.id) {
       const wpMediaItem = getNode(node.featuredImage.node.id);
       
       if (wpMediaItem && wpMediaItem.localFile && wpMediaItem.localFile.id) {
         const fileMediaItem = getNode(wpMediaItem.localFile.id);
 
-        page.sections[0].content.unshift({
-          "type": "visual",
-          "height": "fullScreen",
-          "media": {
-            "mode": "image",
-            "image": {
-              "srcMobile": fileMediaItem.publicURL,
-              "srcTablet": fileMediaItem.publicURL,
-              "srcDesktop": fileMediaItem.publicURL,
-              "indent": "none"
-            },
-            "video": {
-              "srcMobile": "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4",
-              "srcTablet": "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4",
-              "srcDesktop": "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4"
-            }
-          },
-          "box": {
-            "enabled": true,
-            "text": node.excerpt,
-            "link": {
-              "enabled": false,
-              "label": "Request a guided demo",
-              "variant": "solid",
-              "size": "medium",
-              "href": "https://preview.kickstartds.com/",
-              "type": "link-button"
-            },
-            "horizontal": "left",
-            "vertical": "center",
-            "background": "default"
-          },
-          "backgroundColor": "#ccc",
-          "overlay": false,
-          "inbox": true,
-          "skipButton": true
-        });
+        page.sections[0].content[0].image = {
+          "src": fileMediaItem.publicURL,
+          "width": 900,
+          "height": 300
+        }
       }
     };
 
     if (page.sections && page.sections.length > 0) {
       page.sections = page.sections.map((section) => hashObjectKeys(section, 'section'));
     }
-      
+
     page.internal = {
       contentDigest: createContentDigest(page),
       content: JSON.stringify(page),

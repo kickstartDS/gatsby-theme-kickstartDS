@@ -1,11 +1,11 @@
 const fs = require('fs');
 const pascalCase =  require('change-case').pascalCase;
 
-// const createList = require(`./create/createList`);
+const createBlogList = require(`./create/createBlogList.js`);
 const createPages = require(`./create/createPages.js`);
 
 exports.createPages = async (props, options) => {
-  // await createList(props);
+  await createBlogList(props, options);
   await createPages(props, options);
 };
 
