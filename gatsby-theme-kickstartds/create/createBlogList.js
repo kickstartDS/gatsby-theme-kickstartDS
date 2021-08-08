@@ -67,6 +67,11 @@ module.exports = async ({ actions, graphql }, options) => {
             excerpt
             date
             author
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
             categories {
               ...TagLabelComponentDeepNesting
             }
@@ -99,7 +104,7 @@ module.exports = async ({ actions, graphql }, options) => {
   }];
 
   sections[0].content = data.allKickstartDsWordpressPage.edges.map((page, index) => {
-    return {
+    const teaser = {
       "date": page.node.date,
       "link": {
         "href": `/${page.node.slug}`,
@@ -111,6 +116,16 @@ module.exports = async ({ actions, graphql }, options) => {
       "index": index,
       "type": "post-teaser"
     };
+
+    if (page.node.featuredImage) {
+      teaser.image = {
+        "src": page.node.featuredImage,
+        "width": 400,
+        "height": 300
+      };
+    }
+
+    return teaser;
   });
 
   await actions.createPage({

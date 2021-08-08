@@ -22,6 +22,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 const hashObjectKeys = (obj, outerComponent) => {
   const hashedObj = {};
 
+  if (!obj) return obj;
+
   Object.keys(obj).forEach((property) => {
     if (property === typeResolutionField) {
       hashedObj[typeResolutionField] = obj[typeResolutionField];
@@ -33,6 +35,8 @@ const hashObjectKeys = (obj, outerComponent) => {
             return hashObjectKeys(item, 'picture');
           } else if (outerComponent === 'quotes-slider') {
             return hashObjectKeys(item, 'quote');
+          } else if (outerComponent === 'post-head' && property === 'categories') {
+            return hashObjectKeys(item, 'tag-label');
           } else {
             return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
           }
@@ -56,17 +60,40 @@ const hashObjectKeys = (obj, outerComponent) => {
   return hashedObj;
 };
 
-exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest, store, cache }) => {
-  const { createNode, createParentChildLink } = actions;
+const slash = (path) => {
+  const isExtendedLengthPath = /^\\\\\?\\/.test(path);
 
-  const addRemoteImages = (obj, parentId) => {
+  if (isExtendedLengthPath) {
+    return path;
+  }
+  return path.replace(/\\/g, `/`);
+};
+
+const findMatchingFile = (src, files, options) => {
+  const result = files.find((file) => {
+    const staticPath = slash(path.join(options.staticFolderName, src));
+    return slash(path.normalize(file.absolutePath)).endsWith(staticPath);
+  });
+  if (!result) {
+    throw new Error(
+      `No matching file found for src "${src}" in static folder "${options.staticFolderName}". Please check static folder name and that file exists at "${options.staticFolderName}${src}". This error will probably cause a "GraphQLDocumentError" later in build. All converted field paths MUST resolve to a matching file in the "static" folder.`
+    );
+  }
+  return result;
+};
+
+exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNodeId, createContentDigest, store, cache }) => {
+  const { createNode, createParentChildLink } = actions;
+  const files = getNodesByType('File');
+
+  const addImages = (obj, parentId) => {
     return Promise.all(Object.keys(obj).map((property) => {
       if (Array.isArray(obj[property])) {
         return Promise.all(obj[property].map((item) => {
-          return addRemoteImages(item, parentId);
+          return addImages(item, parentId);
         }));
       } else if (typeof obj[property] === 'object') {
-        return addRemoteImages(obj[property], parentId);
+        return addImages(obj[property], parentId);
       } else {
         if (typeof obj[property] === 'string' && (obj[property].indexOf('http') > -1) && (
           property.indexOf('src') > -1 || 
@@ -88,13 +115,34 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
 
             fileNode.then((file) => {
               if (file) {
-                obj[property] = path.relative(path.join(node.fileAbsolutePath, ".."), file.relativePath);
+                delete obj[property];
+                obj[`${property}___NODE`] = file.id;
                 resolve();
               } else {
                 reject();
               }
             });
           });
+        } else if (typeof obj[property] === 'string' && (obj[property].indexOf('http') === -1) && (
+          obj[property].indexOf('.') > -1 && (
+            obj[property].indexOf('jpg') > -1 ||
+            obj[property].indexOf('jpeg') > -1 ||
+            obj[property].indexOf('png') > -1 ||
+            obj[property].indexOf('gif') > -1
+          )) && (
+            property.indexOf('src') > -1 || 
+            property.indexOf('image') > -1 || 
+            property.indexOf('source') > -1 || 
+            property.indexOf('srcMobile') > -1 || 
+            property.indexOf('srcTable') > -1 || 
+            property.indexOf('srcMobile') > -1
+          )
+        ) {
+          const file = findMatchingFile(obj[property], files, { staticFolderName: 'static' });
+          delete obj[property];
+          obj[`${property}___NODE`] = file.id;
+
+          return Promise.resolve();
         } else {
           return Promise.resolve();
         }
@@ -102,14 +150,14 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     }));
   };
 
-  fmImagesToRelative(node);
+  // fmImagesToRelative(node);
   
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.id) {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
     delete node.frontmatter.id;
 
     node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
-    await Promise.all(node.frontmatter.sections.map(async (section) => await addRemoteImages(section, kickstartDSPageId)));
+    await Promise.all(node.frontmatter.sections.map(async (section) => await addImages(section, kickstartDSPageId)));
 
     const page = {
       id: kickstartDSPageId,

@@ -1,5 +1,4 @@
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
-const path = require('path');
 const typeResolutionField = 'type';
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -14,6 +13,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       excerpt: String!
       author: String!
       date: Date! @dateformat
+      featuredImage: File @link(from: "featuredImage___NODE")
       categories: [TagLabelComponent]
       sections: [SectionComponent]
     }
@@ -48,6 +48,8 @@ const hashObjectKeys = (obj, outerComponent) => {
         const outer = outerComponent === 'section' ? obj[property][typeResolutionField] : outerComponent;
         if (outer === 'storytelling' && property === 'link') {
           hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'link-button');
+        } else if (outer === 'storytelling' && property === 'headline') {
+          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'headline');
         } else {
           hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], outer);
         }
@@ -122,23 +124,24 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       "gutter": "default"
     }];
 
+    if (page.sections && page.sections.length > 0) {
+      page.sections = page.sections.map((section) => hashObjectKeys(section, 'section'));
+    }
+
     if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.id) {
       const wpMediaItem = getNode(node.featuredImage.node.id);
       
       if (wpMediaItem && wpMediaItem.localFile && wpMediaItem.localFile.id) {
         const fileMediaItem = getNode(wpMediaItem.localFile.id);
 
-        page.sections[0].content[0].image = {
-          "src": fileMediaItem.publicURL,
-          "width": 900,
-          "height": 300
+        page.featuredImage___NODE = fileMediaItem.id;
+        page.sections[0].content__2cb4[0].image__c108 = {
+          "src__2f94___NODE": fileMediaItem.id,
+          "width__1054": 900,
+          "height__c61c": 300
         }
       }
     };
-
-    if (page.sections && page.sections.length > 0) {
-      page.sections = page.sections.map((section) => hashObjectKeys(section, 'section'));
-    }
 
     page.internal = {
       contentDigest: createContentDigest(page),
