@@ -1,4 +1,3 @@
-const { fmImagesToRelative } = require('gatsby-remark-relative-source');
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const path = require('path');
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
@@ -114,8 +113,8 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
             });
 
             fileNode.then((file) => {
+              delete obj[property];
               if (file) {
-                delete obj[property];
                 obj[`${property}___NODE`] = file.id;
                 resolve();
               } else {
@@ -128,7 +127,8 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
             obj[property].indexOf('jpg') > -1 ||
             obj[property].indexOf('jpeg') > -1 ||
             obj[property].indexOf('png') > -1 ||
-            obj[property].indexOf('gif') > -1
+            obj[property].indexOf('gif') > -1 || 
+            obj[property].indexOf('svg') > -1
           )) && (
             property.indexOf('src') > -1 || 
             property.indexOf('image') > -1 || 
@@ -143,6 +143,16 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
           obj[`${property}___NODE`] = file.id;
 
           return Promise.resolve();
+        } else if (typeof obj[property] === 'string' && (obj[property] === "") && (
+          property.indexOf('src') > -1 || 
+          property.indexOf('image') > -1 || 
+          property.indexOf('source') > -1 || 
+          property.indexOf('srcMobile') > -1 || 
+          property.indexOf('srcTable') > -1 || 
+          property.indexOf('srcMobile') > -1
+        )) {
+          delete obj[property];
+          return Promise.resolve();
         } else {
           return Promise.resolve();
         }
@@ -150,8 +160,6 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
     }));
   };
 
-  // fmImagesToRelative(node);
-  
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.id) {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
     delete node.frontmatter.id;
