@@ -44,15 +44,7 @@ exports.onCreateBabelConfig = ({ actions }) => {
   });
 };
 
-// resolve.fallback: { "assert": require.resolve("assert/") }
-
-exports.onCreateWebpackConfig = ({
-  stage,
-  rules,
-  loaders,
-  plugins,
-  actions,
-}) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       fallback: {
