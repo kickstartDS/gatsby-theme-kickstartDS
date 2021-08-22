@@ -15,6 +15,7 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
+    "assert": "^2.0.0",
     "change-case": "^4.1.2",
     "gatsby": "^3.8.1",
     "gatsby-plugin-image": "^1.8.0",
