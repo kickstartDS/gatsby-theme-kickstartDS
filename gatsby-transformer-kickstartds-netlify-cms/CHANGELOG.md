@@ -1,3 +1,15 @@
+# v1.3.1 (Mon Aug 23 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: headlines in storytelling are correct headlines, now! ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.3.0 (Mon Aug 23 2021)
 
 #### 🚀 Enhancement

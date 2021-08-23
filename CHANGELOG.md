@@ -1,5 +1,18 @@
 # (Mon Aug 23 2021)
 
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.3.1`
+  - fix: headlines in storytelling are correct headlines, now! ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Aug 23 2021)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-theme-kickstartds@1.3.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.3.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.1.0`
