@@ -26,7 +26,7 @@
     "@kickstartds/gatsby-theme-kickstartds": "^1.2.1",
     "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^1.2.1",
     "@kickstartds/gatsby-transformer-kickstartds-wordpress": "^1.0.3",
-    "@kickstartds/generate-from-schema": "^0.5.2",
+    "@kickstartds/generate-from-schema": "^0.5.4",
     "dotenv": "^8.2.0",
     "gatsby": "^3.8.1",
     "react": "^17.0.2",
