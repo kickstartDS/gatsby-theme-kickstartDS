@@ -1,3 +1,25 @@
+# v1.1.0 (Mon Aug 23 2021)
+
+#### 🚀 Enhancement
+
+- feature: re-add wordpress integration with consolidated base theme [#23](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/23) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: integrate images ([@julrich](https://github.com/julrich))
+- feat: get more blog stuff integrated ([@julrich](https://github.com/julrich))
+- fix: some more content changes in blog posts ([@julrich](https://github.com/julrich))
+- fix: minor updates to displayed data ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into feature/add-wordpress-blog-integration ([@julrich](https://github.com/julrich))
+- feat: re-add initial wordpress integration ([@julrich](https://github.com/julrich))
+- fix: outdated page schema when sourcing ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.0.3 (Sat Jul 03 2021)
 
 #### 🐛 Bug Fix

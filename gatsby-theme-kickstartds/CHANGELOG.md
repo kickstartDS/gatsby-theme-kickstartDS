@@ -1,3 +1,22 @@
+# v1.3.0 (Mon Aug 23 2021)
+
+#### 🚀 Enhancement
+
+- feature: re-add wordpress integration with consolidated base theme [#23](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/23) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: clean up code a bit ([@julrich](https://github.com/julrich))
+- fix: webpack compatibility ([@julrich](https://github.com/julrich))
+- fix: integrate images ([@julrich](https://github.com/julrich))
+- feat: get more blog stuff integrated ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.1 (Sat Jul 17 2021)
 
 #### ⚠️ Pushed to `master`

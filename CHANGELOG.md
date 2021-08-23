@@ -1,3 +1,20 @@
+# (Mon Aug 23 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.3.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.3.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.1.0`
+  - feature: re-add wordpress integration with consolidated base theme [#23](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/23) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- chore(content): remove videos from demo content ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sat Aug 07 2021)
 
 #### ⚠️ Pushed to `master`
