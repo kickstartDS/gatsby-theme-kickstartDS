@@ -45,8 +45,6 @@ const hashObjectKeys = (obj, outerComponent) => {
         const outer = outerComponent === 'section' ? obj[property][typeResolutionField] : outerComponent;
         if (outer === 'storytelling' && property === 'link') {
           hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'link-button');
-        } else if (outer === 'storytelling' && property === 'headline') {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'headline');
         } else {
           hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], outer);
         }
