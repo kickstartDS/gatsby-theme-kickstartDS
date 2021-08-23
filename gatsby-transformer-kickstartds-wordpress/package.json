@@ -10,10 +10,12 @@
     "develop": "gatsby develop"
   },
   "peerDependencies": {
-    "gatsby-source-wordpress": "^5.8.0"
+    "gatsby-source-wordpress": "^5.11.0"
   },
   "dependencies": {
-    "gatsby-source-wordpress": "^5.8.0"
+    "@kickstartds/jsonschema2graphql": "^1.4.1",
+    "gatsby-source-wordpress": "^5.11.0",
+    "string-strip-html": "^8.3.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
