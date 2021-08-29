@@ -60,92 +60,50 @@ const hashObjectKeys = (obj, outerComponent) => {
 exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
-  if (node.internal.type === 'WpPost') {
-    // const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsWordpressPage`);
+  if (node.internal.type === 'ContentfulTerm') {
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsContentfulPage`);
 
-    // const categories = node.categories.nodes.map((categoryNode) => {
-    //   const category = getNode(categoryNode.id);
+    const page = {
+      id: kickstartDSPageId,
+      parent: node.id,
+      title: node.name,
+      slug: `glossary/${node.slug}`,
+      layout: 'default',
+    };
 
-    //   return {
-    //     "label": category.name,
-    //     "type": "tag-label"
-    //   };
-    // });
+    page.sections = [{
+      "mode": "list",
+      "spaceBefore": "none",
+      "width": "wide",
+      "background": "default",
+      "headline": {
+        "level": "p",
+        "align": "center",
+        "content": node.name,
+        "spaceAfter": "none",
+        "type": "headline"
+      },
+      "spaceAfter": "default",
+      "content": [{
+        "type": "text-media",
+        "text": node.definition.raw,
+      }],
+      "type": "sections",
+      "gutter": "default"
+    }];
 
-    // const author = getNode(node.author.node.id);
+    if (page.sections && page.sections.length > 0) {
+      page.sections = page.sections.map((section) => hashObjectKeys(section, 'section'));
+    }
 
-    // const page = {
-    //   id: kickstartDSPageId,
-    //   parent: node.id,
-    //   title: node.title,
-    //   slug: `blog/${node.slug}`,
-    //   excerpt: node.excerpt,
-    //   date: node.date,
-    //   author: author.name,
-    //   categories: categories.map((category) => hashObjectKeys(category, 'tag-label')),
-    //   layout: 'default',
-    // };
+    page.internal = {
+      contentDigest: createContentDigest(page),
+      content: JSON.stringify(page),
+      type: 'KickstartDsContentfulPage',
+      description: `Contentful glossary implementation of the kickstartDS page interface`,
+    };
 
-    // page.sections = [{
-    //   "mode": "list",
-    //   "spaceBefore": "none",
-    //   "width": "wide",
-    //   "background": "default",
-    //   "headline": {
-    //     "level": "p",
-    //     "align": "center",
-    //     "content": "",
-    //     "spaceAfter": "none",
-    //     "type": "headline"
-    //   },
-    //   "spaceAfter": "default",
-    //   "content": [{
-    //     "type": "post-head",
-    //     "date": node.date,
-    //     "headline": {
-    //       "level": "h1",
-    //       "align": "left",
-    //       "content": node.title,
-    //       "subheadline": `published by: ${author.name}`,
-    //       "spaceAfter": "none",
-    //       "type": "headline"
-    //     },
-    //     "categories": categories
-    //   }, {
-    //     "type": "html",
-    //     "html": node.content,
-    //   }],
-    //   "type": "sections",
-    //   "gutter": "default"
-    // }];
-
-    // if (page.sections && page.sections.length > 0) {
-    //   page.sections = page.sections.map((section) => hashObjectKeys(section, 'section'));
-    // }
-
-    // if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.id) {
-    //   const wpMediaItem = getNode(node.featuredImage.node.id);
-      
-    //   if (wpMediaItem && wpMediaItem.localFile && wpMediaItem.localFile.id) {
-    //     const fileMediaItem = getNode(wpMediaItem.localFile.id);
-
-    //     page.featuredImage___NODE = fileMediaItem.id;
-    //     page.sections[0].content__2cb4[0].image__c108 = {
-    //       "src__2f94___NODE": fileMediaItem.id,
-    //       "width__1054": 900,
-    //       "height__c61c": 300
-    //     }
-    //   }
-    // };
-
-    // page.internal = {
-    //   contentDigest: createContentDigest(page),
-    //   content: JSON.stringify(page),
-    //   type: 'KickstartDsWordpressPage',
-    //   description: `Wordpress Post implementation of the kickstartDS page interface`,
-    // };
-
-    // createNode(page);
-    // createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
+    createNode(page);
+    createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
   }
 };
