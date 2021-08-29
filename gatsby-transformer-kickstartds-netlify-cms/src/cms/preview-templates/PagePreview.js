@@ -20,13 +20,9 @@ const PagePreview = React.memo(({ entry }) => {
       linkIndex.href = '/index.css';
       iframe.contentDocument.head.appendChild(linkIndex);
 
-      const linkTokens = iframe.contentDocument.createElement('link');
-      linkTokens.rel = 'stylesheet';
-      linkTokens.href = '/tokens.css';
-      iframe.contentDocument.head.appendChild(linkTokens);
-
       const script = iframe.contentDocument.createElement('script');
       script.src = '/index.js';
+      script.type = 'module';
       iframe.contentDocument.body.appendChild(script);
     },
     []
