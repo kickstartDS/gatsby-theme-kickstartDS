@@ -3,7 +3,7 @@
   "description": "example gatsby project to test kickstartds theme with wordpress as a source",
   "license": "UNLICENSED",
   "private": true,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": {
     "name": "Jonas Ulrich",
     "email": "jonas.ulrich@ruhmesmeile.com"

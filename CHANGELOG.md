@@ -1,3 +1,29 @@
+# (Sun Aug 29 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.4.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.4.0`
+  - feat: add support for customized schemas [#29](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/29) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Aug 23 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.3.1`
+  - fix: headlines in storytelling are correct headlines, now! ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Aug 23 2021)
 
 #### 🚀 Enhancement

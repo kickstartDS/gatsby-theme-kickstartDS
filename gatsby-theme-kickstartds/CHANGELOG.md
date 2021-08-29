@@ -1,3 +1,19 @@
+# v1.4.0 (Sun Aug 29 2021)
+
+#### 🚀 Enhancement
+
+- feat: add support for customized schemas [#29](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/29) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feat: add support for customized schemas ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.3.0 (Mon Aug 23 2021)
 
 #### 🚀 Enhancement
