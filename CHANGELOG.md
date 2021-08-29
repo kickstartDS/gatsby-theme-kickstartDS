@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@kickstartds/gatsby-theme-kickstartds@1.5.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.1.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.5.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.2.0`
+  - feature: add support to consume `Contentful` data [#30](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/30) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Aug 29 2021)
+
+#### 🚀 Enhancement
+
 - `@kickstartds/gatsby-theme-kickstartds@1.4.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.4.0`
   - feat: add support for customized schemas [#29](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/29) ([@julrich](https://github.com/julrich))
 
