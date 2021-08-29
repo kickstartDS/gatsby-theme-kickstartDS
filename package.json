@@ -12,8 +12,9 @@
   },
   "workspaces": [
     "gatsby-theme-kickstartds",
-    "gatsby-transformer-kickstartds-wordpress",
+    "gatsby-transformer-kickstartds-contentful",
     "gatsby-transformer-kickstartds-netlify-cms",
+    "gatsby-transformer-kickstartds-wordpress",
     "example"
   ],
   "devDependencies": {
