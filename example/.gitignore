@@ -71,7 +71,6 @@ yarn-error.log
 !.env.example
 .DS_Store
 
-static/index.js
-static/index.css
-static/admin/config.yml
+static/*
+!static/images
 dist/*
