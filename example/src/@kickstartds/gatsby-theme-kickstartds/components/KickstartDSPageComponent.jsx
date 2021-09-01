@@ -51,9 +51,7 @@ const SectionProvider = (props) => (
 
 const AllContextProviders = (props) => (
   <SectionProvider>
-    <RichTextProvider>
     {props.children}
-    </RichTextProvider>
   </SectionProvider>
 );
 
