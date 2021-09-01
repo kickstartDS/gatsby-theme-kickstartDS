@@ -4,6 +4,24 @@
 
 - fix: update richtext integration [#33](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/33) ([@julrich](https://github.com/julrich))
 
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:ruhmesmeile/gatsby-theme-kickstartds ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.5.1`
+  - fix: image handling ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Sep 01 2021)
+
+#### 🐛 Bug Fix
+
+- fix: update richtext integration [#33](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/33) ([@julrich](https://github.com/julrich))
+
 #### Authors: 1
 
 - Jonas Ulrich ([@julrich](https://github.com/julrich))
