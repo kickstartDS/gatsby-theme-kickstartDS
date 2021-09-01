@@ -22,6 +22,7 @@ const WrappedVisual = (props) => {
     }
     if (props.media.image.srcMobile && props.media.image.srcMobile.publicURL) {
       props.media.image.src = props.media.image.srcMobile;
+      if (props.media.image.src.childImageSharp) delete props.media.image.src.childImageSharp;
       props.media.image.srcMobile = props.media.image.srcMobile.publicURL;
     }
   }
