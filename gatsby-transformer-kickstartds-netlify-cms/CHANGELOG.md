@@ -1,3 +1,16 @@
+# v1.5.1 (Wed Sep 01 2021)
+
+#### 🐛 Bug Fix
+
+- fix: wrap gatsby image usage for storytelling bg [#35](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/35) ([@julrich](https://github.com/julrich))
+- fix: wrap gatsby image usage for storytelling bg ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.5.0 (Sun Aug 29 2021)
 
 #### 🚀 Enhancement

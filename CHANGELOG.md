@@ -1,5 +1,18 @@
 # (Wed Sep 01 2021)
 
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@1.5.3`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.5.1`
+  - fix: wrap gatsby image usage for storytelling bg [#35](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/35) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Sep 01 2021)
+
 #### ⚠️ Pushed to `master`
 
 - `@kickstartds/gatsby-theme-kickstartds@1.5.2`
