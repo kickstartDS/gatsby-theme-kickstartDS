@@ -1,3 +1,15 @@
+# v1.5.2 (Wed Sep 01 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: visual source ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.5.1 (Wed Sep 01 2021)
 
 #### 🐛 Bug Fix
