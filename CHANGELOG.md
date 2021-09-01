@@ -1,3 +1,15 @@
+# (Wed Sep 01 2021)
+
+#### 🐛 Bug Fix
+
+- fix: update richtext integration [#33](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/33) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Aug 29 2021)
 
 #### 🚀 Enhancement
