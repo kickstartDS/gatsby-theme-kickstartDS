@@ -2,15 +2,15 @@
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { PictureContextDefault, PictureContext } from "@kickstartds/base/lib/picture";
 import { VisualContextDefault, VisualContext } from "@kickstartds/content/lib/visual";
+import { StorytellingContextDefault, StorytellingContext } from "@kickstartds/content/lib/storytelling";
 import { KickstartDSPage } from "../components/KickstartDSPageComponent";
 
-const WrappedImage = (props) => {
-  return props.src && props.src.childImageSharp
-  ? <GatsbyImage image={getImage(props.src)} alt="TODO add useful image alt" />
-  : props.src && props.src.publicURL
-    ? <PictureContextDefault src={props.src.publicURL} />
-    : null;
-};
+const WrappedImage = (props) => 
+  props.src && props.src.childImageSharp
+    ? <GatsbyImage image={getImage(props.src)} alt="TODO add useful image alt" />
+    : props.src && props.src.publicURL
+      ? <PictureContextDefault src={props.src.publicURL} />
+      : null;
 
 const WrappedVisual = (props) => {
   if (props.media && props.media.image) {
@@ -30,6 +30,11 @@ const WrappedVisual = (props) => {
   return <VisualContextDefault {...props}/>
 }
 
+const WrappedStorytelling = (props) => 
+  props.backgroundImage && props.backgroundImage.publicURL
+    ? <StorytellingContextDefault {...props} backgroundImage={props.backgroundImage.publicURL} />
+    : <StorytellingContextDefault {...props} />;
+
 const PictureProvider = (props) => (
   <PictureContext.Provider value={WrappedImage} {...props} />
 );
@@ -38,14 +43,20 @@ const VisualProvider = (props) => (
   <VisualContext.Provider value={WrappedVisual} {...props} />
 );
 
+const StorytellingProvider = (props) => (
+  <StorytellingContext.Provider value={WrappedStorytelling} {...props} />
+);
+
 export const KickstartDSList = (props) => {
   const page = props.pageContext.page;
   
   return (
     <PictureProvider>
-      <VisualProvider>
-        <KickstartDSPage {...page} />
-      </VisualProvider>
+      <StorytellingProvider>
+        <VisualProvider>
+          <KickstartDSPage {...page} />
+        </VisualProvider>
+      </StorytellingProvider>
     </PictureProvider>
   );
 }
