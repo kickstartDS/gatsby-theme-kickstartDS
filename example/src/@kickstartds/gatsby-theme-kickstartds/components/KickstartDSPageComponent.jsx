@@ -36,18 +36,25 @@ const options = {
 };
 
 const ContentfulRichText = (props) => {
+  console.log('WHYYYYY');
   return props.text.includes('nodeType')
     ? <div>{renderRichText(props.text, options)}</div>
     : <RichText {...props} />;
 };
 
-const RichTextProvider = (props) => (
-  <RichTextContext.Provider value={ContentfulRichText} {...props} />
-);
+const RichTextProvider = (props) => {
+  console.log('RichText props', props);
+  return (
+    <RichTextContext.Provider value={ContentfulRichText} {...props} />
+  );
+};
 
-const SectionProvider = (props) => (
-  <SectionContext.Provider value={Section} {...props} />
-);
+const SectionProvider = (props) => {
+  console.log('Section props', props);
+  return (
+    <SectionContext.Provider value={Section} {...props} />
+  );
+}
 
 const AllContextProviders = (props) => (
   <SectionProvider>
