@@ -2368,10 +2368,10 @@
     sass "^1.38.1"
     vhtml "^2.2.0"
 
-"@kickstartds/design-system@^1.0.53":
-  version "1.0.53"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-1.0.53.tgz#5ebefef2a073ce52cbccc87f5bc6f519bc5d93f4"
-  integrity sha512-SHbpZsmYFbLKkpjubg5cdtCLVeaUn5Rg7L3GGvxqt6V+cwF3Ok3hg00UAGZ+sCN/aZ6kvUdpCfaeeAGvAkHXuw==
+"@kickstartds/design-system@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-1.1.0.tgz#1bb4c491a61f56890ad81ad2adafea6d5ea00a4f"
+  integrity sha512-aPC+KXsAvS1RQ55YpqO4pZvV56DkWOiL9ZncQoolBfnW7c8F+aQ5zLKjT+8XIwt3qAXB8M0JcmWB84xftXLdLQ==
   dependencies:
     "@kickstartds/base" "1.3.1-canary.367.2035.0"
     "@kickstartds/blog" "1.3.1-canary.367.2035.0"
@@ -2400,17 +2400,17 @@
     "@kickstartds/core" "^1.2.0"
     classnames "^2.2.6"
 
-"@kickstartds/generate-from-schema@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.6.0.tgz#871aef6e2bdf5eae80c0296a7b581604183b1bbe"
-  integrity sha512-h7Eano4LdvB11GRlKnsUP8YSf+655Rz2nmvPIO5SLP2wm/SZWa5R4K2p/HlsVUiwb/RaFhLxUYE3aRHyEeVS2A==
+"@kickstartds/generate-from-schema@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.6.2.tgz#4c3d6be1221d8e25e8e08c9ddfe980059e7270b8"
+  integrity sha512-tPElU2QZnqtck2TDcPRGa9SqXLMXdipNTJG6sflyaZajHY7Mw3f+06n1XWdoSfgLHZtmA5IAmMvX1pnIJhKQJg==
   dependencies:
     "@graphql-cli/codegen" "^1.17.24"
     "@graphql-codegen/cli" "^1.21.5"
-    "@kickstartds/graphql-cli-add-gatsby-directives" "^1.1.3"
-    "@kickstartds/graphql-cli-generate-fragments" "^1.5.4"
-    "@kickstartds/jsonschema2graphql" "^1.5.0"
-    "@kickstartds/jsonschema2netlifycms" "^1.5.0"
+    "@kickstartds/graphql-cli-add-gatsby-directives" "*"
+    "@kickstartds/graphql-cli-generate-fragments" "*"
+    "@kickstartds/jsonschema2graphql" "*"
+    "@kickstartds/jsonschema2netlifycms" "^1.5.2"
     "@types/chokidar" "^2.1.3"
     ajv "^8.5.0"
     change-case "^4.1.2"
@@ -2421,7 +2421,7 @@
     graphql-cli "^4.1.0"
     js-yaml "^4.1.0"
 
-"@kickstartds/graphql-cli-add-gatsby-directives@^1.1.3":
+"@kickstartds/graphql-cli-add-gatsby-directives@*":
   version "1.1.3"
   resolved "https://registry.npmjs.org/@kickstartds/graphql-cli-add-gatsby-directives/-/graphql-cli-add-gatsby-directives-1.1.3.tgz#a84dde47db7b518079c846583153a977ccf98472"
   integrity sha512-cAc/gmrX8JSeh4eF4vlBKhr1u1w7kpzg2UVyxqPCr0iHB9U6Bym+eoF2SnViQ+qXnrA5Bz4tEUgbGBi8GYtXtw==
@@ -2434,7 +2434,7 @@
     lodash "^4.17.21"
     tslib "~2.2.0"
 
-"@kickstartds/graphql-cli-generate-fragments@^1.5.4":
+"@kickstartds/graphql-cli-generate-fragments@*":
   version "1.5.4"
   resolved "https://registry.npmjs.org/@kickstartds/graphql-cli-generate-fragments/-/graphql-cli-generate-fragments-1.5.4.tgz#227e4d9aa33309bdae036c68c1c7d0c786133302"
   integrity sha512-zAUKtlucNJUiz47+y72lZkTZq91l1DLKPyqxmOdF/8TmEUjJ970xRRT7npXAPRmp+dhCeFP6FfRYHx2Im//Jbw==
@@ -2447,10 +2447,10 @@
     lodash "^4.17.21"
     tslib "~2.2.0"
 
-"@kickstartds/jsonschema2graphql@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.4.1.tgz#1bbb4583ff5659fd05499f429d2198ecd50a2fb4"
-  integrity sha512-TvS6C7MGVKvqYRpyVrlgJYMSP04O4EuhA/iM5D/5frgZyv8UpjwxHB+s2jranj8b7q2l6n0hBO3U5wTRKIGsGQ==
+"@kickstartds/jsonschema2graphql@*":
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.5.0.tgz#97d3c367080fd54d37ce5907ed077c1b9e5cc00b"
+  integrity sha512-VipfrCMWCkyCYWo6Gl1MEanZjb6wU52KzDVaS5LqVleps8EUO5otNTk3Q0t/0V4ckrWDX2J2eIXntmb5E0pDOA==
   dependencies:
     ajv "^8.5.0"
     camelcase "^6.2.0"
@@ -2460,10 +2460,10 @@
     ramda "^0.27.1"
     uppercamelcase "^3.0.0"
 
-"@kickstartds/jsonschema2graphql@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.5.0.tgz#97d3c367080fd54d37ce5907ed077c1b9e5cc00b"
-  integrity sha512-VipfrCMWCkyCYWo6Gl1MEanZjb6wU52KzDVaS5LqVleps8EUO5otNTk3Q0t/0V4ckrWDX2J2eIXntmb5E0pDOA==
+"@kickstartds/jsonschema2graphql@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.4.1.tgz#1bbb4583ff5659fd05499f429d2198ecd50a2fb4"
+  integrity sha512-TvS6C7MGVKvqYRpyVrlgJYMSP04O4EuhA/iM5D/5frgZyv8UpjwxHB+s2jranj8b7q2l6n0hBO3U5wTRKIGsGQ==
   dependencies:
     ajv "^8.5.0"
     camelcase "^6.2.0"
@@ -2484,10 +2484,10 @@
     netlify-cms-core "^2.40.12"
     ramda "^0.27.1"
 
-"@kickstartds/jsonschema2netlifycms@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2netlifycms/-/jsonschema2netlifycms-1.5.0.tgz#bb1c25338b4dabd3b6357c2d89d1bf274d048268"
-  integrity sha512-IKt8Jpr8VJ4ukbY0i7vYIOrJJehv/uD3BpkHt0dDVaE/OlBbJZ5WMDN5yKHaDzzsKXBBsgP4mkP7PPxwvu8w1Q==
+"@kickstartds/jsonschema2netlifycms@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2netlifycms/-/jsonschema2netlifycms-1.5.2.tgz#5c3e0baf6b1880e1c596a82d28ae27ab828c5c91"
+  integrity sha512-sOmU3B81yFRNO301Mltli/qeYOMTBkn+ZesW0rDR1tzreC62JVl9xE97dQPKqa9kHbOPabEtthFzS6DKw4TJ+w==
   dependencies:
     ajv "^8.5.0"
     camelcase "^6.2.0"
