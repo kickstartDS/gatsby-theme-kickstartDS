@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-types": "^15.1.0",
-    "@kickstartds/jsonschema2graphql": "^1.4.1",
+    "@kickstartds/jsonschema2graphql": "^1.5.0",
     "gatsby-source-contentful": "^5.12.0"
   },
   "publishConfig": {
