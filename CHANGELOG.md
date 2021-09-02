@@ -1,3 +1,15 @@
+# (Thu Sep 02 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: update dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Wed Sep 01 2021)
 
 #### 🐛 Bug Fix
