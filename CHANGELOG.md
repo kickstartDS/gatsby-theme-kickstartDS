@@ -2,6 +2,21 @@
 
 #### ⚠️ Pushed to `master`
 
+- Merge branch 'master' of github.com:ruhmesmeile/gatsby-theme-kickstartds ([@julrich](https://github.com/julrich))
+- fix: update dependencies ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@1.1.1`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.5.2`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.2.1`
+  - chore(dependencies): update kDS dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Sep 02 2021)
+
+#### ⚠️ Pushed to `master`
+
 - fix: update dependencies ([@julrich](https://github.com/julrich))
 
 #### Authors: 1

@@ -1,3 +1,16 @@
+# v1.1.1 (Thu Sep 02 2021)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:ruhmesmeile/gatsby-theme-kickstartds ([@julrich](https://github.com/julrich))
+- chore(dependencies): update kDS dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.1.0 (Sun Aug 29 2021)
 
 #### 🚀 Enhancement
