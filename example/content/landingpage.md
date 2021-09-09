@@ -86,6 +86,7 @@ sections:
           label: Start now!
           size: small
           variant: outline_inverted
+        graphic: components
       - type: count-up
         text: >-
           Every propertys' existence is **rooted in a real-world** decision;
@@ -100,6 +101,7 @@ sections:
           label: Learn more
           size: small
           variant: outline_inverted
+        graphic: properties
       - type: count-up
         text: >-
           Obviously we have **design tokens** – colors, fonts, sizes,
@@ -114,6 +116,7 @@ sections:
           label: Learn more
           size: small
           variant: outline_inverted
+        graphic: tokens
     type: section
     gutter: default
   - mode: list

@@ -6,9 +6,12 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 import { KickstartDSPage as OriginalKickstartDSPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/KickstartDSPageComponent';
 import { Header } from '@kickstartds/design-system/dist/components/header/HeaderComponent';
+import { Footer } from '@kickstartds/design-system/dist/components/footer/FooterComponent';
 import { Section } from '@kickstartds/design-system/dist/components/section/SectionComponent';
 import { SectionContext } from '@kickstartds/base/lib/section';
 import { RichText, RichTextContext } from '@kickstartds/base/lib/rich-text';
+import { CountUp } from '@kickstartds/design-system/dist/components/count-up/CountUpComponent';
+import { CountUpContext } from '@kickstartds/content/lib/count-up';
 
 import "@kickstartds/design-system/dist/index.css";
 import "@kickstartds/design-system/dist/index.js";
@@ -36,30 +39,35 @@ const options = {
 };
 
 const ContentfulRichText = (props) => {
-  console.log('WHYYYYY');
   return props.text.includes('nodeType')
     ? <div>{renderRichText(props.text, options)}</div>
     : <RichText {...props} />;
 };
 
 const RichTextProvider = (props) => {
-  console.log('RichText props', props);
   return (
     <RichTextContext.Provider value={ContentfulRichText} {...props} />
   );
 };
 
 const SectionProvider = (props) => {
-  console.log('Section props', props);
   return (
     <SectionContext.Provider value={Section} {...props} />
   );
 }
 
+const CountUpProvider = (props) => {
+  return (
+    <CountUpContext.Provider value={CountUp} {...props} />
+  );
+}
+
 const AllContextProviders = (props) => (
-  <SectionProvider>
-    {props.children}
-  </SectionProvider>
+  <CountUpProvider>
+    <SectionProvider>
+      {props.children}
+    </SectionProvider>
+  </CountUpProvider>
 );
 
 export const KickstartDSPage = (data) => (
@@ -72,5 +80,6 @@ export const KickstartDSPage = (data) => (
     <AllContextProviders>
       <OriginalKickstartDSPage {...data} />
     </AllContextProviders>
+    <Footer />
   </>
 );
