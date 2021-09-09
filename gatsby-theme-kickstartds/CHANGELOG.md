@@ -1,3 +1,16 @@
+# v1.5.4 (Thu Sep 09 2021)
+
+#### 🐛 Bug Fix
+
+- fix: blog theme layout [#40](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/40) ([@julrich](https://github.com/julrich))
+- fix: blog theme layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.5.3 (Wed Sep 01 2021)
 
 #### 🐛 Bug Fix

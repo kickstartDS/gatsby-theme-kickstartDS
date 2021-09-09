@@ -2,6 +2,23 @@
 
 #### 🐛 Bug Fix
 
+- `@kickstartds/gatsby-theme-kickstartds@1.5.4`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.2.2`
+  - fix: blog theme layout [#40](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/40) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- feature: add count-up component ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Sep 09 2021)
+
+#### 🐛 Bug Fix
+
 - feature: add count-up component ([@julrich](https://github.com/julrich))
 
 #### Authors: 1
