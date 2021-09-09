@@ -103,7 +103,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
         "spaceAfter": "none",
         "type": "headline"
       },
-      "spaceAfter": "default",
+      "spaceAfter": "none",
       "content": [{
         "type": "post-head",
         "date": node.date,
@@ -116,9 +116,25 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
           "type": "headline"
         },
         "categories": categories
-      }, {
+      }],
+      "type": "sections",
+      "gutter": "default"
+    }, {
+      "mode": "list",
+      "spaceBefore": "small",
+      "width": "narrow",
+      "background": "default",
+      "headline": {
+        "level": "p",
+        "align": "center",
+        "content": "",
+        "spaceAfter": "none",
+        "type": "headline"
+      },
+      "spaceAfter": "default",
+      "content": [{
         "type": "html",
-        "html": node.content,
+        "html": `<div class="c-rich-text">${node.content}</div>`
       }],
       "type": "sections",
       "gutter": "default"
