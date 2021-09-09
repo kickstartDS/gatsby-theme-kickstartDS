@@ -1,3 +1,15 @@
+# (Thu Sep 09 2021)
+
+#### 🐛 Bug Fix
+
+- feature: add count-up component ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Thu Sep 02 2021)
 
 #### ⚠️ Pushed to `master`
