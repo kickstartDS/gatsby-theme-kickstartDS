@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { Link } from "gatsby";
 
 import { KickstartDSPage as OriginalKickstartDSPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/KickstartDSPageComponent';
 import { Header } from '@kickstartds/design-system/dist/components/header/HeaderComponent';
@@ -12,6 +13,7 @@ import { SectionContext } from '@kickstartds/base/lib/section';
 import { RichText, RichTextContext } from '@kickstartds/base/lib/rich-text';
 import { CountUp } from '@kickstartds/design-system/dist/components/count-up/CountUpComponent';
 import { CountUpContext } from '@kickstartds/content/lib/count-up';
+import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
 
 import "@kickstartds/design-system/dist/index.css";
 import "@kickstartds/design-system/dist/index.js";
@@ -50,6 +52,18 @@ const RichTextProvider = (props) => {
   );
 };
 
+// TODO dedupe this
+const WrappedLink = ({ href, className, ...props }) => {
+  console.log(href);
+  return href.startsWith('/')
+    ? <Link to={href} className={className} />
+    : <LinkContextDefault href={href} className={className} {...props} />;
+};
+
+const LinkProvider = (props) => (
+  <LinkContext.Provider value={WrappedLink} {...props} />
+);
+
 const SectionProvider = (props) => {
   return (
     <SectionContext.Provider value={Section} {...props} />
@@ -76,10 +90,14 @@ export const KickstartDSPage = (data) => (
       <meta charSet="utf-8" />
       <title>Demo Landingpage</title>
     </Helmet>
-    <Header />
+    <LinkProvider>
+      <Header />
+    </LinkProvider>
     <AllContextProviders>
       <OriginalKickstartDSPage {...data} />
     </AllContextProviders>
-    <Footer />
+    <LinkProvider>
+      <Footer />
+    </LinkProvider>
   </>
 );
