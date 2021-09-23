@@ -39,14 +39,14 @@ const cleanObjectKeys = (obj) => {
         }
       } else if (typeof obj[property] === 'object') {
         if (obj[property] !== null) {
-          cleanedObject[cleanFieldName(property)] = 
+          cleanedObject[cleanFieldName(property)] =
             cleanObjectKeys(obj[property]);
         }
       } else if (obj[property]) {
         if (obj[property] !== null) {
           // TODO re-simplify this... only needed because of inconsistent handling of `-` vs `_` in schema enum values
           // TODO also `graphqlSafeEnumKey.ts` is destructive right now, as in: you can't deterministically convert
-          // values back to their original form, once they are made safe. This is why different properties (like `ratio` 
+          // values back to their original form, once they are made safe. This is why different properties (like `ratio`
           // or `pattern`) need to be handled explicitly here. To reconstruct the needed format. As properties can be
           // customized from a project-level (e.g. `pattern` already is an individualization for `kickstartDS/design-system`)
           // we can't have custom handling per property here. At least in the long run!
@@ -76,15 +76,11 @@ const getComponent = (element, isSection = false) => {
   const Component = React.memo(components[componentType]);
 
   if (isSection) {
-    let content;
-
-    Object.keys(element).forEach((property) => {
-      if (property.includes('content__') || property.includes('content')) {
-        content = element[property];
-        delete element[property];
-      }
-    });
-    const cleanedElement = cleanObjectKeys(element);
+    const contentKey = Object.keys(element).find(
+      (key) => key.includes("content__") || key.includes("content"),
+    );
+    const { [contentKey]: content, ...clonedElement } = element;
+    const cleanedElement = cleanObjectKeys(clonedElement);
     cleanedElement['headline'].type = 'headline';
 
     return (
@@ -101,7 +97,7 @@ const getComponent = (element, isSection = false) => {
 const getContent = (content, sections = false) => {
   if (content && content.length > 0) {
     return content.map((element) => getComponent(element, sections));
-  } 
+  }
 };
 
 export const KickstartDSPage: FunctionComponent<any> = ({
