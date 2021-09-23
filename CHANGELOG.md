@@ -1,3 +1,17 @@
+# (Thu Sep 23 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: remove unused vars from .env.example ([@lmestel](https://github.com/lmestel))
+- `@kickstartds/gatsby-theme-kickstartds@1.5.5`
+  - fix: don't mutate element objects in page component ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # (Thu Sep 09 2021)
 
 #### 🐛 Bug Fix
