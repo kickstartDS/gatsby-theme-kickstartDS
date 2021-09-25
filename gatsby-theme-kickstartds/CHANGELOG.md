@@ -1,3 +1,20 @@
+# v1.6.0 (Sat Sep 25 2021)
+
+#### 🚀 Enhancement
+
+- feature: use loadable components [#42](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/42) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: loadable components ([@julrich](https://github.com/julrich))
+- feature: add base config for loadable components ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.5.5 (Thu Sep 23 2021)
 
 #### ⚠️ Pushed to `master`

@@ -1,3 +1,16 @@
+# (Sat Sep 25 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.6.0`
+  - feature: use loadable components [#42](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/42) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Thu Sep 23 2021)
 
 #### ⚠️ Pushed to `master`
