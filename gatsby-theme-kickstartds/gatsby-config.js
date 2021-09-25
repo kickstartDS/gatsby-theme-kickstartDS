@@ -52,5 +52,6 @@ module.exports = ({ contentPath = "content", urlSegment = "pages", gqlPath = "di
       },
     },
     `gatsby-transformer-sharp`,
+    'gatsby-plugin-loadable-components-ssr',
    ],
 });

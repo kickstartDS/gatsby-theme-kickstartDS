@@ -1,27 +1,46 @@
 import React from 'react';
 
 import { FunctionComponent } from 'react';
+import loadable from '@loadable/component';
 
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
-
-import * as baseLib from '@kickstartds/base';
-import * as blogLib from '@kickstartds/blog';
-import * as contentLib from '@kickstartds/content';
 
 import baseExports from '@kickstartds/base/lib/exports.json';
 import blogExports from '@kickstartds/blog/lib/exports.json';
 import contentExports from '@kickstartds/content/lib/exports.json';
-
-const libs = { ...baseLib, ...blogLib, ...contentLib };
 
 const components = {};
 const componentCounter = [];
 
 const typeResolutionField = 'type';
 
-Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
+Object.entries(baseExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = libs[value[0]];
+    console.log('base', value[0]);
+    components[key] = {
+      component: value[0],
+      module: 'base'
+    };
+  }
+});
+
+Object.entries(blogExports).forEach(([key, value]) => {
+  if (key.indexOf('/') === -1 && value.length > 0) {
+    console.log('blog', value[0]);
+    components[key] = {
+      component: value[0],
+      module: 'blog'
+    };
+  }
+});
+
+Object.entries(contentExports).forEach(([key, value]) => {
+  if (key.indexOf('/') === -1 && value.length > 0) {
+    console.log('content', value[0]);
+    components[key] = {
+      component: value[0],
+      module: 'content'
+    };
   }
 });
 
@@ -73,7 +92,16 @@ const getComponent = (element, isSection = false) => {
   componentCounter[componentType] = componentCounter[componentType]+1 || 1;
   const key = componentType+'-'+componentCounter[componentType];
 
-  const Component = React.memo(components[componentType]);
+  console.log('searching for componentType', componentType, components[componentType]);
+  const Component = loadable(() => import(`@kickstartds/${components[componentType].module}/lib/${componentType}`), {
+    resolveComponent: (exports) => {
+      console.log('exports', exports);
+      return exports[components[componentType].component];
+    },
+    cacheKey: () => components[componentType].component,
+  });
+
+  console.log('loaded component', Component);
 
   if (isSection) {
     const contentKey = Object.keys(element).find(
