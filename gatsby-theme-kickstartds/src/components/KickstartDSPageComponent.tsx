@@ -1,27 +1,40 @@
 import React from 'react';
 
 import { FunctionComponent } from 'react';
+import loadable from '@loadable/component';
 
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
-
-import * as baseLib from '@kickstartds/base';
-import * as blogLib from '@kickstartds/blog';
-import * as contentLib from '@kickstartds/content';
 
 import baseExports from '@kickstartds/base/lib/exports.json';
 import blogExports from '@kickstartds/blog/lib/exports.json';
 import contentExports from '@kickstartds/content/lib/exports.json';
-
-const libs = { ...baseLib, ...blogLib, ...contentLib };
 
 const components = {};
 const componentCounter = [];
 
 const typeResolutionField = 'type';
 
-Object.entries({ ...baseExports, ...blogExports, ...contentExports }).forEach(([key, value]) => {
+Object.entries(baseExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = libs[value[0]];
+    components[key] = loadable(() => import(`@kickstartds/base/lib/${key}/index.js`), {
+      resolveComponent: (exports) => exports[value[0]],
+    });
+  }
+});
+
+Object.entries(blogExports).forEach(([key, value]) => {
+  if (key.indexOf('/') === -1 && value.length > 0) {
+    components[key] = loadable(() => import(`@kickstartds/blog/lib/${key}/index.js`), {
+      resolveComponent: (exports) => exports[value[0]],
+    });
+  }
+});
+
+Object.entries(contentExports).forEach(([key, value]) => {
+  if (key.indexOf('/') === -1 && value.length > 0) {
+    components[key] = loadable(() => import(`@kickstartds/content/lib/${key}/index.js`), {
+      resolveComponent: (exports) => exports[value[0]],
+    });
   }
 });
 
@@ -73,7 +86,7 @@ const getComponent = (element, isSection = false) => {
   componentCounter[componentType] = componentCounter[componentType]+1 || 1;
   const key = componentType+'-'+componentCounter[componentType];
 
-  const Component = React.memo(components[componentType]);
+  const Component = components[componentType];
 
   if (isSection) {
     const contentKey = Object.keys(element).find(
