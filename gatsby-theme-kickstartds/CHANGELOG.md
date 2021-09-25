@@ -1,3 +1,15 @@
+# v1.6.3 (Sat Sep 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: typo ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.6.2 (Sat Sep 25 2021)
 
 #### ⚠️ Pushed to `master`
