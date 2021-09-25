@@ -16,31 +16,25 @@ const typeResolutionField = 'type';
 
 Object.entries(baseExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    console.log('base', value[0]);
-    components[key] = {
-      component: value[0],
-      module: 'base'
-    };
+    components[key] = loadable(() => import(`@kickstartds/base/lib/${key}/index.js`), {
+      resolveComponent: (exports) => exports[value[0]],
+    });
   }
 });
 
 Object.entries(blogExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    console.log('blog', value[0]);
-    components[key] = {
-      component: value[0],
-      module: 'blog'
-    };
+    components[key] = loadable(() => import(`@kickstartds/blog/lib/${key}/index.js`), {
+      resolveComponent: (exports) => exports[value[0]],
+    });
   }
 });
 
 Object.entries(contentExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    console.log('content', value[0]);
-    components[key] = {
-      component: value[0],
-      module: 'content'
-    };
+    components[key] = loadable(() => import(`@kickstartds/content/lib/${key}/index.js`), {
+      resolveComponent: (exports) => exports[value[0]],
+    });
   }
 });
 
@@ -92,16 +86,7 @@ const getComponent = (element, isSection = false) => {
   componentCounter[componentType] = componentCounter[componentType]+1 || 1;
   const key = componentType+'-'+componentCounter[componentType];
 
-  console.log('searching for componentType', componentType, components[componentType]);
-  const Component = loadable(() => import(`@kickstartds/${components[componentType].module}/lib/${componentType}`), {
-    resolveComponent: (exports) => {
-      console.log('exports', exports);
-      return exports[components[componentType].component];
-    },
-    cacheKey: () => components[componentType].component,
-  });
-
-  console.log('loaded component', Component);
+  const Component = components[componentType];
 
   if (isSection) {
     const contentKey = Object.keys(element).find(
