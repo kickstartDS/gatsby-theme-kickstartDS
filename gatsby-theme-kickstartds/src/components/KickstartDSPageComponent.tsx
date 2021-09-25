@@ -16,7 +16,7 @@ const typeResolutionField = 'type';
 
 Object.entries(baseExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable(() => import(`@kickstartds/base/lib/${key}/index.js`), {
+    components[key] = loadable((component) => import(`@kickstartds/base/lib/${component}/index.js`), {
       resolveComponent: (exports) => exports[value[0]],
     });
   }
@@ -24,7 +24,7 @@ Object.entries(baseExports).forEach(([key, value]) => {
 
 Object.entries(blogExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable(() => import(`@kickstartds/blog/lib/${key}/index.js`), {
+    components[key] = loadable((component) => import(`@kickstartds/blog/lib/${component}/index.js`), {
       resolveComponent: (exports) => exports[value[0]],
     });
   }
@@ -32,7 +32,7 @@ Object.entries(blogExports).forEach(([key, value]) => {
 
 Object.entries(contentExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable(() => import(`@kickstartds/content/lib/${key}/index.js`), {
+    components[key] = loadable((component) => import(`@kickstartds/content/lib/${component}/index.js`), {
       resolveComponent: (exports) => exports[value[0]],
     });
   }
@@ -97,14 +97,14 @@ const getComponent = (element, isSection = false) => {
     cleanedElement['headline'].type = 'headline';
 
     return (
-      <Component key={key} { ...cleanedElement }>
+      <Component component={componentType} key={key} { ...cleanedElement }>
         {getContent(content)}
       </Component>
     );
   }
 
   const cleanedElement = cleanObjectKeys(element);
-  return <Component key={key} { ...cleanedElement } />;
+  return <Component component={componentType} key={key} { ...cleanedElement } />;
 };
 
 const getContent = (content, sections = false) => {
