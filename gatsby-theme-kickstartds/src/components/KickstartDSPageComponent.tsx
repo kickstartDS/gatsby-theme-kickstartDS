@@ -32,7 +32,7 @@ Object.entries(blogExports).forEach(([key, value]) => {
 
 Object.entries(contentExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable((props) => import(`@kickstartds/content/libprops./${component}/index.js`), {
+    components[key] = loadable((props) => import(`@kickstartds/content/lib/${props.component}/index.js`), {
       resolveComponent: (exports) => exports[value[0]],
     });
   }
