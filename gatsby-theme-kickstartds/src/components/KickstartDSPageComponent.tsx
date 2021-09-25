@@ -16,7 +16,7 @@ const typeResolutionField = 'type';
 
 Object.entries(baseExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable((component) => import(`@kickstartds/base/lib/${component}/index.js`), {
+    components[key] = loadable((props) => import(`@kickstartds/base/lib/${props.component}/index.js`), {
       resolveComponent: (exports) => exports[value[0]],
     });
   }
@@ -24,7 +24,7 @@ Object.entries(baseExports).forEach(([key, value]) => {
 
 Object.entries(blogExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable((component) => import(`@kickstartds/blog/lib/${component}/index.js`), {
+    components[key] = loadable((props) => import(`@kickstartds/blog/lib/${props.component}/index.js`), {
       resolveComponent: (exports) => exports[value[0]],
     });
   }
@@ -32,7 +32,7 @@ Object.entries(blogExports).forEach(([key, value]) => {
 
 Object.entries(contentExports).forEach(([key, value]) => {
   if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable((component) => import(`@kickstartds/content/lib/${component}/index.js`), {
+    components[key] = loadable((props) => import(`@kickstartds/content/libprops./${component}/index.js`), {
       resolveComponent: (exports) => exports[value[0]],
     });
   }
