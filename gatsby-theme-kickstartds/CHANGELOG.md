@@ -1,3 +1,15 @@
+# v1.6.1 (Sat Sep 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: attemp to fix component loading ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.6.0 (Sat Sep 25 2021)
 
 #### 🚀 Enhancement

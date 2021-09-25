@@ -1,5 +1,18 @@
 # (Sat Sep 25 2021)
 
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.6.1`
+  - fix: attemp to fix component loading ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Sep 25 2021)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-theme-kickstartds@1.6.0`
