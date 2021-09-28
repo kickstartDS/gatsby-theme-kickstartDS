@@ -1,3 +1,23 @@
+# v1.7.0 (Tue Sep 28 2021)
+
+#### 🚀 Enhancement
+
+- feature/add gatsby link support [#39](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/39) ([@julrich](https://github.com/julrich) [@lmestel](https://github.com/lmestel))
+
+#### 🐛 Bug Fix
+
+- feat: import providers, dedupe link context ([@lmestel](https://github.com/lmestel))
+- Merge branch 'master' into feature/add-gatsby-link-support ([@lmestel](https://github.com/lmestel))
+- Merge branch 'master' into feature/add-gatsby-link-support ([@julrich](https://github.com/julrich))
+- feature: start of gatsby link support in theme ([@julrich](https://github.com/julrich))
+
+#### Authors: 2
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # v1.6.3 (Sat Sep 25 2021)
 
 #### ⚠️ Pushed to `master`

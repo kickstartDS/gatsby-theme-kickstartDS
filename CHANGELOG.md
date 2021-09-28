@@ -1,3 +1,17 @@
+# (Tue Sep 28 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.7.0`
+  - feature/add gatsby link support [#39](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/39) ([@julrich](https://github.com/julrich) [@lmestel](https://github.com/lmestel))
+
+#### Authors: 2
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
 # (Sat Sep 25 2021)
 
 #### ⚠️ Pushed to `master`
