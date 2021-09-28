@@ -4,8 +4,15 @@ import { PictureContextDefault, PictureContext } from "@kickstartds/base/lib/pic
 import { VisualContextDefault, VisualContext } from "@kickstartds/content/lib/visual";
 import { StorytellingContextDefault, StorytellingContext } from "@kickstartds/content/lib/storytelling";
 import { KickstartDSPage } from "../components/KickstartDSPageComponent";
+import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
+import { Link } from "gatsby";
 
-const WrappedImage = (props) => 
+const WrappedLink = ({ href, ...props }) =>
+  href && href.startsWith('/')
+    ? <Link to={href} {...props} />
+    : <LinkContextDefault href={href} {...props} />;
+
+const WrappedImage = (props) =>
   props.src && props.src.childImageSharp
     ? <GatsbyImage image={getImage(props.src)} alt="TODO add useful image alt" />
     : props.src && props.src.publicURL
@@ -27,13 +34,17 @@ const WrappedVisual = (props) => {
     }
   }
 
-  return <VisualContextDefault {...props}/>
+  return <VisualContextDefault {...props} />;
 }
 
-const WrappedStorytelling = (props) => 
+const WrappedStorytelling = (props) =>
   props.backgroundImage && props.backgroundImage.publicURL
     ? <StorytellingContextDefault {...props} backgroundImage={props.backgroundImage.publicURL} />
     : <StorytellingContextDefault {...props} />;
+
+const LinkProvider = (props) => (
+  <LinkContext.Provider value={WrappedLink} {...props} />
+);
 
 const PictureProvider = (props) => (
   <PictureContext.Provider value={WrappedImage} {...props} />
@@ -49,16 +60,18 @@ const StorytellingProvider = (props) => (
 
 export const KickstartDSList = (props) => {
   const page = props.pageContext.page;
-  
+
   return (
-    <PictureProvider>
-      <StorytellingProvider>
-        <VisualProvider>
-          <KickstartDSPage {...page} />
-        </VisualProvider>
-      </StorytellingProvider>
-    </PictureProvider>
+    <LinkProvider>
+      <PictureProvider>
+        <StorytellingProvider>
+          <VisualProvider>
+            <KickstartDSPage {...page} />
+          </VisualProvider>
+        </StorytellingProvider>
+      </PictureProvider>
+    </LinkProvider>
   );
-}
+};
 
 export default KickstartDSList;
