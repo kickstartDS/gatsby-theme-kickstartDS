@@ -1,3 +1,81 @@
+# v1.6.3 (Sat Sep 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: typo ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.6.2 (Sat Sep 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: change loadable components props passing ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.6.1 (Sat Sep 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: attemp to fix component loading ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.6.0 (Sat Sep 25 2021)
+
+#### 🚀 Enhancement
+
+- feature: use loadable components [#42](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/42) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: loadable components ([@julrich](https://github.com/julrich))
+- feature: add base config for loadable components ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.5.5 (Thu Sep 23 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: don't mutate element objects in page component ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
+# v1.5.4 (Thu Sep 09 2021)
+
+#### 🐛 Bug Fix
+
+- fix: blog theme layout [#40](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/40) ([@julrich](https://github.com/julrich))
+- fix: blog theme layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.5.3 (Wed Sep 01 2021)
 
 #### 🐛 Bug Fix

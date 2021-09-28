@@ -1,3 +1,86 @@
+# (Sat Sep 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.6.3`
+  - fix: typo ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Sep 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.6.2`
+  - fix: change loadable components props passing ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Sep 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.6.1`
+  - fix: attemp to fix component loading ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Sep 25 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.6.0`
+  - feature: use loadable components [#42](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/42) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Sep 23 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: remove unused vars from .env.example ([@lmestel](https://github.com/lmestel))
+- `@kickstartds/gatsby-theme-kickstartds@1.5.5`
+  - fix: don't mutate element objects in page component ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
+# (Thu Sep 09 2021)
+
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@1.5.4`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.2.2`
+  - fix: blog theme layout [#40](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/40) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- feature: add count-up component ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Thu Sep 09 2021)
 
 #### 🐛 Bug Fix
