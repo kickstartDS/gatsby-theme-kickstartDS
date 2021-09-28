@@ -1,41 +1,11 @@
 import React from 'react';
 import { FunctionComponent } from 'react';
-import loadable from '@loadable/component';
 
 import { KickstartDSLayout } from './KickstartDSLayoutComponent';
+import components from "./kickstartDSComponentsMap";
 
-import baseExports from '@kickstartds/base/lib/exports.json';
-import blogExports from '@kickstartds/blog/lib/exports.json';
-import contentExports from '@kickstartds/content/lib/exports.json';
-
-const components = {};
 const componentCounter = [];
-
 const typeResolutionField = 'type';
-
-Object.entries(baseExports).forEach(([key, value]) => {
-  if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable((props) => import(`@kickstartds/base/lib/${props.component}/index.js`), {
-      resolveComponent: (exports) => exports[value[0]],
-    });
-  }
-});
-
-Object.entries(blogExports).forEach(([key, value]) => {
-  if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable((props) => import(`@kickstartds/blog/lib/${props.component}/index.js`), {
-      resolveComponent: (exports) => exports[value[0]],
-    });
-  }
-});
-
-Object.entries(contentExports).forEach(([key, value]) => {
-  if (key.indexOf('/') === -1 && value.length > 0) {
-    components[key] = loadable((props) => import(`@kickstartds/content/lib/${props.component}/index.js`), {
-      resolveComponent: (exports) => exports[value[0]],
-    });
-  }
-});
 
 const cleanFieldName = (fieldName) => fieldName.replace(/__.*/i, '');
 const cleanObjectKeys = (obj) => {
