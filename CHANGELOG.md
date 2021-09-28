@@ -1,5 +1,18 @@
 # (Tue Sep 28 2021)
 
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@1.7.1`
+  - create static components map for loadable components [#46](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/46) ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
+# (Tue Sep 28 2021)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-theme-kickstartds@1.7.0`
