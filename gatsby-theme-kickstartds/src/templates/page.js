@@ -7,12 +7,12 @@ import { KickstartDSPage } from "../components/KickstartDSPageComponent";
 import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
 import { Link } from "gatsby";
 
-const WrappedLink = ({ href, className, ...props }) =>
-  href.startsWith('/')
-    ? <Link to={href} className={className} />
-    : <LinkContextDefault href={href} className={className} {...props} />;
+const WrappedLink = ({ href, ...props }) =>
+  href && href.startsWith('/')
+    ? <Link to={href} {...props} />
+    : <LinkContextDefault href={href} {...props} />;
 
-const WrappedImage = (props) => 
+const WrappedImage = (props) =>
   props.src && props.src.childImageSharp
     ? <GatsbyImage image={getImage(props.src)} alt="TODO add useful image alt" />
     : props.src && props.src.publicURL
@@ -37,7 +37,7 @@ const WrappedVisual = (props) => {
   return <VisualContextDefault {...props} />;
 }
 
-const WrappedStorytelling = (props) => 
+const WrappedStorytelling = (props) =>
   props.backgroundImage && props.backgroundImage.publicURL
     ? <StorytellingContextDefault {...props} backgroundImage={props.backgroundImage.publicURL} />
     : <StorytellingContextDefault {...props} />;
@@ -60,7 +60,7 @@ const StorytellingProvider = (props) => (
 
 export const KickstartDSList = (props) => {
   const page = props.pageContext.page;
-  
+
   return (
     <LinkProvider>
       <PictureProvider>

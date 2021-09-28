@@ -1,33 +1,30 @@
 import React from 'react';
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
 
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { Link } from "gatsby";
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { KickstartDSPage as OriginalKickstartDSPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/KickstartDSPageComponent';
 import { Header } from '@kickstartds/design-system/dist/components/header/HeaderComponent';
 import { Footer } from '@kickstartds/design-system/dist/components/footer/FooterComponent';
-import { Section } from '@kickstartds/design-system/dist/components/section/SectionComponent';
-import { SectionContext } from '@kickstartds/base/lib/section';
+import { SectionProvider } from '@kickstartds/design-system/dist/components/section/SectionComponent';
 import { RichText, RichTextContext } from '@kickstartds/base/lib/rich-text';
-import { CountUp } from '@kickstartds/design-system/dist/components/count-up/CountUpComponent';
-import { CountUpContext } from '@kickstartds/content/lib/count-up';
-import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
+import { CountUpProvider } from '@kickstartds/design-system/dist/components/count-up/CountUpComponent';
+import { HeadlineProvider } from '@kickstartds/design-system/dist/components/headline/HeadlineComponent';
 
-import "@kickstartds/design-system/dist/index.css";
-import "@kickstartds/design-system/dist/index.js";
+import '@kickstartds/design-system/dist/index.css';
+import '@kickstartds/design-system/dist/index.js';
 
-const Bold = ({ children }) => <span className="bold">{children}</span>
-const Text = ({ children }) => <p className="align-center">{children}</p>
+const Bold = ({ children }) => <span className="bold">{children}</span>;
+const Text = ({ children }) => <p className="align-center">{children}</p>;
 
 const options = {
   renderMark: {
-    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
-    [BLOCKS.EMBEDDED_ASSET]: node => {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
       return (
         <>
           <h2>Embedded Asset</h2>
@@ -35,53 +32,29 @@ const options = {
             <code>{JSON.stringify(node, null, 2)}</code>
           </pre>
         </>
-      )
+      );
     },
   },
 };
 
 const ContentfulRichText = (props) => {
-  return props.text.includes('nodeType')
-    ? <div>{renderRichText(props.text, options)}</div>
-    : <RichText {...props} />;
+  return props.text.includes('nodeType') ? (
+    <div>{renderRichText(props.text, options)}</div>
+  ) : (
+    <RichText {...props} />
+  );
 };
 
 const RichTextProvider = (props) => {
-  return (
-    <RichTextContext.Provider value={ContentfulRichText} {...props} />
-  );
+  return <RichTextContext.Provider value={ContentfulRichText} {...props} />;
 };
-
-// TODO dedupe this
-const WrappedLink = ({ href, className, ...props }) => {
-  console.log(href);
-  return href.startsWith('/')
-    ? <Link to={href} className={className} />
-    : <LinkContextDefault href={href} className={className} {...props} />;
-};
-
-const LinkProvider = (props) => (
-  <LinkContext.Provider value={WrappedLink} {...props} />
-);
-
-const SectionProvider = (props) => {
-  return (
-    <SectionContext.Provider value={Section} {...props} />
-  );
-}
-
-const CountUpProvider = (props) => {
-  return (
-    <CountUpContext.Provider value={CountUp} {...props} />
-  );
-}
 
 const AllContextProviders = (props) => (
-  <CountUpProvider>
-    <SectionProvider>
-      {props.children}
-    </SectionProvider>
-  </CountUpProvider>
+  <HeadlineProvider>
+    <CountUpProvider>
+      <SectionProvider>{props.children}</SectionProvider>
+    </CountUpProvider>
+  </HeadlineProvider>
 );
 
 export const KickstartDSPage = (data) => (
@@ -90,14 +63,10 @@ export const KickstartDSPage = (data) => (
       <meta charSet="utf-8" />
       <title>Demo Landingpage</title>
     </Helmet>
-    <LinkProvider>
-      <Header />
-    </LinkProvider>
+    <Header />
     <AllContextProviders>
       <OriginalKickstartDSPage {...data} />
     </AllContextProviders>
-    <LinkProvider>
-      <Footer />
-    </LinkProvider>
+    <Footer nav={[]} />
   </>
 );
