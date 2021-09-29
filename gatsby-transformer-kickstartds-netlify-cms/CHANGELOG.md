@@ -1,3 +1,15 @@
+# v1.5.3 (Wed Sep 29 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: button in count up ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.5.2 (Thu Sep 02 2021)
 
 #### ⚠️ Pushed to `master`

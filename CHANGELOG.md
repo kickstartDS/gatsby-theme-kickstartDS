@@ -1,3 +1,16 @@
+# (Wed Sep 29 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.5.3`
+  - fix: button in count up ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Tue Sep 28 2021)
 
 #### 🐛 Bug Fix
