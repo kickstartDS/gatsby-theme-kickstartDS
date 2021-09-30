@@ -8,7 +8,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
-    "postinstall": "node ./create/createComponentsMap.js"
+    "postinstall": "node ./scripts/createComponentsMap.js"
   },
   "peerDependencies": {
     "gatsby": "^3.8.1",
