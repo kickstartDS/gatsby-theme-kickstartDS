@@ -1,3 +1,15 @@
+# v1.7.2 (Thu Sep 30 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: clean up component map formatting ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.7.1 (Tue Sep 28 2021)
 
 #### 🐛 Bug Fix

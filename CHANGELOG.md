@@ -1,3 +1,17 @@
+# (Thu Sep 30 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: update dependencies ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.7.2`
+  - fix: clean up component map formatting ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Wed Sep 29 2021)
 
 #### ⚠️ Pushed to `master`
