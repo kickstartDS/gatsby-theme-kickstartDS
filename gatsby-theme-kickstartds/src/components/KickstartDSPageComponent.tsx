@@ -72,8 +72,9 @@ const getComponent = (element, isSection = false) => {
     );
   }
 
-  const cleanedElement = cleanObjectKeys(element);
-  return <Component component={componentType} key={key} { ...cleanedElement } />;
+  const cleanedElement: Record<string, any> = cleanObjectKeys(element);
+  const { typeProp, type, ...restElement } = cleanedElement;
+  return <Component type={typeProp} component={componentType} key={key} { ...restElement } />;
 };
 
 const getContent = (content, sections = false) => {
