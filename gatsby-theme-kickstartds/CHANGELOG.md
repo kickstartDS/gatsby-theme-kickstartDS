@@ -1,3 +1,15 @@
+# v1.7.5 (Fri Oct 01 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: add alt tags to images ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.7.4 (Fri Oct 01 2021)
 
 #### 🐛 Bug Fix
