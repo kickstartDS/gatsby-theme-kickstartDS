@@ -1,3 +1,16 @@
+# (Fri Oct 01 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.7.3`
+  - fix: button type handling ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Thu Sep 30 2021)
 
 #### ⚠️ Pushed to `master`

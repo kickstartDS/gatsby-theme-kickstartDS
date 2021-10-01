@@ -1,3 +1,15 @@
+# v1.7.3 (Fri Oct 01 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: button type handling ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.7.2 (Thu Sep 30 2021)
 
 #### ⚠️ Pushed to `master`
