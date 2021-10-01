@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@1.7.6`
+  - fix: bug in image replacement ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Fri Oct 01 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.7.5`
   - fix: add alt tags to images ([@julrich](https://github.com/julrich))
 
