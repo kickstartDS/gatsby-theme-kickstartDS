@@ -66,7 +66,7 @@ const getComponent = (element, isSection = false) => {
     cleanedElement['headline'].type = 'headline';
 
     return (
-      <Component component={componentType} key={key} { ...cleanedElement }>
+      <Component key={key} { ...cleanedElement }>
         {getContent(content)}
       </Component>
     );
@@ -74,7 +74,7 @@ const getComponent = (element, isSection = false) => {
 
   const cleanedElement: Record<string, any> = cleanObjectKeys(element);
   const { typeProp, type, ...restElement } = cleanedElement;
-  return <Component type={typeProp} component={componentType} key={key} { ...restElement } />;
+  return <Component type={typeProp} key={key} { ...restElement } />;
 };
 
 const getContent = (content, sections = false) => {
