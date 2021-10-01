@@ -1,5 +1,18 @@
 # (Fri Oct 01 2021)
 
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@1.7.4`
+  - remove `component` prop from any kds component [#47](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/47) ([@lmestel](https://github.com/lmestel))
+
+#### Authors: 1
+
+- Lukas Mestel ([@lmestel](https://github.com/lmestel))
+
+---
+
+# (Fri Oct 01 2021)
+
 #### ⚠️ Pushed to `master`
 
 - `@kickstartds/gatsby-theme-kickstartds@1.7.3`
