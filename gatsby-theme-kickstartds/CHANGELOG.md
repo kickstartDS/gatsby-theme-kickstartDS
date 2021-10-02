@@ -1,3 +1,15 @@
+# v1.7.7 (Sat Oct 02 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: remove typo ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.7.6 (Fri Oct 01 2021)
 
 #### ⚠️ Pushed to `master`

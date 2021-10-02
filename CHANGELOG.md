@@ -1,3 +1,17 @@
+# (Sat Oct 02 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: update dependencies ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.7.7`
+  - chore: remove typo ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Fri Oct 01 2021)
 
 #### ⚠️ Pushed to `master`
