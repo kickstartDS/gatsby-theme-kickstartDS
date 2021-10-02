@@ -13,7 +13,7 @@ const WrappedLink = ({ href, ...props }) =>
     : <LinkContextDefault href={href} {...props} />;
 
 const WrappedImage = (props) => {
-  const { src, ...propsRest } = props;;
+  const { src, ...propsRest } = props;
 
   return src && src.childImageSharp
     ? <GatsbyImage image={getImage(src)} alt={propsRest.alt || ''} />
@@ -21,7 +21,6 @@ const WrappedImage = (props) => {
       ? <PictureContextDefault src={src.publicURL} {...propsRest} />
       : null;
 }
-  
 
 const WrappedVisual = (props) => {
   if (props.media && props.media.image) {
