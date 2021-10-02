@@ -1,3 +1,4 @@
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
 const typeResolutionField = 'type';
 
@@ -62,7 +63,7 @@ const hashObjectKeys = (obj, outerComponent) => {
   return hashedObj;
 };
 
-exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest }) => {
+exports.onCreateNode = async ({ node, actions, cache, store, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === 'WpPost') {
@@ -117,7 +118,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
         },
         "categories": categories
       }],
-      "type": "sections",
+      "type": "section",
       "gutter": "default"
     }, {
       "mode": "list",
@@ -136,7 +137,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
         "type": "html",
         "html": `<div class="c-rich-text">${node.content}</div>`
       }],
-      "type": "sections",
+      "type": "section",
       "gutter": "default"
     }];
 
@@ -146,7 +147,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
 
     if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.id) {
       const wpMediaItem = getNode(node.featuredImage.node.id);
-      
+
       if (wpMediaItem && wpMediaItem.localFile && wpMediaItem.localFile.id) {
         const fileMediaItem = getNode(wpMediaItem.localFile.id);
 
@@ -158,6 +159,47 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
         }
       }
     };
+
+    if (author && author.avatar && author.avatar.url) {
+      const authorImage = await createRemoteFileNode({
+        url: author.avatar.url.replace('s=96&', 's=250&'),
+        parentNodeId: author.id,
+        createNode,
+        createNodeId,
+        cache,
+        store,
+      });
+
+      if (authorImage) {
+        page.sections.push({
+          "className__268a": "l-section--outer-width-wide",
+          "background__44d0": "dark",
+          "deko__3429": true,
+          "pattern__9cdc": 2,
+          "width__c976": "narrow",
+          "content__2cb4": [{
+            "title__5426": author.name,
+            "subtitle__92ac": "Founder and CTO with a faible for smart frontend solutions",
+            "email__70d5": author.email || 'info@kickstartds.com',
+            "phone__520b": "+49(0)22868896620",
+            "copy__cda3": author.description,
+            "image__a463": {
+              "src__197b___NODE": authorImage.id,
+              "alt__1f75": author.name,
+            },
+            "type": "contact",
+          }],
+          "headline__77a3": {
+            "level__503c": "p",
+            "align__498d": "center",
+            "content__3cc5": "",
+            "spaceAfter__6f7d": "none",
+            "type": "headline"
+          },
+          "type": "section",
+        });
+      }
+    }
 
     page.internal = {
       contentDigest: createContentDigest(page),
