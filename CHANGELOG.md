@@ -1,3 +1,16 @@
+# (Tue Oct 05 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.2.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.6.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.3.0`
+  - feature: add working seo component [#51](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/51) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sat Oct 02 2021)
 
 #### ⚠️ Pushed to `master`

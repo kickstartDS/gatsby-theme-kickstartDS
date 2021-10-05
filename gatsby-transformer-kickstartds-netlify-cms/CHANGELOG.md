@@ -1,3 +1,19 @@
+# v1.6.0 (Tue Oct 05 2021)
+
+#### 🚀 Enhancement
+
+- feature: add working seo component [#51](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/51) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add working seo component ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.5.3 (Wed Sep 29 2021)
 
 #### ⚠️ Pushed to `master`
