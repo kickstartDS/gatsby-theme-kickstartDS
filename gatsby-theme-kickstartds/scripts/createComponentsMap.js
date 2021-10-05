@@ -15,7 +15,7 @@ const base = Object.entries(baseExports).reduce(reducer("base"), '\n');
 const blog = Object.entries(blogExports).reduce(reducer("blog"), '');
 const content = Object.entries(contentExports).reduce(reducer("content"), '');
 
-const dest = path.resolve(__dirname, '../src/components', 'KickstartDSComponentsMap.ts');
+const dest = path.resolve(__dirname, '../src/components', 'ComponentsMap.ts');
 const file = `
 import loadable from '@loadable/component';
 

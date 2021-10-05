@@ -9,9 +9,15 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `kickstartDS Gatsby Theme Demosite`,
-    description: `kickstartDS demo site for the kickstartDS Gatsby Theme.`,
-    author: `@kickstartds`,
+    lang: "en",
+    title: "kickstartDS – the frontend first framework",
+    titleTemplate: "%s // kickstartDS",
+    description:
+      "kickstartDS is a comprehensive component and pattern library, enabling web development teams to create consistent and brand compliant web frontends super efficiently",
+    keywords: "Design System, Frontend, UI, UX, Interface, Pattern Library, Component Library, Frontend first, React, Storybook, Gatsby, Next.js, Contentful, Storyblok, WordPress, UXPin, Netlify, Vercel",
+    url: "https://www.kickstartDS.com",
+    image: "/images/kickstartds-some_640x640.png",
+    twitterUsername: "@kickstartDS",
   },
   plugins: [
     {

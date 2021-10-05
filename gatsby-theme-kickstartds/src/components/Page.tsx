@@ -1,8 +1,8 @@
 import React from 'react';
 import { FunctionComponent } from 'react';
 
-import { KickstartDSLayout } from './KickstartDSLayoutComponent';
-import components from "./KickstartDSComponentsMap";
+import { Layout } from './Layout';
+import components from "./ComponentsMap";
 
 const componentCounter = [];
 const typeResolutionField = 'type';
@@ -83,10 +83,10 @@ const getContent = (content, sections = false) => {
   }
 };
 
-export const KickstartDSPage: FunctionComponent<any> = ({
+export const Page: FunctionComponent<any> = ({
   sections,
 }) => (
-  <KickstartDSLayout>
+  <Layout>
     {getContent(sections, true)}
-  </KickstartDSLayout>
+  </Layout>
 );

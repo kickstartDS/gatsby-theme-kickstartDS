@@ -1,10 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import { KickstartDSPage as OriginalKickstartDSPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/KickstartDSPageComponent';
+import { Page as OriginalPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/Page';
 import { Header } from '@kickstartds/design-system/dist/components/header/HeaderComponent';
 import { Footer } from '@kickstartds/design-system/dist/components/footer/FooterComponent';
 import { SectionProvider } from '@kickstartds/design-system/dist/components/section/SectionComponent';
@@ -57,16 +56,14 @@ const AllContextProviders = (props) => (
   </HeadlineProvider>
 );
 
-export const KickstartDSPage = (data) => (
+export const Page = (data) => (
   <>
-    <Helmet>
-      <meta charSet="utf-8" />
-      <title>Demo Landingpage</title>
-    </Helmet>
     <Header />
+
     <AllContextProviders>
-      <OriginalKickstartDSPage {...data} />
+      <OriginalPage {...data} />
     </AllContextProviders>
+    
     <Footer nav={[]} />
   </>
 );

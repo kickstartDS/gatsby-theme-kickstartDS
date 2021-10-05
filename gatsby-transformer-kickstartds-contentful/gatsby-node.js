@@ -1,3 +1,4 @@
+const stripHtml = require("string-strip-html").stripHtml;
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
 const typeResolutionField = 'type';
 
@@ -9,6 +10,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: ID!
       layout: String!
       title: String!
+      description: String
+      keywords: String
+      image: File @link(from: "image___NODE")
       slug: String!
       sections: [SectionComponent]
     }
@@ -67,6 +71,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       id: kickstartDSPageId,
       parent: node.id,
       title: node.name,
+      description: stripHtml(node.definition.raw).result,
       slug: `glossary/${node.slug}`,
       layout: 'default',
     };

@@ -1,8 +1,10 @@
 ---
+description: Description for Content Box page
 id: a0497490-b41a-11eb-ac27-59ada86bb225
+keywords: Test1, Test2, Test3
 layout: default
-title: Content Box
 slug: content-box
+title: Content Box
 sections:
   - mode: default
     spaceBefore: default
