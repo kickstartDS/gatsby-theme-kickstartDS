@@ -65,6 +65,12 @@ module.exports = async ({ actions, graphql }, options) => {
             sections {
               ...SectionComponentDeepNesting
             }
+            title
+            description
+            keywords
+            image {
+              publicURL
+            }
           }
         }
       }
@@ -77,7 +83,11 @@ module.exports = async ({ actions, graphql }, options) => {
         component: require.resolve('../src/templates/page.js'),
         path: page.node.slug,
         context: {
-          page: page.node
+          page: page.node,
+          title: page.title,
+          description: page.description,
+          keywords: page.keywords,
+          image: page.image,
         },
       });
     })

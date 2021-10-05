@@ -1,11 +1,14 @@
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
+
 import { PictureContextDefault, PictureContext } from "@kickstartds/base/lib/picture";
 import { VisualContextDefault, VisualContext } from "@kickstartds/content/lib/visual";
 import { StorytellingContextDefault, StorytellingContext } from "@kickstartds/content/lib/storytelling";
-import { KickstartDSPage } from "../components/KickstartDSPageComponent";
 import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
-import { Link } from "gatsby";
+
+import { Page } from "../components/Page";
+import SEO from "../components/Seo";
 
 const WrappedLink = ({ href, ...props }) =>
   href && href.startsWith('/')
@@ -61,20 +64,37 @@ const StorytellingProvider = (props) => (
   <StorytellingContext.Provider value={WrappedStorytelling} {...props} />
 );
 
-export const KickstartDSList = (props) => {
+export const GatsbyPage = (props) => {
   const page = props.pageContext.page;
+  const {
+    title,
+    description,
+    keywords,
+    image,
+  } = page;
+
+  console.log(props.pageContext.page);
 
   return (
-    <LinkProvider>
-      <PictureProvider>
-        <StorytellingProvider>
-          <VisualProvider>
-            <KickstartDSPage {...page} />
-          </VisualProvider>
-        </StorytellingProvider>
-      </PictureProvider>
-    </LinkProvider>
+    <>
+      <SEO
+        title={title} 
+        description={description} 
+        keywords={keywords}
+        image={image && image.publicURL}
+      />
+
+      <LinkProvider>
+        <PictureProvider>
+          <StorytellingProvider>
+            <VisualProvider>
+              <Page {...page} />
+            </VisualProvider>
+          </StorytellingProvider>
+        </PictureProvider>
+      </LinkProvider>
+    </>
   );
 };
 
-export default KickstartDSList;
+export default GatsbyPage;

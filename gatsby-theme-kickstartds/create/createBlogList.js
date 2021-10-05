@@ -135,6 +135,7 @@ module.exports = async ({ actions, graphql }, options) => {
       page: {
         sections
       },
+      title: 'Blog list'
     },
   });
 }

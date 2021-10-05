@@ -11,6 +11,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: ID!
       layout: String!
       title: String!
+      description: String
+      keywords: String
+      image: File @link(from: "image___NODE")
       slug: String!
       sections: [SectionComponent]
     }
@@ -57,6 +60,7 @@ const hashObjectKeys = (obj, outerComponent) => {
   return hashedObj;
 };
 
+// TODO dedupe (-> wordpress)
 const slash = (path) => {
   const isExtendedLengthPath = /^\\\\\?\\/.test(path);
 
