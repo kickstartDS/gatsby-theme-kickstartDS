@@ -1,3 +1,15 @@
+# v1.8.2 (Wed Oct 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: remove console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.8.1 (Wed Oct 06 2021)
 
 #### ⚠️ Pushed to `master`

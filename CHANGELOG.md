@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@1.8.2`
+  - chore: remove console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Oct 06 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.8.1`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.2.1`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.6.1`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.3.1`
   - feature: add twitter to seo integration ([@julrich](https://github.com/julrich))
 
