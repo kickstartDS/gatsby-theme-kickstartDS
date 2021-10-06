@@ -1,3 +1,15 @@
+# v1.3.1 (Wed Oct 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- feature: add twitter to seo integration ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.3.0 (Tue Oct 05 2021)
 
 #### 🚀 Enhancement
