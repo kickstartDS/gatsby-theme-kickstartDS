@@ -32,8 +32,6 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article }) 
     url: `${siteUrl}${pathname}`,
   };
 
-  console.log('seo', seo);
-
   return (
     <Helmet htmlAttributes={{lang: seo.lang}} title={seo.title} titleTemplate={titleTemplate}>
       <meta charSet="utf-8" />
