@@ -71,6 +71,9 @@ module.exports = async ({ actions, graphql }, options) => {
             image {
               publicURL
             }
+            cardImage {
+              publicURL
+            }
           }
         }
       }
@@ -88,6 +91,7 @@ module.exports = async ({ actions, graphql }, options) => {
           description: page.description,
           keywords: page.keywords,
           image: page.image,
+          cardImage: page.cardImage,
         },
       });
     })

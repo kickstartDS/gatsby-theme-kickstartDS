@@ -13,6 +13,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       keywords: String
       image: File @link(from: "image___NODE")
+      cardImage: File @link(from: "cardImage___NODE")
       slug: String!
       excerpt: String!
       author: String!
@@ -163,6 +164,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
         }
 
         page.image___NODE = fileMediaItem.id;
+        page.cardImage___NODE = fileMediaItem.id;
       }
     };
 

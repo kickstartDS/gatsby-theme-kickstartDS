@@ -33,6 +33,7 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
       description: String
       keywords: String
       image: File @link(from: "image___NODE")
+      cardImage: File @link(from: "cardImage___NODE")
       slug: String!
       sections: [SectionComponent]
     }

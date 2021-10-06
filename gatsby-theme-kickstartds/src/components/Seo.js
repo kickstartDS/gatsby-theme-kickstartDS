@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 // TODO refactor to .ts, get rid of `propTypes` accordingly
 
-const SEO = ({ lang, title, description, keywords, image, article }) => {
+const SEO = ({ lang, title, description, keywords, image, cardImage, article }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
 
@@ -18,6 +18,7 @@ const SEO = ({ lang, title, description, keywords, image, article }) => {
     defaultKeywords,
     siteUrl,
     defaultImage,
+    defaultCardImage,
     twitterUsername,
   } = site.siteMetadata;
 
@@ -27,8 +28,11 @@ const SEO = ({ lang, title, description, keywords, image, article }) => {
     description: description || defaultDescription,
     keywords: keywords || defaultKeywords,
     image: `${siteUrl}${image || defaultImage}`,
+    cardImage: `${siteUrl}${cardImage || defaultCardImage}`,
     url: `${siteUrl}${pathname}`,
   };
+
+  console.log('seo', seo);
 
   return (
     <Helmet htmlAttributes={{lang: seo.lang}} title={seo.title} titleTemplate={titleTemplate}>
@@ -59,7 +63,10 @@ const SEO = ({ lang, title, description, keywords, image, article }) => {
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
-      {seo.image && <meta name="twitter:image" content={seo.image} />}
+      {seo.cardImage
+        ? <meta name="twitter:image" content={seo.cardImage} />
+        : seo.image && <meta name="twitter:image" content={seo.image} />
+      }
     </Helmet>
   );
 }
@@ -72,6 +79,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   keywords: PropTypes.string,
   image: PropTypes.string,
+  cardImage: PropTypes.string,
   article: PropTypes.bool,
 };
 
@@ -81,6 +89,7 @@ SEO.defaultProps = {
   description: null,
   keywords: null,
   image: null,
+  cardImage: null,
   article: false,
 };
 
@@ -95,6 +104,7 @@ const query = graphql`
         defaultKeywords: keywords
         siteUrl: url
         defaultImage: image
+        defaultCardImage: cardImage
         twitterUsername
       }
     }

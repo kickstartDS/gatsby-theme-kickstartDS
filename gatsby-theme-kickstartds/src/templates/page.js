@@ -71,9 +71,8 @@ export const GatsbyPage = (props) => {
     description,
     keywords,
     image,
+    cardImage,
   } = page;
-
-  console.log(props.pageContext.page);
 
   return (
     <>
@@ -82,6 +81,7 @@ export const GatsbyPage = (props) => {
         description={description} 
         keywords={keywords}
         image={image && image.publicURL}
+        cardImage={cardImage && cardImage.publicURL}
       />
 
       <LinkProvider>

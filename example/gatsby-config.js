@@ -16,7 +16,8 @@ module.exports = {
       "kickstartDS is a comprehensive component and pattern library, enabling web development teams to create consistent and brand compliant web frontends super efficiently",
     keywords: "Design System, Frontend, UI, UX, Interface, Pattern Library, Component Library, Frontend first, React, Storybook, Gatsby, Next.js, Contentful, Storyblok, WordPress, UXPin, Netlify, Vercel",
     url: "https://www.kickstartDS.com",
-    image: "/images/kickstartds-some_640x640.png",
+    image: "/images/OG-Image.png",
+    cardImage: "/images/kickstartDS_TwitterCard.png",
     twitterUsername: "@kickstartDS",
   },
   plugins: [

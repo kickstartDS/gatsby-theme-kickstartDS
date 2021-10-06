@@ -2293,10 +2293,10 @@
     "@kickstartds/core" "^1.4.0"
     classnames "^2.2.6"
 
-"@kickstartds/generate-from-schema@^0.6.8":
-  version "0.6.8"
-  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.6.8.tgz#3cd88259767780b695bf1464fa4333017b9fbca3"
-  integrity sha512-1FgWSGjyfbBC993hSHwzXvGCkXB76UL70SQzb56zjZZVodOzTv7Lz8JSzYeLAdjUxmmZ5sOxUPJuG7Xo00tGRw==
+"@kickstartds/generate-from-schema@^0.6.9":
+  version "0.6.9"
+  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.6.9.tgz#2e431ed7b59471f9f799073a5ba61dc143f787de"
+  integrity sha512-RJNttSMOZxctdBfoEjnrPPqZxLlwIV4cYMJgIUeY6d9yp0zKa3Klu1hnQcBZz337waD1v+hhWPBlMTmnqUBQ3w==
   dependencies:
     "@graphql-cli/codegen" "^1.17.24"
     "@graphql-codegen/cli" "^1.21.5"
