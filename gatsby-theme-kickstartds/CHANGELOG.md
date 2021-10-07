@@ -1,3 +1,15 @@
+# v1.8.5 (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: try another metadata fix ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.8.4 (Thu Oct 07 2021)
 
 #### ⚠️ Pushed to `master`
