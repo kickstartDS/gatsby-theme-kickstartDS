@@ -1,3 +1,15 @@
+# v1.8.4 (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: attempt another fix of the og metadata ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.8.3 (Thu Oct 07 2021)
 
 #### ⚠️ Pushed to `master`

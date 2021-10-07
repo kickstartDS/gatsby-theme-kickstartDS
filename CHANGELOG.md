@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@1.8.4`
+  - fix: attempt another fix of the og metadata ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.8.3`
   - fix: serverside rendering of head / react helmet ([@julrich](https://github.com/julrich))
   - fix: typo in capitilization ([@julrich](https://github.com/julrich))
