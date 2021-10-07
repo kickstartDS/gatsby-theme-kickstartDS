@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 // TODO refactor to .ts, get rid of `propTypes` accordingly
 
-const SEO = ({ lang, title, description, keywords, image, cardImage, article }) => {
+const SEO = ({ lang, title, description, keywords, image, cardImage, article, twitterCreator }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
 
@@ -20,6 +20,7 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article }) 
     defaultImage,
     defaultCardImage,
     twitterUsername,
+    email,
   } = site.siteMetadata;
 
   const seo = {
@@ -30,6 +31,8 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article }) 
     image: `${siteUrl}${image || defaultImage}`,
     cardImage: `${siteUrl}${cardImage || defaultCardImage}`,
     url: `${siteUrl}${pathname}`,
+    twitterCreator: twitterCreator || twitterUserName,
+    email
   };
 
   return (
@@ -38,7 +41,6 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article }) 
 
       <meta name="description" content={seo.description} />
       <meta name="keywords" content={seo.keywords} />
-      <meta name="image" content={seo.image} />
 
       <link rel="canonical" href={seo.url} />
 
@@ -52,10 +54,14 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article }) 
         <meta property="og:description" content={seo.description} />
       )}
       {seo.image && <meta property="og:image" content={seo.image} />}
+      {seo.email && <meta name="og:email" content={seo.email} />}
 
       <meta name="twitter:card" content="summary_large_image" />
+      {twitterCreator && (
+        <meta name="twitter:creator" content={twitterCreator} />
+      )}
       {twitterUsername && (
-        <meta name="twitter:creator" content={twitterUsername} />
+        <meta name="twitter:site" content={twitterUsername} />
       )}
       {seo.title && <meta name="twitter:title" content={seo.title} />}
       {seo.description && (
@@ -104,6 +110,7 @@ const query = graphql`
         defaultImage: image
         defaultCardImage: cardImage
         twitterUsername
+        email
       }
     }
   }

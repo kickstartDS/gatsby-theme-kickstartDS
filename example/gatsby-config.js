@@ -19,6 +19,7 @@ module.exports = {
     image: "/images/OG-Image.png",
     cardImage: "/images/kickstartDS_TwitterCard.png",
     twitterUsername: "@kickstartDS",
+    email: "hello@kickstartDS.com",
   },
   plugins: [
     {
