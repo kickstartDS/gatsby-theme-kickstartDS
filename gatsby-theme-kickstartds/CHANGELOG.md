@@ -1,3 +1,17 @@
+# v1.8.3 (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: serverside rendering of head / react helmet ([@julrich](https://github.com/julrich))
+- fix: typo in capitilization ([@julrich](https://github.com/julrich))
+- feature: add twitter specific author, and general email ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.8.2 (Wed Oct 06 2021)
 
 #### ⚠️ Pushed to `master`
