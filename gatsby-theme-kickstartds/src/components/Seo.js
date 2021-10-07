@@ -41,6 +41,7 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article, tw
 
       <meta name="description" content={seo.description} />
       <meta name="keywords" content={seo.keywords} />
+      <meta name="author" content={seo.twitterCreator} />
 
       <link rel="canonical" href={seo.url} />
 
@@ -53,7 +54,7 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article, tw
       {seo.description && (
         <meta property="og:description" content={seo.description} />
       )}
-      {seo.image && <meta property="og:image" content={seo.image} />}
+      {seo.image && <meta name="image" property="og:image" content={seo.image} />}
 
       <meta name="twitter:card" content="summary_large_image" />
       {twitterCreator && (
