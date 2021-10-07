@@ -36,7 +36,7 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article, tw
   };
 
   return (
-    <Helmet htmlAttributes={{lang: seo.lang}} title={seo.title} titleTemplate={titleTemplate}>
+    <Helmet htmlAttributes={{lang: seo.lang, prefix: 'og: https://ogp.me/ns#'}} title={seo.title} titleTemplate={titleTemplate}>
       <meta charSet="utf-8" />
 
       <meta name="description" content={seo.description} />
@@ -54,7 +54,6 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article, tw
         <meta property="og:description" content={seo.description} />
       )}
       {seo.image && <meta property="og:image" content={seo.image} />}
-      {seo.email && <meta name="og:email" content={seo.email} />}
 
       <meta name="twitter:card" content="summary_large_image" />
       {twitterCreator && (
