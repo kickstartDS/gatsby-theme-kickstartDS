@@ -31,7 +31,7 @@ const SEO = ({ lang, title, description, keywords, image, cardImage, article, tw
     image: `${siteUrl}${image || defaultImage}`,
     cardImage: `${siteUrl}${cardImage || defaultCardImage}`,
     url: `${siteUrl}${pathname}`,
-    twitterCreator: twitterCreator || twitterUserName,
+    twitterCreator: twitterCreator || twitterUsername,
     email
   };
 
