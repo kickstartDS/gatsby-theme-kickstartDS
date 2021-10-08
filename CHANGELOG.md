@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@1.8.7`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.2.2`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.6.2`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.3.2`
+  - feature: add created, updated dates to pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.8.6`
   - fix: always append / on links ([@julrich](https://github.com/julrich))
 

@@ -1,3 +1,15 @@
+# v1.6.2 (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- feature: add created, updated dates to pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.6.1 (Wed Oct 06 2021)
 
 #### ⚠️ Pushed to `master`
