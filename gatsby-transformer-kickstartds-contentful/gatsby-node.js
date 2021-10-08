@@ -16,6 +16,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       cardImage: File @link(from: "cardImage___NODE")
       slug: String!
       sections: [SectionComponent]
+      updated: Date! @dateformat
+      created: Date! @dateformat
     }
   `);
 };
@@ -75,6 +77,8 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       description: stripHtml(node.definition.raw).result,
       slug: `glossary/${node.slug}`,
       layout: 'default',
+      created: node.createdAt,
+      updated: node.updatedAt,
     };
 
     page.sections = [{

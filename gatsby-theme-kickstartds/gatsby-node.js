@@ -36,6 +36,8 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
       cardImage: File @link(from: "cardImage___NODE")
       slug: String!
       sections: [SectionComponent]
+      updated: Date! @dateformat
+      created: Date! @dateformat
     }
   `, contentInterface]);
 };

@@ -17,10 +17,11 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String!
       excerpt: String!
       author: String!
-      date: Date! @dateformat
       featuredImage: File @link(from: "featuredImage___NODE")
       categories: [TagLabelComponent]
       sections: [SectionComponent]
+      updated: Date! @dateformat
+      created: Date! @dateformat
     }
   `);
 };
@@ -91,10 +92,11 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       description: stripHtml(node.excerpt).result,
       slug: `blog/${node.slug}`,
       excerpt: node.excerpt,
-      date: node.date,
       author: author.name,
       categories: categories.map((category) => hashObjectKeys(category, 'tag-label')),
       layout: 'default',
+      created: node.date,
+      updated: node.modified,
     };
 
     page.sections = [{

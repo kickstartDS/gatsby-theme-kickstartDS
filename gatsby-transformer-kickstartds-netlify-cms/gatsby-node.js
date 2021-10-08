@@ -17,6 +17,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       cardImage: File @link(from: "cardImage___NODE")
       slug: String!
       sections: [SectionComponent]
+      updated: Date! @dateformat
+      created: Date! @dateformat
     }
   `);
 };
@@ -173,9 +175,12 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
     node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
     await Promise.all(node.frontmatter.sections.map(async (section) => await addImages(section, kickstartDSPageId)));
 
+    const fileNode = getNode(node.parent);
     const page = {
       id: kickstartDSPageId,
       parent: node.id,
+      updated: fileNode.modifiedTime,
+      created: fileNode.birthTime,
       ...node.frontmatter
     };
 

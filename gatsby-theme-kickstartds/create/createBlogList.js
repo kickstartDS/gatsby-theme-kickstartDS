@@ -65,7 +65,7 @@ module.exports = async ({ actions, graphql }, options) => {
             slug
             title
             excerpt
-            date
+            created
             author
             featuredImage {
               childImageSharp {
@@ -105,7 +105,7 @@ module.exports = async ({ actions, graphql }, options) => {
 
   sections[0].content = data.allKickstartDsWordpressPage.edges.map((page, index) => {
     const teaser = {
-      "date": page.node.date,
+      "date": page.node.created,
       "link": {
         "href": `/${page.node.slug}`,
         "label": "read more..."
