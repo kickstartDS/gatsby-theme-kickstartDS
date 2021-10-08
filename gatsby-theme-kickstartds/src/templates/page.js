@@ -12,7 +12,7 @@ import SEO from "../components/Seo";
 
 const WrappedLink = ({ href, ...props }) =>
   href && href.startsWith('/')
-    ? <Link to={href} {...props} />
+    ? <Link to={href.endsWith('/') ? href : `${href}/`} {...props} />
     : <LinkContextDefault href={href} {...props} />;
 
 const WrappedImage = (props) => {
