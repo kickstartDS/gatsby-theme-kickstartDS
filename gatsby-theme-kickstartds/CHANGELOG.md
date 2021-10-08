@@ -1,3 +1,15 @@
+# v1.8.6 (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: always append / on links ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.8.5 (Thu Oct 07 2021)
 
 #### ⚠️ Pushed to `master`

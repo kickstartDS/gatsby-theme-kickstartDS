@@ -1,3 +1,16 @@
+# (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.6`
+  - fix: always append / on links ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Thu Oct 07 2021)
 
 #### ⚠️ Pushed to `master`
