@@ -1,6 +1,192 @@
 const stripHtml = require("string-strip-html").stripHtml;
-const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
-const typeResolutionField = 'type';
+const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
+
+exports.createResolvers = async ({
+  createResolvers,
+}) => {
+  await createResolvers({
+    KickstartDsWordpressPage: {
+      imageUrl: {
+        type: "String",
+        async resolve(source, args, context) {
+          if (source.image___NODE) {
+            const fileNode = await context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  parent: { id: { eq: source.image___NODE } },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+              firstOnly: true,
+            });
+
+            const site = await context.nodeModel.runQuery({
+              query: {},
+              type: "Site",
+              firstOnly: true,
+            });
+
+            return fileNode && fileNode.__gatsby_resolved && fileNode.__gatsby_resolved.publicURL
+             ? `${site.siteMetadata.siteUrl}${fileNode.__gatsby_resolved.publicURL}`
+             : undefined;
+          }
+          
+          return undefined;
+        },
+      },
+      image: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.image___NODE) {
+            return context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  parent: { id: { eq: source.image___NODE } },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+              firstOnly: true,
+            });
+          }
+          
+          return undefined;
+        },
+      },
+      cardImage: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.cardImage___NODE) {
+            return context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  parent: { id: { eq: source.cardImage___NODE } },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+              firstOnly: true,
+            });
+          }
+          
+          return undefined;
+        },
+      },
+      author: {
+        type: "String!",
+        async resolve(source, args, context) {
+          if (source.author) {
+            const wpUser = await context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  id: { eq: source.author } ,
+                },
+              },
+              type: "WpUser",
+              firstOnly: true,
+            });
+
+            return wpUser && wpUser.name
+              ? wpUser.name
+              : undefined;
+          }
+          
+          return undefined;
+        },
+      },
+      categories: {
+        type: "[TagLabelComponent]",
+        async resolve(source, args, context) {
+          if (source.categories) {
+            const categories = await Promise.all(source.categories.map(async (categoryId) => {
+              const wpCategory = await context.nodeModel.runQuery({
+                query: {
+                  filter: {
+                    id: { eq: categoryId },
+                  },
+                },
+                type: "WpCategory",
+                firstOnly: true,
+              });
+
+              return {
+                "label": wpCategory.name,
+                "type": "tag-label"
+              };
+            }));
+            
+            return categories.map((category) => hashObjectKeys(category, 'tag-label'));
+          }
+
+          return undefined;
+        },
+      },
+      sections: {
+        type: "[SectionComponent]",
+        async resolve(source, args, context) {
+          if (source.sections && source.sections.length > 0) {
+            if (source.categories) {
+              source.sections[0].content[0].categories = await Promise.all(source.categories.map(async (categoryId) => {
+                const wpCategory = await context.nodeModel.runQuery({
+                  query: {
+                    filter: {
+                      id: { eq: categoryId },
+                    },
+                  },
+                  type: "WpCategory",
+                  firstOnly: true,
+                });
+  
+                return {
+                  "label": wpCategory.name,
+                  "type": "tag-label"
+                };
+              }));
+            }
+
+            if (source.image___NODE) {
+              const fileNode = await context.nodeModel.runQuery({
+                query: {
+                  filter: {
+                    parent: { id: { eq: source.image___NODE } },
+                    publicURL: { ne: '' }
+                  },
+                },
+                type: "File",
+                firstOnly: true,
+              });
+
+              source.sections[0].content[0].image = {
+                "src___NODE": fileNode.id,
+                "width": 900,
+                "height": 300,
+              };
+            }
+
+            if (source.author) {
+              const wpUser = await context.nodeModel.runQuery({
+                query: {
+                  filter: {
+                    id: { eq: source.author } ,
+                  },
+                },
+                type: "WpUser",
+                firstOnly: true,
+              });
+
+              source.sections[0].content[0].headline.subheadline = `published by: ${wpUser.name}`;
+            }
+
+            return source.sections.map((section) => hashObjectKeys(section, 'section'));
+          }
+
+          return undefined;
+        },
+      }
+    },
+  });
+}
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -17,7 +203,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String!
       excerpt: String!
       author: String!
-      featuredImage: File @link(from: "featuredImage___NODE")
       categories: [TagLabelComponent]
       sections: [SectionComponent]
       updated: Date! @dateformat
@@ -26,64 +211,11 @@ exports.createSchemaCustomization = ({ actions }) => {
   `);
 };
 
-// TODO dedupe this
-const hashObjectKeys = (obj, outerComponent) => {
-  const hashedObj = {};
-
-  if (!obj) return obj;
-
-  Object.keys(obj).forEach((property) => {
-    if (property === typeResolutionField) {
-      hashedObj[typeResolutionField] = obj[typeResolutionField];
-    } else {
-      if (Array.isArray(obj[property])) {
-        hashedObj[hashFieldName(property, outerComponent)] = obj[property].map((item) => {
-          // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / picture
-          if (outerComponent === 'logo-tiles') {
-            return hashObjectKeys(item, 'picture');
-          } else if (outerComponent === 'quotes-slider') {
-            return hashObjectKeys(item, 'quote');
-          } else if (outerComponent === 'post-head' && property === 'categories') {
-            return hashObjectKeys(item, 'tag-label');
-          } else {
-            return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
-          }
-        });
-      } else if (typeof obj[property] === 'object') {
-        // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / link-button
-        const outer = outerComponent === 'section' ? obj[property][typeResolutionField] : outerComponent;
-        if (outer === 'storytelling' && property === 'link') {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'link-button');
-        } else if (outer === 'storytelling' && property === 'headline') {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'headline');
-        } else {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], outer);
-        }
-      } else {
-        hashedObj[hashFieldName(property, outerComponent === 'section' ? 'section' : outerComponent)] = obj[property];
-      }
-    }
-  });
-
-  return hashedObj;
-};
-
 exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === 'WpPost') {
     const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsWordpressPage`);
-
-    const categories = node.categories.nodes.map((categoryNode) => {
-      const category = getNode(categoryNode.id);
-
-      return {
-        "label": category.name,
-        "type": "tag-label"
-      };
-    });
-
-    const author = getNode(node.author.node.id);
 
     const page = {
       id: kickstartDSPageId,
@@ -92,8 +224,8 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       description: stripHtml(node.excerpt).result,
       slug: `blog/${node.slug}`,
       excerpt: node.excerpt,
-      author: author.name,
-      categories: categories.map((category) => hashObjectKeys(category, 'tag-label')),
+      author: node.author.node.id,
+      categories: node.categories.nodes.map((category) => category.id),
       layout: 'default',
       created: node.date,
       updated: node.modified,
@@ -119,11 +251,9 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
           "level": "h1",
           "align": "left",
           "content": node.title,
-          "subheadline": `published by: ${author.name}`,
           "spaceAfter": "none",
           "type": "headline"
         },
-        "categories": categories
       }],
       "type": "sections",
       "gutter": "default"
@@ -148,26 +278,9 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       "gutter": "default"
     }];
 
-    if (page.sections && page.sections.length > 0) {
-      page.sections = page.sections.map((section) => hashObjectKeys(section, 'section'));
-    }
-
     if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.id) {
-      const wpMediaItem = getNode(node.featuredImage.node.id);
-      
-      if (wpMediaItem && wpMediaItem.localFile && wpMediaItem.localFile.id) {
-        const fileMediaItem = getNode(wpMediaItem.localFile.id);
-
-        page.featuredImage___NODE = fileMediaItem.id;
-        page.sections[0].content__2cb4[0].image__c108 = {
-          "src__2f94___NODE": fileMediaItem.id,
-          "width__1054": 900,
-          "height__c61c": 300
-        }
-
-        page.image___NODE = fileMediaItem.id;
-        page.cardImage___NODE = fileMediaItem.id;
-      }
+      page.image___NODE = node.featuredImage.node.id;
+      page.cardImage___NODE = node.featuredImage.node.id;
     };
 
     page.internal = {
