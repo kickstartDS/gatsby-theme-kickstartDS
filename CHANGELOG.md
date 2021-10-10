@@ -1,3 +1,16 @@
+# (Sun Oct 10 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.9.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.3.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.7.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.4.0`
+  - feature: add sitemap [#55](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/55) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Fri Oct 08 2021)
 
 #### ⚠️ Pushed to `master`

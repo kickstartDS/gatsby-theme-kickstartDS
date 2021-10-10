@@ -1,3 +1,19 @@
+# v1.3.0 (Sun Oct 10 2021)
+
+#### 🚀 Enhancement
+
+- feature: add sitemap [#55](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/55) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: clean up data handling ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.2 (Fri Oct 08 2021)
 
 #### ⚠️ Pushed to `master`
