@@ -1,7 +1,6 @@
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const path = require('path');
-const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
-const typeResolutionField = 'type';
+const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
@@ -21,46 +20,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       created: Date! @dateformat
     }
   `);
-};
-
-// TODO dedupe this
-const hashObjectKeys = (obj, outerComponent) => {
-  const hashedObj = {};
-
-  if (!obj) return obj;
-
-  Object.keys(obj).forEach((property) => {
-    if (property === typeResolutionField) {
-      hashedObj[typeResolutionField] = obj[typeResolutionField];
-    } else {
-      if (Array.isArray(obj[property])) {
-        hashedObj[hashFieldName(property, outerComponent)] = obj[property].map((item) => {
-          // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / picture
-          if (outerComponent === 'logo-tiles') {
-            return hashObjectKeys(item, 'picture');
-          } else if (outerComponent === 'quotes-slider') {
-            return hashObjectKeys(item, 'quote');
-          } else if (outerComponent === 'post-head' && property === 'categories') {
-            return hashObjectKeys(item, 'tag-label');
-          } else {
-            return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
-          }
-        });
-      } else if (typeof obj[property] === 'object') {
-        // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / link-button
-        const outer = outerComponent === 'section' ? obj[property][typeResolutionField] : outerComponent;
-        if ((outer === 'storytelling' && property === 'link') || (outer === 'count-up' && property === 'link')) {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'link-button');
-        } else {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], outer);
-        }
-      } else {
-        hashedObj[hashFieldName(property, outerComponent === 'section' ? 'section' : outerComponent)] = obj[property];
-      }
-    }
-  });
-
-  return hashedObj;
 };
 
 // TODO dedupe (-> wordpress)

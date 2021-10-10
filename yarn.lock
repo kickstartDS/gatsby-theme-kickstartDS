@@ -2307,16 +2307,16 @@
     "@kickstartds/core" "^1.4.0"
     classnames "^2.2.6"
 
-"@kickstartds/generate-from-schema@^0.6.10":
-  version "0.6.10"
-  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.6.10.tgz#4e985a0728cdffbfda394b8c205e1e4f8fc0d5f4"
-  integrity sha512-CxxxpYv7EKHSNYwD95kS1FmT9Kncm1denqGrQCr04OQWf2bPID6J/jIBncGfAJyXOEKZGs9cjmsnIvwGuVNqig==
+"@kickstartds/generate-from-schema@^0.6.17":
+  version "0.6.17"
+  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.6.17.tgz#eb54b6a1306872d0326e9ad92c9f4afed69cb7c2"
+  integrity sha512-+uNcpptK8ssN86B58FGlcq8Ph6QAsN9rEfjyD5YpDIeDHPSN1fgEcwEKqAdMq64I1DSXqOr4zPdvODCX20dVqg==
   dependencies:
     "@graphql-cli/codegen" "^1.17.24"
     "@graphql-codegen/cli" "^1.21.5"
     "@kickstartds/graphql-cli-add-gatsby-directives" "*"
     "@kickstartds/graphql-cli-generate-fragments" "*"
-    "@kickstartds/jsonschema2graphql" "^1.5.1"
+    "@kickstartds/jsonschema2graphql" "^1.5.8"
     "@kickstartds/jsonschema2netlifycms" "^1.5.4"
     "@types/chokidar" "^2.1.3"
     ajv "^8.5.0"
@@ -2354,23 +2354,10 @@
     lodash "^4.17.21"
     tslib "~2.2.0"
 
-"@kickstartds/jsonschema2graphql@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.5.0.tgz#97d3c367080fd54d37ce5907ed077c1b9e5cc00b"
-  integrity sha512-VipfrCMWCkyCYWo6Gl1MEanZjb6wU52KzDVaS5LqVleps8EUO5otNTk3Q0t/0V4ckrWDX2J2eIXntmb5E0pDOA==
-  dependencies:
-    ajv "^8.5.0"
-    camelcase "^6.2.0"
-    graphql "^15.5.0"
-    lodash "^4.17.21"
-    pluralize "^8.0.0"
-    ramda "^0.27.1"
-    uppercamelcase "^3.0.0"
-
-"@kickstartds/jsonschema2graphql@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.5.1.tgz#6d8d45577613e8da29de1febb2fa25a559bb68ea"
-  integrity sha512-h4yxxE+gO5tPoGLq0X7a7GkAPD1fiYugPCYvflkSehe0CVZ3rtsCX+t2qeddRvZwYcAFc4wli9kBDerTj0qUuw==
+"@kickstartds/jsonschema2graphql@^1.5.8":
+  version "1.5.8"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.5.8.tgz#660aeaff9cb216eb6bc4c27c2d9c81099125d70e"
+  integrity sha512-hsHiI3/JiQ/BIe6i5e3oDd4GSQdbC3z05DKmcePnFS5nRQHBfvktXA2cFATtLM6x1KNBEM7iQ7XWmdRgVxVQ3A==
   dependencies:
     ajv "^8.5.0"
     camelcase "^6.2.0"
@@ -10346,12 +10333,7 @@ graphql-ws@^4.4.1:
   resolved "https://registry.npmjs.org/graphql-ws/-/graphql-ws-4.9.0.tgz#5cfd8bb490b35e86583d8322f5d5d099c26e365c"
   integrity sha512-sHkK9+lUm20/BGawNEWNtVAeJzhZeBg21VmvmLoT5NdGVeZWv5PdIhkcayQIAgjSyyQ17WMKmbDijIPG2On+Ag==
 
-graphql@15.3.0:
-  version "15.3.0"
-  resolved "https://registry.npmjs.org/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
-  integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
-
-graphql@15.5.1, graphql@^15.0.0, graphql@^15.4.0, graphql@^15.5.0:
+graphql@15.3.0, graphql@15.5.1, graphql@^15.0.0, graphql@^15.4.0, graphql@^15.5.0:
   version "15.5.1"
   resolved "https://registry.npmjs.org/graphql/-/graphql-15.5.1.tgz#f2f84415d8985e7b84731e7f3536f8bb9d383aad"
   integrity sha512-FeTRX67T3LoE3LWAxxOlW2K3Bz+rMYAC18rRguK4wgXaTZMiJwSUwDmPFo3UadAKbzirKIg5Qy+sNJXbpPRnQw==

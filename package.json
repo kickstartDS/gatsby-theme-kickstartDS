@@ -22,7 +22,7 @@
     "@auto-it/released": "^10.29.3",
     "@graphql-cli/codegen": "^1.17.25",
     "@graphql-codegen/cli": "^1.21.6",
-    "@kickstartds/generate-from-schema": "^0.6.10",
+    "@kickstartds/generate-from-schema": "^0.6.17",
     "auto": "^10.29.3",
     "graphql": "15.5.1",
     "lerna": "^4.0.0"
