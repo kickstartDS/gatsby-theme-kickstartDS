@@ -30,6 +30,8 @@
     "@kickstartds/gatsby-transformer-kickstartds-wordpress": "^1.3.2",
     "dotenv": "^8.2.0",
     "gatsby": "^3.8.1",
+    "gatsby-plugin-advanced-sitemap": "^2.0.0",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "slugify": "^1.4.7"

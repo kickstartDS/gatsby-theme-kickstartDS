@@ -2,6 +2,44 @@ const stripHtml = require("string-strip-html").stripHtml;
 const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
 const typeResolutionField = 'type';
 
+exports.createResolvers = async ({
+  createResolvers,
+}) => {
+  await createResolvers({
+    KickstartDsWordpressPage: {
+      imageUrl: {
+        type: "String",
+        async resolve(source, args, context) {
+          if (source.image___NODE) {
+            const fileNode = await context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  id: { eq: source.image___NODE },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+              firstOnly: true,
+            });
+
+            const site = await context.nodeModel.runQuery({
+              query: {},
+              type: "Site",
+              firstOnly: true,
+            });
+
+            return fileNode && fileNode.__gatsby_resolved && fileNode.__gatsby_resolved.publicURL
+             ? `${site.siteMetadata.siteUrl}${fileNode.__gatsby_resolved.publicURL}`
+             : undefined;
+          }
+          
+          return;
+        },
+      },
+    },
+  });
+}
+
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
@@ -17,7 +55,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String!
       excerpt: String!
       author: String!
-      featuredImage: File @link(from: "featuredImage___NODE")
       categories: [TagLabelComponent]
       sections: [SectionComponent]
       updated: Date! @dateformat
@@ -158,7 +195,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       if (wpMediaItem && wpMediaItem.localFile && wpMediaItem.localFile.id) {
         const fileMediaItem = getNode(wpMediaItem.localFile.id);
 
-        page.featuredImage___NODE = fileMediaItem.id;
+        // TODO clean up, seems like 1-2 images should be enough here
         page.sections[0].content__2cb4[0].image__c108 = {
           "src__2f94___NODE": fileMediaItem.id,
           "width__1054": 900,

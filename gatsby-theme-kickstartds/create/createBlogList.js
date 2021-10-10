@@ -67,7 +67,7 @@ module.exports = async ({ actions, graphql }, options) => {
             excerpt
             created
             author
-            featuredImage {
+            image {
               childImageSharp {
                 gatsbyImageData
               }
@@ -117,9 +117,9 @@ module.exports = async ({ actions, graphql }, options) => {
       "type": "post-teaser"
     };
 
-    if (page.node.featuredImage) {
+    if (page.node.image) {
       teaser.image = {
-        "src": page.node.featuredImage,
+        "src": page.node.image,
         "width": 400,
         "height": 300
       };
@@ -130,7 +130,7 @@ module.exports = async ({ actions, graphql }, options) => {
 
   await actions.createPage({
     component: require.resolve('../src/templates/page.js'),
-    path: `/blog`,
+    path: `/blog/`,
     context: {
       page: {
         sections
