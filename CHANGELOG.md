@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.4.2`
+  - chore: trigger another release for wordpress transformer ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Oct 11 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.9.1`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.4.1`
   - fix: add fitting metadata to blog ([@julrich](https://github.com/julrich))
 

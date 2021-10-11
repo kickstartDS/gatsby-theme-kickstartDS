@@ -1,3 +1,15 @@
+# v1.4.2 (Mon Oct 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: trigger another release for wordpress transformer ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.4.1 (Mon Oct 11 2021)
 
 #### ⚠️ Pushed to `master`
