@@ -1,3 +1,15 @@
+# v1.9.1 (Mon Oct 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: add fitting metadata to blog ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.9.0 (Sun Oct 10 2021)
 
 #### 🚀 Enhancement
