@@ -133,9 +133,10 @@ module.exports = async ({ actions, graphql }, options) => {
     path: `/blog/`,
     context: {
       page: {
-        sections
+        sections,
+        title: 'Blog – releases, updates, background info',
+        description: 'Read about the latest updates and changes, our rationale behind decisions and how to apply a Design System on our blog',
       },
-      title: 'Blog list'
     },
   });
 }

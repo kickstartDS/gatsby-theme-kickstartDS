@@ -2,7 +2,7 @@
 id: 78d601a0-dd08-11eb-b16f-093364d73e0c
 layout: default
 slug: /
-title: kickstartDS - the foundation of your design system
+title: kickstartDS – the frontend first framework
 type: page
 sections:
   - mode: default

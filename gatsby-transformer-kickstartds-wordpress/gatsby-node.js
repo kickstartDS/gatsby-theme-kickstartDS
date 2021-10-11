@@ -28,8 +28,8 @@ exports.createResolvers = async ({
             });
 
             return fileNode && fileNode.__gatsby_resolved && fileNode.__gatsby_resolved.publicURL
-             ? `${site.siteMetadata.siteUrl}${fileNode.__gatsby_resolved.publicURL}`
-             : undefined;
+              ? `${site.siteMetadata.siteUrl}${fileNode.__gatsby_resolved.publicURL}`
+              : undefined;
           }
           
           return undefined;
