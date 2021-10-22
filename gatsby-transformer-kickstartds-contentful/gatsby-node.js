@@ -166,7 +166,7 @@ exports.createResolvers = async ({
                 },
                 "spaceAfter": "default",
                 "content": [{
-                  "label": "Read more about our decision",
+                  "label": "Read more, or discuss this decision with us, on StackShare.io",
                   "href": source.stackShareDecision,
                   "type": "link-button"
                 }],

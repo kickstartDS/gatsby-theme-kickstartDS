@@ -37,9 +37,8 @@ const options = {
 };
 
 const ContentfulRichText = (props) => {
-  console.log(props.text);
   return props.text.includes('nodeType') ? (
-    <div>{renderRichText(props.text, options)}</div>
+    <div>{renderRichText({ raw: props.text }, options)}</div>
   ) : (
     <RichText {...props} />
   );
