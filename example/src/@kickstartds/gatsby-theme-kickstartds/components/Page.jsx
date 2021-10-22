@@ -37,6 +37,7 @@ const options = {
 };
 
 const ContentfulRichText = (props) => {
+  console.log(props.text);
   return props.text.includes('nodeType') ? (
     <div>{renderRichText(props.text, options)}</div>
   ) : (
@@ -49,11 +50,13 @@ const RichTextProvider = (props) => {
 };
 
 const AllContextProviders = (props) => (
-  <HeadlineProvider>
-    <CountUpProvider>
-      <SectionProvider>{props.children}</SectionProvider>
-    </CountUpProvider>
-  </HeadlineProvider>
+  <RichTextProvider>
+    <HeadlineProvider>
+      <CountUpProvider>
+        <SectionProvider>{props.children}</SectionProvider>
+      </CountUpProvider>
+    </HeadlineProvider>
+  </RichTextProvider>
 );
 
 export const Page = (data) => (
