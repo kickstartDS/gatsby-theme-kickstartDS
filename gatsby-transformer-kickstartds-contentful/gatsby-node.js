@@ -6,10 +6,108 @@ exports.createResolvers = async ({
 }) => {
   await createResolvers({
     KickstartDsContentfulPage: {
+      image: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.image) {
+            const image = await context.nodeModel.runQuery({
+              query: { filter: { id: { eq: source.image } } },
+              type: "ContentfulAsset",
+              firstOnly: true,
+            });
+
+            return context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  id: { eq: image.localFile___NODE },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+              firstOnly: true,
+            });
+          }
+          
+          return undefined;
+        },
+      },
+      cardImage: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.cardImage) {
+            const image = await context.nodeModel.runQuery({
+              query: { filter: { id: { eq: source.cardImage } } },
+              type: "ContentfulAsset",
+              firstOnly: true,
+            });
+
+            return context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  id: { eq: image.localFile___NODE },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+              firstOnly: true,
+            });
+          }
+          
+          return undefined;
+        },
+      },
+      cover: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.cover) {
+            const image = await context.nodeModel.runQuery({
+              query: { filter: { id: { eq: source.cover } } },
+              type: "ContentfulAsset",
+              firstOnly: true,
+            });
+
+            return context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  id: { eq: image.localFile___NODE },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+              firstOnly: true,
+            });
+          }
+          
+          return undefined;
+        },
+      },
+      media: {
+        type: "[File]",
+        async resolve(source, args, context) {
+          if (source.media && source.media.length > 0) {
+            const media = await context.nodeModel.runQuery({
+              query: { filter: { id: { in: source.media } } },
+              type: "ContentfulAsset",
+            });
+
+            return context.nodeModel.runQuery({
+              query: {
+                filter: {
+                  id: { in: media.map((media) => media.localFile___NODE) },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+            });
+          }
+          
+          return undefined;
+        },
+      },
       tags: {
         type: "[TagLabelComponent]",
         async resolve(source, args, context) {
-          if (source.tags) {
+          if (source.tags && source.tags.length > 0) {
             const tags = await Promise.all(source.tags.map(async (tagId) => {
               const contentfulTag = await context.nodeModel.runQuery({
                 query: {
@@ -36,7 +134,7 @@ exports.createResolvers = async ({
       related: {
         type: "[TeaserBoxComponent]",
         async resolve(source, args, context) {
-          if (source.related) {
+          if (source.related && source.related.length > 0) {
             const related = await Promise.all(source.related.map(async (relatedId) => {
               const contentfulTerm = await context.nodeModel.runQuery({
                 query: {
@@ -175,6 +273,71 @@ exports.createResolvers = async ({
               });
             }
 
+            if (source.cover) {
+              const contentfulImage = await context.nodeModel.runQuery({
+                query: { filter: { id: { eq: source.cover } } },
+                type: "ContentfulAsset",
+                firstOnly: true,
+              });
+
+              source.sections.push({
+                "mode": "default",
+                "spaceBefore": "none",
+                "width": "default",
+                "background": "default",
+                "headline": {
+                  "level": "p",
+                  "align": "center",
+                  "content": "Cover",
+                  "spaceAfter": "none",
+                  "type": "headline"
+                },
+                "spaceAfter": "default",
+                "content": [{
+                  // "media": [{
+                  //   "image": {
+                  //     "src___NODE": contentfulImage.id,
+                  //     "width": 300,
+                  //     "height": 300,
+                  //   }, 
+                  // }],
+                  "media": [],
+                  "type": "text-media"
+                }],
+                "type": "sections",
+                "gutter": "default"
+              });
+            }
+
+            if (source.media && source.media.length > 0) {
+              const contentfulMedia = await context.nodeModel.runQuery({
+                query: { filter: { id: { in: source.media } } },
+                type: "ContentfulAsset",
+              });
+
+              source.sections.push({
+                "mode": "default",
+                "spaceBefore": "none",
+                "width": "default",
+                "background": "default",
+                "headline": {
+                  "level": "p",
+                  "align": "center",
+                  "content": "Media files",
+                  "spaceAfter": "none",
+                  "type": "headline"
+                },
+                "spaceAfter": "default",
+                "content": [{
+                  // "media": contentfulMedia.map((media) => { return { "image": { "src___NODE": media.localFile___NODE, "width": 300, "height": 300 } }; }),
+                  "media": [],
+                  "type": "text-media"
+                }],
+                "type": "sections",
+                "gutter": "default"
+              });
+            }
+
             return source.sections.map((section) => hashObjectKeys(section, 'section'));
           }
 
@@ -201,6 +364,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       sections: [SectionComponent]
       updated: Date! @dateformat
       created: Date! @dateformat
+      cover: File
+      media: [File]
       tags: [TagLabelComponent]
       related: [TeaserBoxComponent]
       stackShareDecision: String
@@ -253,6 +418,16 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       "gutter": "default"
     }];
 
+    if (node.cover___NODE) {
+      page.image = node.cover___NODE;
+      page.cardImage = node.cover___NODE;
+      page.cover = node.cover___NODE;
+    };
+
+    if (node.media___NODE) {
+      page.media = node.media___NODE;
+    }
+    
     page.internal = {
       contentDigest: createContentDigest(page),
       content: JSON.stringify(page),
