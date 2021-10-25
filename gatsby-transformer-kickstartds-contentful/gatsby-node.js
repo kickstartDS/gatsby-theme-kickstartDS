@@ -294,14 +294,17 @@ exports.createResolvers = async ({
                 },
                 "spaceAfter": "default",
                 "content": [{
-                  // "media": [{
-                  //   "image": {
-                  //     "src___NODE": contentfulImage.id,
-                  //     "width": 300,
-                  //     "height": 300,
-                  //   }, 
-                  // }],
-                  "media": [],
+                  "media": [{
+                    "image": {
+                      "src___NODE": contentfulImage.localFile___NODE,
+                      "alt": contentfulImage.title,
+                      "width": 300,
+                      "height": 300,
+                      "type": "picture"
+                    },
+                    "caption": contentfulImage.description,
+                    "type": "image"
+                  }],
                   "type": "text-media"
                 }],
                 "type": "sections",
@@ -329,8 +332,19 @@ exports.createResolvers = async ({
                 },
                 "spaceAfter": "default",
                 "content": [{
-                  // "media": contentfulMedia.map((media) => { return { "image": { "src___NODE": media.localFile___NODE, "width": 300, "height": 300 } }; }),
-                  "media": [],
+                  "media": contentfulMedia.map((media) => { 
+                    return {
+                      "image": {
+                        "src___NODE": media.localFile___NODE,
+                        "alt": media.title,
+                        "width": 300,
+                        "height": 300,
+                        "type": "picture"
+                      },
+                      "caption": media.description,
+                      "type": "image"
+                    }; 
+                  }),
                   "type": "text-media"
                 }],
                 "type": "sections",
@@ -358,8 +372,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String!
       description: String
       keywords: String
-      image: File @link(from: "image___NODE")
-      cardImage: File @link(from: "cardImage___NODE")
+      image: File
+      cardImage: File
       slug: String!
       sections: [SectionComponent]
       updated: Date! @dateformat
