@@ -22,7 +22,16 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
       type: 'String',
     },
     resolveType: value => `${pascalCase(value.type)}Component`,
-  })
+  });
+
+  // TODO generalize this
+  const textMediaInterface = schema.buildInterfaceType({
+    name: `TextMediaComponentMedia`,
+    fields: {
+      type: 'String',
+    },
+    resolveType: value => `TextMediaComponentMedia${pascalCase(value.type)}`,
+  });
 
   createTypes([
     typesString,
@@ -39,7 +48,7 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
       updated: Date! @dateformat
       created: Date! @dateformat
     }
-  `, contentInterface]);
+  `, contentInterface, textMediaInterface]);
 };
 
 exports.onCreateBabelConfig = ({ actions }) => {
