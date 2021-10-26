@@ -16,12 +16,13 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
 
   const typesString = fs.readFileSync(`${gqlPath}/page.graphql`, "utf8");
 
+  // TODO generalize this
   const contentInterface = schema.buildInterfaceType({
     name: `ContentComponent`,
     fields: {
       type: 'String',
     },
-    resolveType: value => `${pascalCase(value.type)}Component`,
+    resolveType: (value) => `${pascalCase(value.type)}Component`,
   });
 
   // TODO generalize this
@@ -30,7 +31,7 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
     fields: {
       type: 'String',
     },
-    resolveType: value => `TextMediaComponentMedia${pascalCase(value.type)}`,
+    resolveType: (value) => `${pascalCase(value.type)}Component`,
   });
 
   createTypes([

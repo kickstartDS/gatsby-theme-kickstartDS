@@ -303,7 +303,7 @@ exports.createResolvers = async ({
                       "type": "picture"
                     },
                     "caption": contentfulImage.description,
-                    "type": "image"
+                    "type": "media-image"
                   }],
                   "type": "text-media"
                 }],
@@ -342,7 +342,7 @@ exports.createResolvers = async ({
                         "type": "picture"
                       },
                       "caption": media.description,
-                      "type": "image"
+                      "type": "media-image"
                     }; 
                   }),
                   "type": "text-media"
