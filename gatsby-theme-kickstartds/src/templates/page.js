@@ -7,7 +7,7 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { PictureContextDefault, PictureContext } from "@kickstartds/base/lib/picture";
 import { VisualContextDefault, VisualContext } from "@kickstartds/content/lib/visual";
 import { StorytellingContextDefault, StorytellingContext } from "@kickstartds/content/lib/storytelling";
-import { RichText, RichTextContext } from '@kickstartds/base/lib/rich-text';
+import { RichTextContextDefault, RichTextContext } from '@kickstartds/base/lib/rich-text';
 import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
 
 import { Page } from "../components/Page";
@@ -73,12 +73,10 @@ const contentfulOptions = {
   },
 };
 
-const ContentfulRichText = (props) => {
-  console.log('ContentfulRichText', props);
-  return props.text.includes('nodeType')
+const ContentfulRichText = (props) =>
+  props.text.includes('nodeType')
     ? <div>{renderRichText({ raw: props.text }, contentfulOptions)}</div>
-    : <RichText {...props} />;
-};
+    : <RichTextContextDefault {...props} />;
 
 const RichTextProvider = (props) => {
   return <RichTextContext.Provider value={ContentfulRichText} {...props} />;
