@@ -165,10 +165,171 @@ exports.createResolvers = async ({
           return undefined;
         },
       },
+      glossary: {
+        type: "GlossaryComponent!",
+        async resolve(source, args, context) {
+          if (source.glossary) {
+            const glossaryJson = source.glossary;
+            
+            if (source.tags && source.tags.length > 0) {
+              glossaryJson.tags = await Promise.all(source.tags.map(async (tagId) => {
+                const contentfulTag = await context.nodeModel.runQuery({
+                  query: {
+                    filter: {
+                      id: { eq: tagId },
+                    },
+                  },
+                  type: "ContentfulTag",
+                  firstOnly: true,
+                });
+  
+                return contentfulTag.title;
+              }));
+            }
+
+            if (source.related && source.related.length > 0) {
+              glossaryJson.related = await Promise.all(source.related.map(async (relatedId) => {
+                const contentfulTerm = await context.nodeModel.runQuery({
+                  query: {
+                    filter: {
+                      id: { eq: relatedId },
+                    },
+                  },
+                  type: "ContentfulTerm",
+                  firstOnly: true,
+                });
+  
+                return {
+                  title: contentfulTerm.name,
+                  excerpt: contentfulTerm.definition.raw,
+                  url: `/glossary/${contentfulTerm.slug}`
+                };
+              }));
+            }
+
+            if (source.cover) {
+              const contentfulImage = await context.nodeModel.runQuery({
+                query: { filter: { id: { eq: source.cover } } },
+                type: "ContentfulAsset",
+                firstOnly: true,
+              });
+
+              glossaryJson.cover = {
+                src: contentfulImage.localFile___NODE,
+                caption: contentfulImage.description
+              };
+            }
+
+            if (source.media && source.media.length > 0) {
+              const contentfulMedia = await context.nodeModel.runQuery({
+                query: { filter: { id: { in: source.media } } },
+                type: "ContentfulAsset",
+              });
+
+              glossaryJson.media = contentfulMedia.map((media) => { 
+                return {
+                  src: media.localFile___NODE,
+                  caption: media.description
+                };
+              })
+            }
+
+            return glossaryJson;
+          }
+
+          return undefined;
+        }
+      },
       sections: {
         type: "[SectionComponent]",
         async resolve(source, args, context) {
-          if (source.sections && source.sections.length > 0) {
+          const glossaryJson = source.glossary;
+            
+          if (source.tags && source.tags.length > 0) {
+            glossaryJson.tags = await Promise.all(source.tags.map(async (tagId) => {
+              const contentfulTag = await context.nodeModel.runQuery({
+                query: {
+                  filter: {
+                    id: { eq: tagId },
+                  },
+                },
+                type: "ContentfulTag",
+                firstOnly: true,
+              });
+
+              return contentfulTag.title;
+            }));
+          }
+
+          if (source.related && source.related.length > 0) {
+            glossaryJson.related = await Promise.all(source.related.map(async (relatedId) => {
+              const contentfulTerm = await context.nodeModel.runQuery({
+                query: {
+                  filter: {
+                    id: { eq: relatedId },
+                  },
+                },
+                type: "ContentfulTerm",
+                firstOnly: true,
+              });
+
+              return {
+                title: contentfulTerm.name,
+                excerpt: contentfulTerm.definition.raw,
+                url: `/glossary/${contentfulTerm.slug}`
+              };
+            }));
+          }
+
+          if (source.cover) {
+            const contentfulImage = await context.nodeModel.runQuery({
+              query: { filter: { id: { eq: source.cover } } },
+              type: "ContentfulAsset",
+              firstOnly: true,
+            });
+
+            glossaryJson.cover = {
+              src___NODE: contentfulImage.localFile___NODE,
+              caption: contentfulImage.description
+            };
+          }
+
+          if (source.media && source.media.length > 0) {
+            const contentfulMedia = await context.nodeModel.runQuery({
+              query: { filter: { id: { in: source.media } } },
+              type: "ContentfulAsset",
+            });
+
+            glossaryJson.media = contentfulMedia.map((media) => { 
+              return {
+                src___NODE: media.localFile___NODE,
+                caption: media.description
+              };
+            })
+          }
+
+          glossaryJson.type = 'glossary';
+
+          source.sections = [{
+            "mode": "list",
+            "spaceBefore": "none",
+            "width": "full",
+            "background": "default",
+            "headline": {
+              "level": "p",
+              "align": "center",
+              "content": "",
+              "spaceAfter": "none",
+              "type": "headline"
+            },
+            "spaceAfter": "none",
+            "content": [glossaryJson],
+            "type": "sections",
+            "gutter": "default"
+          }];
+
+          // if (source.sections && source.sections.length > 0) {
+            /*
             if (source.tags && source.tags.length > 0) {
               const tags = await Promise.all(source.tags.map(async (tagId) => {
                 const contentfulTag = await context.nodeModel.runQuery({
@@ -350,12 +511,10 @@ exports.createResolvers = async ({
                 "type": "sections",
                 "gutter": "default"
               });
-            }
+            }*/
 
             return source.sections.map((section) => hashObjectKeys(section, 'section'));
-          }
-
-          return undefined;
+          // }
         },
       }
     },
@@ -375,13 +534,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       image: File
       cardImage: File
       slug: String!
-      sections: [SectionComponent]
       updated: Date! @dateformat
       created: Date! @dateformat
-      cover: File
-      media: [File]
+      sections: [SectionComponent]
       tags: [TagLabelComponent]
       related: [TeaserBoxComponent]
+      glossary: GlossaryComponent!
+      cover: File
+      media: [File]
       stackShareDecision: String
     }
   `);
@@ -411,27 +571,6 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       stackShareDecision: node.stackShareDecision,
     };
 
-    page.sections = [{
-      "mode": "list",
-      "spaceBefore": "none",
-      "width": "wide",
-      "background": "default",
-      "headline": {
-        "level": "p",
-        "align": "center",
-        "content": node.name,
-        "spaceAfter": "none",
-        "type": "headline"
-      },
-      "spaceAfter": "default",
-      "content": [{
-        "type": "text-media",
-        "text": node.definition.raw,
-      }],
-      "type": "sections",
-      "gutter": "default"
-    }];
-
     if (node.cover___NODE) {
       page.image = node.cover___NODE;
       page.cardImage = node.cover___NODE;
@@ -440,6 +579,12 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
 
     if (node.media___NODE) {
       page.media = node.media___NODE;
+    }
+
+    page.glossary = {
+      term: node.name,
+      definition: node.definition.raw,
+      stackshare: node.stackShareDecision,
     }
     
     page.internal = {
