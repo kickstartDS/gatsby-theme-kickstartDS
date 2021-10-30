@@ -20,6 +20,7 @@
     "@loadable/component": "^5.15.0",
     "assert": "^2.0.0",
     "change-case": "^4.1.2",
+    "fast-glob": "^3.2.7",
     "gatsby": "^3.8.1",
     "gatsby-plugin-image": "^1.8.0",
     "gatsby-plugin-loadable-components-ssr": "^3.4.0",
