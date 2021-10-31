@@ -2264,10 +2264,10 @@
     sass "^1.43.4"
     vhtml "^2.2.0"
 
-"@kickstartds/design-system@^1.10.5":
-  version "1.10.5"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-1.10.5.tgz#e826f8221ee062ffbded9c61c9ebf4a0e866ee9e"
-  integrity sha512-tbx4cgTxJXV+NNvBpLSpwXDh6MTLTAbYNgsPSsmTdSM87NwXGdlDPDXL4xxWUjg0kDLDtxt2MsTsLkFR/M7dhA==
+"@kickstartds/design-system@^1.10.6":
+  version "1.10.6"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-1.10.6.tgz#b4ff0f71902ffe65ba7a26163f4633cb87fa65fd"
+  integrity sha512-Gt9eDAFGmh/HZOVeaguBc101Yi7uYagVZ02tUK6EZ4kTEfdRi0f1BptSxSRuHTCpVPtwr+hOyR15le4svM2WIw==
   dependencies:
     "@kickstartds/base" "1.5.0-next.9"
     "@kickstartds/blog" "1.5.0-next.9"
