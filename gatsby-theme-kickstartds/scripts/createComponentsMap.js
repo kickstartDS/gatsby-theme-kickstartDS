@@ -20,7 +20,7 @@ const additionalReducer = (mod) => (prev, [key, value]) => {
   return prev
 };
 
-const pathPrefix = fs.existsSync('../gatsby-theme-kickstartDS/package.json') ? '../' : '';
+const pathPrefix = fs.existsSync('../gatsby-theme-kickstartds/package.json') ? '../' : '';
 const exportJsons = fg.sync(`${pathPrefix}node_modules/**/dist/exports.json`);
 const additionalPackage = exportJsons[0].match(/node_modules\/(.*)\/dist\/exports\.json/)[1];
 const additionalExports = exportJsons.map((exportJson) => {
