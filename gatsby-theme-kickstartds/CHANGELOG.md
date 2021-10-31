@@ -1,3 +1,16 @@
+# v1.10.1 (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: typo ([@julrich](https://github.com/julrich))
+- fix: build and local usage of createComponentsMap ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.10.0 (Sun Oct 31 2021)
 
 #### 🚀 Enhancement

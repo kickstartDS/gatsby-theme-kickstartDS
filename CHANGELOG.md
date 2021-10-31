@@ -1,5 +1,19 @@
 # (Sun Oct 31 2021)
 
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.1`
+  - fix: typo ([@julrich](https://github.com/julrich))
+  - fix: build and local usage of createComponentsMap ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 31 2021)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-theme-kickstartds@1.10.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.4.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.8.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.5.0`
