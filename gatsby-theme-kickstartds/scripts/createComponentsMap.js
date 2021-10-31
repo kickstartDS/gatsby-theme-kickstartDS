@@ -20,9 +20,9 @@ const additionalReducer = (mod) => (prev, [key, value]) => {
   return prev
 };
 
-// TODO handle this more elegantly, don't hardcode paths here
-const pathPrefix = fs.existsSync('../../@kickstartds')
-  ? '../../../'
+// TODO handle this more elegantly, don't hardcode CI paths here
+const pathPrefix = process.cwd().includes('ramdisk')
+  ? '/mnt/ramdisk/'
   : fs.existsSync('../dist')
     ? '../'
     : '';
