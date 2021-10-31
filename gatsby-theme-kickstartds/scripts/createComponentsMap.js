@@ -20,7 +20,8 @@ const additionalReducer = (mod) => (prev, [key, value]) => {
   return prev
 };
 
-const pathPrefix = fs.existsSync('../gatsby-theme-kickstartds/package.json') ? '../' : '';
+// TODO handle this more elegantly, don't hardcode CI paths here
+const pathPrefix = (fs.existsSync('../dist/.gitkeep') || process.cwd.includes('ramdisk')) ? '../' : '';
 const exportJsons = fg.sync(`${pathPrefix}node_modules/**/dist/exports.json`);
 const additionalPackage = exportJsons[0].match(/node_modules\/(.*)\/dist\/exports\.json/)[1];
 const additionalExports = exportJsons.map((exportJson) => {
