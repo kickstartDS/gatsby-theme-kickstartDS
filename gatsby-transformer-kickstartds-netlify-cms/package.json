@@ -16,7 +16,7 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@kickstartds/jsonschema2graphql": "^1.6.3",
+    "@kickstartds/jsonschema2graphql": "^1.6.4",
     "@kickstartds/jsonschema2netlifycms": "^1.5.2",
     "gatsby-plugin-netlify-cms": "^5.8.0",
     "netlify-cms-app": "^2.15.0",
