@@ -2264,10 +2264,10 @@
     sass "^1.43.4"
     vhtml "^2.2.0"
 
-"@kickstartds/design-system@^1.10.2":
-  version "1.10.2"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-1.10.2.tgz#a0921f34076cd57bd0cb78ba483488c7649e4e53"
-  integrity sha512-tiER2ivzdf+T8ioeUpDhoHIL8pFwDcc0nUrJSX9xjWa1FYq0aGJ3osyX4C/Kbow7IHH7yW8pkc9CqdSUXfcEmA==
+"@kickstartds/design-system@^1.10.5":
+  version "1.10.5"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-1.10.5.tgz#e826f8221ee062ffbded9c61c9ebf4a0e866ee9e"
+  integrity sha512-tbx4cgTxJXV+NNvBpLSpwXDh6MTLTAbYNgsPSsmTdSM87NwXGdlDPDXL4xxWUjg0kDLDtxt2MsTsLkFR/M7dhA==
   dependencies:
     "@kickstartds/base" "1.5.0-next.9"
     "@kickstartds/blog" "1.5.0-next.9"
@@ -2286,16 +2286,16 @@
     "@kickstartds/core" "^1.5.0-next.7"
     classnames "^2.2.6"
 
-"@kickstartds/generate-from-schema@^0.7.6":
-  version "0.7.6"
-  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.7.6.tgz#eb6b7dcc873b4d443e695435d9c10b5a0d9f494e"
-  integrity sha512-aaWWlAKXDcajFA7y2tkBoTkUJy5f9889WpF+Rdt+1ood2AcO2HuTpYK8LiiSb2b4Ym0G8yMgrHUct2Y564WkZw==
+"@kickstartds/generate-from-schema@^0.7.8":
+  version "0.7.8"
+  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.7.8.tgz#010b44df095330d9d1243e2f0ac7def04c24ad58"
+  integrity sha512-6C+4tY3k3iqNJzKRsxgymn+4cfTMRAPWmaX7FM+shleX4wWKlvxCSeSR8VPDprRnAKmDQvjV2eGxXKMjPalL9Q==
   dependencies:
     "@graphql-cli/codegen" "^1.17.24"
     "@graphql-codegen/cli" "^1.21.5"
     "@kickstartds/graphql-cli-add-gatsby-directives" "*"
     "@kickstartds/graphql-cli-generate-fragments" "^1.6.0"
-    "@kickstartds/jsonschema2graphql" "^1.6.4"
+    "@kickstartds/jsonschema2graphql" "^1.6.5"
     "@kickstartds/jsonschema2netlifycms" "^1.5.4"
     "@types/chokidar" "^2.1.3"
     ajv "^8.5.0"
@@ -2334,10 +2334,10 @@
     lodash "^4.17.21"
     tslib "~2.2.0"
 
-"@kickstartds/jsonschema2graphql@^1.6.4":
-  version "1.6.4"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.6.4.tgz#ca6bdb681365421e0756cd60c784ac22da007278"
-  integrity sha512-EVUG2JbVXL9u8akrcWdFTuNYBD/MMrspQtmbJ+x8MJkQz/MqS6EGvW8CUlqnOmncOIgP1blQ3F9+qgC9zvEvgg==
+"@kickstartds/jsonschema2graphql@^1.6.5":
+  version "1.6.5"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.6.5.tgz#7b26c77caabae4a095c2df3e862b99808482e7da"
+  integrity sha512-OkZVryQ4TN7j8ENh3BKl5dkYKPhraZ/4d90oCvx2VrOlouBfq+9vs0w79zoNqZbooQxPQ16rH5vK1t/htHmLzA==
   dependencies:
     ajv "^8.5.0"
     camelcase "^6.2.0"
