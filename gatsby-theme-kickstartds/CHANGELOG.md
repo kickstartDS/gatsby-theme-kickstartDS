@@ -1,3 +1,16 @@
+# v1.10.2 (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: add debugging output ([@julrich](https://github.com/julrich))
+- fix: try another environment friendly path fix ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.10.1 (Sun Oct 31 2021)
 
 #### ⚠️ Pushed to `master`
