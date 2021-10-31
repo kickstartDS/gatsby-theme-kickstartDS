@@ -1,3 +1,23 @@
+# v1.5.0 (Sun Oct 31 2021)
+
+#### 🚀 Enhancement
+
+- feature: update glossary / contentful integration [#61](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/61) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- chore: update kickstartDS dependencies ([@julrich](https://github.com/julrich))
+- feature: add components without sections, fixes glossary ([@julrich](https://github.com/julrich))
+- chore: update kickstartDS deps ([@julrich](https://github.com/julrich))
+- fix: add support for text-media, refactor contentful ([@julrich](https://github.com/julrich))
+- fix: update dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.4.2 (Mon Oct 11 2021)
 
 #### ⚠️ Pushed to `master`

@@ -1,3 +1,21 @@
+# (Sun Oct 31 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.4.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.8.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.5.0`
+  - feature: update glossary / contentful integration [#61](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/61) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.0`
+  - fix: try a fix for the build ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Oct 11 2021)
 
 #### ⚠️ Pushed to `master`
