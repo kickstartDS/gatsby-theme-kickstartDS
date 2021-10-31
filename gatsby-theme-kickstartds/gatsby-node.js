@@ -16,13 +16,23 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
 
   const typesString = fs.readFileSync(`${gqlPath}/page.graphql`, "utf8");
 
+  // TODO generalize this
   const contentInterface = schema.buildInterfaceType({
     name: `ContentComponent`,
     fields: {
       type: 'String',
     },
-    resolveType: value => `${pascalCase(value.type)}Component`,
-  })
+    resolveType: (value) => `${pascalCase(value.type)}Component`,
+  });
+
+  // TODO generalize this
+  const textMediaInterface = schema.buildInterfaceType({
+    name: `TextMediaComponentMedia`,
+    fields: {
+      type: 'String',
+    },
+    resolveType: (value) => `${pascalCase(value.type)}Component`,
+  });
 
   createTypes([
     typesString,
@@ -36,10 +46,11 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
       cardImage: File @link(from: "cardImage___NODE")
       slug: String!
       sections: [SectionComponent]
+      components: [ContentComponent]
       updated: Date! @dateformat
       created: Date! @dateformat
     }
-  `, contentInterface]);
+  `, contentInterface, textMediaInterface]);
 };
 
 exports.onCreateBabelConfig = ({ actions }) => {
