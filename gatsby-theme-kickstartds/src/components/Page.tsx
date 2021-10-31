@@ -41,9 +41,10 @@ const getContent = (content, sections = false) => {
 };
 
 export const Page: FunctionComponent<any> = ({
-  sections,
+  sections, components
 }) => (
   <Layout>
+    {getContent(components, false)}
     {getContent(sections, true)}
   </Layout>
 );

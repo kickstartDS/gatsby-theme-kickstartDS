@@ -205,6 +205,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       author: String!
       categories: [TagLabelComponent]
       sections: [SectionComponent]
+      components: [ContentComponent]
       updated: Date! @dateformat
       created: Date! @dateformat
     }
@@ -232,6 +233,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     };
 
     page.sections = [{
+      "className": "l-section--content-width-narrow",
       "mode": "list",
       "spaceBefore": "none",
       "width": "wide",

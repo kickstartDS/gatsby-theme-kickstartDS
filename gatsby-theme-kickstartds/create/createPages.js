@@ -53,6 +53,7 @@ const collectGraphQLFragments = async (fragmentNamesToExtract, gqlPath) => {
 module.exports = async ({ actions, graphql }, options) => {
   const { gqlPath } = options;
 
+  // TODO dedupe the components fragments below, this should not be necessary!
   const { data } = await graphql(/* GraphQL */ `
     ${await collectGraphQLFragments([
       'SectionComponentDeepNesting',
@@ -64,6 +65,48 @@ module.exports = async ({ actions, graphql }, options) => {
             slug
             sections {
               ...SectionComponentDeepNesting
+            }
+            components {
+              ...ButtonComponentDeepNesting,
+              ...CheckboxComponentDeepNesting,
+              ...CheckboxGroupComponentDeepNesting,
+              ...CollapsibleBoxComponentDeepNesting,
+              ...ContactComponentDeepNesting,
+              ...ContentBoxComponentDeepNesting,
+              ...CountUpComponentDeepNesting,
+              ...CtaComponentDeepNesting,
+              ...DividerComponentDeepNesting,
+              ...GlossaryComponentDeepNesting,
+              ...HeadlineComponentDeepNesting,
+              ...HtmlComponentDeepNesting,
+              ...IconComponentDeepNesting,
+              ...InputComponentDeepNesting,
+              ...LightboxLazyImageComponentDeepNesting,
+              ...LinkButtonComponentDeepNesting,
+              ...LogoTilesComponentDeepNesting,
+              ...NewsItemComponentDeepNesting,
+              ...PictureComponentDeepNesting,
+              ...PostHeadComponentDeepNesting,
+              ...PostTeaserComponentDeepNesting,
+              ...QuoteComponentDeepNesting,
+              ...QuotesSliderComponentDeepNesting,
+              ...RadioComponentDeepNesting,
+              ...RadioGroupComponentDeepNesting,
+              ...SelectFieldComponentDeepNesting,
+              ...SliderComponentDeepNesting,
+              ...StorytellingComponentDeepNesting,
+              ...TableComponentDeepNesting,
+              ...TagLabelComponentDeepNesting,
+              ...TeaserBoxComponentDeepNesting,
+              ...TeaserComponentDeepNesting,
+              ...TeaserRowComponentDeepNesting,
+              ...TextAreaComponentDeepNesting,
+              ...TextFieldComponentDeepNesting,
+              ...TextMediaComponentDeepNesting,
+              ...ToggleComponentDeepNesting,
+              ...VisualComponentDeepNesting,
+              ...VisualSlidePreviewComponentDeepNesting,
+              ...VisualSliderComponentDeepNesting
             }
             title
             description

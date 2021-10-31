@@ -240,8 +240,8 @@ exports.createResolvers = async ({
           return undefined;
         }
       },
-      sections: {
-        type: "[SectionComponent]",
+      components: {
+        type: "[ContentComponent]",
         async resolve(source, args, context) {
           const glossaryJson = source.glossary;
 
@@ -317,25 +317,7 @@ exports.createResolvers = async ({
 
           glossaryJson.type = 'glossary';
 
-          source.sections = [{
-            "mode": "list",
-            "spaceBefore": "none",
-            "width": "full",
-            "background": "default",
-            "headline": {
-              "level": "p",
-              "align": "center",
-              "content": "",
-              "spaceAfter": "none",
-              "type": "headline"
-            },
-            "spaceAfter": "none",
-            "content": [glossaryJson],
-            "type": "sections",
-            "gutter": "default"
-          }];
-
-          return source.sections.map((section) => hashObjectKeys(section, 'section'));
+          return [hashObjectKeys(glossaryJson, 'glossary')];
         },
       }
     },
@@ -358,6 +340,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       updated: Date! @dateformat
       created: Date! @dateformat
       sections: [SectionComponent]
+      components: [ContentComponent]
       tags: [TagLabelComponent]
       related: [TeaserBoxComponent]
       glossary: GlossaryComponent!

@@ -7,6 +7,8 @@ import { SectionProvider } from '@kickstartds/design-system/dist/components/sect
 import { CountUpProvider } from '@kickstartds/design-system/dist/components/count-up/CountUpComponent';
 import { HeadlineProvider } from '@kickstartds/design-system/dist/components/headline/HeadlineComponent';
 
+import { IconSprite } from '@kickstartds/design-system/dist/components/icon-sprite/IconSpriteComponent';
+
 import '@kickstartds/design-system/dist/index.css';
 import '@kickstartds/design-system/dist/index.js';
 
@@ -20,6 +22,7 @@ const AllContextProviders = (props) => (
 
 export const Page = (data) => (
   <>
+    <IconSprite />
     <Header />
 
     <AllContextProviders>

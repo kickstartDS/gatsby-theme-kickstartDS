@@ -13,7 +13,7 @@ import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
 import { Page } from "../components/Page";
 import SEO from "../components/Seo";
 
-const WrappedLink = ({ href, ...props }) => 
+const WrappedLink = ({ href, ...props }) =>
   href && href.publicURL
     ? <LinkContextDefault href={href.publicURL} {...props} />
     : href && href.startsWith('/')
@@ -74,7 +74,7 @@ const contentfulOptions = {
 
 const ContentfulRichText = (props) =>
   props.text.includes('nodeType')
-    ? <div>{renderRichText({ raw: props.text }, contentfulOptions)}</div>
+    ? <div className={`c-rich-text ${props.className}`}>{renderRichText({ raw: props.text }, contentfulOptions)}</div>
     : <RichTextContextDefault {...props} />;
 
 const RichTextProvider = (props) => {
@@ -105,13 +105,14 @@ export const GatsbyPage = (props) => {
     keywords,
     image,
     cardImage,
+    ...pageRest
   } = page;
 
   return (
     <>
       <SEO
-        title={title} 
-        description={description} 
+        title={title}
+        description={description}
         keywords={keywords}
         image={image && image.publicURL}
         cardImage={cardImage && cardImage.publicURL}
@@ -122,7 +123,7 @@ export const GatsbyPage = (props) => {
           <StorytellingProvider>
             <VisualProvider>
               <RichTextProvider>
-                <Page {...page} />
+                <Page {...pageRest} />
               </RichTextProvider>
             </VisualProvider>
           </StorytellingProvider>
