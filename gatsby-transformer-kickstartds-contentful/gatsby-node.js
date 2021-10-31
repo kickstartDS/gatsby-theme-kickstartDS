@@ -281,7 +281,7 @@ exports.createResolvers = async ({
 
               return {
                 title: contentfulTerm.name,
-                excerpt: contentfulTerm.definition.raw,
+                excerpt: `${JSON.parse(contentfulTerm.definition.raw).content[0].content[0].value.substring(0,300)} …`,
                 url: `/glossary/${contentfulTerm.slug}`,
                 image___NODE: contentfulImage && contentfulImage.localFile___NODE,
               };
@@ -313,6 +313,64 @@ exports.createResolvers = async ({
                 caption: media.description
               };
             })
+          }
+
+          glossaryJson.cta = {
+            headline: {
+              content: "Why we care?",
+              styleAs: "h1",
+              type: "headline",
+            },
+            storytelling: {
+              box: {
+                text: "Read more, or chat with us, to learn how this helps create consistent frontend interfaces",
+                vAlign: "top",
+                link: {
+                  label: "Lets have a chat",
+                  variant: "solid",
+                  iconAfter: true,
+                  icon: {
+                    icon: "person",
+                  },
+                },
+              },
+              full: true,
+              type: "storytelling",
+            },
+            button: {
+              href: "/",
+              label: "About kickstartDS",
+              size: "medium",
+              type: "button",
+              variant: "solid",
+    
+              iconAfter: true,
+              icon:{
+                icon:"chevron-right"
+              },
+            },
+            type: "cta",
+          };
+
+          const ctaImage = await context.nodeModel.runQuery({
+            query: {
+              filter: {
+                relativePath: { eq: 'img/contact.svg' },
+                publicURL: { ne: '' }
+              },
+            },
+            type: "File",
+            firstOnly: true,
+          });
+
+          if (ctaImage) {
+            glossaryJson.cta.storytelling.image = {
+              source___NODE: ctaImage.id,
+              vAlign: "top",
+              order: {
+                desktopImageLast: true,
+              },
+            };
           }
 
           glossaryJson.type = 'glossary';

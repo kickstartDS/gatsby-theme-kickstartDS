@@ -6,8 +6,8 @@ import { Footer } from '@kickstartds/design-system/dist/components/footer/Footer
 import { SectionProvider } from '@kickstartds/design-system/dist/components/section/SectionComponent';
 import { CountUpProvider } from '@kickstartds/design-system/dist/components/count-up/CountUpComponent';
 import { HeadlineProvider } from '@kickstartds/design-system/dist/components/headline/HeadlineComponent';
-
 import { IconSprite } from '@kickstartds/design-system/dist/components/icon-sprite/IconSpriteComponent';
+import { LightBox } from "@kickstartds/base/lib/lightbox";
 
 import '@kickstartds/design-system/dist/index.css';
 import '@kickstartds/design-system/dist/index.js';
@@ -30,5 +30,6 @@ export const Page = (data) => (
     </AllContextProviders>
     
     <Footer nav={[]} />
+    <LightBox />
   </>
 );
