@@ -20,8 +20,12 @@ const additionalReducer = (mod) => (prev, [key, value]) => {
   return prev
 };
 
-// TODO handle this more elegantly, don't hardcode CI paths here
-const pathPrefix = fs.existsSync('../../@kickstartds') ? '../' : '';
+// TODO handle this more elegantly, don't hardcode paths here
+const pathPrefix = fs.existsSync('../../@kickstartds')
+  ? '../../../'
+  : fs.existsSync('../dist')
+    ? '../'
+    : '';
 const exportJsons = fg.sync(`${pathPrefix}node_modules/**/dist/exports.json`);
 const additionalPackage = exportJsons[0].match(/node_modules\/(.*)\/dist\/exports\.json/)[1];
 const additionalExports = exportJsons.map((exportJson) => {
