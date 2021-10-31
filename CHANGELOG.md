@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@1.10.4`
+  - fix: final fix... probably ;) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.10.3`
   - fix: try with explicit ramdisk ([@julrich](https://github.com/julrich))
   - fix: another attempt ([@julrich](https://github.com/julrich))
