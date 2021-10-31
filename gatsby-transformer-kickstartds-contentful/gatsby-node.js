@@ -27,7 +27,7 @@ exports.createResolvers = async ({
               firstOnly: true,
             });
           }
-          
+
           return undefined;
         },
       },
@@ -52,7 +52,7 @@ exports.createResolvers = async ({
               firstOnly: true,
             });
           }
-          
+
           return undefined;
         },
       },
@@ -77,7 +77,7 @@ exports.createResolvers = async ({
               firstOnly: true,
             });
           }
-          
+
           return undefined;
         },
       },
@@ -100,7 +100,7 @@ exports.createResolvers = async ({
               type: "File",
             });
           }
-          
+
           return undefined;
         },
       },
@@ -124,7 +124,7 @@ exports.createResolvers = async ({
                 "type": "tag-label",
               };
             }));
-            
+
             return tags.map((tag) => hashObjectKeys(tag, 'tag-label'));
           }
 
@@ -158,7 +158,7 @@ exports.createResolvers = async ({
                 "type": "teaser-box"
               };
             }));
-            
+
             return related.map((related) => hashObjectKeys(related, 'teaser-box'));
           }
 
@@ -170,7 +170,7 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.glossary) {
             const glossaryJson = source.glossary;
-            
+
             if (source.tags && source.tags.length > 0) {
               glossaryJson.tags = await Promise.all(source.tags.map(async (tagId) => {
                 const contentfulTag = await context.nodeModel.runQuery({
@@ -182,7 +182,7 @@ exports.createResolvers = async ({
                   type: "ContentfulTag",
                   firstOnly: true,
                 });
-  
+
                 return contentfulTag.title;
               }));
             }
@@ -198,7 +198,7 @@ exports.createResolvers = async ({
                   type: "ContentfulTerm",
                   firstOnly: true,
                 });
-  
+
                 return {
                   title: contentfulTerm.name,
                   excerpt: contentfulTerm.definition.raw,
@@ -226,7 +226,7 @@ exports.createResolvers = async ({
                 type: "ContentfulAsset",
               });
 
-              glossaryJson.media = contentfulMedia.map((media) => { 
+              glossaryJson.media = contentfulMedia.map((media) => {
                 return {
                   src: media.localFile___NODE,
                   caption: media.description
@@ -244,7 +244,7 @@ exports.createResolvers = async ({
         type: "[SectionComponent]",
         async resolve(source, args, context) {
           const glossaryJson = source.glossary;
-            
+
           if (source.tags && source.tags.length > 0) {
             glossaryJson.tags = await Promise.all(source.tags.map(async (tagId) => {
               const contentfulTag = await context.nodeModel.runQuery({
@@ -273,10 +273,17 @@ exports.createResolvers = async ({
                 firstOnly: true,
               });
 
+              const contentfulImage = await context.nodeModel.runQuery({
+                query: { filter: { id: { eq: contentfulTerm.cover___NODE } } },
+                type: "ContentfulAsset",
+                firstOnly: true,
+              });
+
               return {
                 title: contentfulTerm.name,
                 excerpt: contentfulTerm.definition.raw,
-                url: `/glossary/${contentfulTerm.slug}`
+                url: `/glossary/${contentfulTerm.slug}`,
+                image___NODE: contentfulImage && contentfulImage.localFile___NODE,
               };
             }));
           }
@@ -300,7 +307,7 @@ exports.createResolvers = async ({
               type: "ContentfulAsset",
             });
 
-            glossaryJson.media = contentfulMedia.map((media) => { 
+            glossaryJson.media = contentfulMedia.map((media) => {
               return {
                 src___NODE: media.localFile___NODE,
                 caption: media.description
@@ -328,193 +335,7 @@ exports.createResolvers = async ({
             "gutter": "default"
           }];
 
-          // if (source.sections && source.sections.length > 0) {
-            /*
-            if (source.tags && source.tags.length > 0) {
-              const tags = await Promise.all(source.tags.map(async (tagId) => {
-                const contentfulTag = await context.nodeModel.runQuery({
-                  query: {
-                    filter: {
-                      id: { eq: tagId },
-                    },
-                  },
-                  type: "ContentfulTag",
-                  firstOnly: true,
-                });
-  
-                return {
-                  "label": contentfulTag.title,
-                  "type": "tag-label",
-                };
-              }));
-
-              source.sections.push({
-                "mode": "default",
-                "spaceBefore": "none",
-                "width": "narrow",
-                "background": "default",
-                "headline": {
-                  "level": "p",
-                  "align": "center",
-                  "content": "Tags",
-                  "spaceAfter": "none",
-                  "type": "headline"
-                },
-                "spaceAfter": "default",
-                "content": tags,
-                "type": "sections",
-                "gutter": "default"
-              });
-            }
-
-            if (source.related && source.related.length > 0) {
-              const related = await Promise.all(source.related.map(async (relatedId) => {
-                const contentfulTerm = await context.nodeModel.runQuery({
-                  query: {
-                    filter: {
-                      id: { eq: relatedId },
-                    },
-                  },
-                  type: "ContentfulTerm",
-                  firstOnly: true,
-                });
-
-                return {
-                  "topic": contentfulTerm.name,
-                  "text": contentfulTerm.definition.raw,
-                  "link": {
-                    "label": "Learn more",
-                    "variant": "solid",
-                    "href": `/glossary/${contentfulTerm.slug}`,
-                  },
-                  "type": "teaser-box"
-                };
-              }));
-              
-              source.sections.push({
-                "mode": "default",
-                "spaceBefore": "none",
-                "width": "narrow",
-                "background": "default",
-                "headline": {
-                  "level": "p",
-                  "align": "center",
-                  "content": "Related",
-                  "spaceAfter": "none",
-                  "type": "headline"
-                },
-                "spaceAfter": "default",
-                "content": related,
-                "type": "sections",
-                "gutter": "default"
-              });
-            }
-
-            if (source.stackShareDecision) {
-              source.sections.push({
-                "mode": "default",
-                "spaceBefore": "none",
-                "width": "default",
-                "background": "default",
-                "headline": {
-                  "level": "p",
-                  "align": "center",
-                  "content": "Discuss",
-                  "spaceAfter": "none",
-                  "type": "headline"
-                },
-                "spaceAfter": "default",
-                "content": [{
-                  "label": "Read more, or discuss this decision with us, on StackShare.io",
-                  "href": source.stackShareDecision,
-                  "type": "link-button"
-                }],
-                "type": "sections",
-                "gutter": "default"
-              });
-            }
-
-            if (source.cover) {
-              const contentfulImage = await context.nodeModel.runQuery({
-                query: { filter: { id: { eq: source.cover } } },
-                type: "ContentfulAsset",
-                firstOnly: true,
-              });
-
-              source.sections.push({
-                "mode": "default",
-                "spaceBefore": "none",
-                "width": "default",
-                "background": "default",
-                "headline": {
-                  "level": "p",
-                  "align": "center",
-                  "content": "Cover",
-                  "spaceAfter": "none",
-                  "type": "headline"
-                },
-                "spaceAfter": "default",
-                "content": [{
-                  "media": [{
-                    "image": {
-                      "src___NODE": contentfulImage.localFile___NODE,
-                      "alt": contentfulImage.title,
-                      "width": 300,
-                      "height": 300,
-                      "type": "picture"
-                    },
-                    "caption": contentfulImage.description,
-                    "type": "media-image"
-                  }],
-                  "type": "text-media"
-                }],
-                "type": "sections",
-                "gutter": "default"
-              });
-            }
-
-            if (source.media && source.media.length > 0) {
-              const contentfulMedia = await context.nodeModel.runQuery({
-                query: { filter: { id: { in: source.media } } },
-                type: "ContentfulAsset",
-              });
-
-              source.sections.push({
-                "mode": "default",
-                "spaceBefore": "none",
-                "width": "default",
-                "background": "default",
-                "headline": {
-                  "level": "p",
-                  "align": "center",
-                  "content": "Media files",
-                  "spaceAfter": "none",
-                  "type": "headline"
-                },
-                "spaceAfter": "default",
-                "content": [{
-                  "media": contentfulMedia.map((media) => { 
-                    return {
-                      "image": {
-                        "src___NODE": media.localFile___NODE,
-                        "alt": media.title,
-                        "width": 300,
-                        "height": 300,
-                        "type": "picture"
-                      },
-                      "caption": media.description,
-                      "type": "media-image"
-                    }; 
-                  }),
-                  "type": "text-media"
-                }],
-                "type": "sections",
-                "gutter": "default"
-              });
-            }*/
-
-            return source.sections.map((section) => hashObjectKeys(section, 'section'));
-          // }
+          return source.sections.map((section) => hashObjectKeys(section, 'section'));
         },
       }
     },
@@ -586,7 +407,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       definition: node.definition.raw,
       stackshare: node.stackShareDecision,
     }
-    
+
     page.internal = {
       contentDigest: createContentDigest(page),
       content: JSON.stringify(page),

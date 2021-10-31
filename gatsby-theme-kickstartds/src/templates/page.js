@@ -13,20 +13,19 @@ import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
 import { Page } from "../components/Page";
 import SEO from "../components/Seo";
 
-const WrappedLink = ({ href, ...props }) =>
-  href && href.startsWith('/')
-    ? <Link to={href.endsWith('/') ? href : `${href}/`} {...props} />
-    : <LinkContextDefault href={href} {...props} />;
+const WrappedLink = ({ href, ...props }) => 
+  href && href.publicURL
+    ? <LinkContextDefault href={href.publicURL} {...props} />
+    : href && href.startsWith('/')
+      ? <Link to={href.endsWith('/') ? href : `${href}/`} {...props} />
+      : <LinkContextDefault href={href} {...props} />;
 
-const WrappedImage = (props) => {
-  const { src, ...propsRest } = props;
-
-  return src && src.childImageSharp
-    ? <GatsbyImage image={getImage(src)} alt={propsRest.alt || ''} />
+const WrappedImage = ({ src, ...props }) =>
+  src && src.childImageSharp
+    ? <GatsbyImage image={getImage(src)} alt={props.alt || ''} />
     : src && src.publicURL
-      ? <PictureContextDefault src={src.publicURL} {...propsRest} />
+      ? <PictureContextDefault src={src.publicURL} {...props} />
       : null;
-}
 
 const WrappedVisual = (props) => {
   if (props.media && props.media.image) {
