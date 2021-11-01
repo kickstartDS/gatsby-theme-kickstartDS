@@ -1,3 +1,19 @@
+# v1.9.0 (Mon Nov 01 2021)
+
+#### 🚀 Enhancement
+
+- feature: add layouting options to templates [#66](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/66) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add layouting options to templates ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.8.0 (Sun Oct 31 2021)
 
 #### 🚀 Enhancement

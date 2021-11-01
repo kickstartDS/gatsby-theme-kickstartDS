@@ -1,3 +1,20 @@
+# (Mon Nov 01 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.11.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.5.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.9.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.6.0`
+  - feature: add layouting options to templates [#66](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/66) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- chore: update kickstartDS design-system ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Oct 31 2021)
 
 #### ⚠️ Pushed to `master`
