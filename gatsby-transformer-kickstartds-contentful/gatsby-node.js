@@ -5,7 +5,7 @@ exports.createResolvers = async ({
   createResolvers,
 }) => {
   await createResolvers({
-    KickstartDsContentfulPage: {
+    KickstartDsGlossaryPage: {
       image: {
         type: "File",
         async resolve(source, args, context) {
@@ -386,7 +386,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   createTypes(`
-    type KickstartDsContentfulPage implements Node & KickstartDsPage @dontInfer {
+    type KickstartDsGlossaryPage implements Node & KickstartDsPage @dontInfer {
       id: ID!
       layout: String!
       title: String!
@@ -413,7 +413,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
   const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === 'ContentfulTerm') {
-    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsContentfulPage`);
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsGlossaryPage`);
 
     const page = {
       id: kickstartDSPageId,
@@ -421,7 +421,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       title: node.name,
       description: stripHtml(node.definition.raw).result,
       slug: `glossary/${node.slug}`,
-      layout: 'default',
+      layout: 'glossary',
       created: node.createdAt,
       updated: node.updatedAt,
       tags: node.tags___NODE
@@ -452,7 +452,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     page.internal = {
       contentDigest: createContentDigest(page),
       content: JSON.stringify(page),
-      type: 'KickstartDsContentfulPage',
+      type: 'KickstartDsGlossaryPage',
       description: `Contentful glossary implementation of the kickstartDS page interface`,
     };
 

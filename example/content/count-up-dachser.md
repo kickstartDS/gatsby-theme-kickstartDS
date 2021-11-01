@@ -1,6 +1,6 @@
 ---
 id: bff34890-b297-11eb-aba2-9d45a4718acf
-layout: default
+layout: content
 title: Count Up Dachser
 slug: count-up-dachser
 sections:

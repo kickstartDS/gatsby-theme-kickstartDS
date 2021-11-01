@@ -4,9 +4,7 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
 
-// TODO refactor to .ts, get rid of `propTypes` accordingly
-
-const SEO = ({ lang, title, description, keywords, image, cardImage, article, twitterCreator }) => {
+export const SEO = ({ lang, title, description, keywords, image, cardImage, article, twitterCreator }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
 

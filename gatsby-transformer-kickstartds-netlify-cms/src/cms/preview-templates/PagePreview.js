@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page } from '@kickstartds/gatsby-theme-kickstartds/src/components/Page';
+import { ContentPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/ContentPage';
 
 const PagePreview = React.memo(({ entry }) => {
   const [data, setData] = React.useState({});
@@ -29,7 +29,7 @@ const PagePreview = React.memo(({ entry }) => {
   );
 
   return (
-    <Page {...data} />
+    <ContentPage {...data} />
   );
 });
 

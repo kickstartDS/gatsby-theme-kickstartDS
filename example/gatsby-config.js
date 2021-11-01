@@ -56,7 +56,7 @@ module.exports = {
               }
             }
           }
-          allKickstartDsContentfulPage {
+          allKickstartDsGlossaryPage {
             edges {
               node {
                 id
@@ -80,7 +80,7 @@ module.exports = {
         }`,
         output: "/sitemap.xml",
         mapping: {
-          allKickstartDsContentfulPage: {
+          allKickstartDsGlossaryPage: {
             sitemap: `glossary`,
           },
           allKickstartDsNetlifyCmsPage: {

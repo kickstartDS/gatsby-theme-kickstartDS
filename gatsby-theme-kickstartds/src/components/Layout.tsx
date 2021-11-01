@@ -1,10 +1,21 @@
 import { FunctionComponent } from 'react';
 
-// TODO add `LayoutProps`
-export const Layout: FunctionComponent<any> = ({ children }) => (
-  <>
+import { SEO } from "./Seo";
+import { Providers } from "./Providers";
+
+export const Layout: FunctionComponent<any> = (props) => (
+  <Providers>
+    <SEO
+      title={props.title}
+      description={props.description}
+      keywords={props.keywords}
+      image={props.image && props.image.publicURL}
+      cardImage={props.cardImage && props.cardImage.publicURL}
+      twitterCreator={props.twitterCreator}
+    />
+
     <main tabIndex={-1}>
-      {children}
+      {props.children}
     </main>
-  </>
+  </Providers>
 );
