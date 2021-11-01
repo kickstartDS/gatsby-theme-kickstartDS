@@ -8,7 +8,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
-    "postinstall": "ls -lah && pwd && node ./scripts/createComponentsMap.js"
+    "postinstall": "node ./scripts/createComponentsMap.js"
   },
   "peerDependencies": {
     "gatsby": "^3.8.1",
@@ -18,6 +18,7 @@
   "dependencies": {
     "@kickstartds/jsonschema2graphql": "^1.6.5",
     "@loadable/component": "^5.15.0",
+    "@types/react-helmet": "^6.1.4",
     "assert": "^2.0.0",
     "change-case": "^4.1.2",
     "fast-glob": "^3.2.7",

@@ -227,7 +227,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       excerpt: node.excerpt,
       author: node.author.node.id,
       categories: node.categories.nodes.map((category) => category.id),
-      layout: 'default',
+      layout: 'blog-detail',
       created: node.date,
       updated: node.modified,
     };
@@ -235,34 +235,8 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
     page.sections = [{
       "className": "l-section--content-width-narrow",
       "mode": "list",
-      "spaceBefore": "none",
-      "width": "wide",
-      "background": "default",
-      "headline": {
-        "level": "p",
-        "align": "center",
-        "content": "",
-        "spaceAfter": "none",
-        "type": "headline"
-      },
-      "spaceAfter": "none",
-      "content": [{
-        "type": "post-head",
-        "date": node.date,
-        "headline": {
-          "level": "h1",
-          "align": "left",
-          "content": node.title,
-          "spaceAfter": "none",
-          "type": "headline"
-        },
-      }],
-      "type": "sections",
-      "gutter": "default"
-    }, {
-      "mode": "list",
       "spaceBefore": "small",
-      "width": "narrow",
+      "width": "wide",
       "background": "default",
       "headline": {
         "level": "p",
@@ -273,6 +247,16 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       },
       "spaceAfter": "default",
       "content": [{
+        "type": "post-head",
+        "date": node.date,
+        "headline": {
+          "level": "h1",
+          "align": "left",
+          "content": node.title,
+          "spaceAfter": "none",
+          "type": "headline"
+        },
+      }, {
         "type": "html",
         "html": `<div class="c-rich-text">${node.content}</div>`
       }],

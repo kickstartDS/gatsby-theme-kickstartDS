@@ -1,6 +1,6 @@
 ---
 id: 78d601a0-dd08-11eb-b16f-093364d73e0c
-layout: default
+layout: content
 slug: /
 title: kickstartDS – the frontend first framework
 type: page

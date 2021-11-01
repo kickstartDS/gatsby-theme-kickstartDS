@@ -1,6 +1,6 @@
 ---
 id: 99b72570-3690-11ec-9aa5-593217e1c58a
-layout: default
+layout: content
 slug: text-media
 title: Text Media
 type: page

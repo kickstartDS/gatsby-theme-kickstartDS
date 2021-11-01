@@ -1,12 +1,10 @@
 import React from 'react';
-import { FunctionComponent } from 'react';
+import components from "../components/ComponentsMap";
+
 import { cleanObjectKeys } from '@kickstartds/jsonschema2graphql/build/dehashing';
 
-import { Layout } from './Layout';
-import components from "./ComponentsMap";
-
-const componentCounter = [];
-const getComponent = (element, isSection = false) => {
+export const componentCounter = [];
+export const getComponent = (element, isSection = false) => {
   const componentType = isSection ? 'section' : element['type'];
 
   componentCounter[componentType] = componentCounter[componentType]+1 || 1;
@@ -34,17 +32,8 @@ const getComponent = (element, isSection = false) => {
   return <Component type={typeProp} key={key} { ...restElement } />;
 };
 
-const getContent = (content, sections = false) => {
+export const getContent = (content, sections = false) => {
   if (content && content.length > 0) {
     return content.map((element) => getComponent(element, sections));
   }
 };
-
-export const Page: FunctionComponent<any> = ({
-  sections, components
-}) => (
-  <Layout>
-    {getContent(components, false)}
-    {getContent(sections, true)}
-  </Layout>
-);

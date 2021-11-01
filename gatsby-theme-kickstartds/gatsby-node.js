@@ -5,7 +5,7 @@ const createBlogList = require(`./create/createBlogList.js`);
 const createPages = require(`./create/createPages.js`);
 
 exports.createPages = async (props, options) => {
-  // Only try to run `createBlogList` when we actually have the blog plugin activated
+  // TODO Only try to run `createBlogList` when we actually have the blog plugin activated
   await createBlogList(props, options);
   await createPages(props, options);
 };
