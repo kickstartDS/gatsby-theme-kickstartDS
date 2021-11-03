@@ -1,3 +1,15 @@
+# v1.11.1 (Wed Nov 03 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: clean up layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.11.0 (Mon Nov 01 2021)
 
 #### 🚀 Enhancement

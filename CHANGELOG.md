@@ -1,3 +1,17 @@
+# (Wed Nov 03 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: fix formatting ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.11.1`
+  - chore: clean up layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Nov 01 2021)
 
 #### 🚀 Enhancement
