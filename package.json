@@ -13,6 +13,7 @@
   "workspaces": [
     "gatsby-theme-kickstartds",
     "gatsby-transformer-kickstartds-contentful",
+    "gatsby-transformer-kickstartds-mdx",
     "gatsby-transformer-kickstartds-netlify-cms",
     "gatsby-transformer-kickstartds-wordpress",
     "example"
