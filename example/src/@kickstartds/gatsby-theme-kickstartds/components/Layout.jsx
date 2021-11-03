@@ -11,7 +11,7 @@ import { LightBox } from "@kickstartds/base/lib/lightbox";
 import '@kickstartds/design-system/dist/index.css';
 import '@kickstartds/design-system/dist/index.js';
 
-export const Layout = ({children, ...rest}) => (
+export const Layout = ({ children, ...rest }) => (
   <OriginalLayout {...rest}>
     <IconSprite />
     <Header />

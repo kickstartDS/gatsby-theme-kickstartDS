@@ -6,12 +6,12 @@ import { HeadlineProvider } from '@kickstartds/design-system/dist/components/hea
 
 import { Providers as OriginalProviders } from '@kickstartds/gatsby-theme-kickstartds/src/components/Providers';
 
-export const Providers = ({children}) =>
+export const Providers = ({ children }) =>
   <HeadlineProvider>
     <CountUpProvider>
       <SectionProvider>
         <OriginalProviders>
-          {children}  
+          {children}
         </OriginalProviders>
       </SectionProvider>
     </CountUpProvider>
