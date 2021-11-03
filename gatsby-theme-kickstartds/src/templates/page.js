@@ -1,6 +1,3 @@
-import { SEO } from "../components/Seo";
-import { Providers } from "../components/Providers";
-
 import { ContentPage } from "../components/ContentPage";
 import { BlogDetailPage } from "../components/BlogDetailPage";
 import { BlogListPage } from "../components/BlogListPage";
@@ -26,10 +23,7 @@ const selectTemplate = (key, props) => {
   }
 }
 
-export const GatsbyPage = ({ pageContext: { page } }) => (
-  <Providers>
-    {selectTemplate(page.layout, page)}
-  </Providers>
-);
+export const GatsbyPage = ({ pageContext: { page } }) =>
+  selectTemplate(page.layout, page);
 
 export default GatsbyPage;
