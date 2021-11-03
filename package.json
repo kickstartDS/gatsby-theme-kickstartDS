@@ -34,5 +34,10 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "restricted"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby-remark-shiki-twoslash": "^3.0.30"
   }
 }
