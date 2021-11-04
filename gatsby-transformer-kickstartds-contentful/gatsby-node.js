@@ -15,10 +15,10 @@ exports.createResolvers = async ({
               type: "ContentfulAsset",
             });
 
-            return context.nodeModel.findOne({
+            return await context.nodeModel.findOne({
               query: {
                 filter: {
-                  id: { eq: image.localFile___NODE },
+                  id: { eq: image.fields.localFile },
                   publicURL: { ne: '' }
                 },
               },
@@ -38,10 +38,10 @@ exports.createResolvers = async ({
               type: "ContentfulAsset",
             });
 
-            return context.nodeModel.findOne({
+            return await context.nodeModel.findOne({
               query: {
                 filter: {
-                  id: { eq: image.localFile___NODE },
+                  id: { eq: image.fields.localFile },
                   publicURL: { ne: '' }
                 },
               },
@@ -61,10 +61,10 @@ exports.createResolvers = async ({
               type: "ContentfulAsset",
             });
 
-            return context.nodeModel.findOne({
+            return await context.nodeModel.findOne({
               query: {
                 filter: {
-                  id: { eq: image.localFile___NODE },
+                  id: { eq: image.fields.localFile },
                   publicURL: { ne: '' }
                 },
               },
@@ -79,20 +79,22 @@ exports.createResolvers = async ({
         type: "[File]",
         async resolve(source, args, context) {
           if (source.media && source.media.length > 0) {
-            const media = await context.nodeModel.findAll({
+            const { entries: media } = await context.nodeModel.findAll({
               query: { filter: { id: { in: source.media } } },
               type: "ContentfulAsset",
             });
 
-            return context.nodeModel.findAll({
+            const { entries: files } = await context.nodeModel.findAll({
               query: {
                 filter: {
-                  id: { in: media.map((media) => media.localFile___NODE) },
+                  id: { in: media.map((media) => media.fields.localFile) },
                   publicURL: { ne: '' }
                 },
               },
               type: "File",
             });
+
+            return files;
           }
 
           return undefined;
@@ -204,23 +206,23 @@ exports.createResolvers = async ({
               });
 
               glossaryJson.cover = {
-                src: contentfulImage.localFile___NODE,
+                src: contentfulImage.fields.localFile,
                 caption: contentfulImage.description
               };
             }
 
             if (source.media && source.media.length > 0) {
-              const contentfulMedia = await context.nodeModel.findAll({
+              const { entries: contentfulMedia } = await context.nodeModel.findAll({
                 query: { filter: { id: { in: source.media } } },
                 type: "ContentfulAsset",
               });
 
-              glossaryJson.media = contentfulMedia.map((media) => {
+              glossaryJson.media = Array.from(contentfulMedia).map((media) => {
                 return {
-                  src: media.localFile___NODE,
+                  src: media.fields.localFile,
                   caption: media.description
                 };
-              })
+              });
             }
 
             return glossaryJson;
@@ -269,7 +271,7 @@ exports.createResolvers = async ({
                 title: contentfulTerm.name,
                 excerpt: `${JSON.parse(contentfulTerm.definition.raw).content[0].content[0].value.substring(0,300)} …`,
                 url: `/glossary/${contentfulTerm.slug}`,
-                image___NODE: contentfulImage && contentfulImage.localFile___NODE,
+                image___NODE: contentfulImage && contentfulImage.fields.localFile,
               };
             }));
           }
@@ -281,23 +283,23 @@ exports.createResolvers = async ({
             });
 
             glossaryJson.cover = {
-              src___NODE: contentfulImage.localFile___NODE,
+              src___NODE: contentfulImage.fields.localFile,
               caption: contentfulImage.description
             };
           }
 
           if (source.media && source.media.length > 0) {
-            const contentfulMedia = await context.nodeModel.findAll({
+            const { entries: contentfulMedia } = await context.nodeModel.findAll({
               query: { filter: { id: { in: source.media } } },
               type: "ContentfulAsset",
             });
 
-            glossaryJson.media = contentfulMedia.map((media) => {
+            glossaryJson.media = Array.from(contentfulMedia).map((media) => {
               return {
-                src___NODE: media.localFile___NODE,
+                src___NODE: media.fields.localFile,
                 caption: media.description
               };
-            })
+            });
           }
 
           glossaryJson.cta = {
