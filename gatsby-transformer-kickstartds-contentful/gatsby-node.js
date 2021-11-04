@@ -10,13 +10,12 @@ exports.createResolvers = async ({
         type: "File",
         async resolve(source, args, context) {
           if (source.image) {
-            const image = await context.nodeModel.runQuery({
+            const image = await context.nodeModel.findOne({
               query: { filter: { id: { eq: source.image } } },
               type: "ContentfulAsset",
-              firstOnly: true,
             });
 
-            return context.nodeModel.runQuery({
+            return context.nodeModel.findOne({
               query: {
                 filter: {
                   id: { eq: image.localFile___NODE },
@@ -24,7 +23,6 @@ exports.createResolvers = async ({
                 },
               },
               type: "File",
-              firstOnly: true,
             });
           }
 
@@ -35,13 +33,12 @@ exports.createResolvers = async ({
         type: "File",
         async resolve(source, args, context) {
           if (source.cardImage) {
-            const image = await context.nodeModel.runQuery({
+            const image = await context.nodeModel.findOne({
               query: { filter: { id: { eq: source.cardImage } } },
               type: "ContentfulAsset",
-              firstOnly: true,
             });
 
-            return context.nodeModel.runQuery({
+            return context.nodeModel.findOne({
               query: {
                 filter: {
                   id: { eq: image.localFile___NODE },
@@ -49,7 +46,6 @@ exports.createResolvers = async ({
                 },
               },
               type: "File",
-              firstOnly: true,
             });
           }
 
@@ -60,13 +56,12 @@ exports.createResolvers = async ({
         type: "File",
         async resolve(source, args, context) {
           if (source.cover) {
-            const image = await context.nodeModel.runQuery({
+            const image = await context.nodeModel.findOne({
               query: { filter: { id: { eq: source.cover } } },
               type: "ContentfulAsset",
-              firstOnly: true,
             });
 
-            return context.nodeModel.runQuery({
+            return context.nodeModel.findOne({
               query: {
                 filter: {
                   id: { eq: image.localFile___NODE },
@@ -74,7 +69,6 @@ exports.createResolvers = async ({
                 },
               },
               type: "File",
-              firstOnly: true,
             });
           }
 
@@ -85,12 +79,12 @@ exports.createResolvers = async ({
         type: "[File]",
         async resolve(source, args, context) {
           if (source.media && source.media.length > 0) {
-            const media = await context.nodeModel.runQuery({
+            const media = await context.nodeModel.findAll({
               query: { filter: { id: { in: source.media } } },
               type: "ContentfulAsset",
             });
 
-            return context.nodeModel.runQuery({
+            return context.nodeModel.findAll({
               query: {
                 filter: {
                   id: { in: media.map((media) => media.localFile___NODE) },
@@ -109,14 +103,13 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.tags && source.tags.length > 0) {
             const tags = await Promise.all(source.tags.map(async (tagId) => {
-              const contentfulTag = await context.nodeModel.runQuery({
+              const contentfulTag = await context.nodeModel.findOne({
                 query: {
                   filter: {
                     id: { eq: tagId },
                   },
                 },
                 type: "ContentfulTag",
-                firstOnly: true,
               });
 
               return {
@@ -136,14 +129,13 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.related && source.related.length > 0) {
             const related = await Promise.all(source.related.map(async (relatedId) => {
-              const contentfulTerm = await context.nodeModel.runQuery({
+              const contentfulTerm = await context.nodeModel.findOne({
                 query: {
                   filter: {
                     id: { eq: relatedId },
                   },
                 },
                 type: "ContentfulTerm",
-                firstOnly: true,
               });
 
               return {
@@ -173,14 +165,13 @@ exports.createResolvers = async ({
 
             if (source.tags && source.tags.length > 0) {
               glossaryJson.tags = await Promise.all(source.tags.map(async (tagId) => {
-                const contentfulTag = await context.nodeModel.runQuery({
+                const contentfulTag = await context.nodeModel.findOne({
                   query: {
                     filter: {
                       id: { eq: tagId },
                     },
                   },
                   type: "ContentfulTag",
-                  firstOnly: true,
                 });
 
                 return contentfulTag.title;
@@ -189,14 +180,13 @@ exports.createResolvers = async ({
 
             if (source.related && source.related.length > 0) {
               glossaryJson.related = await Promise.all(source.related.map(async (relatedId) => {
-                const contentfulTerm = await context.nodeModel.runQuery({
+                const contentfulTerm = await context.nodeModel.findOne({
                   query: {
                     filter: {
                       id: { eq: relatedId },
                     },
                   },
                   type: "ContentfulTerm",
-                  firstOnly: true,
                 });
 
                 return {
@@ -208,10 +198,9 @@ exports.createResolvers = async ({
             }
 
             if (source.cover) {
-              const contentfulImage = await context.nodeModel.runQuery({
+              const contentfulImage = await context.nodeModel.findOne({
                 query: { filter: { id: { eq: source.cover } } },
                 type: "ContentfulAsset",
-                firstOnly: true,
               });
 
               glossaryJson.cover = {
@@ -221,7 +210,7 @@ exports.createResolvers = async ({
             }
 
             if (source.media && source.media.length > 0) {
-              const contentfulMedia = await context.nodeModel.runQuery({
+              const contentfulMedia = await context.nodeModel.findAll({
                 query: { filter: { id: { in: source.media } } },
                 type: "ContentfulAsset",
               });
@@ -247,14 +236,13 @@ exports.createResolvers = async ({
 
           if (source.tags && source.tags.length > 0) {
             glossaryJson.tags = await Promise.all(source.tags.map(async (tagId) => {
-              const contentfulTag = await context.nodeModel.runQuery({
+              const contentfulTag = await context.nodeModel.findOne({
                 query: {
                   filter: {
                     id: { eq: tagId },
                   },
                 },
                 type: "ContentfulTag",
-                firstOnly: true,
               });
 
               return contentfulTag.title;
@@ -263,20 +251,18 @@ exports.createResolvers = async ({
 
           if (source.related && source.related.length > 0) {
             glossaryJson.related = await Promise.all(source.related.map(async (relatedId) => {
-              const contentfulTerm = await context.nodeModel.runQuery({
+              const contentfulTerm = await context.nodeModel.findOne({
                 query: {
                   filter: {
                     id: { eq: relatedId },
                   },
                 },
                 type: "ContentfulTerm",
-                firstOnly: true,
               });
 
-              const contentfulImage = await context.nodeModel.runQuery({
+              const contentfulImage = await context.nodeModel.findOne({
                 query: { filter: { id: { eq: contentfulTerm.cover___NODE } } },
                 type: "ContentfulAsset",
-                firstOnly: true,
               });
 
               return {
@@ -289,10 +275,9 @@ exports.createResolvers = async ({
           }
 
           if (source.cover) {
-            const contentfulImage = await context.nodeModel.runQuery({
+            const contentfulImage = await context.nodeModel.findOne({
               query: { filter: { id: { eq: source.cover } } },
               type: "ContentfulAsset",
-              firstOnly: true,
             });
 
             glossaryJson.cover = {
@@ -302,7 +287,7 @@ exports.createResolvers = async ({
           }
 
           if (source.media && source.media.length > 0) {
-            const contentfulMedia = await context.nodeModel.runQuery({
+            const contentfulMedia = await context.nodeModel.findAll({
               query: { filter: { id: { in: source.media } } },
               type: "ContentfulAsset",
             });
@@ -352,7 +337,7 @@ exports.createResolvers = async ({
             type: "cta",
           };
 
-          const ctaImage = await context.nodeModel.runQuery({
+          const ctaImage = await context.nodeModel.findOne({
             query: {
               filter: {
                 relativePath: { eq: 'img/contact.svg' },
@@ -360,7 +345,6 @@ exports.createResolvers = async ({
               },
             },
             type: "File",
-            firstOnly: true,
           });
 
           if (ctaImage) {

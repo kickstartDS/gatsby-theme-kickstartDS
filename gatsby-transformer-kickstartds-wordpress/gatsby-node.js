@@ -10,7 +10,7 @@ exports.createResolvers = async ({
         type: "String",
         async resolve(source, args, context) {
           if (source.image___NODE) {
-            const fileNode = await context.nodeModel.runQuery({
+            const fileNode = await context.nodeModel.findOne({
               query: {
                 filter: {
                   parent: { id: { eq: source.image___NODE } },
@@ -18,13 +18,11 @@ exports.createResolvers = async ({
                 },
               },
               type: "File",
-              firstOnly: true,
             });
 
-            const site = await context.nodeModel.runQuery({
+            const site = await context.nodeModel.findOne({
               query: {},
               type: "Site",
-              firstOnly: true,
             });
 
             return fileNode && fileNode.__gatsby_resolved && fileNode.__gatsby_resolved.publicURL
@@ -39,7 +37,7 @@ exports.createResolvers = async ({
         type: "File",
         async resolve(source, args, context) {
           if (source.image___NODE) {
-            return context.nodeModel.runQuery({
+            return context.nodeModel.findOne({
               query: {
                 filter: {
                   parent: { id: { eq: source.image___NODE } },
@@ -47,7 +45,6 @@ exports.createResolvers = async ({
                 },
               },
               type: "File",
-              firstOnly: true,
             });
           }
           
@@ -58,7 +55,7 @@ exports.createResolvers = async ({
         type: "File",
         async resolve(source, args, context) {
           if (source.cardImage___NODE) {
-            return context.nodeModel.runQuery({
+            return context.nodeModel.findOne({
               query: {
                 filter: {
                   parent: { id: { eq: source.cardImage___NODE } },
@@ -66,7 +63,6 @@ exports.createResolvers = async ({
                 },
               },
               type: "File",
-              firstOnly: true,
             });
           }
           
@@ -77,14 +73,13 @@ exports.createResolvers = async ({
         type: "String!",
         async resolve(source, args, context) {
           if (source.author) {
-            const wpUser = await context.nodeModel.runQuery({
+            const wpUser = await context.nodeModel.findOne({
               query: {
                 filter: {
                   id: { eq: source.author } ,
                 },
               },
               type: "WpUser",
-              firstOnly: true,
             });
 
             return wpUser && wpUser.name
@@ -100,14 +95,13 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.categories) {
             const categories = await Promise.all(source.categories.map(async (categoryId) => {
-              const wpCategory = await context.nodeModel.runQuery({
+              const wpCategory = await context.nodeModel.findOne({
                 query: {
                   filter: {
                     id: { eq: categoryId },
                   },
                 },
                 type: "WpCategory",
-                firstOnly: true,
               });
 
               return {
@@ -128,14 +122,13 @@ exports.createResolvers = async ({
           if (source.sections && source.sections.length > 0) {
             if (source.categories) {
               source.sections[0].content[0].categories = await Promise.all(source.categories.map(async (categoryId) => {
-                const wpCategory = await context.nodeModel.runQuery({
+                const wpCategory = await context.nodeModel.findOne({
                   query: {
                     filter: {
                       id: { eq: categoryId },
                     },
                   },
                   type: "WpCategory",
-                  firstOnly: true,
                 });
   
                 return {
@@ -146,7 +139,7 @@ exports.createResolvers = async ({
             }
 
             if (source.image___NODE) {
-              const fileNode = await context.nodeModel.runQuery({
+              const fileNode = await context.nodeModel.findOne({
                 query: {
                   filter: {
                     parent: { id: { eq: source.image___NODE } },
@@ -154,7 +147,6 @@ exports.createResolvers = async ({
                   },
                 },
                 type: "File",
-                firstOnly: true,
               });
 
               source.sections[0].content[0].image = {
@@ -165,14 +157,13 @@ exports.createResolvers = async ({
             }
 
             if (source.author) {
-              const wpUser = await context.nodeModel.runQuery({
+              const wpUser = await context.nodeModel.findOne({
                 query: {
                   filter: {
                     id: { eq: source.author } ,
                   },
                 },
                 type: "WpUser",
-                firstOnly: true,
               });
 
               source.sections[0].content[0].headline.subheadline = `published by: ${wpUser.name}`;
