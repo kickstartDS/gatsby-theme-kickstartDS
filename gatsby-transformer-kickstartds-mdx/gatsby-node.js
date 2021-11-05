@@ -51,8 +51,6 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
   // const files = getNodesByType('File');
 
   if (node.internal.type === 'Mdx') {
-    console.log('Mdx node', node);
-
     // const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsMdxPage`);
     // delete node.frontmatter.id;
 

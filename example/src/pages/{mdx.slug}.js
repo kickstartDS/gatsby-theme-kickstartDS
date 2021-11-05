@@ -2,16 +2,34 @@ import React from "react";
 
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from '@mdx-js/react';
 import { Layout } from "@kickstartds/gatsby-theme-kickstartds/src/components/Layout";
 import { Section } from "@kickstartds/base/lib/section";
 import { PostHead } from "@kickstartds/blog/lib/post-head";
+
+import '@kickstartds/gatsby-transformer-kickstartds-mdx/src/shiki-twoslash.css';
+
+const nonRteMdxTypes = [
+  'Visual',
+  'pre',
+];
+
+const components = {
+  wrapper: ({ children }) =>
+    <>
+      {children.map((child) =>
+        nonRteMdxTypes.includes(child.props.mdxType)
+          ? child
+          : <div className="c-rich-text">{child}</div>)}
+    </>
+};
 
 export default function PostPage({ data }) {
   const {
     body,
     frontmatter: { title, date, image, categories },
   } = data.mdx;
-  console.log('debug', title, date, image, categories);
+  
   return (
     <Layout>
       <Section
@@ -49,9 +67,9 @@ export default function PostPage({ data }) {
             height: 478,
           }} />
         
-        <div className="c-rich-text">
+        <MDXProvider components={components}>
           <MDXRenderer>{body}</MDXRenderer>
-        </div>
+        </MDXProvider>
       </Section>
     </Layout>
   );

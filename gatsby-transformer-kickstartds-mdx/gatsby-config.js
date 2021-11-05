@@ -3,12 +3,12 @@ module.exports = {
     resolve: `gatsby-plugin-mdx`,
     options: {
       gatsbyRemarkPlugins: [
-        // {
-        //   resolve: "gatsby-remark-shiki-twoslash",
-        //   options: {
-        //     theme: "nord",
-        //   }
-        // },
+        {
+          resolve: require.resolve("../node_modules/gatsby-remark-shiki-twoslash"),
+          options: {
+            theme: "material-default",
+          }
+        },
       ],
     },
   }],

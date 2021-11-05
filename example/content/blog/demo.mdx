@@ -29,18 +29,6 @@ Preliminary question:
 This blockquote will change based on the HTML settings above.
 </blockquote>
 
-## How about some code?
-
-```js
-var React = require('react');
-var Markdown = require('react-markdown');
-React.render(
-  <Markdown source="# Your markdown here" />,
-  document.getElementById('content')
-);
-```
-Pretty neat, eh?
-
 ## Tables?
 | Feature   | Support |
 | --------- | ------- |
@@ -48,8 +36,51 @@ Pretty neat, eh?
 | alignment | ✔ |
 | wewt      | ✔ |
 
-## kickstartDS components?
+## How about some code?
+```tsx twoslash
+import { Visual } from "@kickstartds/content/lib/visual";
+// ---cut---
+<Visual
+  backgroundColor="transparent"
+  height="small"
+  media={{
+    mode: "image",
+    image: {
+      srcMobile: "https://picsum.photos/seed/kdsvisual/640/470",
+      srcTablet: "https://picsum.photos/seed/kdsvisual/1280/840",
+      srcDesktop: "https://picsum.photos/seed/kdsvisual/1920/1210",
+      src: "https://picsum.photos/seed/kdsvisual/640/270",
+      indent: "none",
+    }
+  }}
+  overlay={false}
+  box={{
+    enabled: true,
+    text: "This demonstrates how you can easily add kickstartDS components to your blog post",
+    background: "light",
+//  ^?
+    headline: {
+      level: "p",
+      styleAs: "h3",
+      align: "left",
+      spaceAfter: "none",
+      pageHeader: false,
+      content: "kickstartDS components directly in your post",
+    },
+    link: {
+      enabled: true,
+      variant: "solid",
+      label: "Learn more",
+      size: "medium",
+      href: "https://www.kickstartDS.com/",
+    }
+  }}
+/>
+```
 
+Pretty neat, eh?
+
+## kickstartDS components?
 <Visual 
   backgroundColor="transparent"
   height="small"
