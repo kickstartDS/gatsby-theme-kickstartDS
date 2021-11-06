@@ -11,7 +11,7 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.image) {
             const image = await context.nodeModel.findOne({
-              query: { filter: { id: { eq: source.image } } },
+              query: { filter: { id: { eq: source.image }, }, fields: { localFile: { ne: '' } } },
               type: "ContentfulAsset",
             });
 
@@ -34,7 +34,7 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.cardImage) {
             const image = await context.nodeModel.findOne({
-              query: { filter: { id: { eq: source.cardImage } } },
+              query: { filter: { id: { eq: source.cardImage } }, fields: { localFile: { ne: '' } } },
               type: "ContentfulAsset",
             });
 
@@ -57,7 +57,7 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.cover) {
             const image = await context.nodeModel.findOne({
-              query: { filter: { id: { eq: source.cover } } },
+              query: { filter: { id: { eq: source.cover } }, fields: { localFile: { ne: '' } } },
               type: "ContentfulAsset",
             });
 
@@ -80,7 +80,7 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.media && source.media.length > 0) {
             const { entries: media } = await context.nodeModel.findAll({
-              query: { filter: { id: { in: source.media } } },
+              query: { filter: { id: { in: source.media } }, fields: { localFile: { ne: '' } } },
               type: "ContentfulAsset",
             });
 
@@ -201,7 +201,7 @@ exports.createResolvers = async ({
 
             if (source.cover) {
               const contentfulImage = await context.nodeModel.findOne({
-                query: { filter: { id: { eq: source.cover } } },
+                query: { filter: { id: { eq: source.cover } }, fields: { localFile: { ne: '' } } },
                 type: "ContentfulAsset",
               });
 
@@ -213,7 +213,7 @@ exports.createResolvers = async ({
 
             if (source.media && source.media.length > 0) {
               const { entries: contentfulMedia } = await context.nodeModel.findAll({
-                query: { filter: { id: { in: source.media } } },
+                query: { filter: { id: { in: source.media } }, fields: { localFile: { ne: '' } } },
                 type: "ContentfulAsset",
               });
 
@@ -263,7 +263,7 @@ exports.createResolvers = async ({
               });
 
               const contentfulImage = await context.nodeModel.findOne({
-                query: { filter: { id: { eq: contentfulTerm.cover___NODE } } },
+                query: { filter: { id: { eq: contentfulTerm.cover___NODE } }, fields: { localFile: { ne: '' } } },
                 type: "ContentfulAsset",
               });
 
@@ -278,7 +278,7 @@ exports.createResolvers = async ({
 
           if (source.cover) {
             const contentfulImage = await context.nodeModel.findOne({
-              query: { filter: { id: { eq: source.cover } } },
+              query: { filter: { id: { eq: source.cover } }, fields: { localFile: { ne: '' } } },
               type: "ContentfulAsset",
             });
 
@@ -290,7 +290,7 @@ exports.createResolvers = async ({
 
           if (source.media && source.media.length > 0) {
             const { entries: contentfulMedia } = await context.nodeModel.findAll({
-              query: { filter: { id: { in: source.media } } },
+              query: { filter: { id: { in: source.media } }, fields: { localFile: { ne: '' } } },
               type: "ContentfulAsset",
             });
 
