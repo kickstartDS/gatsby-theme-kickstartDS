@@ -1,3 +1,15 @@
+# v1.6.1 (Sat Nov 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: attempt fix of contentful asset field resolution ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.6.0 (Sat Nov 06 2021)
 
 #### 🚀 Enhancement

@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@1.6.1`
+  - fix: attempt fix of contentful asset field resolution ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Nov 06 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-transformer-kickstartds-mdx@1.1.2`
   - fix: move mdx page generation to plugin ([@julrich](https://github.com/julrich))
 
