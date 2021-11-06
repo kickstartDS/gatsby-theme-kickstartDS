@@ -4,7 +4,7 @@ module.exports = {
     options: {
       gatsbyRemarkPlugins: [
         {
-          resolve: require.resolve("../node_modules/gatsby-remark-shiki-twoslash"),
+          resolve: require.resolve("gatsby-remark-shiki-twoslash"),
           options: {
             theme: "material-default",
           }
