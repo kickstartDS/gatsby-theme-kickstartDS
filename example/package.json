@@ -29,7 +29,7 @@
     "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^1.9.0",
     "@kickstartds/gatsby-transformer-kickstartds-wordpress": "^1.6.0",
     "dotenv": "^8.2.0",
-    "gatsby": "^3.8.1",
+    "gatsby": "^4.1.0",
     "gatsby-plugin-advanced-sitemap": "^2.0.0",
     "gatsby-plugin-force-trailing-slashes": "^1.0.5",
     "react": "^17.0.2",

@@ -37,12 +37,13 @@ module.exports = async ({ actions, graphql }, options) => {
   const heading = "Latest blog posts";
   const sections = [{
     "mode": "default",
+    "className": "l-section--content-width-narrow",
     "spaceBefore": "none",
     "width": "default",
     "background": "default",
     "headline": {
       "level": "h1",
-      "align": "center",
+      "align": "left",
       "content": heading,
       "subheadline": "kickstartDS releases, updates, background info",
       "spaceAfter": "none",

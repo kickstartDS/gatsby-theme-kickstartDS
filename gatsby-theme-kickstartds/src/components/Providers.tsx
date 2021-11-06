@@ -22,7 +22,9 @@ const WrappedImage = ({ src, ...props }) =>
     ? <GatsbyImage image={getImage(src)} alt={props.alt || ''} />
     : src && src.publicURL
       ? <PictureContextDefault src={src.publicURL} {...props} />
-      : null;
+      : src.includes('http')
+        ? <PictureContextDefault src={src} {...props} />
+        : null;
 
 const WrappedVisual = (props) => {
   if (props.media && props.media.image) {
