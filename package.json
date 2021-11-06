@@ -8,6 +8,7 @@
     "build": "yarn workspace example build",
     "start": "yarn workspace example cdev",
     "bundle": "cp -r node_modules/@kickstartds/design-system/dist/* example/static/",
+    "postinstall": "patch-package",
     "generate": "node node_modules/@kickstartds/generate-from-schema/dist/index.js && yarn graphql codegen && cp dist/config.yml example/static/admin/config.yml && cp dist/page.graphql example/dist/ && cp dist/page.fragments.js example/dist/"
   },
   "workspaces": [
