@@ -3,8 +3,14 @@ const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
 
 exports.createResolvers = async ({
+  actions,
+  cache,
+  createNodeId,
   createResolvers,
+  store,
 }) => {
+  const { createNode } = actions;
+
   await createResolvers({
     KickstartDsWordpressPage: {
       imageUrl: {
@@ -180,21 +186,21 @@ exports.createResolvers = async ({
                 });
 
                 if (authorImage) {
-                  source.sections.push({
+                  source.sections[1] = {
                     "className": "l-section--outer-width-wide",
                     "background": "dark",
                     "deko": true,
                     "pattern": 2,
                     "width": "narrow",
                     "content": [{
-                      "title": author.name,
+                      "title": wpUser.name,
                       "subtitle": "Founder and CTO with a faible for smart frontend solutions",
-                      "email": author.email || 'info@kickstartds.com',
+                      "email": wpUser.email || 'info@kickstartds.com',
                       "phone": "+49(0)22868896620",
-                      "copy": author.description,
+                      "copy": wpUser.description,
                       "image": {
                         "src___NODE": authorImage.id,
-                        "alt": author.name,
+                        "alt": wpUser.name,
                       },
                       "type": "contact",
                     }],
@@ -206,7 +212,7 @@ exports.createResolvers = async ({
                       "type": "headline"
                     },
                     "type": "section",
-                  });
+                  };
                 }
               }
             }

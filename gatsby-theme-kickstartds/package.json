@@ -18,6 +18,7 @@
   "dependencies": {
     "@kickstartds/jsonschema2graphql": "^1.6.5",
     "@loadable/component": "^5.15.0",
+    "@makotot/ghostui": "^2.0.0",
     "@types/react-helmet": "^6.1.4",
     "assert": "^2.0.0",
     "change-case": "^4.1.2",
