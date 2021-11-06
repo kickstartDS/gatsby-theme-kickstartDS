@@ -1,3 +1,15 @@
+# v1.1.2 (Sat Nov 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: move mdx page generation to plugin ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.1.1 (Sat Nov 06 2021)
 
 #### 🐛 Bug Fix
