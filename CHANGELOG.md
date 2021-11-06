@@ -1,3 +1,347 @@
+# (Sat Nov 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@1.6.1`
+  - fix: attempt fix of contentful asset field resolution ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Nov 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-mdx@1.1.2`
+  - fix: move mdx page generation to plugin ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Nov 06 2021)
+
+#### 🐛 Bug Fix
+
+- chore: fix mdx blog entry title [#69](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/69) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-mdx@1.1.1`
+  - fix: loading of shiki remark addon ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Nov 06 2021)
+
+#### 🐛 Bug Fix
+
+- chore: fix mdx blog entry title [#69](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/69) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Nov 06 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.12.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.6.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.1.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.10.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.7.0`
+  - feature: add dev mdx blog [#68](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/68) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Nov 03 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: fix formatting ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.11.1`
+  - chore: clean up layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Nov 01 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.11.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.5.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.9.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.6.0`
+  - feature: add layouting options to templates [#66](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/66) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- chore: update kickstartDS design-system ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: update kickstartDS design-system ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.4`
+  - fix: final fix... probably ;) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.3`
+  - fix: try with explicit ramdisk ([@julrich](https://github.com/julrich))
+  - fix: another attempt ([@julrich](https://github.com/julrich))
+  - fix: try another path variant ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.2`
+  - chore: add debugging output ([@julrich](https://github.com/julrich))
+  - fix: try another environment friendly path fix ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.1`
+  - fix: typo ([@julrich](https://github.com/julrich))
+  - fix: build and local usage of createComponentsMap ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 31 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.4.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.8.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.5.0`
+  - feature: update glossary / contentful integration [#61](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/61) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.10.0`
+  - fix: try a fix for the build ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Oct 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.4.2`
+  - chore: trigger another release for wordpress transformer ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Oct 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.9.1`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.4.1`
+  - fix: add fitting metadata to blog ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Oct 10 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.9.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.3.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.7.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.4.0`
+  - feature: add sitemap [#55](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/55) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.7`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.2.2`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.6.2`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.3.2`
+  - feature: add created, updated dates to pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.6`
+  - fix: always append / on links ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.5`
+  - fix: try another metadata fix ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.4`
+  - fix: attempt another fix of the og metadata ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.3`
+  - fix: serverside rendering of head / react helmet ([@julrich](https://github.com/julrich))
+  - fix: typo in capitilization ([@julrich](https://github.com/julrich))
+  - feature: add twitter specific author, and general email ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Oct 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.2`
+  - chore: remove console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Oct 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.1`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.2.1`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.6.1`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.3.1`
+  - feature: add twitter to seo integration ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Tue Oct 05 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.8.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.2.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.6.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.3.0`
+  - feature: add working seo component [#51](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/51) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Oct 02 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: update dependencies ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.7.7`
+  - chore: remove typo ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Fri Oct 01 2021)
 
 #### ⚠️ Pushed to `master`

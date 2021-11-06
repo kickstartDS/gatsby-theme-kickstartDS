@@ -1,5 +1,5 @@
 import React from 'react';
-import { KickstartDSPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/KickstartDSPageComponent';
+import { ContentPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/ContentPage';
 
 const PagePreview = React.memo(({ entry }) => {
   const [data, setData] = React.useState({});
@@ -29,7 +29,7 @@ const PagePreview = React.memo(({ entry }) => {
   );
 
   return (
-    <KickstartDSPage {...data} />
+    <ContentPage {...data} />
   );
 });
 

@@ -8,11 +8,13 @@
     "build": "yarn workspace example build",
     "start": "yarn workspace example cdev",
     "bundle": "cp -r node_modules/@kickstartds/design-system/dist/* example/static/",
+    "postinstall": "patch-package",
     "generate": "node node_modules/@kickstartds/generate-from-schema/dist/index.js && yarn graphql codegen && cp dist/config.yml example/static/admin/config.yml && cp dist/page.graphql example/dist/ && cp dist/page.fragments.js example/dist/"
   },
   "workspaces": [
     "gatsby-theme-kickstartds",
     "gatsby-transformer-kickstartds-contentful",
+    "gatsby-transformer-kickstartds-mdx",
     "gatsby-transformer-kickstartds-netlify-cms",
     "gatsby-transformer-kickstartds-wordpress",
     "example"
@@ -22,7 +24,7 @@
     "@auto-it/released": "^10.29.3",
     "@graphql-cli/codegen": "^1.17.25",
     "@graphql-codegen/cli": "^1.21.6",
-    "@kickstartds/generate-from-schema": "^0.6.6",
+    "@kickstartds/generate-from-schema": "^0.7.8",
     "auto": "^10.29.3",
     "graphql": "15.5.1",
     "lerna": "^4.0.0"
@@ -33,5 +35,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "restricted"
+  },
+  "dependencies": {
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   }
 }

@@ -1,3 +1,273 @@
+# v1.12.0 (Sat Nov 06 2021)
+
+#### 🚀 Enhancement
+
+- feature: add dev mdx blog [#68](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/68) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add working mdx example with kds component ([@julrich](https://github.com/julrich))
+- fix: initial draft for mdx support ([@julrich](https://github.com/julrich))
+- feature: update to Gatsby v4 ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.11.1 (Wed Nov 03 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: clean up layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.11.0 (Mon Nov 01 2021)
+
+#### 🚀 Enhancement
+
+- feature: add layouting options to templates [#66](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/66) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add layouting options to templates ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.10.4 (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: final fix... probably ;) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.10.3 (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: try with explicit ramdisk ([@julrich](https://github.com/julrich))
+- fix: another attempt ([@julrich](https://github.com/julrich))
+- fix: try another path variant ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.10.2 (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: add debugging output ([@julrich](https://github.com/julrich))
+- fix: try another environment friendly path fix ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.10.1 (Sun Oct 31 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: typo ([@julrich](https://github.com/julrich))
+- fix: build and local usage of createComponentsMap ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.10.0 (Sun Oct 31 2021)
+
+#### 🚀 Enhancement
+
+- feature: update glossary / contentful integration [#61](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/61) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- chore: update kickstartDS dependencies ([@julrich](https://github.com/julrich))
+- feature: add components without sections, fixes glossary ([@julrich](https://github.com/julrich))
+- fix: glossary related image ([@julrich](https://github.com/julrich))
+- chore: update kickstartDS deps ([@julrich](https://github.com/julrich))
+- feature: add support for custom components ([@julrich](https://github.com/julrich))
+- fix: add support for text-media, refactor contentful ([@julrich](https://github.com/julrich))
+- fix: contentful rich-text ([@julrich](https://github.com/julrich))
+- feature: add text-media image support ([@julrich](https://github.com/julrich))
+- fix: update dependencies ([@julrich](https://github.com/julrich))
+- chore: move contentful renderer to core page.js ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- fix: try a fix for the build ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.9.1 (Mon Oct 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: add fitting metadata to blog ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.9.0 (Sun Oct 10 2021)
+
+#### 🚀 Enhancement
+
+- feature: add sitemap [#55](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/55) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: clean up data handling ([@julrich](https://github.com/julrich))
+- feature: add sitemap ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.8.7 (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- feature: add created, updated dates to pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.8.6 (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: always append / on links ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.8.5 (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: try another metadata fix ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.8.4 (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: attempt another fix of the og metadata ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.8.3 (Thu Oct 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: serverside rendering of head / react helmet ([@julrich](https://github.com/julrich))
+- fix: typo in capitilization ([@julrich](https://github.com/julrich))
+- feature: add twitter specific author, and general email ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.8.2 (Wed Oct 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: remove console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.8.1 (Wed Oct 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- feature: add twitter to seo integration ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.8.0 (Tue Oct 05 2021)
+
+#### 🚀 Enhancement
+
+- feature: add working seo component [#51](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/51) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add working seo component ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.7.7 (Sat Oct 02 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: remove typo ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.7.6 (Fri Oct 01 2021)
 
 #### ⚠️ Pushed to `master`

@@ -1,3 +1,137 @@
+# v1.7.0 (Sat Nov 06 2021)
+
+#### 🚀 Enhancement
+
+- feature: add dev mdx blog [#68](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/68) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: remove deprecated runQuery ([@julrich](https://github.com/julrich))
+- feature: update to Gatsby v4 ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.6.0 (Mon Nov 01 2021)
+
+#### 🚀 Enhancement
+
+- feature: add layouting options to templates [#66](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/66) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add layouting options to templates ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.5.0 (Sun Oct 31 2021)
+
+#### 🚀 Enhancement
+
+- feature: update glossary / contentful integration [#61](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/61) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- chore: update kickstartDS dependencies ([@julrich](https://github.com/julrich))
+- feature: add components without sections, fixes glossary ([@julrich](https://github.com/julrich))
+- chore: update kickstartDS deps ([@julrich](https://github.com/julrich))
+- fix: add support for text-media, refactor contentful ([@julrich](https://github.com/julrich))
+- fix: update dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.4.2 (Mon Oct 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: trigger another release for wordpress transformer ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.4.1 (Mon Oct 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: add fitting metadata to blog ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.4.0 (Sun Oct 10 2021)
+
+#### 🚀 Enhancement
+
+- feature: add sitemap [#55](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/55) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: clean up data handling ([@julrich](https://github.com/julrich))
+- feature: add sitemap ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.3.2 (Fri Oct 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- feature: add created, updated dates to pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.3.1 (Wed Oct 06 2021)
+
+#### ⚠️ Pushed to `master`
+
+- feature: add twitter to seo integration ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.3.0 (Tue Oct 05 2021)
+
+#### 🚀 Enhancement
+
+- feature: add working seo component [#51](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/51) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add working seo component ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.2 (Thu Sep 09 2021)
 
 #### 🐛 Bug Fix

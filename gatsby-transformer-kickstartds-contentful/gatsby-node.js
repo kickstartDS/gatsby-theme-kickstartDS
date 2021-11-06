@@ -1,105 +1,444 @@
-const hashFieldName = require('@kickstartds/jsonschema2graphql/build/schemaReducer').hashFieldName;
-const typeResolutionField = 'type';
+const stripHtml = require("string-strip-html").stripHtml;
+const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
+
+exports.createResolvers = async ({
+  createResolvers,
+}) => {
+  await createResolvers({
+    KickstartDsGlossaryPage: {
+      image: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.image) {
+            const image = await context.nodeModel.findOne({
+              query: { filter: { id: { eq: source.image }, }, fields: { localFile: { ne: '' } } },
+              type: "ContentfulAsset",
+            });
+
+            return await context.nodeModel.findOne({
+              query: {
+                filter: {
+                  id: { eq: image.fields.localFile },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+            });
+          }
+
+          return undefined;
+        },
+      },
+      cardImage: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.cardImage) {
+            const image = await context.nodeModel.findOne({
+              query: { filter: { id: { eq: source.cardImage } }, fields: { localFile: { ne: '' } } },
+              type: "ContentfulAsset",
+            });
+
+            return await context.nodeModel.findOne({
+              query: {
+                filter: {
+                  id: { eq: image.fields.localFile },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+            });
+          }
+
+          return undefined;
+        },
+      },
+      cover: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.cover) {
+            const image = await context.nodeModel.findOne({
+              query: { filter: { id: { eq: source.cover } }, fields: { localFile: { ne: '' } } },
+              type: "ContentfulAsset",
+            });
+
+            return await context.nodeModel.findOne({
+              query: {
+                filter: {
+                  id: { eq: image.fields.localFile },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+            });
+          }
+
+          return undefined;
+        },
+      },
+      media: {
+        type: "[File]",
+        async resolve(source, args, context) {
+          if (source.media && source.media.length > 0) {
+            const { entries: media } = await context.nodeModel.findAll({
+              query: { filter: { id: { in: source.media } }, fields: { localFile: { ne: '' } } },
+              type: "ContentfulAsset",
+            });
+
+            const { entries: files } = await context.nodeModel.findAll({
+              query: {
+                filter: {
+                  id: { in: media.map((media) => media.fields.localFile) },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+            });
+
+            return files;
+          }
+
+          return undefined;
+        },
+      },
+      tags: {
+        type: "[TagLabelComponent]",
+        async resolve(source, args, context) {
+          if (source.tags && source.tags.length > 0) {
+            const tags = await Promise.all(source.tags.map(async (tagId) => {
+              const contentfulTag = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    id: { eq: tagId },
+                  },
+                },
+                type: "ContentfulTag",
+              });
+
+              return {
+                "label": contentfulTag.title,
+                "type": "tag-label",
+              };
+            }));
+
+            return tags.map((tag) => hashObjectKeys(tag, 'tag-label'));
+          }
+
+          return undefined;
+        },
+      },
+      related: {
+        type: "[TeaserBoxComponent]",
+        async resolve(source, args, context) {
+          if (source.related && source.related.length > 0) {
+            const related = await Promise.all(source.related.map(async (relatedId) => {
+              const contentfulTerm = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    id: { eq: relatedId },
+                  },
+                },
+                type: "ContentfulTerm",
+              });
+
+              return {
+                "topic": contentfulTerm.name,
+                "text": contentfulTerm.definition.raw,
+                "darkStyle": true,
+                "link": {
+                  "label": "Learn more",
+                  "variant": "solid",
+                  "href": `/glossary/${contentfulTerm.slug}`,
+                },
+                "type": "teaser-box"
+              };
+            }));
+
+            return related.map((related) => hashObjectKeys(related, 'teaser-box'));
+          }
+
+          return undefined;
+        },
+      },
+      glossary: {
+        type: "GlossaryComponent!",
+        async resolve(source, args, context) {
+          if (source.glossary) {
+            const glossaryJson = source.glossary;
+
+            if (source.tags && source.tags.length > 0) {
+              glossaryJson.tags = await Promise.all(source.tags.map(async (tagId) => {
+                const contentfulTag = await context.nodeModel.findOne({
+                  query: {
+                    filter: {
+                      id: { eq: tagId },
+                    },
+                  },
+                  type: "ContentfulTag",
+                });
+
+                return contentfulTag.title;
+              }));
+            }
+
+            if (source.related && source.related.length > 0) {
+              glossaryJson.related = await Promise.all(source.related.map(async (relatedId) => {
+                const contentfulTerm = await context.nodeModel.findOne({
+                  query: {
+                    filter: {
+                      id: { eq: relatedId },
+                    },
+                  },
+                  type: "ContentfulTerm",
+                });
+
+                return {
+                  title: contentfulTerm.name,
+                  excerpt: contentfulTerm.definition.raw,
+                  url: `/glossary/${contentfulTerm.slug}`
+                };
+              }));
+            }
+
+            if (source.cover) {
+              const contentfulImage = await context.nodeModel.findOne({
+                query: { filter: { id: { eq: source.cover } }, fields: { localFile: { ne: '' } } },
+                type: "ContentfulAsset",
+              });
+
+              glossaryJson.cover = {
+                src: contentfulImage.fields.localFile,
+                caption: contentfulImage.description
+              };
+            }
+
+            if (source.media && source.media.length > 0) {
+              const { entries: contentfulMedia } = await context.nodeModel.findAll({
+                query: { filter: { id: { in: source.media } }, fields: { localFile: { ne: '' } } },
+                type: "ContentfulAsset",
+              });
+
+              glossaryJson.media = Array.from(contentfulMedia).map((media) => {
+                return {
+                  src: media.fields.localFile,
+                  caption: media.description
+                };
+              });
+            }
+
+            return glossaryJson;
+          }
+
+          return undefined;
+        }
+      },
+      components: {
+        type: "[ContentComponent]",
+        async resolve(source, args, context) {
+          const glossaryJson = source.glossary;
+
+          if (source.tags && source.tags.length > 0) {
+            glossaryJson.tags = await Promise.all(source.tags.map(async (tagId) => {
+              const contentfulTag = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    id: { eq: tagId },
+                  },
+                },
+                type: "ContentfulTag",
+              });
+
+              return contentfulTag.title;
+            }));
+          }
+
+          if (source.related && source.related.length > 0) {
+            glossaryJson.related = await Promise.all(source.related.map(async (relatedId) => {
+              const contentfulTerm = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    id: { eq: relatedId },
+                  },
+                },
+                type: "ContentfulTerm",
+              });
+
+              const contentfulImage = await context.nodeModel.findOne({
+                query: { filter: { id: { eq: contentfulTerm.cover___NODE } }, fields: { localFile: { ne: '' } } },
+                type: "ContentfulAsset",
+              });
+
+              return {
+                title: contentfulTerm.name,
+                excerpt: `${JSON.parse(contentfulTerm.definition.raw).content[0].content[0].value.substring(0,300)} …`,
+                url: `/glossary/${contentfulTerm.slug}`,
+                image___NODE: contentfulImage && contentfulImage.fields.localFile,
+              };
+            }));
+          }
+
+          if (source.cover) {
+            const contentfulImage = await context.nodeModel.findOne({
+              query: { filter: { id: { eq: source.cover } }, fields: { localFile: { ne: '' } } },
+              type: "ContentfulAsset",
+            });
+
+            glossaryJson.cover = {
+              src___NODE: contentfulImage.fields.localFile,
+              caption: contentfulImage.description
+            };
+          }
+
+          if (source.media && source.media.length > 0) {
+            const { entries: contentfulMedia } = await context.nodeModel.findAll({
+              query: { filter: { id: { in: source.media } }, fields: { localFile: { ne: '' } } },
+              type: "ContentfulAsset",
+            });
+
+            glossaryJson.media = Array.from(contentfulMedia).map((media) => {
+              return {
+                src___NODE: media.fields.localFile,
+                caption: media.description
+              };
+            });
+          }
+
+          glossaryJson.cta = {
+            headline: {
+              content: "Why we care?",
+              styleAs: "h1",
+              type: "headline",
+            },
+            storytelling: {
+              box: {
+                text: "Read more, or chat with us, to learn how this helps create consistent frontend interfaces",
+                vAlign: "top",
+                link: {
+                  label: "Lets have a chat",
+                  variant: "solid",
+                  iconAfter: true,
+                  icon: {
+                    icon: "person",
+                  },
+                },
+              },
+              full: true,
+              type: "storytelling",
+            },
+            button: {
+              href: "/",
+              label: "About kickstartDS",
+              size: "medium",
+              type: "button",
+              variant: "solid",
+    
+              iconAfter: true,
+              icon:{
+                icon:"chevron-right"
+              },
+            },
+            type: "cta",
+          };
+
+          const ctaImage = await context.nodeModel.findOne({
+            query: {
+              filter: {
+                relativePath: { eq: 'img/contact.svg' },
+                publicURL: { ne: '' }
+              },
+            },
+            type: "File",
+          });
+
+          if (ctaImage) {
+            glossaryJson.cta.storytelling.image = {
+              source___NODE: ctaImage.id,
+              vAlign: "top",
+              order: {
+                desktopImageLast: true,
+              },
+            };
+          }
+
+          glossaryJson.type = 'glossary';
+
+          return [hashObjectKeys(glossaryJson, 'glossary')];
+        },
+      }
+    },
+  });
+}
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   createTypes(`
-    type KickstartDsContentfulPage implements Node & KickstartDsPage @dontInfer {
+    type KickstartDsGlossaryPage implements Node & KickstartDsPage @dontInfer {
       id: ID!
       layout: String!
       title: String!
+      description: String
+      keywords: String
+      image: File
+      cardImage: File
       slug: String!
+      updated: Date! @dateformat
+      created: Date! @dateformat
       sections: [SectionComponent]
+      components: [ContentComponent]
+      tags: [TagLabelComponent]
+      related: [TeaserBoxComponent]
+      glossary: GlossaryComponent!
+      cover: File
+      media: [File]
+      stackShareDecision: String
     }
   `);
-};
-
-// TODO dedupe this
-const hashObjectKeys = (obj, outerComponent) => {
-  const hashedObj = {};
-
-  if (!obj) return obj;
-
-  Object.keys(obj).forEach((property) => {
-    if (property === typeResolutionField) {
-      hashedObj[typeResolutionField] = obj[typeResolutionField];
-    } else {
-      if (Array.isArray(obj[property])) {
-        hashedObj[hashFieldName(property, outerComponent)] = obj[property].map((item) => {
-          // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / picture
-          if (outerComponent === 'logo-tiles') {
-            return hashObjectKeys(item, 'picture');
-          } else if (outerComponent === 'quotes-slider') {
-            return hashObjectKeys(item, 'quote');
-          } else if (outerComponent === 'post-head' && property === 'categories') {
-            return hashObjectKeys(item, 'tag-label');
-          } else {
-            return hashObjectKeys(item, outerComponent === 'section' ? item[typeResolutionField] : outerComponent);
-          }
-        });
-      } else if (typeof obj[property] === 'object') {
-        // TODO re-simplify this... only needed because of inconsistent hashing on sub-types / link-button
-        const outer = outerComponent === 'section' ? obj[property][typeResolutionField] : outerComponent;
-        if (outer === 'storytelling' && property === 'link') {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'link-button');
-        } else if (outer === 'storytelling' && property === 'headline') {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], 'headline');
-        } else {
-          hashedObj[hashFieldName(property, outerComponent)] = hashObjectKeys(obj[property], outer);
-        }
-      } else {
-        hashedObj[hashFieldName(property, outerComponent === 'section' ? 'section' : outerComponent)] = obj[property];
-      }
-    }
-  });
-
-  return hashedObj;
 };
 
 exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === 'ContentfulTerm') {
-    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsContentfulPage`);
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsGlossaryPage`);
 
     const page = {
       id: kickstartDSPageId,
       parent: node.id,
       title: node.name,
+      description: stripHtml(node.definition.raw).result,
       slug: `glossary/${node.slug}`,
-      layout: 'default',
+      layout: 'glossary',
+      created: node.createdAt,
+      updated: node.updatedAt,
+      tags: node.tags___NODE
+        && node.tags___NODE.length > 0
+        && node.tags___NODE || [],
+      related: node.related___NODE
+        && node.related___NODE.length > 0
+        && node.related___NODE || [],
+      stackShareDecision: node.stackShareDecision,
     };
 
-    page.sections = [{
-      "mode": "list",
-      "spaceBefore": "none",
-      "width": "wide",
-      "background": "default",
-      "headline": {
-        "level": "p",
-        "align": "center",
-        "content": node.name,
-        "spaceAfter": "none",
-        "type": "headline"
-      },
-      "spaceAfter": "default",
-      "content": [{
-        "type": "text-media",
-        "text": node.definition.raw,
-      }],
-      "type": "sections",
-      "gutter": "default"
-    }];
+    if (node.cover___NODE) {
+      page.image = node.cover___NODE;
+      page.cardImage = node.cover___NODE;
+      page.cover = node.cover___NODE;
+    };
 
-    if (page.sections && page.sections.length > 0) {
-      page.sections = page.sections.map((section) => hashObjectKeys(section, 'section'));
+    if (node.media___NODE) {
+      page.media = node.media___NODE;
+    }
+
+    page.glossary = {
+      term: node.name,
+      definition: node.definition.raw,
+      stackshare: node.stackShareDecision,
     }
 
     page.internal = {
       contentDigest: createContentDigest(page),
       content: JSON.stringify(page),
-      type: 'KickstartDsContentfulPage',
+      type: 'KickstartDsGlossaryPage',
       description: `Contentful glossary implementation of the kickstartDS page interface`,
     };
 
