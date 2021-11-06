@@ -12,6 +12,7 @@ import '@kickstartds/gatsby-transformer-kickstartds-mdx/src/shiki-twoslash.css';
 const nonRteMdxTypes = [
   'Visual',
   'pre',
+  'VisualComponentPlayground',
 ];
 
 const components = {
@@ -29,7 +30,7 @@ export default function PostPage({ data }) {
     body,
     frontmatter: { title, date, image, categories },
   } = data.mdx;
-  
+
   return (
     <Layout>
       <Section
@@ -56,7 +57,7 @@ export default function PostPage({ data }) {
           }}
           imageAlignment="left"
           categories={categories.map((category) => {
-            return { 
+            return {
               label: category,
               size: 'm',
             };
@@ -66,7 +67,7 @@ export default function PostPage({ data }) {
             width: 984,
             height: 478,
           }} />
-        
+
         <MDXProvider components={components}>
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>

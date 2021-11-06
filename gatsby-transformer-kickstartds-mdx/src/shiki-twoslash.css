@@ -187,7 +187,8 @@ pre .code-container {
 	 display: inline-block;
 	 padding: 0 0.5rem 0.3rem;
 	 margin-top: 10px;
-	 border-radius: 3px;
+     border-radius: 3px;
+     color: #333;
 }
 /* Completion */
  pre .inline-completions ul.dropdown {

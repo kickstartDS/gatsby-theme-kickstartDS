@@ -36,8 +36,7 @@
     "access": "restricted"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "gatsby-remark-shiki-twoslash": "^3.0.30"
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   }
 }
