@@ -1,3 +1,33 @@
+# v1.12.0 (Sat Nov 06 2021)
+
+#### 🚀 Enhancement
+
+- feature: add dev mdx blog [#68](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/68) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add working mdx example with kds component ([@julrich](https://github.com/julrich))
+- fix: initial draft for mdx support ([@julrich](https://github.com/julrich))
+- feature: update to Gatsby v4 ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.11.1 (Wed Nov 03 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: clean up layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.11.0 (Mon Nov 01 2021)
 
 #### 🚀 Enhancement

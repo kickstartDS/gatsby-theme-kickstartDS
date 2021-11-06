@@ -1,3 +1,19 @@
+# v1.10.0 (Sat Nov 06 2021)
+
+#### 🚀 Enhancement
+
+- feature: add dev mdx blog [#68](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/68) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: update to Gatsby v4 ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.9.0 (Mon Nov 01 2021)
 
 #### 🚀 Enhancement

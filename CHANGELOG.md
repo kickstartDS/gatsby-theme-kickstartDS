@@ -1,3 +1,30 @@
+# (Sat Nov 06 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.12.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.6.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.1.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.10.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.7.0`
+  - feature: add dev mdx blog [#68](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/68) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Nov 03 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: fix formatting ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.11.1`
+  - chore: clean up layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Nov 01 2021)
 
 #### 🚀 Enhancement
