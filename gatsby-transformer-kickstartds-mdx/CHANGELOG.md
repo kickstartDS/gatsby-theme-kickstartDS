@@ -1,3 +1,19 @@
+# v1.1.1 (Sat Nov 06 2021)
+
+#### 🐛 Bug Fix
+
+- Merge branch 'master' into feature/add-dev-mdx-blog ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- fix: loading of shiki remark addon ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.1.0 (Sat Nov 06 2021)
 
 #### 🚀 Enhancement

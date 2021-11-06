@@ -4,6 +4,23 @@
 
 - chore: fix mdx blog entry title [#69](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/69) ([@julrich](https://github.com/julrich))
 
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-mdx@1.1.1`
+  - fix: loading of shiki remark addon ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Nov 06 2021)
+
+#### 🐛 Bug Fix
+
+- chore: fix mdx blog entry title [#69](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/69) ([@julrich](https://github.com/julrich))
+
 #### Authors: 1
 
 - Jonas Ulrich ([@julrich](https://github.com/julrich))
