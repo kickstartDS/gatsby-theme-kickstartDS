@@ -2,28 +2,6 @@ const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const path = require('path');
 const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-
-  createTypes(`
-    type KickstartDsNetlifyCMSPage implements Node & KickstartDsPage @dontInfer {
-      id: ID!
-      layout: String!
-      title: String!
-      description: String
-      keywords: String
-      image: File @link(from: "image___NODE")
-      cardImage: File @link(from: "cardImage___NODE")
-      slug: String!
-      sections: [SectionComponent]
-      components: [ContentComponent]
-      updated: Date! @dateformat
-      created: Date! @dateformat
-    }
-  `);
-};
-
-// TODO dedupe (-> wordpress)
 const slash = (path) => {
   const isExtendedLengthPath = /^\\\\\?\\/.test(path);
 
@@ -129,26 +107,42 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
   };
 
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.frontmatter.id) {
-    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsNetlifyCMSPage`);
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsContentPage`);
     delete node.frontmatter.id;
 
     node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
     await Promise.all(node.frontmatter.sections.map(async (section) => await addImages(section, kickstartDSPageId)));
 
     const fileNode = getNode(node.parent);
+    const {
+      slug,
+      layout,
+      title,
+      description,
+      ...frontmatter
+    } = node.frontmatter;
+
     const page = {
       id: kickstartDSPageId,
-      parent: node.id,
+      slug: slug,
+      layout: layout,
+
+      title: title,
+      description: description,
+
       updated: fileNode.modifiedTime,
       created: fileNode.birthTime,
-      ...node.frontmatter
+      
+      ...frontmatter,
+
+      parent: node.id,
     };
 
     page.internal = {
       contentDigest: createContentDigest(page),
       content: JSON.stringify(page),
-      type: 'KickstartDsNetlifyCMSPage',
-      description: `Netlify CMS implementation of the kickstartDS page interface`,
+      type: 'KickstartDsContentPage',
+      description: `Netlify CMS implementation of the kickstartDS content page interface`,
     };
 
     createNode(page);

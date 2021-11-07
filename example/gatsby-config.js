@@ -47,7 +47,7 @@ module.exports = {
       options: {
         query: `
         {
-          allKickstartDsNetlifyCmsPage {
+          allKickstartDsContentPage {
             edges {
               node {
                 id
@@ -67,7 +67,7 @@ module.exports = {
               }
             }
           }
-          allKickstartDsWordpressPage {
+          allKickstartDsBlogPage {
             edges {
               node {
                 id
@@ -84,10 +84,10 @@ module.exports = {
           allKickstartDsGlossaryPage: {
             sitemap: `glossary`,
           },
-          allKickstartDsNetlifyCmsPage: {
+          allKickstartDsContentPage: {
             sitemap: `pages`,
           },
-          allKickstartDsWordpressPage: {
+          allKickstartDsBlogPage: {
             sitemap: `posts`,
           },
         },

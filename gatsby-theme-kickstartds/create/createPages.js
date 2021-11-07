@@ -76,13 +76,15 @@ module.exports = async ({ actions, graphql }, options) => {
 
   await Promise.all(
     data.allKickstartDsPage.edges.map(async (page) => {
-      await actions.createPage({
-        component: require.resolve('../src/templates/page.js'),
-        path: page.node.slug,
-        context: {
-          page: page.node,
-        },
-      });
+      if (!(page.node.slug.includes('blog') || page.node.slug.includes('glossary'))) {
+        await actions.createPage({
+          component: require.resolve('../src/templates/page.js'),
+          path: page.node.slug,
+          context: {
+            page: page.node,
+          },
+        });
+      }
     })
   )
 }

@@ -37,3 +37,5 @@ export const getContent = (content, sections = false) => {
     return content.map((element) => getComponent(element, sections));
   }
 };
+
+export const cleanKeys = (object) => cleanObjectKeys(object);
