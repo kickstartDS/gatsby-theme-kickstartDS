@@ -1,3 +1,21 @@
+# v1.13.0 (Sun Nov 07 2021)
+
+#### 🚀 Enhancement
+
+- feature: add some missing, minimal features to blog [#49](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/49) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: major structural refactorings, mdx support ([@julrich](https://github.com/julrich))
+- feature: add scrollspy to blog ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into feature/blog-mvp ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.12.0 (Sat Nov 06 2021)
 
 #### 🚀 Enhancement

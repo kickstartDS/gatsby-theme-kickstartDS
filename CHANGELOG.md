@@ -1,3 +1,16 @@
+# (Sun Nov 07 2021)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.13.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.7.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.11.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.0`
+  - feature: add some missing, minimal features to blog [#49](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/49) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sat Nov 06 2021)
 
 #### ⚠️ Pushed to `master`
