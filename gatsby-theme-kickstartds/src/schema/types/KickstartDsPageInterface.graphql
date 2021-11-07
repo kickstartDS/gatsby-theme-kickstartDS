@@ -1,0 +1,23 @@
+"""Common interface for kickstartDS pages"""
+interface KickstartDsPage implements Node @dontInfer {
+  # core interface
+  id: ID!
+  slug: String!
+  layout: String!
+
+  # seo interface
+  title: String!
+  description: String
+  keywords: String
+  image: File @link
+  imageUrl: String
+  cardImage: File @link
+
+  # generic content interface
+  sections: [SectionComponent]
+  components: [ContentComponent]
+
+  # dates interface
+  updated: Date! @dateformat
+  created: Date! @dateformat
+}

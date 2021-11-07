@@ -73,7 +73,7 @@ const contentfulOptions = {
 
 const ContentfulRichText = (props) =>
   props.text.includes('nodeType')
-    ? <div className={`c-rich-text ${props.className}`}>{renderRichText({ raw: props.text }, contentfulOptions)}</div>
+    ? <div className={`c-rich-text ${props.className}`}>{renderRichText({ raw: props.text, references: [] }, contentfulOptions)}</div>
     : <RichTextContextDefault {...props} />;
 
 const RichTextProvider = (props) => {

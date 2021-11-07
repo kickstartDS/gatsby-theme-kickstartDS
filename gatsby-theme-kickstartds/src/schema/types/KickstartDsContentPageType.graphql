@@ -1,0 +1,23 @@
+"""Generic content page implementation of kickstartDS page interface"""
+type KickstartDsContentPage implements Node & KickstartDsPage @dontInfer {
+  # core interface
+  id: ID!
+  layout: String!
+  slug: String!
+  
+  # seo interface
+  title: String!
+  description: String
+  keywords: String
+  image: File @link
+  imageUrl: String
+  cardImage: File @link
+
+  # generic content interface
+  sections: [SectionComponent]
+  components: [ContentComponent]
+
+  # dates interface
+  updated: Date! @dateformat
+  created: Date! @dateformat
+}

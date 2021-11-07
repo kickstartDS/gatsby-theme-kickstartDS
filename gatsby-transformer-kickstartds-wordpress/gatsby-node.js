@@ -1,19 +1,45 @@
-const stripHtml = require("string-strip-html").stripHtml;
+const stripHtml = require('string-strip-html').stripHtml;
 const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
+const { createRemoteFileNode } = require('gatsby-source-filesystem');
+const readingTime = require('reading-time');
 
 exports.createResolvers = async ({
+  actions,
+  cache,
+  createNodeId,
   createResolvers,
+  store,
 }) => {
+  const { createNode } = actions;
+
   await createResolvers({
-    KickstartDsWordpressPage: {
+    KickstartDsWordpressBlogPage: {
+      image: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.image) {
+            return context.nodeModel.findOne({
+              query: {
+                filter: {
+                  parent: { id: { eq: source.image } },
+                  publicURL: { ne: '' }
+                },
+              },
+              type: "File",
+            });
+          }
+          
+          return undefined;
+        },
+      },
       imageUrl: {
         type: "String",
         async resolve(source, args, context) {
-          if (source.image___NODE) {
+          if (source.image) {
             const fileNode = await context.nodeModel.findOne({
               query: {
                 filter: {
-                  parent: { id: { eq: source.image___NODE } },
+                  parent: { id: { eq: source.image } },
                   publicURL: { ne: '' }
                 },
               },
@@ -33,32 +59,14 @@ exports.createResolvers = async ({
           return undefined;
         },
       },
-      image: {
-        type: "File",
-        async resolve(source, args, context) {
-          if (source.image___NODE) {
-            return context.nodeModel.findOne({
-              query: {
-                filter: {
-                  parent: { id: { eq: source.image___NODE } },
-                  publicURL: { ne: '' }
-                },
-              },
-              type: "File",
-            });
-          }
-          
-          return undefined;
-        },
-      },
       cardImage: {
         type: "File",
         async resolve(source, args, context) {
-          if (source.cardImage___NODE) {
+          if (source.cardImage) {
             return context.nodeModel.findOne({
               query: {
                 filter: {
-                  parent: { id: { eq: source.cardImage___NODE } },
+                  parent: { id: { eq: source.cardImage } },
                   publicURL: { ne: '' }
                 },
               },
@@ -116,12 +124,33 @@ exports.createResolvers = async ({
           return undefined;
         },
       },
-      sections: {
-        type: "[SectionComponent]",
+      postHead: {
+        type: "PostHeadComponent!",
         async resolve(source, args, context) {
-          if (source.sections && source.sections.length > 0) {
+          if (source.title && source.created) {
+            const postHead = {
+              "type": "post-head",
+              "date": source.created,
+              "headline": {
+                "level": "h1",
+                "align": "left",
+                "content": source.title,
+                "spaceAfter": "none",
+                "type": "headline"
+              },
+            };
+            
+            if (source.author) {
+              const wpUser = await context.nodeModel.findOne({
+                query: { filter: { id: { eq: source.author } } },
+                type: "WpUser",
+              });
+
+              postHead.headline.subheadline = `published by: ${wpUser.name}`;
+            }
+
             if (source.categories) {
-              source.sections[0].content[0].categories = await Promise.all(source.categories.map(async (categoryId) => {
+              postHead.categories = await Promise.all(source.categories.map(async (categoryId) => {
                 const wpCategory = await context.nodeModel.findOne({
                   query: {
                     filter: {
@@ -138,133 +167,109 @@ exports.createResolvers = async ({
               }));
             }
 
-            if (source.image___NODE) {
-              const fileNode = await context.nodeModel.findOne({
-                query: {
-                  filter: {
-                    parent: { id: { eq: source.image___NODE } },
-                    publicURL: { ne: '' }
-                  },
-                },
-                type: "File",
-              });
-
-              source.sections[0].content[0].image = {
-                "src___NODE": fileNode.id,
-                "width": 900,
-                "height": 300,
-              };
-            }
-
-            if (source.author) {
-              const wpUser = await context.nodeModel.findOne({
-                query: {
-                  filter: {
-                    id: { eq: source.author } ,
-                  },
-                },
-                type: "WpUser",
-              });
-
-              source.sections[0].content[0].headline.subheadline = `published by: ${wpUser.name}`;
-            }
-
-            return source.sections.map((section) => hashObjectKeys(section, 'section'));
+            return hashObjectKeys(postHead, 'post-head');
+          }
+          return undefined;
+        },
+      },
+      postBody: {
+        type: "HtmlComponent!",
+        async resolve(source, args, context) {
+          if (source.postBody) {
+            return hashObjectKeys({
+              "type": "html",
+              "html": `<div class="c-rich-text"><p><strong>Reading time estimate</strong>: ${source.postReadingTime}min, ${source.postWordCount} words</p>${source.postBody}</div>`
+            }, 'html');
           }
 
+          return undefined;
+        },
+      },
+      postBio: {
+        type: "ContactComponent",
+        async resolve(source, args, context) {
+          if (source.author) {
+            const wpUser = await context.nodeModel.findOne({
+              query: { filter: { id: { eq: source.author } } },
+              type: "WpUser",
+            });
+
+            const contact = {
+              "title": wpUser.name,
+              "subtitle": "Founder and CTO with a faible for smart frontend solutions",
+              "email": wpUser.email || 'info@kickstartds.com',
+              "phone": "+49(0)22868896620",
+              "copy": wpUser.description,
+              "type": "contact",
+            };
+
+            if (wpUser.avatar && wpUser.avatar.url) {
+              const authorImage = await createRemoteFileNode({
+                url: wpUser.avatar.url.replace('s=96&', 's=250&'),
+                parentNodeId: wpUser.id,
+                createNode,
+                createNodeId,
+                cache,
+                store,
+              });
+
+              if (authorImage) {
+                contact.image = {
+                  "src___NODE": authorImage.id,
+                  "alt": wpUser.name,
+                };
+              }
+
+              console.log('authorImage debuggin', authorImage, contact.image);
+
+              return hashObjectKeys(contact, 'contact');
+            }
+          }
           return undefined;
         },
       }
     },
   });
-}
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-
-  createTypes(`
-    type KickstartDsWordpressPage implements Node & KickstartDsPage @dontInfer {
-      id: ID!
-      layout: String!
-      title: String!
-      description: String
-      keywords: String
-      image: File @link(from: "image___NODE")
-      cardImage: File @link(from: "cardImage___NODE")
-      slug: String!
-      excerpt: String!
-      author: String!
-      categories: [TagLabelComponent]
-      sections: [SectionComponent]
-      components: [ContentComponent]
-      updated: Date! @dateformat
-      created: Date! @dateformat
-    }
-  `);
 };
 
 exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest }) => {
   const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === 'WpPost') {
-    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsWordpressPage`);
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsWordpressBlogPage`);
 
     const page = {
       id: kickstartDSPageId,
-      parent: node.id,
+      slug: `blog/${node.slug}`,
+      layout: 'blog-detail',
+
       title: node.title,
       description: stripHtml(node.excerpt).result,
-      slug: `blog/${node.slug}`,
+
+      created: node.date,
+      updated: node.modified,
+      
       excerpt: node.excerpt,
       author: node.author.node.id,
       categories: node.categories.nodes.map((category) => category.id),
-      layout: 'blog-detail',
-      created: node.date,
-      updated: node.modified,
+
+      postBody: node.content,
+      postReadingTime: Math.ceil(readingTime(stripHtml(node.content).result, { wordsPerMinute: 140 }).minutes || 0),
+      postWordCount: readingTime(stripHtml(node.content).result).words || 0,
+
+      parent: node.id,
     };
 
-    page.sections = [{
-      "className": "l-section--content-width-narrow",
-      "mode": "list",
-      "spaceBefore": "small",
-      "width": "wide",
-      "background": "default",
-      "headline": {
-        "level": "p",
-        "align": "center",
-        "content": "",
-        "spaceAfter": "none",
-        "type": "headline"
-      },
-      "spaceAfter": "default",
-      "content": [{
-        "type": "post-head",
-        "date": node.date,
-        "headline": {
-          "level": "h1",
-          "align": "left",
-          "content": node.title,
-          "spaceAfter": "none",
-          "type": "headline"
-        },
-      }, {
-        "type": "html",
-        "html": `<div class="c-rich-text">${node.content}</div>`
-      }],
-      "type": "sections",
-      "gutter": "default"
-    }];
-
     if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.id) {
-      page.image___NODE = node.featuredImage.node.id;
-      page.cardImage___NODE = node.featuredImage.node.id;
+      page.image = node.featuredImage.node.id;
+      page.cardImage = node.featuredImage.node.id;
     };
 
     page.internal = {
       contentDigest: createContentDigest(page),
       content: JSON.stringify(page),
-      type: 'KickstartDsWordpressPage',
-      description: `Wordpress Post implementation of the kickstartDS page interface`,
+      type: 'KickstartDsWordpressBlogPage',
+      description: `Wordpress Post implementation of the kickstartDS blog page interface`,
     };
 
     createNode(page);

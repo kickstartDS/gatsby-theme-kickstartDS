@@ -1,0 +1,35 @@
+"""Blog implementation of kickstartDS page interface"""
+type KickstartDsWordpressBlogPage implements Node & KickstartDsPage & KickstartDsBlogPage @dontInfer {
+  # core interface
+  id: ID!
+  slug: String!
+  layout: String!
+  
+  # seo interface
+  title: String!
+  description: String
+  keywords: String
+  image: File @link
+  imageUrl: String
+  cardImage: File @link
+  
+  # generic content interface
+  sections: [SectionComponent]
+  components: [ContentComponent]
+  
+  # dates interface
+  updated: Date! @dateformat
+  created: Date! @dateformat
+
+  # blog list
+  excerpt: String!
+  author: String!
+  categories: [TagLabelComponent]
+  
+  # blog detail
+  postHead: PostHeadComponent!
+  postBody: HtmlComponent!
+  postBio: ContactComponent
+  postReadingTime: Int!
+  postWordCount: Int!
+}

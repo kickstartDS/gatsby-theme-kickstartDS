@@ -19,7 +19,7 @@ sections:
     spaceAfter: none
     content:
       - type: count-up
-        to: "30782"
+        to: 30782
         topic: Employees
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
           perferendis. Libero unde omnis dolorem maxime occaecati sapiente
@@ -36,7 +36,7 @@ sections:
           iconBefore: false
           type: link-button
       - type: count-up
-        to: "387"
+        to: 387
         topic: "Locations (worldwide) "
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
           perferendis. Libero unde omnis dolorem maxime occaecati sapiente
@@ -53,7 +53,7 @@ sections:
           iconBefore: false
           type: link-button
       - type: count-up
-        to: "42"
+        to: 42
         topic: "Country orgs (worldwide) "
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
           perferendis. Libero unde omnis dolorem maxime occaecati sapiente
@@ -85,7 +85,7 @@ sections:
     spaceAfter: default
     content:
       - type: count-up
-        to: "78616400"
+        to: 78616400
         topic: Shipments
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
           perferendis. Libero unde omnis dolorem maxime occaecati sapiente
@@ -102,7 +102,7 @@ sections:
           iconBefore: false
           type: link-button
       - type: count-up
-        to: "39793200"
+        to: 39793200
         topic: Tonnage
         text: Consequuntur est quia atque eum ducimus. Consequatur fugiat hic eos
           perferendis. Libero unde omnis dolorem maxime occaecati sapiente

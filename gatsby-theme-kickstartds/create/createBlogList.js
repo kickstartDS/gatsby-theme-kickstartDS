@@ -9,7 +9,7 @@ module.exports = async ({ actions, graphql }, options) => {
       'SectionComponentDeepNesting',
     ], gqlPath)}
     {
-      allKickstartDsWordpressPage {
+      allKickstartDsBlogPage {
         edges {
           node {
             slug
@@ -39,7 +39,7 @@ module.exports = async ({ actions, graphql }, options) => {
     "mode": "default",
     "className": "l-section--content-width-narrow",
     "spaceBefore": "none",
-    "width": "default",
+    "width": "wide",
     "background": "default",
     "headline": {
       "level": "h1",
@@ -54,7 +54,7 @@ module.exports = async ({ actions, graphql }, options) => {
     "gutter": "default"
   }];
 
-  sections[0].content = data.allKickstartDsWordpressPage.edges.map((page, index) => {
+  sections[0].content = data.allKickstartDsBlogPage.edges.map((page, index) => {
     const teaser = {
       "date": page.node.created,
       "link": {
