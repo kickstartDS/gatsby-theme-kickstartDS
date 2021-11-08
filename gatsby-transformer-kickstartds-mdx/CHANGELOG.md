@@ -1,3 +1,16 @@
+# v1.2.1 (Mon Nov 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: clean up providers ([@julrich](https://github.com/julrich))
+- fix: update dependencies, finish blog views ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.0 (Sun Nov 07 2021)
 
 #### 🚀 Enhancement

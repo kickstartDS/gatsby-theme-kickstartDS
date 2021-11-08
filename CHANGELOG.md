@@ -1,3 +1,17 @@
+# (Mon Nov 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.13.1`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.1`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.1`
+  - fix: clean up providers ([@julrich](https://github.com/julrich))
+  - fix: update dependencies, finish blog views ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Nov 07 2021)
 
 #### 🚀 Enhancement
