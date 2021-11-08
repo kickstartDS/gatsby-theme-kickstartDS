@@ -37,15 +37,30 @@ export const BlogDetailPage: FunctionComponent<any> = ({
 
         <PostHead {...postHead} />
         <Html postReadingTime={postReadingTime} postWordCount={postWordCount} {...postBody} />
-        <Contact {...postBio} />
-
       </Section>
+
+      <Section
+        className="l-section--content-width-narrow"
+        mode="list"
+        spaceBefore="small"
+        width="wide"
+        background="default"
+        headline={{
+          level: "p",
+          align: "center",
+          content: "",
+          spaceAfter: "none",
+        }}
+        spaceAfter="default">
+        <Contact {...postBio} />
+      </Section>
+
       <Section
         className="l-section--content-width-narrow"
         mode="default"
         spaceBefore="small"
         width="wide"
-        background="default"
+        background="accent"
         headline={{
           level: "p",
           align: "left",
@@ -58,7 +73,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
           image="https://picsum.photos/seed/kdsteaserbox-01/500/300"
           link={{
             size: 'small',
-            href: 'https://www.kickstartDS.com/blog/',
+            href: '/blog/',
             label: "Read more",
             variant: "outline",
           }}
@@ -70,7 +85,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
           image="https://picsum.photos/seed/kdsteaserbox-02/500/300"
           link={{
             size: 'small',
-            href: 'https://www.kickstartDS.com',
+            href: '/',
             label: "Learn more",
             variant: "outline",
           }}
@@ -82,7 +97,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
           image="https://picsum.photos/seed/kdsteaserbox-03/500/300"
           link={{
             size: 'small',
-            href: 'https://www.kickstartDS.com/storybook/',
+            href: '/storybook/',
             label: "Explore components",
             variant: "outline",
           }}

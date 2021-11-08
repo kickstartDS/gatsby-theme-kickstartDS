@@ -31,10 +31,10 @@ const nonRteMdxTypes = [
 const components = {
   wrapper: ({ children }) =>
     <>
-      {children.map((child) =>
+      {children.map((child, index) =>
         nonRteMdxTypes.includes(child.props.mdxType)
-          ? child
-          : <div className="c-rich-text">{child}</div>)}
+          ? <div key={index}>{child}</div>
+          : <div key={index} className="c-rich-text">{child}</div>)}
     </>
 };
 

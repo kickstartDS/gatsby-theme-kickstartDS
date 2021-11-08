@@ -17,7 +17,7 @@ export const BlogListPage: FunctionComponent<any> = ({
         mode="default"
         spaceBefore="small"
         width="wide"
-        background="default"
+        background="accent"
         headline={{
           level: "p",
           align: "left",
@@ -27,22 +27,10 @@ export const BlogListPage: FunctionComponent<any> = ({
         }}
         spaceAfter="default">
         <TeaserBox
-          image="https://picsum.photos/seed/kdsteaserbox-01/500/300"
-          link={{
-            size: 'small',
-            href: 'https://www.kickstartDS.com',
-            label: "Read more",
-            variant: "outline",
-          }}
-          ratio="16:9"
-          text="Have a look through our other blog posts about all aspects kickstartDS, technical or not."
-          topic="Back to blog"
-        />
-        <TeaserBox
           image="https://picsum.photos/seed/kdsteaserbox-02/500/300"
           link={{
             size: 'small',
-            href: 'https://www.kickstartDS.com',
+            href: '/',
             label: "Learn more",
             variant: "outline",
           }}
@@ -54,13 +42,25 @@ export const BlogListPage: FunctionComponent<any> = ({
           image="https://picsum.photos/seed/kdsteaserbox-03/500/300"
           link={{
             size: 'small',
-            href: 'https://www.kickstartDS.com',
+            href: '/storybook/',
             label: "Explore components",
             variant: "outline",
           }}
           ratio="16:9"
           text="Discover all the different components included with kickstartDS, especially their controls and tokens."
           topic="Storybook"
+        />
+        <TeaserBox
+          image="https://picsum.photos/seed/kdsteaserbox-04/500/300"
+          link={{
+            size: 'small',
+            href: 'https://twitter.com/kickstartDS',
+            label: "Visit profile",
+            variant: "outline",
+          }}
+          ratio="16:9"
+          text="Follow us on Twitter for news, updates, announcements and general talk around Design Systems."
+          topic="Follow us"
         />
       </Section>
   </Layout>

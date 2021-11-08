@@ -79,6 +79,9 @@ module.exports = async ({ actions, graphql }, options) => {
     return teaser;
   });
 
+  // TODO remove at a later time, currently used to have posts generated, but not on the list
+  sections[0].content = sections[0].content.filter((teaser) => !teaser.link.href.includes('development-focussed'));
+
   await actions.createPage({
     component: require.resolve('../src/templates/page.js'),
     path: `/blog/`,

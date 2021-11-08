@@ -161,14 +161,6 @@ exports.createResolvers = async ({
                 box: {
                   text: "Read more, or chat with us, to learn how this helps create consistent frontend interfaces",
                   vAlign: "top",
-                  link: {
-                    label: "Lets have a chat",
-                    variant: "solid",
-                    iconAfter: true,
-                    icon: {
-                      icon: "person",
-                    },
-                  },
                 },
                 full: true,
                 type: "storytelling",
@@ -181,9 +173,7 @@ exports.createResolvers = async ({
                 variant: "solid",
       
                 iconAfter: true,
-                icon: {
-                  icon: "chevron_right"
-                }
+                icon: "chevron_right"
               },
               type: "cta",
             };
