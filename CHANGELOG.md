@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@1.13.2`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.7.1`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.2`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.2`
+  - fix: small details after refactoring ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Nov 08 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.13.1`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.1`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.1`
   - fix: clean up providers ([@julrich](https://github.com/julrich))
   - fix: update dependencies, finish blog views ([@julrich](https://github.com/julrich))

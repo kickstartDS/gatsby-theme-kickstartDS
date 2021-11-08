@@ -1,3 +1,15 @@
+# v1.13.2 (Mon Nov 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: small details after refactoring ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.13.1 (Mon Nov 08 2021)
 
 #### ⚠️ Pushed to `master`
