@@ -130,7 +130,6 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
 
           if (source.parent) {
-            console.log('getting mdx', source.parent);
             const mdxParentNode = await context.nodeModel.findOne({
               query: {
                 filter: {
@@ -140,8 +139,6 @@ exports.createResolvers = async ({
               },
               type: "Mdx",
             });
-
-            console.log('mdxParentNode.body', mdxParentNode);
 
             return hashObjectKeys({
               "type": "html",

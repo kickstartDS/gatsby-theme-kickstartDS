@@ -38,29 +38,17 @@ const components = {
     </>
 };
 
-const WrappedHtml = ({ html, postReadingTime, postWordCount, ...props }) => {
-  console.log('WrappedHtml props', props, html, postReadingTime, postWordCount);
-  if (html.includes('@jsxRuntime')) {
-    return (
-      <>
+const WrappedHtml = ({ html, postReadingTime, postWordCount, ...props }) =>
+  html.includes('@jsxRuntime')
+    ? <>
         <div className="c-rich-text"><p><strong>Reading time estimate</strong>: {postReadingTime}min, {postWordCount} words</p></div>
         <MDXProvider components={components}>
           <MDXRenderer>{html}</MDXRenderer>
         </MDXProvider>
       </>
-    );
-  }
-
-  if (postReadingTime && postWordCount) {
-    return (
-      <HtmlContextDefault html={`<div class="c-rich-text"><p><strong>Reading time estimate</strong>: ${postReadingTime}min, ${postWordCount} words</p>${html}</div>`} {...props} />
-    );
-  } else {
-    return (
-      <HtmlContextDefault html={`<div class="c-rich-text">${html}</div>`} {...props} />
-    );
-  }
-};
+    : (postReadingTime && postWordCount)
+      ? <HtmlContextDefault html={`<div class="c-rich-text"><p><strong>Reading time estimate</strong>: ${postReadingTime}min, ${postWordCount} words</p>${html}</div>`} {...props} />
+      : <HtmlContextDefault html={`<div class="c-rich-text">${html}</div>`} {...props} />;
 
 const HtmlProvider = (props) => (
   <HtmlContext.Provider value={WrappedHtml} {...props} />

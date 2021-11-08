@@ -220,8 +220,6 @@ exports.createResolvers = async ({
                 };
               }
 
-              console.log('authorImage debuggin', authorImage, contact.image);
-
               return hashObjectKeys(contact, 'contact');
             }
           }
