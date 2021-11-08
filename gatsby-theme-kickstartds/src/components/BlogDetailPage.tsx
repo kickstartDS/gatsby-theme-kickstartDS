@@ -36,7 +36,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
         spaceAfter="default">
 
         <PostHead {...postHead} />
-        <Html {...postBody} />
+        <Html postReadingTime={postReadingTime} postWordCount={postWordCount} {...postBody} />
         <Contact {...postBio} />
 
       </Section>
@@ -48,8 +48,9 @@ export const BlogDetailPage: FunctionComponent<any> = ({
         background="default"
         headline={{
           level: "p",
-          align: "center",
-          content: "",
+          align: "left",
+          styleAs: "h2",
+          content: "Dig deeper ⛏️",
           spaceAfter: "none",
         }}
         spaceAfter="default">

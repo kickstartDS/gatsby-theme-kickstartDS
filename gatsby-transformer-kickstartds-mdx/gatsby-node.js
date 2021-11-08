@@ -112,7 +112,6 @@ exports.createResolvers = async ({
             }
 
             if (source.categories) {
-              console.log('Mdx PostHead source.categories', source.categories);
               postHead.categories = source.categories.map((category) => {
                 return {
                   "label": category,
@@ -129,10 +128,24 @@ exports.createResolvers = async ({
       postBody: {
         type: "HtmlComponent!",
         async resolve(source, args, context) {
-          if (source.postBody) {
+
+          if (source.parent) {
+            console.log('getting mdx', source.parent);
+            const mdxParentNode = await context.nodeModel.findOne({
+              query: {
+                filter: {
+                  id: { eq: source.parent },
+                  body: { ne: '' }
+                },
+              },
+              type: "Mdx",
+            });
+
+            console.log('mdxParentNode.body', mdxParentNode);
+
             return hashObjectKeys({
               "type": "html",
-              "html": `<div class="c-rich-text"><p><strong>Reading time estimate</strong>: ${source.postReadingTime}min, ${source.postWordCount} words</p>${source.postBody}</div>`
+              "html": mdxParentNode.__gatsby_resolved.body,
             }, 'html');
           }
 
@@ -198,7 +211,6 @@ exports.onCreateNode = async ({ node, actions, getNode, cache, store, createNode
       author: node.frontmatter.author,
       categories: node.frontmatter.categories,
 
-      postBody: node.rawBody,
       postReadingTime: Math.ceil(readingTime(getMarkdownExcerpt(node.rawBody), { wordsPerMinute: 140 }).minutes || 0),
       postWordCount: readingTime(getMarkdownExcerpt(node.rawBody)).words || 0,
 

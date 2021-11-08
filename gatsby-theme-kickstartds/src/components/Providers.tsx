@@ -3,12 +3,68 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from '@mdx-js/react';
 
 import { PictureContextDefault, PictureContext } from "@kickstartds/base/lib/picture";
 import { VisualContextDefault, VisualContext } from "@kickstartds/content/lib/visual";
 import { StorytellingContextDefault, StorytellingContext } from "@kickstartds/content/lib/storytelling";
 import { RichTextContextDefault, RichTextContext } from '@kickstartds/base/lib/rich-text';
 import { LinkContextDefault, LinkContext } from '@kickstartds/base/lib/link';
+import { HtmlContextDefault, HtmlContext } from '@kickstartds/base/lib/html';
+
+const ContentfulRichText = (props) =>
+  props.text.includes('nodeType')
+    ? <div className={`c-rich-text ${props.className}`}>{renderRichText({ raw: props.text, references: [] }, contentfulOptions)}</div>
+    : <RichTextContextDefault {...props} />;
+
+const RichTextProvider = (props) => {
+  return <RichTextContext.Provider value={ContentfulRichText} {...props} />;
+};
+
+const nonRteMdxTypes = [
+  'Visual',
+  'pre',
+  'VisualComponentPlayground',
+];
+
+const components = {
+  wrapper: ({ children }) =>
+    <>
+      {children.map((child) =>
+        nonRteMdxTypes.includes(child.props.mdxType)
+          ? child
+          : <div className="c-rich-text">{child}</div>)}
+    </>
+};
+
+const WrappedHtml = ({ html, postReadingTime, postWordCount, ...props }) => {
+  console.log('WrappedHtml props', props, html, postReadingTime, postWordCount);
+  if (html.includes('@jsxRuntime')) {
+    return (
+      <>
+        <div className="c-rich-text"><p><strong>Reading time estimate</strong>: {postReadingTime}min, {postWordCount} words</p></div>
+        <MDXProvider components={components}>
+          <MDXRenderer>{html}</MDXRenderer>
+        </MDXProvider>
+      </>
+    );
+  }
+
+  if (postReadingTime && postWordCount) {
+    return (
+      <HtmlContextDefault html={`<div class="c-rich-text"><p><strong>Reading time estimate</strong>: ${postReadingTime}min, ${postWordCount} words</p>${html}</div>`} {...props} />
+    );
+  } else {
+    return (
+      <HtmlContextDefault html={`<div class="c-rich-text">${html}</div>`} {...props} />
+    );
+  }
+};
+
+const HtmlProvider = (props) => (
+  <HtmlContext.Provider value={WrappedHtml} {...props} />
+);
 
 const WrappedLink = ({ href, ...props }) =>
   href && href.publicURL
@@ -16,6 +72,10 @@ const WrappedLink = ({ href, ...props }) =>
     : href && href.startsWith('/')
       ? <Link to={href.endsWith('/') ? href : `${href}/`} {...props} />
       : <LinkContextDefault href={href} {...props} />;
+
+const LinkProvider = (props) => (
+  <LinkContext.Provider value={WrappedLink} {...props} />
+);
 
 const WrappedImage = ({ src, ...props }) =>
   src && src.childImageSharp
@@ -25,6 +85,10 @@ const WrappedImage = ({ src, ...props }) =>
       : src.includes('http')
         ? <PictureContextDefault src={src} {...props} />
         : null;
+
+const PictureProvider = (props) => (
+  <PictureContext.Provider value={WrappedImage} {...props} />
+);
 
 const WrappedVisual = (props) => {
   if (props.media && props.media.image) {
@@ -43,6 +107,10 @@ const WrappedVisual = (props) => {
 
   return <VisualContextDefault {...props} />;
 }
+
+const VisualProvider = (props) => (
+  <VisualContext.Provider value={WrappedVisual} {...props} />
+);
 
 const WrappedStorytelling = (props) =>
   props.backgroundImage && props.backgroundImage.publicURL
@@ -71,27 +139,6 @@ const contentfulOptions = {
   },
 };
 
-const ContentfulRichText = (props) =>
-  props.text.includes('nodeType')
-    ? <div className={`c-rich-text ${props.className}`}>{renderRichText({ raw: props.text, references: [] }, contentfulOptions)}</div>
-    : <RichTextContextDefault {...props} />;
-
-const RichTextProvider = (props) => {
-  return <RichTextContext.Provider value={ContentfulRichText} {...props} />;
-};
-
-const LinkProvider = (props) => (
-  <LinkContext.Provider value={WrappedLink} {...props} />
-);
-
-const PictureProvider = (props) => (
-  <PictureContext.Provider value={WrappedImage} {...props} />
-);
-
-const VisualProvider = (props) => (
-  <VisualContext.Provider value={WrappedVisual} {...props} />
-);
-
 const StorytellingProvider = (props) => (
   <StorytellingContext.Provider value={WrappedStorytelling} {...props} />
 );
@@ -101,9 +148,11 @@ export const Providers = ({children}) =>
     <PictureProvider>
       <StorytellingProvider>
         <VisualProvider>
-          <RichTextProvider>
-            {children}
-          </RichTextProvider>
+          <HtmlProvider>
+            <RichTextProvider>
+              {children}
+            </RichTextProvider>
+          </HtmlProvider>
         </VisualProvider>
       </StorytellingProvider>
     </PictureProvider>

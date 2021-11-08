@@ -178,7 +178,7 @@ exports.createResolvers = async ({
           if (source.postBody) {
             return hashObjectKeys({
               "type": "html",
-              "html": `<div class="c-rich-text"><p><strong>Reading time estimate</strong>: ${source.postReadingTime}min, ${source.postWordCount} words</p>${source.postBody}</div>`
+              "html": source.postBody,
             }, 'html');
           }
 

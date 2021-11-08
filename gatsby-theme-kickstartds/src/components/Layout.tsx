@@ -3,6 +3,8 @@ import { FunctionComponent } from 'react';
 import { SEO } from "./Seo";
 import { Providers } from "./Providers";
 
+import '@kickstartds/gatsby-transformer-kickstartds-mdx/src/shiki-twoslash.css';
+
 export const Layout: FunctionComponent<any> = (props) => (
   <Providers>
     <SEO
