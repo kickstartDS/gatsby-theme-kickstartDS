@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@1.13.6`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.7.3`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.5`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.11.2`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.5`
+  - fix: schema generation for icons ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Tue Nov 09 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.13.5`
   - fix: spacing headline blog list ([@julrich](https://github.com/julrich))
 

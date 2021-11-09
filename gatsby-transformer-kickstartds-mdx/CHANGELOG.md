@@ -1,3 +1,15 @@
+# v1.2.5 (Tue Nov 09 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: schema generation for icons ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.4 (Tue Nov 09 2021)
 
 #### ⚠️ Pushed to `master`
