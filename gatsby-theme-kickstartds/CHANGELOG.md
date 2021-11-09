@@ -1,3 +1,15 @@
+# v1.13.5 (Tue Nov 09 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: spacing headline blog list ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.13.4 (Tue Nov 09 2021)
 
 #### ⚠️ Pushed to `master`
