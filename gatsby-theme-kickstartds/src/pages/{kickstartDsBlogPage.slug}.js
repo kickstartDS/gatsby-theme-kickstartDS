@@ -12,12 +12,13 @@ export default function PostPage({ data }) {
 
 export const query = graphql` 
 fragment ContactComponentDeepNesting on ContactComponent {
+  twitter__3189
+  phone__520b
   image__a463 {
     ...PictureComponentDeepNesting
   }
   title__5426
   subtitle__92ac
-  phone__520b
   email__70d5
   copy__cda3
   className__462e

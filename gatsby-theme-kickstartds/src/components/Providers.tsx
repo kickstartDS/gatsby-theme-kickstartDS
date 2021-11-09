@@ -70,9 +70,7 @@ const WrappedImage = ({ src, ...props }) =>
     ? <GatsbyImage image={getImage(src)} alt={props.alt || ''} />
     : src && src.publicURL
       ? <PictureContextDefault src={src.publicURL} {...props} />
-      : src.includes('http')
-        ? <PictureContextDefault src={src} {...props} />
-        : null;
+      : <PictureContextDefault src={src} {...props} />;
 
 const PictureProvider = (props) => (
   <PictureContext.Provider value={WrappedImage} {...props} />

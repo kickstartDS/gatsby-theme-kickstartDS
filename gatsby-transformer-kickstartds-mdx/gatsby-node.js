@@ -171,12 +171,13 @@ exports.createResolvers = async ({
       postBio: {
         type: "ContactComponent",
         async resolve(source, args, context) {
+          // TODO make dynamic again
           if (source.author) {
             const jonas = {
               "title": "Jonas Ulrich",
               "subtitle": "Founder & CTO, frontend first proponent since day one",
               "email": "jonas.ulrich@kickstartds.com",
-              "phone": "+49(0)22868896620",
+              "twitter": "tsnmp",
               "copy": "After 15 years building websites and UI's ourselves, we wanted to improve the way teams collaborate when creating web frontends. That's why we started kickstartDS.\n\nWe want to share our experience and offer a huge library of best practice patterns and well tested web components. All the while following the principles of the Atomic Design methodology.",
               "type": "contact",
             };
@@ -185,12 +186,11 @@ exports.createResolvers = async ({
               "title": "Daniel Ley",
               "subtitle": "Co-Founder + UX Strategist with heart & soul",
               "email": "daniel.ley@kickstartds.com",
-              "phone": "+49(0)22868896620",
+              "twitter": "DLey_de",
               "copy": "More than 20 years ago I started creating user interfaces and web style guides, corporate design manuals and in the past years the first digital Design Systems.\n\nAfter working in a large tech corporation for a long time I very well know todays problems in gaining and maintaining consistency in UIs.",
               "type": "contact",
             };
 
-            // TODO make dynamic again
             // const contact = {
             //   "title": source.author,
             //   "subtitle": "Founder and CTO with a faible for smart frontend solutions",
@@ -215,8 +215,8 @@ exports.createResolvers = async ({
               contact.image = {
                 "src___NODE": contactImage.id,
                 "alt": "Profile image Daniel Ley",
-                "width": 300,
-                "height": 300,
+                "width": 250,
+                "height": 250,
               };
 
               return hashObjectKeys(contact, 'contact');
@@ -235,8 +235,8 @@ exports.createResolvers = async ({
               contact.image = {
                 "src___NODE": contactImage.id,
                 "alt": "Profile image Jonas Ulrich",
-                "width": 300,
-                "height": 300,
+                "width": 250,
+                "height": 250,
               };
 
               return hashObjectKeys(contact, 'contact');
