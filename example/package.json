@@ -18,12 +18,12 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@kickstartds/base": "^1.5.0",
-    "@kickstartds/blog": "^1.5.0",
-    "@kickstartds/content": "^1.5.0",
+    "@kickstartds/base": "^1.5.1",
+    "@kickstartds/blog": "^1.5.1",
+    "@kickstartds/content": "^1.5.1",
     "@kickstartds/core": "^1.5.0",
-    "@kickstartds/design-system": "^1.10.12",
-    "@kickstartds/form": "^1.5.0",
+    "@kickstartds/design-system": "^1.10.13",
+    "@kickstartds/form": "^1.5.1",
     "@kickstartds/gatsby-theme-kickstartds": "^1.13.2",
     "@kickstartds/gatsby-transformer-kickstartds-contentful": "^1.7.1",
     "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^1.11.0",

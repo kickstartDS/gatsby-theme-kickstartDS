@@ -114,7 +114,9 @@ fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
   variant__a43d
   size__942c
   className__8726
-  icon__157f
+  icon__157f {
+    ...IconComponentDeepNesting
+  }
   iconBefore__7991
   iconAfter__c8b6
   dataComponent__8d9e
@@ -161,6 +163,12 @@ fragment CtaComponentStorytellingBoxHeadlineDeepNesting on CtaComponentStorytell
   spaceAfter__c679
   pageHeader__988f
   className__f46b
+}
+fragment IconComponentDeepNesting on IconComponent {
+  icon__dcfe
+  role__ea32
+  className__251a
+  type
 }
 fragment CtaComponentStorytellingImageOrderDeepNesting on CtaComponentStorytellingImageOrder {
   desktopImageLast__ce0f

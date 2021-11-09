@@ -100,18 +100,6 @@ export const BlogDetailPage: FunctionComponent<any> = ({
             topic="Back to blog"
           />
           <TeaserBox
-            image={teaserImages.kds.publicURL}
-            link={{
-              size: 'small',
-              href: '/',
-              label: "Learn more",
-              variant: "outline",
-            }}
-            imageSpacing
-            text="Explore kickstartDS, and how it can help your team create consistent interfaces super fast."
-            topic="kickstartDS"
-          />
-          <TeaserBox
             image={teaserImages.storybook.publicURL}
             link={{
               size: 'small',
@@ -122,6 +110,18 @@ export const BlogDetailPage: FunctionComponent<any> = ({
             imageSpacing
             text="Discover all the different components included with kickstartDS, especially their controls and tokens."
             topic="Storybook"
+          />
+          <TeaserBox
+            image={teaserImages.kds.publicURL}
+            link={{
+              size: 'small',
+              href: '/',
+              label: "Learn more",
+              variant: "outline",
+            }}
+            imageSpacing
+            text="Explore kickstartDS, and how it can help your team create consistent interfaces super fast."
+            topic="kickstartDS"
           />
         </Section>
       </Layout>
