@@ -1,3 +1,16 @@
+# (Tue Nov 09 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.13.3`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.3`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.3`
+  - fix: mvg blog features ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Nov 08 2021)
 
 #### ⚠️ Pushed to `master`
