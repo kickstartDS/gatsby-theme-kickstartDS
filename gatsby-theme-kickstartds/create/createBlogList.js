@@ -38,7 +38,7 @@ module.exports = async ({ actions, graphql }, options) => {
   const sections = [{
     "mode": "default",
     "className": "l-section--content-width-narrow",
-    "spaceBefore": "none",
+    "spaceBefore": "small",
     "width": "wide",
     "background": "default",
     "headline": {
