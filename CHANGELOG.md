@@ -2,6 +2,21 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@1.13.4`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.4`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.4`
+  - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.13.4`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.7.2`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.4`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.11.1`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.4`
+  - fix: update kDS deps ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Tue Nov 09 2021)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.13.3`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.3`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.8.3`
   - fix: mvg blog features ([@julrich](https://github.com/julrich))
 
