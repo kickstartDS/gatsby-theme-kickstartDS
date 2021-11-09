@@ -173,7 +173,9 @@ exports.createResolvers = async ({
                 variant: "solid",
       
                 iconAfter: true,
-                icon: "chevron_right"
+                icon: {
+                  icon: "chevron-right"
+                }
               },
               type: "cta",
             };

@@ -10,7 +10,7 @@
     "develop": "gatsby develop"
   },
   "dependencies": {
-    "@kickstartds/jsonschema2graphql": "^1.6.7",
+    "@kickstartds/jsonschema2graphql": "^1.6.8",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "front-matter": "^4.0.2",
