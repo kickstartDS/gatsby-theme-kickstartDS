@@ -1,3 +1,15 @@
+# v1.8.3 (Tue Nov 09 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: mvg blog features ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.8.2 (Mon Nov 08 2021)
 
 #### ⚠️ Pushed to `master`
