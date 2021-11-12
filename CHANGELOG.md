@@ -1,3 +1,17 @@
+# (Fri Nov 12 2021)
+
+#### ⚠️ Pushed to `master`
+
+- chore: update kDS deps ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@1.7.4`
+  - fix: add a boat-load of debugging console logs ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Tue Nov 09 2021)
 
 #### ⚠️ Pushed to `master`
