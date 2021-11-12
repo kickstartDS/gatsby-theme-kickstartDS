@@ -15,15 +15,20 @@ exports.createResolvers = async ({
               type: "ContentfulAsset",
             });
 
-            return await context.nodeModel.findOne({
-              query: {
-                filter: {
-                  id: { eq: image.fields.localFile },
-                  publicURL: { ne: '' }
+            if (image && image.fields && image.fields.localFile) {
+              return await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    id: { eq: image.fields.localFile },
+                    publicURL: { ne: '' }
+                  },
                 },
-              },
-              type: "File",
-            });
+                type: "File",
+              });
+            } else {
+              console.log('Missing ContentfulAsset `image`', image, source.image, source.id);
+              return undefined;
+            }
           }
 
           return undefined;
@@ -47,10 +52,15 @@ exports.createResolvers = async ({
               query: {},
               type: "Site",
             });
-
-            return fileNode && fileNode.__gatsby_resolved && fileNode.__gatsby_resolved.publicURL
+            
+            if (fileNode && site) {
+              return fileNode && fileNode.__gatsby_resolved && fileNode.__gatsby_resolved.publicURL
               ? `${site.siteMetadata.siteUrl}${fileNode.__gatsby_resolved.publicURL}`
-              : undefined;
+              : undefined;  
+            } else {
+              console.log('Missing File or Site for `imageUrl`', fileNode, site, source.id);
+              return undefined;
+            }
           }
           
           return undefined;
@@ -65,15 +75,20 @@ exports.createResolvers = async ({
               type: "ContentfulAsset",
             });
 
-            return await context.nodeModel.findOne({
-              query: {
-                filter: {
-                  id: { eq: image.fields.localFile },
-                  publicURL: { ne: '' }
+            if (image && image.fields && image.fields.localFile) {
+              return await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    id: { eq: image.fields.localFile },
+                    publicURL: { ne: '' }
+                  },
                 },
-              },
-              type: "File",
-            });
+                type: "File",
+              });
+            } else {
+              console.log('Missing ContentfulAsset `image`', image, source.image, source.id);
+              return undefined;
+            }
           }
 
           return undefined;
@@ -95,8 +110,13 @@ exports.createResolvers = async ({
                   },
                   type: "ContentfulTag",
                 });
-  
-                return contentfulTag.title;
+
+                if (contentfulTag) {
+                  return contentfulTag.title;
+                } else {
+                  console.log('Missing ContentfulTag `glossary`', contentfulTag, tagId, source.glossary.tags, source.id);
+                  return undefined;
+                }
               }));
             }
   
@@ -115,13 +135,18 @@ exports.createResolvers = async ({
                   query: { filter: { id: { eq: contentfulTerm.cover___NODE } }, fields: { localFile: { ne: '' } } },
                   type: "ContentfulAsset",
                 });
-  
-                return {
-                  title: contentfulTerm.name,
-                  excerpt: `${JSON.parse(contentfulTerm.definition.raw).content[0].content[0].value.substring(0,300)} …`,
-                  url: `/glossary/${contentfulTerm.slug}`,
-                  image___NODE: contentfulImage && contentfulImage.fields.localFile,
-                };
+
+                if (contentfulTerm && contentfulImage) {
+                  return {
+                    title: contentfulTerm.name,
+                    excerpt: `${JSON.parse(contentfulTerm.definition.raw).content[0].content[0].value.substring(0,300)} …`,
+                    url: `/glossary/${contentfulTerm.slug}`,
+                    image___NODE: contentfulImage && contentfulImage.fields.localFile,
+                  };
+                } else {
+                  console.log('Missing ContentfulAsset / ContentfulTerm for `glossary` related', contentfulTerm, contentfulImage, source.id, source.glossary.related);
+                  return undefined;
+                }
               }));
             }
   
@@ -130,11 +155,15 @@ exports.createResolvers = async ({
                 query: { filter: { id: { eq: source.image } }, fields: { localFile: { ne: '' } } },
                 type: "ContentfulAsset",
               });
-  
-              glossaryJson.cover = {
-                src___NODE: contentfulImage.fields.localFile,
-                caption: contentfulImage.description
-              };
+
+              if (image && image.fields && image.fields.localFile) {
+                glossaryJson.cover = {
+                  src___NODE: contentfulImage.fields.localFile,
+                  caption: contentfulImage.description
+                };
+              } else {
+                console.log('Missing ContentfulAsset `glossary` image', contentfulImage, source.image, source.id);
+              }
             }
   
             if (source.glossary.media && source.glossary.media.length > 0) {
@@ -142,13 +171,17 @@ exports.createResolvers = async ({
                 query: { filter: { id: { in: source.glossary.media } }, fields: { localFile: { ne: '' } } },
                 type: "ContentfulAsset",
               });
-  
-              glossaryJson.media = Array.from(contentfulMedia).map((media) => {
-                return {
-                  src___NODE: media.fields.localFile,
-                  caption: media.description
-                };
-              });
+
+              if (contentfulMedia) {
+                glossaryJson.media = Array.from(contentfulMedia).map((media) => {
+                  return {
+                    src___NODE: media.fields.localFile,
+                    caption: media.description
+                  };
+                });
+              } else {
+                console.log('Missing ContentfulAssets `glossary` media', contentfulMedia, source.glossary.media, source.id);
+              }
             }
   
             glossaryJson.cta = {
