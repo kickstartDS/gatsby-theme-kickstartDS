@@ -1,3 +1,15 @@
+# v1.7.4 (Fri Nov 12 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: add a boat-load of debugging console logs ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.7.3 (Tue Nov 09 2021)
 
 #### ⚠️ Pushed to `master`
