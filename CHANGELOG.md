@@ -1,3 +1,18 @@
+# (Thu Nov 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@1.7.5`
+  - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.13.7`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.7.5`
+  - fix: image handling in contentful glossary ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Fri Nov 12 2021)
 
 #### ⚠️ Pushed to `master`
