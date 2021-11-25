@@ -92,7 +92,7 @@ const WrappedVisual = (props) => {
   }
 
   return <VisualContextDefault {...props} />;
-}
+};
 
 const VisualProvider = (props) => (
   <VisualContext.Provider value={WrappedVisual} {...props} />

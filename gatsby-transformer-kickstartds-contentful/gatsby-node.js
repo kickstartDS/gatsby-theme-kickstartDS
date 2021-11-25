@@ -130,19 +130,24 @@ exports.createResolvers = async ({
                   },
                   type: "ContentfulTerm",
                 });
-  
-                const contentfulImage = await context.nodeModel.findOne({
-                  query: { filter: { id: { eq: contentfulTerm.cover___NODE } }, fields: { localFile: { ne: '' } } },
-                  type: "ContentfulAsset",
-                });
 
-                if (contentfulTerm && contentfulImage) {
-                  return {
+                if (contentfulTerm) {
+                  const related = {
                     title: contentfulTerm.name,
                     excerpt: `${JSON.parse(contentfulTerm.definition.raw).content[0].content[0].value.substring(0,300)} …`,
                     url: `/glossary/${contentfulTerm.slug}`,
-                    image___NODE: contentfulImage && contentfulImage.fields.localFile,
                   };
+
+                  if (contentfulTerm.cover___NODE) {
+                    const contentfulImage = await context.nodeModel.findOne({
+                      query: { filter: { id: { eq: contentfulTerm.cover___NODE } }, fields: { localFile: { ne: '' } } },
+                      type: "ContentfulAsset",
+                    });
+
+                    related.image___NODE = contentfulImage.fields.localFile || '';
+                  }
+
+                  return related;
                 } else {
                   console.log('Missing ContentfulAsset / ContentfulTerm for `glossary` related', contentfulTerm, contentfulImage, source.id, source.glossary.related);
                   return undefined;
@@ -156,7 +161,7 @@ exports.createResolvers = async ({
                 type: "ContentfulAsset",
               });
 
-              if (image && image.fields && image.fields.localFile) {
+              if (contentfulImage && contentfulImage.fields && contentfulImage.fields.localFile) {
                 glossaryJson.cover = {
                   src___NODE: contentfulImage.fields.localFile,
                   caption: contentfulImage.description
