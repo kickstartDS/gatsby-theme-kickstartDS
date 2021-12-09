@@ -1,3 +1,16 @@
+# (Thu Dec 09 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.13.8`
+  - fix: broken netlify cms admin interface ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Thu Nov 25 2021)
 
 #### ⚠️ Pushed to `master`
