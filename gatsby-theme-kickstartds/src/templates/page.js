@@ -1,3 +1,5 @@
+import { SEO } from "../components/Seo";
+
 import { ContentPage } from "../components/ContentPage";
 import { BlogDetailPage } from "../components/BlogDetailPage";
 import { BlogListPage } from "../components/BlogListPage";
@@ -24,6 +26,17 @@ const selectTemplate = (key, props) => {
 }
 
 export const GatsbyPage = ({ pageContext: { page } }) =>
-  selectTemplate(page.layout, page);
+  <>
+    <SEO
+      title={page.title}
+      description={page.description}
+      keywords={page.keywords}
+      image={page.image && page.image.publicURL}
+      cardImage={page.cardImage && page.cardImage.publicURL}
+      twitterCreator={page.twitterCreator}
+    />
+    {selectTemplate(page.layout, page)}
+  </>
+  
 
 export default GatsbyPage;
