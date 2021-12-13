@@ -1,3 +1,18 @@
+# (Mon Dec 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.13.9`
+  - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.13.9`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.6`
+  - feature: auto-link headers in mdx posts ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Thu Dec 09 2021)
 
 #### ⚠️ Pushed to `master`
