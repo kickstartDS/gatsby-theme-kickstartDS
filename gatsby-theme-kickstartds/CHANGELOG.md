@@ -1,3 +1,15 @@
+# v1.13.8 (Thu Dec 09 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix: broken netlify cms admin interface ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.13.7 (Thu Nov 25 2021)
 
 #### ⚠️ Pushed to `master`
