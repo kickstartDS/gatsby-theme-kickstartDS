@@ -30,13 +30,15 @@ const nonRteMdxTypes = [
 
 const components = {
   wrapper: ({ children }) =>
-    <>
-      {children.map((child, index) =>
+    children && children.length > 0 && 
+      <>
+        {children.map((child, index) =>
         nonRteMdxTypes.includes(child.props.mdxType)
           ? <div key={index}>{child}</div>
           : <div key={index} className="c-rich-text">{child}</div>)}
-    </>
-};
+      </>
+    || children
+  };
 
 const WrappedHtml = ({ html, postReadingTime, postWordCount, ...props }) =>
   html.includes('@jsxRuntime')

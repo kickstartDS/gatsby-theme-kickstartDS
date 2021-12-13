@@ -7,8 +7,9 @@ module.exports = {
           resolve: require.resolve("gatsby-remark-shiki-twoslash"),
           options: {
             theme: "material-default",
-          }
+          },
         },
+        `gatsby-remark-autolink-headers`,
       ],
     },
   }],
