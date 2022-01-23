@@ -1,16 +1,13 @@
-import { createDefaultMapFromNodeModules } from "@typescript/vfs";
-import { fs } from 'fs';
+const { createDefaultMapFromNodeModules } = require('@typescript/vfs');
+const fs = require('fs');
 
 const fsMap = createDefaultMapFromNodeModules({});
 
-const reactDts = fs.readFileSync(require.resolve('/node_modules/@types/react/index.d.ts'), 'utf-8');
-const kdsDts = fs.readFileSync(require.resolve('/node_modules/@kickstartds/design-system/dist/components/types.d.ts'), 'utf-8');
+const reactDts = fs.readFileSync(require.resolve('@types/react/index.d.ts'), 'utf-8');
+const glossaryKdsDts = fs.readFileSync(require.resolve('@kickstartds/design-system/dist/components/glossary/GlossaryComponent.d.ts'), 'utf-8');
 
-console.log(reactDts);
-console.log(kdsDts);
-
-fsMap.set("react", reactDts);
-fsMap.set("/node_modules/@kickstartds/design-system/dist/components/types.d.ts", kdsDts);
+fsMap.set("/node_modules/@types/react/index.d.ts", reactDts);
+fsMap.set("/node_modules/@kickstartds/design-system/dist/components/glossary/GlossaryComponent.d.ts", glossaryKdsDts);
 
 module.exports = {
   plugins: [{
