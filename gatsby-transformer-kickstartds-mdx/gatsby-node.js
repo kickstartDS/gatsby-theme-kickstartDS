@@ -5,10 +5,7 @@ const readingTime = require('reading-time');
 const frontMatter = require('front-matter');
 const removeMd = require('remove-markdown');
 
-exports.createResolvers = async ({
-  actions,
-  createResolvers,
-}) => {
+exports.createResolvers = async ({ createResolvers }) => {
   await createResolvers({
     KickstartDsMdxBlogPage: {
       image: {
