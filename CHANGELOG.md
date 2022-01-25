@@ -1,3 +1,18 @@
+# (Tue Jan 25 2022)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.13.11`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.8`
+  - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.13.11`
+  - fix: seo metadata for blog and glossary slug based pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Jan 24 2022)
 
 #### ⚠️ Pushed to `master`
