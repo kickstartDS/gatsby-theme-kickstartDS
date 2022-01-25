@@ -6,12 +6,21 @@ import { cleanKeys } from "@kickstartds/gatsby-theme-kickstartds/src/helpers/com
 import { Layout } from "@kickstartds/gatsby-theme-kickstartds/src/components/Layout";
 // TODO this needs to be in @kickstartDS, not in design-ssytem
 import { Glossary } from "@kickstartds/design-system/dist/components/glossary/GlossaryComponent";
+import { SEO } from "../components/Seo";
 
 export default function PostPage({ data }) {
   const { glossary } = cleanKeys(data.kickstartDsGlossaryPage);
 
   return (
     <Layout>
+      <SEO
+        title={data.kickstartDsGlossaryPage.title}
+        description={data.kickstartDsGlossaryPage.description}
+        keywords={data.kickstartDsGlossaryPage.keywords}
+        image={data.kickstartDsGlossaryPage.image && data.kickstartDsGlossaryPage.image.publicURL}
+        cardImage={data.kickstartDsGlossaryPage.cardImage && data.kickstartDsGlossaryPage.cardImage.publicURL}
+        twitterCreator={data.kickstartDsGlossaryPage.twitterCreator}
+      />
       <Glossary {...glossary} />
     </Layout>
   );
@@ -176,6 +185,15 @@ fragment CtaComponentStorytellingImageOrderDeepNesting on CtaComponentStorytelli
 } 
 query GLOSSARY_BY_SLUG($slug: String) { 
   kickstartDsGlossaryPage(slug: { eq: $slug }) { 
+    title 
+    description 
+    keywords 
+    image { 
+      publicURL 
+    } 
+    cardImage { 
+      publicURL 
+    } 
     glossary { 
       ...GlossaryComponentDeepNesting 
     } 
