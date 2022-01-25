@@ -3,7 +3,7 @@
   "description": "example gatsby project to test kickstartds theme with wordpress as a source",
   "license": "UNLICENSED",
   "private": true,
-  "version": "0.14.10",
+  "version": "0.14.11",
   "author": {
     "name": "Jonas Ulrich",
     "email": "jonas.ulrich@ruhmesmeile.com"
@@ -24,7 +24,7 @@
     "@kickstartds/core": "^1.5.0",
     "@kickstartds/design-system": "^1.11.0",
     "@kickstartds/form": "^1.5.1",
-    "@kickstartds/gatsby-theme-kickstartds": "^1.13.9",
+    "@kickstartds/gatsby-theme-kickstartds": "^1.13.10",
     "@kickstartds/gatsby-transformer-kickstartds-contentful": "^1.7.5",
     "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^1.11.2",
     "@kickstartds/gatsby-transformer-kickstartds-wordpress": "^1.8.5",

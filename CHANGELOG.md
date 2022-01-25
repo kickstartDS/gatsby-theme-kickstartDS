@@ -1,3 +1,16 @@
+# (Mon Jan 24 2022)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.13.10`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.2.7`
+  - fix: change blog filter to exclude based on tags ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Dec 13 2021)
 
 #### ⚠️ Pushed to `master`
