@@ -16,6 +16,15 @@ export const query = graphql` \n\
 '+glossaryFragments+' \n\
 query GLOSSARY_BY_SLUG($slug: String) { \n\
   kickstartDsGlossaryPage(slug: { eq: $slug }) { \n\
+    title \n\
+    description \n\
+    keywords \n\
+    image { \n\
+      publicURL \n\
+    } \n\
+    cardImage { \n\
+      publicURL \n\
+    } \n\
     glossary { \n\
       ...GlossaryComponentDeepNesting \n\
     } \n\
@@ -38,6 +47,15 @@ export const query = graphql` \n\
 '+blogFragments+' \n\
 query BLOG_BY_SLUG($slug: String) { \n\
   kickstartDsBlogPage(slug: { eq: $slug }) { \n\
+    title \n\
+    description \n\
+    keywords \n\
+    image { \n\
+      publicURL \n\
+    } \n\
+    cardImage { \n\
+      publicURL \n\
+    } \n\
     postHead { \n\
       ...PostHeadComponentDeepNesting \n\
     } \n\

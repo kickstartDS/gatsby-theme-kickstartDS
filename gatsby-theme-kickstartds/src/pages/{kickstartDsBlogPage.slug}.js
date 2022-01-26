@@ -3,10 +3,22 @@ import { graphql } from "gatsby";
 
 import { cleanKeys } from "@kickstartds/gatsby-theme-kickstartds/src/helpers/componentMapper";
 import { BlogDetailPage } from "../components/BlogDetailPage";
+import { SEO } from "../components/Seo";
 
 export default function PostPage({ data }) {
+  console.log('PostPage', data);
   return (
-    <BlogDetailPage {...cleanKeys(data.kickstartDsBlogPage)} />
+    <>
+      <SEO
+        title={data.kickstartDsBlogPage.title}
+        description={data.kickstartDsBlogPage.description}
+        keywords={data.kickstartDsBlogPage.keywords}
+        image={data.kickstartDsBlogPage.image && data.kickstartDsBlogPage.image.publicURL}
+        cardImage={data.kickstartDsBlogPage.cardImage && data.kickstartDsBlogPage.cardImage.publicURL}
+        twitterCreator={data.kickstartDsBlogPage.twitterCreator}
+      />
+      <BlogDetailPage {...cleanKeys(data.kickstartDsBlogPage)} />
+    </>
   );
 }
 
@@ -148,6 +160,15 @@ fragment PostHeadComponentImageSourcesDeepNesting on PostHeadComponentImageSourc
 } 
 query BLOG_BY_SLUG($slug: String) { 
   kickstartDsBlogPage(slug: { eq: $slug }) { 
+    title 
+    description 
+    keywords 
+    image { 
+      publicURL 
+    } 
+    cardImage { 
+      publicURL 
+    } 
     postHead { 
       ...PostHeadComponentDeepNesting 
     } 

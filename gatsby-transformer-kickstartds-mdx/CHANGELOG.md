@@ -1,3 +1,27 @@
+# v1.2.8 (Tue Jan 25 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.2.7 (Mon Jan 24 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: change blog filter to exclude based on tags ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.6 (Mon Dec 13 2021)
 
 #### ⚠️ Pushed to `master`

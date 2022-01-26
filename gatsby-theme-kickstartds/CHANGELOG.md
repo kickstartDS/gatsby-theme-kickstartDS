@@ -1,3 +1,28 @@
+# v1.13.11 (Tue Jan 25 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- fix: seo metadata for blog and glossary slug based pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v1.13.10 (Mon Jan 24 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: change blog filter to exclude based on tags ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.13.9 (Mon Dec 13 2021)
 
 #### ⚠️ Pushed to `master`
