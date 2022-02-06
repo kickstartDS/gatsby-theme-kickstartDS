@@ -133,6 +133,7 @@ exports.createResolvers = async ({
               "date": source.created,
               "headline": {
                 "level": "h1",
+                "pageHeader": false,
                 "align": "left",
                 "content": source.title,
                 "spaceAfter": "none",
