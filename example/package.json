@@ -22,7 +22,7 @@
     "@kickstartds/blog": "^1.5.1",
     "@kickstartds/content": "^1.5.1",
     "@kickstartds/core": "^1.5.0",
-    "@kickstartds/design-system": "^1.11.0",
+    "@kickstartds/design-system": "^1.11.9",
     "@kickstartds/form": "^1.5.1",
     "@kickstartds/gatsby-theme-kickstartds": "^1.13.11",
     "@kickstartds/gatsby-transformer-kickstartds-contentful": "^1.7.5",

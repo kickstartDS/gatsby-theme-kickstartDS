@@ -31,10 +31,10 @@ export const BlogListPage: FunctionComponent<any> = ({
       {getContent(sections, true)}
       <Section
           className="l-section--content-width-narrow"
-          mode="default"
-          spaceBefore="small"
-          width="wide"
-          background="accent"
+          mode="list"
+          spaceBefore="default"
+          width="narrow"
+          gutter="large"
           headline={{
             level: "p",
             align: "left",
@@ -44,6 +44,7 @@ export const BlogListPage: FunctionComponent<any> = ({
           }}
           spaceAfter="none">
           <TeaserBox
+            ratio="16:9"
             image={teaserImages.kds.publicURL}
             link={{
               size: 'small',
@@ -56,6 +57,7 @@ export const BlogListPage: FunctionComponent<any> = ({
             topic="kickstartDS"
           />
           <TeaserBox
+            ratio="16:9"
             image={teaserImages.storybook.publicURL}
             link={{
               size: 'small',
@@ -68,6 +70,7 @@ export const BlogListPage: FunctionComponent<any> = ({
             topic="Storybook"
           />
           <TeaserBox
+            ratio="16:9"
             image={teaserImages.twitter.publicURL}
             link={{
               size: 'small',

@@ -36,10 +36,9 @@ module.exports = async ({ actions, graphql }, options) => {
 
   const heading = "Latest blog posts";
   const sections = [{
-    "mode": "default",
-    "className": "l-section--content-width-narrow",
-    "spaceBefore": "small",
-    "width": "wide",
+    "mode": "list",
+    "spaceBefore": "default",
+    "width": "narrow",
     "background": "default",
     "headline": {
       "level": "h1",
