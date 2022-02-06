@@ -50,7 +50,7 @@ module.exports = async ({ actions, graphql }, options) => {
     },
     "spaceAfter": "default",
     "type": "sections",
-    "gutter": "default"
+    "gutter": "large"
   }];
 
   sections[0].content = data.allKickstartDsBlogPage.edges.map((page, index) => {
