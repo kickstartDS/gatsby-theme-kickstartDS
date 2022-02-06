@@ -1,3 +1,15 @@
+# v1.13.12 (Sun Feb 06 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: update blog layout in theme ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.13.11 (Tue Jan 25 2022)
 
 #### ⚠️ Pushed to `master`
