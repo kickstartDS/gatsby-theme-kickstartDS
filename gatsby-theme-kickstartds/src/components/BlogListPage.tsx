@@ -31,10 +31,10 @@ export const BlogListPage: FunctionComponent<any> = ({
       {getContent(sections, true)}
       <Section
           className="l-section--content-width-narrow"
-          mode="list"
-          spaceBefore="default"
-          width="narrow"
-          gutter="large"
+          mode="default"
+          spaceBefore="small"
+          width="wide"
+          background="accent"
           headline={{
             level: "p",
             align: "left",
