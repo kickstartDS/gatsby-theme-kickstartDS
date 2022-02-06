@@ -1,3 +1,15 @@
+# v1.13.14 (Sun Feb 06 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: blog list teaser boxes layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.13.13 (Sun Feb 06 2022)
 
 #### ⚠️ Pushed to `master`
