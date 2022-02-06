@@ -2325,10 +2325,10 @@
     sass "^1.43.4"
     vhtml "^2.2.0"
 
-"@kickstartds/design-system@^1.11.0":
-  version "1.11.0"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-1.11.0.tgz#8ca8fd78a078919afcf1f702b8aeee2804d6b625"
-  integrity sha512-2ZjTHAKM6X2+yZ1/x0YuSLw2mszbMY8BMdgwDZQ2DJBiJ8FQquHplbmwODWdMSJdP0bZmD/V2hifLTkj+acGZQ==
+"@kickstartds/design-system@^1.11.9":
+  version "1.11.9"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-1.11.9.tgz#37900047c31dee1b6c31ae25b16b9f2d14b38c27"
+  integrity sha512-PPazXm8t3Le/dXvPa2eP0Iu16QR6aw9x9BwTT8agybnup1z51NJoUFAF3JlSjI9U1o5RbgoiNNBpTpoiIkcQWw==
   dependencies:
     "@kickstartds/base" "^1.5.1"
     "@kickstartds/blog" "^1.5.1"
