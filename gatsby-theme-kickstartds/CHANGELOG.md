@@ -1,3 +1,16 @@
+# v1.13.13 (Sun Feb 06 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- fix: gutter in blog list layout ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.13.12 (Sun Feb 06 2022)
 
 #### ⚠️ Pushed to `master`
