@@ -1,0 +1,4 @@
+diff --git a/node_modules/gatsby-remark-shiki-twoslash/src/index.js b/node_modules/gatsby-remark-shiki-twoslash/index.js
+similarity index 100%
+rename from node_modules/gatsby-remark-shiki-twoslash/src/index.js
+rename to node_modules/gatsby-remark-shiki-twoslash/index.js
