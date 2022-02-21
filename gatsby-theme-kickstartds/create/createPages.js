@@ -54,7 +54,6 @@ module.exports = async ({ actions, graphql }, options) => {
               ...TextAreaComponentDeepNesting,
               ...TextFieldComponentDeepNesting,
               ...TextMediaComponentDeepNesting,
-              ...ToggleComponentDeepNesting,
               ...VisualComponentDeepNesting,
               ...VisualSlidePreviewComponentDeepNesting,
               ...VisualSliderComponentDeepNesting
