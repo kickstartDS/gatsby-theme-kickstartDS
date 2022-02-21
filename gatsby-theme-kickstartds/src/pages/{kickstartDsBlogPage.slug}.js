@@ -24,14 +24,14 @@ export default function PostPage({ data }) {
 
 export const query = graphql` 
 fragment ContactComponentDeepNesting on ContactComponent {
-  twitter__3189
-  phone__520b
   image__a463 {
     ...PictureComponentDeepNesting
   }
   title__5426
   subtitle__92ac
-  email__70d5
+  links__d246 {
+    ...ContactComponentLinksDeepNesting
+  }
   copy__cda3
   className__462e
   type
@@ -56,6 +56,12 @@ fragment PostHeadComponentDeepNesting on PostHeadComponent {
   className__a3e5
   type
 }
+fragment ContactComponentLinksDeepNesting on ContactComponentLinks {
+  icon__b943
+  label__7ffb
+  href__c779
+  newTab__97e0
+}
 fragment PictureComponentDeepNesting on PictureComponent {
   
   src__197b {
@@ -78,7 +84,6 @@ fragment PictureComponentDeepNesting on PictureComponent {
   id__9f67
   itemProp__ba17
   style__ccee
-  objectFit__1269
   noscript__ec26
   lazy__55bf
   sources__a109 {
@@ -131,7 +136,6 @@ fragment PostHeadComponentImageDeepNesting on PostHeadComponentImage {
   id__5e93
   itemProp__e1f8
   style__87b8
-  objectFit__f4e2
   noscript__e188
   lazy__82e1
   sources__9bbc {
