@@ -1,3 +1,18 @@
+# (Mon Feb 21 2022)
+
+#### ⚠️ Pushed to `master`
+
+- chore: update dependencies ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.13.15`
+  - feature: update contact component schema ([@julrich](https://github.com/julrich))
+  - fix: remove toggle for now, messes things up ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Feb 06 2022)
 
 #### ⚠️ Pushed to `master`
