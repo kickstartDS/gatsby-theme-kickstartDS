@@ -237,7 +237,6 @@ exports.createResolvers = async ({
 
             // TODO make dynamic again, deduplicate (see `postContact` below)
             const jonas = {
-              headline: "Published by",
               title: "Jonas Ulrich",
               links: [
                 {
@@ -257,7 +256,6 @@ exports.createResolvers = async ({
 
             const daniel = {
               title: "Daniel Ley",
-              subtitle: "Co-Founder + UX Strategist with heart & soul",
               links: [
                 {
                   icon: "twitter",
@@ -270,7 +268,7 @@ exports.createResolvers = async ({
                   href: "mailto:daniel.ley@kickstartds.com",
                 },
               ],
-              copy: "More than 20 years ago I started creating user interfaces and web style guides, corporate design manuals and in the past years the first digital Design Systems.\n\nAfter working in a large tech corporation for a long time I very well know todays problems in gaining and maintaining consistency in UIs.",
+              copy: "Co-Founder + UX Strategist with heart & soul",
               type: "contact",
             };
 
