@@ -304,8 +304,7 @@ exports.createResolvers = async ({
               const authorImage = await context.nodeModel.findOne({
                 query: {
                   filter: {
-                    // TODO re-add correct image from `img/`
-                    relativePath: { eq: 'images/web_profile_images-teaser.png' },
+                    relativePath: { eq: 'img/author_images_dley.png' },
                     publicURL: { ne: '' }
                   },
                 },
@@ -323,8 +322,7 @@ exports.createResolvers = async ({
               const authorImage = await context.nodeModel.findOne({
                 query: {
                   filter: {
-                    // TODO re-add correct image from `img/`
-                    relativePath: { eq: 'images/web_profile_images-teaser.png' },
+                    relativePath: { eq: 'img/author_images_julrich.png' },
                     publicURL: { ne: '' }
                   },
                 },
