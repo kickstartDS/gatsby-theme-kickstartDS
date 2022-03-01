@@ -29,7 +29,9 @@ interface KickstartDsBlogPage implements Node & KickstartDsPage @dontInfer {
   # blog detail
   postHead: PostHeadComponent!
   postBody: HtmlComponent!
-  postBio: ContactComponent
+  postAside: PostAsideComponent
+  postShareBar: PostShareBarComponent
+  postContact: ContactComponent
   postReadingTime: Int!
   postWordCount: Int!
 }

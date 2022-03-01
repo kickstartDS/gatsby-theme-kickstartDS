@@ -3,6 +3,32 @@ const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
 const readingTime = require('reading-time');
 
+const getLinks = (url, twitterText, emailSubject, emailBody) => [
+  {
+    icon: "twitter",
+    href: `https://twitter.com/intent/tweet?source=webclient&url=${url}%2F&text=${twitterText}`,
+    title: "Share on Twitter",
+    newTab: true,
+  },
+  {
+    icon: "facebook",
+    href: `http://www.facebook.com/sharer.php?u=${url}`,
+    title: "Share on Facebook",
+    newTab: true,
+  },
+  {
+    icon: "xing",
+    href: `https://www.xing.com/app/user?op=share;url=${url}`,
+    title: "Share on Xing",
+    newTab: true,
+  },
+  {
+    icon: "email",
+    href: `mailto:?subject=${emailSubject}&body=${emailBody}`,
+    title: "Share by E-Mail",
+  },
+];
+
 exports.createResolvers = async ({
   actions,
   cache,
@@ -130,7 +156,6 @@ exports.createResolvers = async ({
           if (source.title && source.created) {
             const postHead = {
               "type": "post-head",
-              "date": source.created,
               "headline": {
                 "level": "h1",
                 "pageHeader": false,
@@ -141,15 +166,6 @@ exports.createResolvers = async ({
               },
             };
             
-            if (source.author) {
-              const wpUser = await context.nodeModel.findOne({
-                query: { filter: { id: { eq: source.author } } },
-                type: "WpUser",
-              });
-
-              postHead.headline.subheadline = `published by: ${wpUser.name}`;
-            }
-
             if (source.categories) {
               postHead.categories = await Promise.all(source.categories.map(async (categoryId) => {
                 const wpCategory = await context.nodeModel.findOne({
@@ -205,10 +221,174 @@ exports.createResolvers = async ({
           return undefined;
         },
       },
-      postBio: {
+      postAside: {
+        type: "PostAsideComponent",
+        async resolve(source, args, context) {
+          const site = await context.nodeModel.findOne({
+            query: {},
+            type: "Site",
+          });
+
+          if (source.author) {
+            const wpUser = await context.nodeModel.findOne({
+              query: { filter: { id: { eq: source.author } } },
+              type: "WpUser",
+            });
+
+            // TODO make dynamic again, deduplicate (see `postContact` below)
+            const jonas = {
+              headline: "Published by",
+              title: "Jonas Ulrich",
+              links: [
+                {
+                  icon: "twitter",
+                  label: "@tsnmp",
+                  href: "https://twitter.com/tsnmp",
+                },
+                {
+                  icon: "email",
+                  label: "jonas.ulrich@kickstartds.com",
+                  href: "mailto:jonas.ulrich@kickstartds.com",
+                },
+              ],
+              copy: "Founder & CTO, frontend first proponent since day one",
+              type: "contact",
+            };
+
+            const daniel = {
+              title: "Daniel Ley",
+              subtitle: "Co-Founder + UX Strategist with heart & soul",
+              links: [
+                {
+                  icon: "twitter",
+                  label: "@DLey_de",
+                  href: "https://twitter.com/DLey_de",
+                },
+                {
+                  icon: "email",
+                  label: "daniel.ley@kickstartds.com",
+                  href: "mailto:daniel.ley@kickstartds.com",
+                },
+              ],
+              copy: "More than 20 years ago I started creating user interfaces and web style guides, corporate design manuals and in the past years the first digital Design Systems.\n\nAfter working in a large tech corporation for a long time I very well know todays problems in gaining and maintaining consistency in UIs.",
+              type: "contact",
+            };
+
+            // const contact = {
+            //   "title": wpUser.name,
+            //   "subtitle": "Founder and CTO with a faible for smart frontend solutions",
+            //   "email": wpUser.email || 'info@kickstartds.com',
+            //   "phone": "+49(0)22868896620",
+            //   "copy": wpUser.description,
+            //   "type": "contact",
+            // };
+
+            const postAside = {
+              type: 'post-aside',
+              meta: {
+                items: [
+                  {
+                    icon: "date",
+                    text: new Date(source.created).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                  },
+                  {
+                    icon: "time",
+                    text: `${source.postReadingTime} min read`,
+                  },
+                ]
+              }
+            };
+
+            if (wpUser.name === "Daniel Ley") {
+              postAside.author = daniel;
+              const authorImage = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    // TODO re-add correct image from `img/`
+                    relativePath: { eq: 'images/web_profile_images-teaser.png' },
+                    publicURL: { ne: '' }
+                  },
+                },
+                type: "File",
+              });
+
+              postAside.author.image = {
+                "src___NODE": authorImage.id,
+                "alt": "Profile image Daniel Ley",
+                "width": 250,
+                "height": 250,
+              };
+            } else {
+              postAside.author = jonas;
+              const authorImage = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    // TODO re-add correct image from `img/`
+                    relativePath: { eq: 'images/web_profile_images-teaser.png' },
+                    publicURL: { ne: '' }
+                  },
+                },
+                type: "File",
+              });
+
+              postAside.author.image = {
+                "src___NODE": authorImage.id,
+                "alt": "Profile image Jonas Ulrich",
+                "width": 250,
+                "height": 250,
+              };
+            }
+
+            const site = await context.nodeModel.findOne({
+              query: {},
+              type: "Site",
+            });
+  
+            postAside.shareBar = {
+              "headline": {
+                "content": "Share this article",
+                "level": "h3",
+              },
+              links: getLinks(
+                `${site.siteMetadata.siteUrl}/${source.slug}`,
+                source.excerpt,
+                `Suggested article: ${source.title}`,
+                `${site.siteMetadata.siteUrl}/${source.slug}`,
+              ),
+            };
+            
+            return hashObjectKeys(postAside, 'post-aside');
+          }
+          return undefined;
+        },
+      },
+      postShareBar: {
+        type: "PostShareBarComponent",
+        async resolve(source, args, context) {
+          const site = await context.nodeModel.findOne({
+            query: {},
+            type: "Site",
+          });
+
+          return hashObjectKeys({
+            type: "post-share-bar",
+            headline: {
+              content: "Share this article",
+              level: "h3",
+            },
+            links: getLinks(
+              `${site.siteMetadata.siteUrl}/${source.slug}`,
+              source.excerpt,
+              `Suggested article: ${source.title}`,
+              `${site.siteMetadata.siteUrl}/${source.slug}`,
+            ),
+          }, 'post-share-bar');
+        },
+      },
+      postContact: {
         type: "ContactComponent",
         async resolve(source, args, context) {
-          // TODO make dynamic again
+          // TODO make dynamic again, deduplicate (see `postAside` above)
           if (source.author) {
             const wpUser = await context.nodeModel.findOne({
               query: { filter: { id: { eq: source.author } } },
@@ -216,21 +396,41 @@ exports.createResolvers = async ({
             });
 
             const jonas = {
-              "title": "Jonas Ulrich",
-              "subtitle": "Founder & CTO, frontend first proponent since day one",
-              "email": "jonas.ulrich@kickstartds.com",
-              "twitter": "tsnmp",
-              "copy": "After 15 years building websites and UI's ourselves, we wanted to improve the way teams collaborate when creating web frontends. That's why we started kickstartDS.\n\nWe want to share our experience and offer a huge library of best practice patterns and well tested web components. All the while following the principles of the Atomic Design methodology.",
-              "type": "contact",
+              title: "Jonas Ulrich",
+              subtitle: "Founder & CTO, frontend first proponent since day one",
+              links: [
+                {
+                  icon: "twitter",
+                  label: "@tsnmp",
+                  href: "https://twitter.com/tsnmp",
+                },
+                {
+                  icon: "email",
+                  label: "jonas.ulrich@kickstartds.com",
+                  href: "mailto:jonas.ulrich@kickstartds.com",
+                },
+              ],
+              copy: "After 15 years building websites and UIs ourselves, we wanted to improve the way teams collaborate when creating web frontends. That's why we started kickstartDS.\n\nWe want to share our experience and offer a huge library of best practice patterns and well tested web components. All the while following the principles of the Atomic Design methodology.",
+              type: "contact",
             };
 
             const daniel = {
-              "title": "Daniel Ley",
-              "subtitle": "Co-Founder + UX Strategist with heart & soul",
-              "email": "daniel.ley@kickstartds.com",
-              "twitter": "DLey_de",
-              "copy": "More than 20 years ago I started creating user interfaces and web style guides, corporate design manuals and in the past years the first digital Design Systems.\n\nAfter working in a large tech corporation for a long time I very well know todays problems in gaining and maintaining consistency in UIs.",
-              "type": "contact",
+              title: "Daniel Ley",
+              subtitle: "Co-Founder + UX Strategist with heart & soul",
+              links: [
+                {
+                  icon: "twitter",
+                  label: "@DLey_de",
+                  href: "https://twitter.com/DLey_de",
+                },
+                {
+                  icon: "email",
+                  label: "daniel.ley@kickstartds.com",
+                  href: "mailto:daniel.ley@kickstartds.com",
+                },
+              ],
+              copy: "More than 20 years ago I started creating user interfaces and web style guides, corporate design manuals and in the past years the first digital Design Systems.\n\nAfter working in a large tech corporation for a long time I very well know todays problems in gaining and maintaining consistency in UIs.",
+              type: "contact",
             };
 
             // const contact = {

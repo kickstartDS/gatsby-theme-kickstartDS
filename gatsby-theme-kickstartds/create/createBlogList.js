@@ -29,6 +29,9 @@ module.exports = async ({ actions, graphql }, options) => {
             sections {
               ...SectionComponentDeepNesting
             }
+            postAside {
+              ...PostAsideComponentDeepNesting
+            }
           }
         }
       }
@@ -43,9 +46,19 @@ module.exports = async ({ actions, graphql }, options) => {
         "label": "read more..."
       },
       "title": stripHtml(page.node.title).result,
-      "body": `${stripHtml(page.node.excerpt).result}  \nby *${page.node.author}*`,
+      "body": `${stripHtml(page.node.excerpt).result}`,
       "categories": page.node.categories && page.node.categories.length ? page.node.categories.map((category) => cleanObjectKeys(category)) : [],
       "index": index,
+      "meta": {
+        ...cleanObjectKeys(page.node.postAside).meta,
+        "author": {
+          "name": cleanObjectKeys(page.node.postAside).author.title,
+          "image": {
+            ...cleanObjectKeys(page.node.postAside).author.image,
+            "className": "c-post-meta__avatar",
+          },
+        },
+      },
       "type": "post-teaser"
     };
 
@@ -59,8 +72,6 @@ module.exports = async ({ actions, graphql }, options) => {
 
     return teaser;
   });
-
-  console.log('teasers', postTeaser);
 
   await actions.createPage({
     component: require.resolve('../src/templates/page.js'),

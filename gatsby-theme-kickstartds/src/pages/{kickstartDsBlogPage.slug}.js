@@ -6,7 +6,6 @@ import { BlogDetailPage } from "../components/BlogDetailPage";
 import { SEO } from "../components/Seo";
 
 export default function PostPage({ data }) {
-  console.log('PostPage', data);
   return (
     <>
       <SEO
@@ -41,6 +40,19 @@ fragment HtmlComponentDeepNesting on HtmlComponent {
   className__24cd
   type
 }
+fragment PostAsideComponentDeepNesting on PostAsideComponent {
+  author__0f95 {
+    ...PostAsideComponentAuthorDeepNesting
+  }
+  meta__3fe1 {
+    ...PostMetaComponentDeepNesting
+  }
+  shareBar__55c7 {
+    ...PostShareBarComponentDeepNesting
+  }
+  className__31d2
+  type
+}
 fragment PostHeadComponentDeepNesting on PostHeadComponent {
   image__c108 {
     ...PostHeadComponentImageDeepNesting
@@ -54,6 +66,16 @@ fragment PostHeadComponentDeepNesting on PostHeadComponent {
     ...TagLabelComponentDeepNesting
   }
   className__a3e5
+  type
+}
+fragment PostShareBarComponentDeepNesting on PostShareBarComponent {
+  headline__3ab8 {
+    ...PostShareBarComponentHeadlineDeepNesting
+  }
+  links__0338 {
+    ...PostShareBarComponentLinksDeepNesting
+  }
+  className__d6f2
   type
 }
 fragment ContactComponentLinksDeepNesting on ContactComponentLinks {
@@ -102,6 +124,62 @@ fragment PictureComponentSourcesDeepNesting on PictureComponentSources {
   }
   media__420c
   typeProp__c1ea
+}
+fragment PostAsideComponentAuthorDeepNesting on PostAsideComponentAuthor {
+  image__f40b {
+    ...PictureComponentDeepNesting
+  }
+  title__a188
+  subtitle__a4ed
+  links__f230 {
+    ...PostAsideComponentAuthorLinksDeepNesting
+  }
+  copy__f23d
+  className__31d2
+  headline__e226
+}
+fragment PostMetaComponentDeepNesting on PostMetaComponent {
+  author__a9d0 {
+    ...PostMetaComponentAuthorDeepNesting
+  }
+  items__25cc {
+    ...PostMetaComponentItemsDeepNesting
+  }
+  className__5dae
+  type
+}
+fragment PostAsideComponentAuthorLinksDeepNesting on PostAsideComponentAuthorLinks {
+  icon__05d7
+  label__6e3e
+  href__98b4
+  newTab__2837
+}
+fragment PostMetaComponentAuthorDeepNesting on PostMetaComponentAuthor {
+  name__3e80
+  image__3b0a {
+    ...PictureComponentDeepNesting
+  }
+}
+fragment PostMetaComponentItemsDeepNesting on PostMetaComponentItems {
+  icon__9fc4
+  text__a6d7
+}
+fragment PostShareBarComponentHeadlineDeepNesting on PostShareBarComponentHeadline {
+  content__00b0
+  align__84ae
+  level__d60e
+  styleAs__cecb
+  subheadline__75b9
+  spaceAfter__3aa5
+  pageHeader__0804
+  className__d6f2
+  switchOrder__956d
+}
+fragment PostShareBarComponentLinksDeepNesting on PostShareBarComponentLinks {
+  href__58b0
+  icon__4d4f
+  title__2454
+  newTab__496f
 }
 fragment PostHeadComponentHeadlineDeepNesting on PostHeadComponentHeadline {
   level__cd70
@@ -179,7 +257,13 @@ query BLOG_BY_SLUG($slug: String) {
     postBody { 
       ...HtmlComponentDeepNesting 
     } 
-    postBio { 
+    postAside { 
+      ...PostAsideComponentDeepNesting 
+    } 
+    postShareBar { 
+      ...PostShareBarComponentDeepNesting 
+    } 
+    postContact { 
       ...ContactComponentDeepNesting 
     } 
     postReadingTime 

@@ -6,6 +6,7 @@ import { Section } from "@kickstartds/base/lib/section";
 import { TeaserBox } from "@kickstartds/base/lib/teaser-box";
 import { Contact } from "@kickstartds/content/lib/contact";
 
+// TODO this (`Html`) should be in use, instead of `dangerouslySetInnerHTML` below
 import { Html } from "@kickstartds/base/lib/html";
 import { PostHead } from "@kickstartds/blog/lib/post-head";
 import { PostAside } from "@kickstartds/blog/lib/post-aside";
@@ -25,9 +26,10 @@ export const BlogDetailPage: FunctionComponent<any> = ({
   postShareBar,
   postContact,
   postReadingTime,
+  postWordCount,
   ...rest
 }) => {
-  const teaserImages = useStaticQuery(graphql`
+  const images = useStaticQuery(graphql`
     query {
       blog: file(relativePath: { eq: "img/blog/back-to-blog.svg" }) {
         publicURL
@@ -36,6 +38,9 @@ export const BlogDetailPage: FunctionComponent<any> = ({
         publicURL
       }
       storybook: file(relativePath: { eq: "img/blog/storybook.svg" }) {
+        publicURL
+      }
+      ctaImage: file(relativePath: { eq: "img/contact.svg" }) {
         publicURL
       }
     }
@@ -62,7 +67,8 @@ export const BlogDetailPage: FunctionComponent<any> = ({
 
           <div className="c-post__content">
             {postHead && <PostHead {...postHead} />}
-            {postBody && <Html className="c-rich-text c-post-text" {...postBody} />}
+            {/* <div>TODO shouldn't need to dangerouslySetInnerHTML here</div> */}
+            {postBody && <div className="c-html c-rich-text c-post-text" dangerouslySetInnerHTML={{__html: postBody.html}} /> }
             {postShareBar && <PostShareBar {...postShareBar} />}
           </div>
         </Section>
@@ -90,7 +96,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
                 desktopImageLast: true,
                 mobileImageLast: true,
               },
-              source: "img/contact.svg",
+              source: images.ctaImage.publicURL,
             }}
             box={{
               headline: {
@@ -131,7 +137,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
         <Section
           className="col-three"
           mode="default"
-          spaceBefore="small"
+          spaceBefore="default"
           width="wide"
           background="accent"
           headline={{
@@ -144,7 +150,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
           spaceAfter="none">
           <TeaserBox
             ratio="16:9"
-            image={teaserImages.blog.publicURL}
+            image={images.blog.publicURL}
             link={{
               size: 'small',
               href: '/blog/',
@@ -157,7 +163,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
           />
           <TeaserBox
             ratio="16:9"
-            image={teaserImages.storybook.publicURL}
+            image={images.storybook.publicURL}
             link={{
               size: 'small',
               href: '/storybook/',
@@ -170,7 +176,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
           />
           <TeaserBox
             ratio="16:9"
-            image={teaserImages.kds.publicURL}
+            image={images.kds.publicURL}
             link={{
               size: 'small',
               href: '/',

@@ -69,7 +69,7 @@ const LinkProvider = (props) => (
 
 const WrappedImage = ({ src, ...props }) =>
   src && src.childImageSharp
-    ? <GatsbyImage image={getImage(src)} alt={props.alt || ''} />
+    ? <GatsbyImage className={props.className} image={getImage(src)} alt={props.alt || ''} />
     : src && src.publicURL
       ? <PictureContextDefault src={src.publicURL} {...props} />
       : <PictureContextDefault src={src} {...props} />;
