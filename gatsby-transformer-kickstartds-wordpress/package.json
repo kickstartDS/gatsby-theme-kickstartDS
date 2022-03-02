@@ -13,7 +13,7 @@
     "gatsby-source-wordpress": "^6.1.0"
   },
   "dependencies": {
-    "@kickstartds/jsonschema2graphql": "^1.6.11",
+    "@kickstartds/jsonschema2graphql": "^1.6.12",
     "gatsby-source-wordpress": "^6.1.0",
     "string-strip-html": "^8.3.0"
   },

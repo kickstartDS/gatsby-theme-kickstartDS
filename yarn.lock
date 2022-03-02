@@ -2353,16 +2353,16 @@
     "@kickstartds/core" "^1.6.0-next.10"
     classnames "^2.2.6"
 
-"@kickstartds/generate-from-schema@^0.7.15":
-  version "0.7.15"
-  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.7.15.tgz#02a8b5c80376978b05fbd7ca7171eeae949933d6"
-  integrity sha512-RFkXMaihZtnXW6gNpa4ARP5v8rKEo8kIeUg/ao05Vrh6eXCCDZpF2En5noOLfMjhg1DQsJpYryE3ErSuIutN2g==
+"@kickstartds/generate-from-schema@^0.7.16":
+  version "0.7.16"
+  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-0.7.16.tgz#d831a783b44c9bd268cbc8825ddea73c20b05a15"
+  integrity sha512-k6FX2Fm5EvjP6lkfXwxo7irWqGNj5bvR0GKSTirfZ1VF87/t6bQqsPcooerkYbI/I3zdArpH2YxOPp38CdqAUA==
   dependencies:
     "@graphql-cli/codegen" "^1.17.24"
     "@graphql-codegen/cli" "^1.21.5"
     "@kickstartds/graphql-cli-add-gatsby-directives" "*"
     "@kickstartds/graphql-cli-generate-fragments" "^1.6.0"
-    "@kickstartds/jsonschema2graphql" "^1.6.11"
+    "@kickstartds/jsonschema2graphql" "^1.6.12"
     "@kickstartds/jsonschema2netlifycms" "^1.5.4"
     "@types/chokidar" "^2.1.3"
     ajv "^8.5.0"
@@ -2401,10 +2401,10 @@
     lodash "^4.17.21"
     tslib "~2.2.0"
 
-"@kickstartds/jsonschema2graphql@^1.6.11":
-  version "1.6.11"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.6.11.tgz#fdd4c6b37b3a9c97a528f78c25d18b6b3973b1aa"
-  integrity sha512-hC4rWiC+7l0AyhZVp94ZAuXFbQAeHYEpa9u2S0o0/2UevlQes1A9Q8QOWr7myDK6qIq/NrtS4ePwt+xPW5sTPQ==
+"@kickstartds/jsonschema2graphql@^1.6.12":
+  version "1.6.12"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-1.6.12.tgz#bec903dff1f182a39aaa141cae28a063e85d36e5"
+  integrity sha512-pbkCX7/k7qFS4cZcI612o2bbOsVQ8C49/dveSGWEkpmLDak+ViML75RgJDjoZPURrsvLbYT08z4oSeFjeVkh9Q==
   dependencies:
     ajv "^8.5.0"
     camelcase "^6.2.0"
