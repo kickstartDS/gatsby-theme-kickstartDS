@@ -195,26 +195,23 @@ exports.createResolvers = async ({
                 styleAs: "h1",
                 type: "headline",
               },
-              storytelling: {
-                box: {
-                  text: "Read more, or chat with us, to learn how this helps create consistent frontend interfaces",
-                  vAlign: "top",
+              box: {
+                text: "Read more, or chat with us, to learn how this helps create consistent frontend interfaces",
+                vAlign: "top",
+                link: {
+                  href: "/",
+                  label: "About kickstartDS",
+                  size: "medium",
+                  type: "button",
+                  variant: "solid",
+        
+                  iconAfter: true,
+                  icon: {
+                    icon: "person",
+                  },
                 },
-                full: true,
-                type: "storytelling",
               },
-              button: {
-                href: "/",
-                label: "About kickstartDS",
-                size: "medium",
-                type: "button",
-                variant: "solid",
-      
-                iconAfter: true,
-                icon: {
-                  icon: "chevron-right"
-                }
-              },
+              full: true,
               type: "cta",
             };
   
@@ -229,7 +226,7 @@ exports.createResolvers = async ({
             });
   
             if (ctaImage) {
-              glossaryJson.cta.storytelling.image = {
+              glossaryJson.cta.image = {
                 source___NODE: ctaImage.id,
                 vAlign: "top",
                 order: {
