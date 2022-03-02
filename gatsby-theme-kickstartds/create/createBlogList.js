@@ -1,5 +1,6 @@
-const { collectGraphQLFragments } = require('../src/util/collectGraphQLFragments');
 const stripHtml = require('string-strip-html').stripHtml;
+const { collectGraphQLFragments } = require('../src/util/collectGraphQLFragments');
+const { cleanObjectKeys } = require('@kickstartds/jsonschema2graphql/build/dehashing');
 
 module.exports = async ({ actions, graphql }, options) => {
   const { gqlPath } = options;
@@ -28,32 +29,16 @@ module.exports = async ({ actions, graphql }, options) => {
             sections {
               ...SectionComponentDeepNesting
             }
+            postAside {
+              ...PostAsideComponentDeepNesting
+            }
           }
         }
       }
     }
   `);
 
-  const heading = "Latest blog posts";
-  const sections = [{
-    "mode": "list",
-    "spaceBefore": "default",
-    "width": "narrow",
-    "background": "default",
-    "headline": {
-      "level": "h1",
-      "align": "left",
-      "content": heading,
-      "subheadline": "kickstartDS releases, updates, background info",
-      "spaceAfter": "none",
-      "type": "headline"
-    },
-    "spaceAfter": "default",
-    "type": "sections",
-    "gutter": "large"
-  }];
-
-  sections[0].content = data.allKickstartDsBlogPage.edges.map((page, index) => {
+  const postTeaser = data.allKickstartDsBlogPage.edges.map((page, index) => {
     const teaser = {
       "date": page.node.created,
       "link": {
@@ -61,9 +46,19 @@ module.exports = async ({ actions, graphql }, options) => {
         "label": "read more..."
       },
       "title": stripHtml(page.node.title).result,
-      "body": `${stripHtml(page.node.excerpt).result}  \nby *${page.node.author}*`,
-      "categories": page.node.categories,
+      "body": `${stripHtml(page.node.excerpt).result}`,
+      "categories": page.node.categories && page.node.categories.length ? page.node.categories.map((category) => cleanObjectKeys(category)) : [],
       "index": index,
+      "meta": {
+        ...cleanObjectKeys(page.node.postAside).meta,
+        "author": {
+          "name": cleanObjectKeys(page.node.postAside).author.title,
+          "image": {
+            ...cleanObjectKeys(page.node.postAside).author.image,
+            "className": "c-post-meta__avatar",
+          },
+        },
+      },
       "type": "post-teaser"
     };
 
@@ -78,16 +73,14 @@ module.exports = async ({ actions, graphql }, options) => {
     return teaser;
   });
 
-  // TODO remove at a later time, currently used to have posts generated, but not on the list
-  sections[0].content = sections[0].content.filter((teaser) => !teaser.categories.some((category) => category.label__7246 === 'Internal'));
-
   await actions.createPage({
     component: require.resolve('../src/templates/page.js'),
     path: `/blog/`,
     context: {
       page: {
-        sections,
-        title: 'Blog – releases, updates, background info',
+        // TODO remove at a later time, currently used to have posts generated, but not on the list
+        postTeaser: postTeaser.filter((teaser) => !teaser.categories.some((category) => category.label === 'Internal')),
+        title: 'Blog – releases, updates, background info // kickstartDS',
         layout: 'blog-list',
         description: 'Read about the latest updates and changes, our rationale behind decisions and how to apply a Design System on our blog',
       },

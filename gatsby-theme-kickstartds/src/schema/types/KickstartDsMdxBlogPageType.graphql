@@ -29,7 +29,9 @@ type KickstartDsMdxBlogPage implements Node & KickstartDsPage & KickstartDsBlogP
   # blog detail
   postHead: PostHeadComponent!
   postBody: HtmlComponent!
-  postBio: ContactComponent
+  postAside: PostAsideComponent
+  postShareBar: PostShareBarComponent
+  postContact: ContactComponent
   postReadingTime: Int!
   postWordCount: Int!
 }

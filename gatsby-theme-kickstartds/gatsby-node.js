@@ -38,6 +38,8 @@ query GLOSSARY_BY_SLUG($slug: String) { \n\
 const getBlogPageQuery = async (gqlPath) => {
   const blogFragments = await collectGraphQLFragments([
     'PostHeadComponentDeepNesting',
+    'PostAsideComponentDeepNesting',
+    'PostShareBarComponentDeepNesting',
     'HtmlComponentDeepNesting',
     'ContactComponentDeepNesting',
   ], gqlPath);
@@ -62,7 +64,13 @@ query BLOG_BY_SLUG($slug: String) { \n\
     postBody { \n\
       ...HtmlComponentDeepNesting \n\
     } \n\
-    postBio { \n\
+    postAside { \n\
+      ...PostAsideComponentDeepNesting \n\
+    } \n\
+    postShareBar { \n\
+      ...PostShareBarComponentDeepNesting \n\
+    } \n\
+    postContact { \n\
       ...ContactComponentDeepNesting \n\
     } \n\
     postReadingTime \n\

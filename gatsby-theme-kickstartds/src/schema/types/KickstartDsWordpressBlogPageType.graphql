@@ -29,7 +29,9 @@ type KickstartDsWordpressBlogPage implements Node & KickstartDsPage & KickstartD
   # blog detail
   postHead: PostHeadComponent!
   postBody: HtmlComponent!
-  postBio: ContactComponent
+  postAside: PostAsideComponent
+  postShareBar: PostShareBarComponent
+  postContact: ContactComponent
   postReadingTime: Int!
   postWordCount: Int!
 }

@@ -33,7 +33,7 @@ module.exports = {
       }
     },
     { resolve: `@kickstartds/gatsby-transformer-kickstartds-contentful`, options: {} },
-    { resolve: `@kickstartds/gatsby-transformer-kickstartds-mdx`, options: {} },
+    // { resolve: `@kickstartds/gatsby-transformer-kickstartds-mdx`, options: {} },
     { resolve: `@kickstartds/gatsby-transformer-kickstartds-netlify-cms`, options: {} },
     { resolve: `@kickstartds/gatsby-transformer-kickstartds-wordpress`, options: {} },
     {

@@ -47,15 +47,22 @@ fragment GlossaryComponentDeepNesting on GlossaryComponent {
   type
 }
 fragment CtaComponentDeepNesting on CtaComponent {
-  headline__6749 {
-    ...CtaComponentHeadlineDeepNesting
+  image__0d56 {
+    ...CtaComponentImageDeepNesting
   }
-  storytelling__2e1a {
-    ...CtaComponentStorytellingDeepNesting
+  
+  backgroundImage__3307 {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
   }
-  button__99e5 {
-    ...LinkButtonComponentDeepNesting
+  backgroundColor__1778
+  full__3eb3
+  box__bd42 {
+    ...CtaComponentBoxDeepNesting
   }
+  className__f46b
   type
 }
 fragment GlossaryComponentCoverDeepNesting on GlossaryComponentCover {
@@ -90,32 +97,42 @@ fragment GlossaryComponentRelatedDeepNesting on GlossaryComponentRelated {
     publicURL
   }
 }
-fragment CtaComponentHeadlineDeepNesting on CtaComponentHeadline {
-  align__c75c
-  level__ff4c
-  styleAs__bcf3
-  content__6359
-  subheadline__0426
-  spaceAfter__c679
-  pageHeader__988f
-  className__f46b
+fragment CtaComponentBoxDeepNesting on CtaComponentBox {
+  headline__6749 {
+    ...CtaComponentBoxHeadlineDeepNesting
+  }
+  text__7b7e
+  textAlign__0722
+  textColor__fe06
+  vAlign__1c04
+  hAlign__498c
+  link__2569 {
+    ...LinkButtonComponentDeepNesting
+  }
 }
-fragment CtaComponentStorytellingDeepNesting on CtaComponentStorytelling {
-  image__0d56 {
-    ...CtaComponentStorytellingImageDeepNesting
+fragment CtaComponentImageDeepNesting on CtaComponentImage {
+  order__1a2c {
+    ...CtaComponentImageOrderDeepNesting
   }
   
-  backgroundImage__3307 {
+  source__5019 {
     childImageSharp {
       gatsbyImageData
     }
     publicURL
   }
-  backgroundColor__1778
-  full__3eb3
-  box__bd42 {
-    ...CtaComponentStorytellingBoxDeepNesting
-  }
+  ratio__141e
+  vAlign__1c04
+  hAlign__498c
+}
+fragment CtaComponentBoxHeadlineDeepNesting on CtaComponentBoxHeadline {
+  level__ff4c
+  styleAs__bcf3
+  align__c75c
+  content__6359
+  subheadline__0426
+  spaceAfter__c679
+  pageHeader__988f
   className__f46b
 }
 fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
@@ -135,51 +152,13 @@ fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
   newTab__dc35
   type
 }
-fragment CtaComponentStorytellingBoxDeepNesting on CtaComponentStorytellingBox {
-  headline__6749 {
-    ...CtaComponentStorytellingBoxHeadlineDeepNesting
-  }
-  text__7b7e
-  textAlign__0722
-  textColor__fe06
-  vAlign__1c04
-  hAlign__498c
-  link__2569 {
-    ...LinkButtonComponentDeepNesting
-  }
-}
-fragment CtaComponentStorytellingImageDeepNesting on CtaComponentStorytellingImage {
-  order__1a2c {
-    ...CtaComponentStorytellingImageOrderDeepNesting
-  }
-  
-  source__5019 {
-    childImageSharp {
-      gatsbyImageData
-    }
-    publicURL
-  }
-  ratio__141e
-  vAlign__1c04
-  hAlign__498c
-}
-fragment CtaComponentStorytellingBoxHeadlineDeepNesting on CtaComponentStorytellingBoxHeadline {
-  level__ff4c
-  styleAs__bcf3
-  align__c75c
-  content__6359
-  subheadline__0426
-  spaceAfter__c679
-  pageHeader__988f
-  className__f46b
-}
 fragment IconComponentDeepNesting on IconComponent {
   icon__dcfe
   role__ea32
   className__251a
   type
 }
-fragment CtaComponentStorytellingImageOrderDeepNesting on CtaComponentStorytellingImageOrder {
+fragment CtaComponentImageOrderDeepNesting on CtaComponentImageOrder {
   desktopImageLast__ce0f
   mobileImageLast__2fd3
 } 
