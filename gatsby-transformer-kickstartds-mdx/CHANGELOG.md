@@ -1,3 +1,15 @@
+# v1.3.1 (Wed Mar 02 2022)
+
+#### ⚠️ Pushed to `master`
+
+- chore: update ksds generator dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.3.0 (Wed Mar 02 2022)
 
 #### 🚀 Enhancement

@@ -1,5 +1,22 @@
 # (Wed Mar 02 2022)
 
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.14.1`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.8.1`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.3.1`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.12.1`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.1`
+  - chore: update ksds generator dependencies ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.14.1`
+  - fix: blog list sort order ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@1.8.1`
+  - fix: cta in glossary ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Mar 02 2022)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-theme-kickstartds@1.14.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.8.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.3.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.12.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.0`
