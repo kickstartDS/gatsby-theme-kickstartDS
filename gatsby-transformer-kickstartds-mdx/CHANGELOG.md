@@ -1,3 +1,24 @@
+# v1.3.0 (Wed Mar 02 2022)
+
+#### 🚀 Enhancement
+
+- WIP feature: add support for type hinting in shiki twoslash code snippets when using our components [#73](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/73) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- chore: update kds dependencies ([@julrich](https://github.com/julrich))
+- chore: update dependencies ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into feature/add-kds-types-support-for-mdx ([@julrich](https://github.com/julrich))
+- Merge branch 'feature/adopt-blog-changes' into feature/add-kds-types-support-for-mdx ([@julrich](https://github.com/julrich))
+- fix: wrong imports ([@julrich](https://github.com/julrich))
+- feature: start adding fsMap with needed types ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.2.8 (Tue Jan 25 2022)
 
 #### ⚠️ Pushed to `master`

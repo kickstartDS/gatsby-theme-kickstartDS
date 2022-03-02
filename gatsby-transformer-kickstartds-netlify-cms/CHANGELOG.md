@@ -1,3 +1,20 @@
+# v1.12.0 (Wed Mar 02 2022)
+
+#### 🚀 Enhancement
+
+- WIP feature: add support for type hinting in shiki twoslash code snippets when using our components [#73](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/73) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- chore: update kds dependencies ([@julrich](https://github.com/julrich))
+- chore: update dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.11.2 (Tue Nov 09 2021)
 
 #### ⚠️ Pushed to `master`

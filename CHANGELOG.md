@@ -1,3 +1,16 @@
+# (Wed Mar 02 2022)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.14.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@1.8.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@1.3.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.12.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.0`
+  - WIP feature: add support for type hinting in shiki twoslash code snippets when using our components [#73](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/73) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Feb 21 2022)
 
 #### ⚠️ Pushed to `master`
