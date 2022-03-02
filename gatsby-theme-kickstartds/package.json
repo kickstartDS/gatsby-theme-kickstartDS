@@ -16,7 +16,7 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@kickstartds/jsonschema2graphql": "^1.6.9",
+    "@kickstartds/jsonschema2graphql": "^1.6.11",
     "@loadable/component": "^5.15.0",
     "@types/react-helmet": "^6.1.4",
     "assert": "^2.0.0",
