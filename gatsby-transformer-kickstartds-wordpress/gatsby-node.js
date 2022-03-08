@@ -250,7 +250,7 @@ exports.createResolvers = async ({
                   href: "mailto:jonas.ulrich@kickstartds.com",
                 },
               ],
-              copy: "Founder & CTO, frontend first proponent since day one",
+              copy: "Founder & CTO, frontend first since day one",
               type: "contact",
             };
 
