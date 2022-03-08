@@ -79,7 +79,7 @@ module.exports = async ({ actions, graphql }, options) => {
     context: {
       page: {
         // TODO remove at a later time, currently used to have posts generated, but not on the list
-        postTeaser: postTeaser.reverse().filter((teaser) => !teaser.categories.some((category) => category.label === 'Internal')),
+        postTeaser: postTeaser.filter((teaser) => !teaser.categories.some((category) => category.label === 'Internal')).sort((a, b) => (new Date(b.date) - new Date(a.date))),
         title: 'Blog – releases, updates, background info // kickstartDS',
         layout: 'blog-list',
         description: 'Read about the latest updates and changes, our rationale behind decisions and how to apply a Design System on our blog',
