@@ -44,7 +44,8 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
           property.indexOf('srcMobile') > -1 || 
           property.indexOf('srcTable') > -1 || 
           property.indexOf('srcMobile') > -1 || 
-          property.indexOf('backgroundImage') > -1
+          property.indexOf('backgroundImage') > -1 ||
+          property.indexOf('cardImage') > -1
         )) {
           return new Promise((resolve, reject) => {
             const fileNode = createRemoteFileNode({
@@ -80,7 +81,8 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
             property.indexOf('srcMobile') > -1 || 
             property.indexOf('srcTable') > -1 || 
             property.indexOf('srcMobile') > -1 || 
-            property.indexOf('backgroundImage') > -1
+            property.indexOf('backgroundImage') > -1 ||
+            property.indexOf('cardImage') > -1
           )
         ) {
           const file = findMatchingFile(obj[property], files, { staticFolderName: 'static' });
@@ -95,7 +97,8 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
           property.indexOf('srcMobile') > -1 || 
           property.indexOf('srcTable') > -1 || 
           property.indexOf('srcMobile') > -1 || 
-          property.indexOf('backgroundImage') > -1
+          property.indexOf('backgroundImage') > -1 ||
+          property.indexOf('cardImage') > -1
         )) {
           delete obj[property];
           return Promise.resolve();
