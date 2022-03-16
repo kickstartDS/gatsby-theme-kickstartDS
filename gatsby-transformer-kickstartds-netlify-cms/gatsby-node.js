@@ -113,6 +113,14 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
     node.frontmatter.sections = node.frontmatter.sections.map((section) => hashObjectKeys(section, 'section'));
     await Promise.all(node.frontmatter.sections.map(async (section) => await addImages(section, kickstartDSPageId)));
 
+    if (node.frontmatter.cardImage || node.frontmatter.image) {
+      const imageWrap = { cardImage: node.frontmatter.cardImage || node.frontmatter.image };
+      await addImages(imageWrap, kickstartDSPageId);
+
+      node.frontmatter.cardImage = imageWrap.cardImage___NODE;
+      node.frontmatter.image = imageWrap.cardImage___NODE;
+    }
+
     const fileNode = getNode(node.parent);
     const {
       slug,
