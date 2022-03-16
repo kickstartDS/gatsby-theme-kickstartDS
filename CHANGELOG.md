@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.12.3`
+  - fix: actually add images to cardImage prop ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Mar 16 2022)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@1.14.3`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.3`
   - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
 - `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.12.2`

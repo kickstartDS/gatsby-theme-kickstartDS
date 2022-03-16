@@ -1,3 +1,15 @@
+# v1.12.3 (Wed Mar 16 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: actually add images to cardImage prop ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.12.2 (Wed Mar 16 2022)
 
 #### ⚠️ Pushed to `master`
