@@ -9,9 +9,9 @@ type KickstartDsGlossaryPage implements Node & KickstartDsPage @dontInfer {
   title: String!
   description: String
   keywords: String
-  image: File
+  image: File @link
   imageUrl: String
-  cardImage: File
+  cardImage: File @link
   
   # generic content interface
   sections: [SectionComponent]
