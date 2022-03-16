@@ -1,3 +1,16 @@
+# v1.14.3 (Wed Mar 16 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- fix: glossary schema type for image ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.14.2 (Tue Mar 08 2022)
 
 #### ⚠️ Pushed to `master`

@@ -1,3 +1,16 @@
+# v1.12.2 (Wed Mar 16 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- fix: add correct image handling to frontmatter ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.12.1 (Wed Mar 02 2022)
 
 #### ⚠️ Pushed to `master`

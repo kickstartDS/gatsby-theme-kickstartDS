@@ -1,3 +1,20 @@
+# (Wed Mar 16 2022)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.14.3`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.3`
+  - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.12.2`
+  - fix: add correct image handling to frontmatter ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.14.3`
+  - fix: glossary schema type for image ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Tue Mar 08 2022)
 
 #### ⚠️ Pushed to `master`
