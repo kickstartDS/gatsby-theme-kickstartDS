@@ -1,3 +1,15 @@
+# v1.14.2 (Tue Mar 08 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: sorting in blog list page ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.14.1 (Wed Mar 02 2022)
 
 #### ⚠️ Pushed to `master`

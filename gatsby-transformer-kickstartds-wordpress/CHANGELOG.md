@@ -1,3 +1,15 @@
+# v1.9.2 (Tue Mar 08 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: text length in aside author ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.9.1 (Wed Mar 02 2022)
 
 #### ⚠️ Pushed to `master`

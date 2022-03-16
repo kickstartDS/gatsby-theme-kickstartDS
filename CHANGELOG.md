@@ -1,3 +1,18 @@
+# (Tue Mar 08 2022)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.2`
+  - fix: text length in aside author ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@1.14.2`
+  - fix: sorting in blog list page ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Wed Mar 02 2022)
 
 #### ⚠️ Pushed to `master`
