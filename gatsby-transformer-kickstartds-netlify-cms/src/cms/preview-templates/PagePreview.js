@@ -1,5 +1,6 @@
 import React from 'react';
 import { ContentPage } from '@kickstartds/gatsby-theme-kickstartds/src/components/ContentPage';
+import { LocationProvider } from "@reach/router";
 
 const PagePreview = React.memo(({ entry }) => {
   const [data, setData] = React.useState({});
@@ -29,7 +30,9 @@ const PagePreview = React.memo(({ entry }) => {
   );
 
   return (
-    <ContentPage {...data} />
+    <LocationProvider>
+      <ContentPage {...data} />
+    </LocationProvider>
   );
 });
 
