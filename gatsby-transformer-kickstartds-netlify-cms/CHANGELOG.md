@@ -1,3 +1,22 @@
+# v1.12.4 (Fri Apr 08 2022)
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@julrich](https://github.com/julrich))
+- Update CHANGELOG.md \[skip ci\] ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- fix: add dummy location provider to netlify cms ([@julrich](https://github.com/julrich))
+- fix: actually add images to cardImage prop ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.12.3 (Wed Mar 16 2022)
 
 #### ⚠️ Pushed to `master`

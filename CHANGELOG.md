@@ -1,3 +1,23 @@
+# (Fri Apr 08 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@1.12.4`
+  - fix: add dummy location provider to netlify cms ([@julrich](https://github.com/julrich))
+  - fix: actually add images to cardImage prop ([@julrich](https://github.com/julrich))
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump minimist from 1.2.5 to 1.2.6 [#76](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/76) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Wed Mar 16 2022)
 
 #### ⚠️ Pushed to `master`
