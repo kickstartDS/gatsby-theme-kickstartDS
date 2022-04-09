@@ -1,3 +1,20 @@
+# v1.15.0 (Sat Apr 09 2022)
+
+#### 🚀 Enhancement
+
+- feature: add component telemetry [#77](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/77) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: initial working analytics for component props ([@julrich](https://github.com/julrich))
+- feature: add first stab at component telemetry ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.14.3 (Wed Mar 16 2022)
 
 #### ⚠️ Pushed to `master`

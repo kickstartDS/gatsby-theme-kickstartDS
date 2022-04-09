@@ -1,3 +1,16 @@
+# (Sat Apr 09 2022)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@1.15.0`
+  - feature: add component telemetry [#77](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/77) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Fri Apr 08 2022)
 
 #### ⚠️ Pushed to `master`
