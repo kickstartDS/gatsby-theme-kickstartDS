@@ -1966,10 +1966,10 @@
   resolved "https://registry.npmjs.org/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@influxdata/influxdb-client-browser@^1.24.0":
+"@influxdata/influxdb-client@^1.24.0":
   version "1.24.0"
-  resolved "https://registry.npmjs.org/@influxdata/influxdb-client-browser/-/influxdb-client-browser-1.24.0.tgz#942a29a60c1ae18c07799ea268cff42bc0e0c8ec"
-  integrity sha512-n6OenI5/BbLHsAchqx0FAZVXtKvBSWjdCt2hnXvwm1x7kmk1XSOvlSC4KAIZo3z839W0laERpZsnl7gzoDUopA==
+  resolved "https://registry.npmjs.org/@influxdata/influxdb-client/-/influxdb-client-1.24.0.tgz#f054a65fe77f1051683fb0b07cdeadd8463b4b09"
+  integrity sha512-UsqTvmhgVy4Z3o71kp8794FoxMWuF9I9yjZ3RCjzNPLQZsO7wmG3bD+Bik7tTDq9gnRdb/CV9wypdDl0ApHhIg==
 
 "@jimp/bmp@^0.14.0":
   version "0.14.0"
