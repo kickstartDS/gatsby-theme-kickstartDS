@@ -1,4 +1,5 @@
 const { collectGraphQLFragments } = require('../src/util/collectGraphQLFragments');
+const { analyzeContent } = require('@kickstartds/gatsby-theme-kickstartds/src/helpers/componentAnalytics');
 
 module.exports = async ({ actions, graphql }, options) => {
   const { gqlPath } = options;
@@ -76,6 +77,8 @@ module.exports = async ({ actions, graphql }, options) => {
   await Promise.all(
     data.allKickstartDsPage.edges.map(async (page) => {
       if (!(page.node.slug.includes('blog') || page.node.slug.includes('glossary'))) {
+        await analyzeContent(page.node.slug, page.node.sections, true);
+
         await actions.createPage({
           component: require.resolve('../src/templates/page.js'),
           path: page.node.slug,

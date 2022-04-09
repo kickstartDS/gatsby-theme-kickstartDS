@@ -22,8 +22,8 @@ const selectTemplate = (key, props) => {
 
     default:
       return <ContentPage {...props} />
-  }
-}
+  };
+};
 
 export const GatsbyPage = ({ pageContext: { page } }) =>
   <>
@@ -36,7 +36,6 @@ export const GatsbyPage = ({ pageContext: { page } }) =>
       twitterCreator={page.twitterCreator}
     />
     {selectTemplate(page.layout, page)}
-  </>
-  
+  </>;  
 
 export default GatsbyPage;

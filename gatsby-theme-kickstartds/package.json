@@ -16,6 +16,7 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
+    "@influxdata/influxdb-client": "^1.24.0",
     "@kickstartds/jsonschema2graphql": "^1.6.12",
     "@loadable/component": "^5.15.0",
     "@types/react-helmet": "^6.1.4",

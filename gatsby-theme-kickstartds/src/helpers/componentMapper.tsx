@@ -1,7 +1,9 @@
 import React from 'react';
-import components from "../components/ComponentsMap";
+import { InfluxDB, Point } from '@influxdata/influxdb-client-browser';
 
 import { cleanObjectKeys } from '@kickstartds/jsonschema2graphql/build/dehashing';
+
+import components from "../components/ComponentsMap";
 
 export const componentCounter = [];
 export const getComponent = (element, isSection = false) => {
@@ -29,6 +31,7 @@ export const getComponent = (element, isSection = false) => {
 
   const cleanedElement: Record<string, any> = cleanObjectKeys(element);
   const { typeProp, type, ...restElement } = cleanedElement;
+
   return <Component type={typeProp} key={key} { ...restElement } />;
 };
 
