@@ -1,6 +1,4 @@
 import React from 'react';
-import { InfluxDB, Point } from '@influxdata/influxdb-client-browser';
-
 import { cleanObjectKeys } from '@kickstartds/jsonschema2graphql/build/dehashing';
 
 import components from "../components/ComponentsMap";
