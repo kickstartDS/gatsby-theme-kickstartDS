@@ -1,3 +1,16 @@
+# (Wed Apr 13 2022)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@1.15.1`
+  - chore: remove unneeded imports ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sat Apr 09 2022)
 
 #### 🚀 Enhancement

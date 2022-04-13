@@ -1,3 +1,15 @@
+# v1.15.1 (Wed Apr 13 2022)
+
+#### ⚠️ Pushed to `master`
+
+- chore: remove unneeded imports ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.15.0 (Sat Apr 09 2022)
 
 #### 🚀 Enhancement
