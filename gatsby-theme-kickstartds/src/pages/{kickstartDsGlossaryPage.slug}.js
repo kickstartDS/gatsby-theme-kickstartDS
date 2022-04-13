@@ -42,27 +42,8 @@ fragment GlossaryComponentDeepNesting on GlossaryComponent {
   }
   stackshare__481c
   cta__4d5b {
-    ...CtaComponentDeepNesting
+    ...StorytellingComponentDeepNesting
   }
-  type
-}
-fragment CtaComponentDeepNesting on CtaComponent {
-  image__0d56 {
-    ...CtaComponentImageDeepNesting
-  }
-  
-  backgroundImage__3307 {
-    childImageSharp {
-      gatsbyImageData
-    }
-    publicURL
-  }
-  backgroundColor__1778
-  full__3eb3
-  box__bd42 {
-    ...CtaComponentBoxDeepNesting
-  }
-  className__f46b
   type
 }
 fragment GlossaryComponentCoverDeepNesting on GlossaryComponentCover {
@@ -97,45 +78,59 @@ fragment GlossaryComponentRelatedDeepNesting on GlossaryComponentRelated {
     publicURL
   }
 }
-fragment CtaComponentBoxDeepNesting on CtaComponentBox {
-  headline__6749 {
-    ...CtaComponentBoxHeadlineDeepNesting
-  }
-  text__7b7e
-  textAlign__0722
-  textColor__fe06
-  vAlign__1c04
-  hAlign__498c
-  link__2569 {
-    ...LinkButtonComponentDeepNesting
-  }
-}
-fragment CtaComponentImageDeepNesting on CtaComponentImage {
-  order__1a2c {
-    ...CtaComponentImageOrderDeepNesting
+fragment StorytellingComponentDeepNesting on StorytellingComponent {
+  box__5f7a {
+    ...StorytellingComponentBoxDeepNesting
   }
   
-  source__5019 {
+  backgroundImage__cb66 {
     childImageSharp {
       gatsbyImageData
     }
     publicURL
   }
-  ratio__141e
-  vAlign__1c04
-  hAlign__498c
+  backgroundColor__291a
+  full__be79
+  image__cc97 {
+    ...StorytellingComponentImageDeepNesting
+  }
+  className__3b87
+  type
 }
-fragment CtaComponentBoxHeadlineDeepNesting on CtaComponentBoxHeadline {
-  level__ff4c
-  styleAs__bcf3
-  align__c75c
-  content__6359
-  subheadline__0426
-  spaceAfter__c679
-  pageHeader__988f
-  className__f46b
+fragment StorytellingComponentBoxDeepNesting on StorytellingComponentBox {
+  links__83cd {
+    ...LinkButtonComponentDeepNesting
+  }
+  headline__7c3f {
+    ...StorytellingComponentBoxHeadlineDeepNesting
+  }
+  text__a401
+  textAlign__4df6
+  textColor__ad35
+  vAlign__9bd7
+  hAlign__9705
+  link__5d0d {
+    ...LinkButtonComponentDeepNesting
+  }
+}
+fragment StorytellingComponentImageDeepNesting on StorytellingComponentImage {
+  
+  source__20fd {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
+  ratio__f5fa
+  vAlign__9bd7
+  hAlign__9705
+  order__eda1 {
+    ...StorytellingComponentImageOrderDeepNesting
+  }
 }
 fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
+  highlighted__83d6
+  deko__e569
   label__b988
   variant__a43d
   size__942c
@@ -152,15 +147,25 @@ fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
   newTab__dc35
   type
 }
+fragment StorytellingComponentBoxHeadlineDeepNesting on StorytellingComponentBoxHeadline {
+  level__81f6
+  styleAs__96c0
+  align__6135
+  content__539b
+  subheadline__b4cd
+  spaceAfter__bdba
+  pageHeader__5be3
+  className__3b87
+}
 fragment IconComponentDeepNesting on IconComponent {
   icon__dcfe
   role__ea32
   className__251a
   type
 }
-fragment CtaComponentImageOrderDeepNesting on CtaComponentImageOrder {
-  desktopImageLast__ce0f
-  mobileImageLast__2fd3
+fragment StorytellingComponentImageOrderDeepNesting on StorytellingComponentImageOrder {
+  mobileImageLast__f625
+  desktopImageLast__ed82
 } 
 query GLOSSARY_BY_SLUG($slug: String) { 
   kickstartDsGlossaryPage(slug: { eq: $slug }) { 

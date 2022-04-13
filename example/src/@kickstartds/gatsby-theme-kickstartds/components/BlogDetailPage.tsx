@@ -5,14 +5,13 @@ import { Divider } from "@kickstartds/base/lib/divider";
 import { Section } from "@kickstartds/base/lib/section";
 import { TeaserBox } from "@kickstartds/base/lib/teaser-box";
 import { Contact } from "@kickstartds/content/lib/contact";
+import { Storytelling } from "@kickstartds/content/lib/storytelling";
 
 // TODO this (`Html`) should be in use, instead of `dangerouslySetInnerHTML` below
 import { Html } from "@kickstartds/base/lib/html";
 import { PostHead } from "@kickstartds/blog/lib/post-head";
 import { PostAside } from "@kickstartds/blog/lib/post-aside";
 import { PostShareBar } from "@kickstartds/blog/lib/post-share-bar";
-
-import { Cta } from "@kickstartds/design-system/dist/components/cta/CtaComponent";
 
 import { Layout } from './Layout';
 import { ScrollSpy } from './ScrollSpy';
@@ -90,7 +89,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
             align: "center",
           }}
         >
-          <Cta
+          <Storytelling
             image={{
               order: {
                 desktopImageLast: true,

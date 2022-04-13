@@ -509,8 +509,8 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
       categories: node.categories.nodes.map((category) => category.id),
 
       postBody: node.content,
-      postReadingTime: Math.ceil(readingTime(stripHtml(node.content).result, { wordsPerMinute: 140 }).minutes || 0),
-      postWordCount: readingTime(stripHtml(node.content).result).words || 0,
+      postReadingTime: Math.ceil(readingTime(stripHtml(typeof node.content === 'string' ? node.content : '').result, { wordsPerMinute: 140 }).minutes || 0),
+      postWordCount: readingTime(stripHtml(typeof node.content === 'string' ? node.content : '').result).words || 0,
 
       parent: node.id,
     };

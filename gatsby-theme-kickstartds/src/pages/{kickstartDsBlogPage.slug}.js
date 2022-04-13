@@ -173,7 +173,6 @@ fragment PostShareBarComponentHeadlineDeepNesting on PostShareBarComponentHeadli
   spaceAfter__3aa5
   pageHeader__0804
   className__d6f2
-  switchOrder__956d
 }
 fragment PostShareBarComponentLinksDeepNesting on PostShareBarComponentLinks {
   href__58b0
@@ -190,7 +189,6 @@ fragment PostHeadComponentHeadlineDeepNesting on PostHeadComponentHeadline {
   spaceAfter__f365
   pageHeader__f637
   className__a3e5
-  switchOrder__e1f8
 }
 fragment PostHeadComponentImageDeepNesting on PostHeadComponentImage {
   
