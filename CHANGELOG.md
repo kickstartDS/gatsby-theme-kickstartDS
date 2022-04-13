@@ -1,5 +1,18 @@
 # (Wed Apr 13 2022)
 
+#### 💥 Breaking Change
+
+- `@kickstartds/gatsby-theme-kickstartds@2.0.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.0.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@2.0.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.0.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.0.0`
+  - feature: breaking release [#78](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/78) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Wed Apr 13 2022)
+
 #### ⚠️ Pushed to `master`
 
 - `@kickstartds/gatsby-theme-kickstartds@1.15.1`

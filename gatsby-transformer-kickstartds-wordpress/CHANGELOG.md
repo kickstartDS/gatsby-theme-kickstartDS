@@ -1,3 +1,20 @@
+# v2.0.0 (Wed Apr 13 2022)
+
+#### 💥 Breaking Change
+
+- feature: breaking release [#78](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/78) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- Merge branch 'master' into feature/breaking-release ([@julrich](https://github.com/julrich))
+- chore: add note to README.md for influx ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.9.3 (Wed Mar 16 2022)
 
 #### ⚠️ Pushed to `master`
