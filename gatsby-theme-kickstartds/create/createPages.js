@@ -26,7 +26,6 @@ module.exports = async ({ actions, graphql }, options) => {
               ...ContactComponentDeepNesting,
               ...ContentBoxComponentDeepNesting,
               ...CountUpComponentDeepNesting,
-              ...CtaComponentDeepNesting,
               ...DividerComponentDeepNesting,
               ...GlossaryComponentDeepNesting,
               ...HeadlineComponentDeepNesting,
@@ -77,7 +76,7 @@ module.exports = async ({ actions, graphql }, options) => {
   await Promise.all(
     data.allKickstartDsPage.edges.map(async (page) => {
       if (!(page.node.slug.includes('blog') || page.node.slug.includes('glossary'))) {
-        await analyzeContent(page.node.slug, page.node.sections, true);
+        // await analyzeContent(page.node.slug, page.node.sections, true);
 
         await actions.createPage({
           component: require.resolve('../src/templates/page.js'),
