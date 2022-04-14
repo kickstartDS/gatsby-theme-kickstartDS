@@ -268,7 +268,7 @@ exports.createResolvers = async ({
                   href: "mailto:franz.leven@kickstartds.com",
                 },
               ],
-              copy: "TODO tbd",
+              copy: "True design-dev hybrid, Web Native Designer",
               type: "contact",
             };
 
@@ -448,7 +448,7 @@ exports.createResolvers = async ({
 
             const franz = {
               title: "Franz Leven",
-              subtitle: "TODO tbd",
+              subtitle: "True design-dev hybrid, Web Native Designer",
               links: [
                 {
                   icon: "linkedin",
@@ -461,7 +461,7 @@ exports.createResolvers = async ({
                   href: "mailto:franz.leven@kickstartds.com",
                 },
               ],
-              copy: "TODO tbd",
+              copy: "I've started with ruhmesmeile, the company behind kickstartDS, as an intern in 2018. Starting as a designer, I've always directly worked with, and implemented, HTML and CSS myself. As a natural part of my role as a digital designer. Since then I've worked on everything in kickstartDS related to design and its application. Theming, Tokens, Components, Patterns, you name it!",
               type: "contact",
             };
 
