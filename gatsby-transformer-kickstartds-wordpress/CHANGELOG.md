@@ -1,3 +1,16 @@
+# v1.9.5 (Thu Apr 14 2022)
+
+#### 🐛 Bug Fix
+
+- fix: increase wordpress asset limit [#81](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/81) ([@julrich](https://github.com/julrich))
+- fix: increase wordpress asset limit ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.9.4 (Thu Apr 14 2022)
 
 #### 🐛 Bug Fix

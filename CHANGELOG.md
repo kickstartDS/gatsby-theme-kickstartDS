@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.5`
+  - fix: increase wordpress asset limit [#81](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/81) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Apr 14 2022)
+
+#### 🐛 Bug Fix
+
 - `@kickstartds/gatsby-theme-kickstartds@1.15.2`
   - fix: de-activate analytics for now [#80](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/80) ([@julrich](https://github.com/julrich))
 
