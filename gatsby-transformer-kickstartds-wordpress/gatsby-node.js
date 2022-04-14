@@ -254,6 +254,24 @@ exports.createResolvers = async ({
               type: "contact",
             };
 
+            const franz = {
+              title: "Franz Leven",
+              links: [
+                {
+                  icon: "linkedin",
+                  label: "LinkedIn",
+                  href: "https://www.linkedin.com/in/franz-leven-b398aa232/",
+                },
+                {
+                  icon: "email",
+                  label: "franz.leven@kickstartds.com",
+                  href: "mailto:franz.leven@kickstartds.com",
+                },
+              ],
+              copy: "TODO tbd",
+              type: "contact",
+            };
+
             const daniel = {
               title: "Daniel Ley",
               links: [
@@ -312,6 +330,24 @@ exports.createResolvers = async ({
               postAside.author.image = {
                 "src___NODE": authorImage.id,
                 "alt": "Profile image Daniel Ley",
+                "width": 250,
+                "height": 250,
+              };
+            } else if (wpUser.name === "Franz Leven") {
+              postAside.author = franz;
+              const authorImage = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    relativePath: { eq: 'img/author_images_fleven.png' },
+                    publicURL: { ne: '' }
+                  },
+                },
+                type: "File",
+              });
+
+              postAside.author.image = {
+                "src___NODE": authorImage.id,
+                "alt": "Profile image Franz Leven",
                 "width": 250,
                 "height": 250,
               };
@@ -410,6 +446,25 @@ exports.createResolvers = async ({
               type: "contact",
             };
 
+            const franz = {
+              title: "Franz Leven",
+              subtitle: "TODO tbd",
+              links: [
+                {
+                  icon: "linkedin",
+                  label: "LinkedIn",
+                  href: "https://www.linkedin.com/in/franz-leven-b398aa232/",
+                },
+                {
+                  icon: "email",
+                  label: "franz.leven@kickstartds.com",
+                  href: "mailto:franz.leven@kickstartds.com",
+                },
+              ],
+              copy: "TODO tbd",
+              type: "contact",
+            };
+
             const daniel = {
               title: "Daniel Ley",
               subtitle: "Co-Founder + UX Strategist with heart & soul",
@@ -453,6 +508,26 @@ exports.createResolvers = async ({
               contact.image = {
                 "src___NODE": contactImage.id,
                 "alt": "Profile image Daniel Ley",
+                "width": 250,
+                "height": 250,
+              };
+
+              return hashObjectKeys(contact, 'contact');
+            } else if (wpUser.name === "Franz Leven") {
+              const contact = franz;
+              const contactImage = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    relativePath: { eq: 'img/profile_images_fleven.png' },
+                    publicURL: { ne: '' }
+                  },
+                },
+                type: "File",
+              });
+
+              contact.image = {
+                "src___NODE": contactImage.id,
+                "alt": "Profile image Franz Leven",
                 "width": 250,
                 "height": 250,
               };
