@@ -1,3 +1,16 @@
+# v1.9.4 (Thu Apr 14 2022)
+
+#### 🐛 Bug Fix
+
+- fix: add Franz to authors [#79](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/79) ([@julrich](https://github.com/julrich))
+- fix: add Franz to authors ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.9.3 (Wed Mar 16 2022)
 
 #### ⚠️ Pushed to `master`

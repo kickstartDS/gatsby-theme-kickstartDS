@@ -1,3 +1,20 @@
+# (Thu Apr 14 2022)
+
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.4`
+  - fix: add Franz to authors [#79](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/79) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- fix: update .autorc for release branches ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Wed Apr 13 2022)
 
 #### ⚠️ Pushed to `master`
