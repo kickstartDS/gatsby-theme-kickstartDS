@@ -35,6 +35,11 @@ module.exports = {
         CoreParagraphBlockAttributesV2: {
           exclude: true,
         },
+        MediaItem: {
+          localFile: {
+            maxFileSizeBytes: 104857600,
+          },
+        }
       },
     },
   }],
