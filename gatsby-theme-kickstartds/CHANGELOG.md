@@ -1,3 +1,16 @@
+# v1.15.2 (Thu Apr 14 2022)
+
+#### 🐛 Bug Fix
+
+- fix: de-activate analytics for now [#80](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/80) ([@julrich](https://github.com/julrich))
+- fix: de-activate analytics for now ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.15.1 (Wed Apr 13 2022)
 
 #### ⚠️ Pushed to `master`
