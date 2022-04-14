@@ -1,3 +1,16 @@
+# v1.9.6 (Thu Apr 14 2022)
+
+#### 🐛 Bug Fix
+
+- fix: add description and subtitle to author fleven [#82](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/82) ([@julrich](https://github.com/julrich))
+- fix: add description and subtitle to author fleven ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v1.9.5 (Thu Apr 14 2022)
 
 #### 🐛 Bug Fix

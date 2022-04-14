@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.6`
+  - fix: add description and subtitle to author fleven [#82](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/82) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Thu Apr 14 2022)
+
+#### 🐛 Bug Fix
+
 - `@kickstartds/gatsby-transformer-kickstartds-wordpress@1.9.5`
   - fix: increase wordpress asset limit [#81](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/81) ([@julrich](https://github.com/julrich))
 
