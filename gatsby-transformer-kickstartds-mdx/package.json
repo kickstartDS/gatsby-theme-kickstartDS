@@ -10,7 +10,7 @@
     "develop": "gatsby develop"
   },
   "dependencies": {
-    "@kickstartds/jsonschema2graphql": "2.2.0-canary.37.460.0",
+    "@kickstartds/jsonschema2graphql": "2.2.0-canary.37.464.0",
     "@mdx-js/mdx": "^2.1.1",
     "@mdx-js/react": "^2.1.1",
     "front-matter": "^4.0.2",

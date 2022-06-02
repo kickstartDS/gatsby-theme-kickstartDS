@@ -1,4 +1,3 @@
-const stripHtml = require('string-strip-html').stripHtml;
 const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
 const readingTime = require('reading-time');

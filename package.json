@@ -24,7 +24,7 @@
     "@auto-it/released": "^10.37.1",
     "@graphql-cli/codegen": "^2.2.3",
     "@graphql-codegen/cli": "^2.6.2",
-    "@kickstartds/generate-from-schema": "2.2.0-canary.37.460.0",
+    "@kickstartds/generate-from-schema": "2.2.0-canary.37.464.0",
     "auto": "^10.37.1",
     "graphql": "16.5.0",
     "lerna": "^5.0.0",

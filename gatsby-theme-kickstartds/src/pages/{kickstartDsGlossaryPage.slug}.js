@@ -145,6 +145,7 @@ fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
   iconAnimation__9933
   href__11db
   newTab__dc35
+  inverted__2475
   type
 }
 fragment StorytellingComponentBoxHeadlineDeepNesting on StorytellingComponentBoxHeadline {
@@ -156,6 +157,8 @@ fragment StorytellingComponentBoxHeadlineDeepNesting on StorytellingComponentBox
   spaceAfter__bdba
   pageHeader__5be3
   className__3b87
+  type
+  switchOrder__4fe4
 }
 fragment IconComponentDeepNesting on IconComponent {
   icon__dcfe

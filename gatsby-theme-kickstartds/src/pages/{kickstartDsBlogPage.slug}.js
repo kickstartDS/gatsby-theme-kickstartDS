@@ -123,7 +123,7 @@ fragment PictureComponentSourcesDeepNesting on PictureComponentSources {
     publicURL
   }
   media__420c
-  typeProp__c1ea
+  type
 }
 fragment PostAsideComponentAuthorDeepNesting on PostAsideComponentAuthor {
   image__f40b {
@@ -136,6 +136,7 @@ fragment PostAsideComponentAuthorDeepNesting on PostAsideComponentAuthor {
   }
   copy__f23d
   className__31d2
+  type
   headline__e226
 }
 fragment PostMetaComponentDeepNesting on PostMetaComponent {
@@ -173,6 +174,8 @@ fragment PostShareBarComponentHeadlineDeepNesting on PostShareBarComponentHeadli
   spaceAfter__3aa5
   pageHeader__0804
   className__d6f2
+  type
+  switchOrder__956d
 }
 fragment PostShareBarComponentLinksDeepNesting on PostShareBarComponentLinks {
   href__58b0
@@ -189,6 +192,8 @@ fragment PostHeadComponentHeadlineDeepNesting on PostHeadComponentHeadline {
   spaceAfter__f365
   pageHeader__f637
   className__a3e5
+  type
+  switchOrder__e1f8
 }
 fragment PostHeadComponentImageDeepNesting on PostHeadComponentImage {
   
@@ -218,6 +223,7 @@ fragment PostHeadComponentImageDeepNesting on PostHeadComponentImage {
     ...PostHeadComponentImageSourcesDeepNesting
   }
   pictureClassName__00ff
+  type
 }
 fragment TagLabelComponentDeepNesting on TagLabelComponent {
   label__7246
@@ -236,7 +242,7 @@ fragment PostHeadComponentImageSourcesDeepNesting on PostHeadComponentImageSourc
     publicURL
   }
   media__c4bf
-  typeProp__be75
+  type
 } 
 query BLOG_BY_SLUG($slug: String) { 
   kickstartDsBlogPage(slug: { eq: $slug }) { 
