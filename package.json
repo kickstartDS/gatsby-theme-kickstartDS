@@ -26,13 +26,13 @@
     "@graphql-codegen/cli": "^2.6.2",
     "@kickstartds/generate-from-schema": "2.2.0-canary.37.464.0",
     "auto": "^10.37.1",
-    "graphql": "16.5.0",
+    "graphql": "^15.8.0",
     "lerna": "^5.0.0",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0"
   },
   "resolutions": {
-    "graphql": "16.5.0"
+    "graphql": "^15.8.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
