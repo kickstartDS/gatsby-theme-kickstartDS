@@ -28,25 +28,26 @@ export default function PostPage({ data }) {
 
 export const query = graphql` 
 fragment GlossaryComponentDeepNesting on GlossaryComponent {
-  term__e184
-  definition__ac38
   cover__bb73 {
     ...GlossaryComponentCoverDeepNesting
   }
+  cta__4d5b {
+    ...StorytellingComponentDeepNesting
+  }
+  definition__ac38
   media__a8ab {
     ...GlossaryComponentMediaDeepNesting
   }
-  tags__736d
   related__390e {
     ...GlossaryComponentRelatedDeepNesting
   }
   stackshare__481c
-  cta__4d5b {
-    ...StorytellingComponentDeepNesting
-  }
+  tags__736d
+  term__e184
   type
 }
 fragment GlossaryComponentCoverDeepNesting on GlossaryComponentCover {
+  caption__47fa
   
   src__ba33 {
     childImageSharp {
@@ -54,9 +55,9 @@ fragment GlossaryComponentCoverDeepNesting on GlossaryComponentCover {
     }
     publicURL
   }
-  caption__47fa
 }
 fragment GlossaryComponentMediaDeepNesting on GlossaryComponentMedia {
+  caption__47fa
   
   src__ba33 {
     childImageSharp {
@@ -64,12 +65,9 @@ fragment GlossaryComponentMediaDeepNesting on GlossaryComponentMedia {
     }
     publicURL
   }
-  caption__47fa
 }
 fragment GlossaryComponentRelatedDeepNesting on GlossaryComponentRelated {
-  title__e835
   excerpt__cf89
-  url__b9d5
   
   image__e3ac {
     childImageSharp {
@@ -77,11 +75,11 @@ fragment GlossaryComponentRelatedDeepNesting on GlossaryComponentRelated {
     }
     publicURL
   }
+  title__e835
+  url__b9d5
 }
 fragment StorytellingComponentDeepNesting on StorytellingComponent {
-  box__5f7a {
-    ...StorytellingComponentBoxDeepNesting
-  }
+  backgroundColor__291a
   
   backgroundImage__cb66 {
     childImageSharp {
@@ -89,31 +87,38 @@ fragment StorytellingComponentDeepNesting on StorytellingComponent {
     }
     publicURL
   }
-  backgroundColor__291a
+  box__5f7a {
+    ...StorytellingComponentBoxDeepNesting
+  }
+  className__3b87
   full__be79
   image__cc97 {
     ...StorytellingComponentImageDeepNesting
   }
-  className__3b87
   type
 }
 fragment StorytellingComponentBoxDeepNesting on StorytellingComponentBox {
-  links__83cd {
-    ...LinkButtonComponentDeepNesting
-  }
+  hAlign__9705
   headline__7c3f {
     ...StorytellingComponentBoxHeadlineDeepNesting
   }
-  text__a401
-  textAlign__4df6
-  textColor__ad35
-  vAlign__9bd7
-  hAlign__9705
   link__5d0d {
     ...LinkButtonComponentDeepNesting
   }
+  links__83cd {
+    ...LinkButtonComponentDeepNesting
+  }
+  textAlign__4df6
+  textColor__ad35
+  text__a401
+  vAlign__9bd7
 }
 fragment StorytellingComponentImageDeepNesting on StorytellingComponentImage {
+  hAlign__9705
+  order__eda1 {
+    ...StorytellingComponentImageOrderDeepNesting
+  }
+  ratio__f5fa
   
   source__20fd {
     childImageSharp {
@@ -121,54 +126,49 @@ fragment StorytellingComponentImageDeepNesting on StorytellingComponentImage {
     }
     publicURL
   }
-  ratio__f5fa
   vAlign__9bd7
-  hAlign__9705
-  order__eda1 {
-    ...StorytellingComponentImageOrderDeepNesting
-  }
 }
 fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
-  highlighted__83d6
-  deko__e569
-  label__b988
-  variant__a43d
-  size__942c
   className__8726
+  dataComponent__8d9e
+  deko__e569
+  fillAnimation__2a89
+  highlighted__83d6
+  href__11db
+  iconAfter__c8b6
+  iconAnimation__9933
+  iconBefore__7991
   icon__157f {
     ...IconComponentDeepNesting
   }
-  iconBefore__7991
-  iconAfter__c8b6
-  dataComponent__8d9e
-  fillAnimation__2a89
-  iconAnimation__9933
-  href__11db
-  newTab__dc35
   inverted__2475
+  label__b988
+  newTab__dc35
+  size__942c
   type
+  variant__a43d
 }
 fragment StorytellingComponentBoxHeadlineDeepNesting on StorytellingComponentBoxHeadline {
-  level__81f6
-  styleAs__96c0
   align__6135
-  content__539b
-  subheadline__b4cd
-  spaceAfter__bdba
-  pageHeader__5be3
   className__3b87
-  type
+  content__539b
+  level__81f6
+  pageHeader__5be3
+  spaceAfter__bdba
+  styleAs__96c0
+  subheadline__b4cd
   switchOrder__4fe4
+  type
 }
 fragment IconComponentDeepNesting on IconComponent {
+  className__251a
   icon__dcfe
   role__ea32
-  className__251a
   type
 }
 fragment StorytellingComponentImageOrderDeepNesting on StorytellingComponentImageOrder {
-  mobileImageLast__f625
   desktopImageLast__ed82
+  mobileImageLast__f625
 } 
 query GLOSSARY_BY_SLUG($slug: String) { 
   kickstartDsGlossaryPage(slug: { eq: $slug }) { 

@@ -9,7 +9,7 @@
     "start": "yarn workspace example cdev",
     "bundle": "cp -r node_modules/@kickstartds/design-system/dist/* example/static/",
     "postinstall": "patch-package",
-    "generate": "node node_modules/@kickstartds/generate-from-schema/dist/index.js && yarn graphql codegen && cp dist/config.yml example/static/admin/config.yml && cp dist/page.graphql example/dist/ && cp dist/page.fragments.js example/dist/"
+    "generate": "node node_modules/@kickstartds/generate-from-schema/dist/index.js && yarn graphql-codegen && cp dist/config.yml example/static/admin/config.yml && cp dist/page.graphql example/dist/ && cp dist/page.fragments.js example/dist/"
   },
   "workspaces": [
     "gatsby-theme-kickstartds",
@@ -22,11 +22,11 @@
   "devDependencies": {
     "@auto-it/npm": "^10.37.1",
     "@auto-it/released": "^10.37.1",
-    "@graphql-cli/codegen": "^2.2.3",
     "@graphql-codegen/cli": "^2.6.2",
-    "@kickstartds/generate-from-schema": "2.2.0-canary.37.464.0",
+    "@kickstartds/generate-from-schema": "2.2.0-canary.29.484.0",
     "auto": "^10.37.1",
     "graphql": "^15.8.0",
+    "graphql-config": "^4.3.1",
     "lerna": "^5.0.0",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0"
