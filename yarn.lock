@@ -2710,10 +2710,10 @@
     svgstore "^3.0.1"
     tinycolor2 "^1.4.2"
 
-"@kickstartds/design-system@2.0.18--canary.74.1987.0":
-  version "2.0.18--canary.74.1987.0"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.0.18--canary.74.1987.0.tgz#35ee22d90f1904f2c41f167c3d2dc7c0714aa93d"
-  integrity sha512-UPp4R9c0hrN15C35uplsTu42qZ6AOcfaEkcoe7Xy70uYqV4elr9qNP5Vmm8dXx9DJC9tz2Bw7OHY6TYFezegGw==
+"@kickstartds/design-system@2.0.18--canary.74.1991.0":
+  version "2.0.18--canary.74.1991.0"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.0.18--canary.74.1991.0.tgz#23d84556276c95fcff1409a585192440f90013c9"
+  integrity sha512-oYlmeldcF5T+e2Qn5fjviYj2A1P5JOnbQrewbt7x6hV1SDckH1HFpulssH7hMNG1G+J7HxrvxpWW5+SljO3JBQ==
   dependencies:
     "@kickstartds/base" "2.0.0-canary.922.4415.0"
     "@kickstartds/blog" "2.0.0-canary.922.4415.0"
