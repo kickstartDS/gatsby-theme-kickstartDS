@@ -1,3 +1,25 @@
+# (Sun Jun 12 2022)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@2.1.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.1.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@2.1.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.1.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.1.0`
+  - chore: update all dependencies [#84](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/84) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- `@kickstartds/gatsby-theme-kickstartds@2.1.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.1.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@2.1.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.1.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.1.0`
+  - feature: breaking release [#78](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/78) ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- chore: update auto configuration for support branches ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Wed Apr 13 2022)
 
 #### 💥 Breaking Change

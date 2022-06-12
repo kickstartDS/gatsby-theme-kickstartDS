@@ -1,3 +1,26 @@
+# v2.1.0 (Sun Jun 12 2022)
+
+#### 🚀 Enhancement
+
+- chore: update all dependencies [#84](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/84) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feat: working theme with new tokens ([@julrich](https://github.com/julrich))
+- chore: keep updating dependencies, and fixing the result ([@julrich](https://github.com/julrich))
+- chore: update all dependencies ([@julrich](https://github.com/julrich))
+- Bump independent versions \[skip ci\] ([@julrich](https://github.com/julrich))
+- Update CHANGELOG.md \[skip ci\] ([@julrich](https://github.com/julrich))
+- feature: breaking release [#78](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/78) ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into feature/breaking-release ([@julrich](https://github.com/julrich))
+- chore: add note to README.md for influx ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.0.0 (Wed Apr 13 2022)
 
 #### 💥 Breaking Change
