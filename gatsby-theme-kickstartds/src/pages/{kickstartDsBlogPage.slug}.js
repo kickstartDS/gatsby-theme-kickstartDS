@@ -23,68 +23,86 @@ export default function PostPage({ data }) {
 
 export const query = graphql` 
 fragment ContactComponentDeepNesting on ContactComponent {
+  className__462e
+  copy__cda3
   image__a463 {
     ...PictureComponentDeepNesting
   }
-  title__5426
-  subtitle__92ac
   links__d246 {
     ...ContactComponentLinksDeepNesting
   }
-  copy__cda3
-  className__462e
+  subtitle__92ac
+  title__5426
   type
 }
 fragment HtmlComponentDeepNesting on HtmlComponent {
-  html__8f99
   className__24cd
+  html__8f99
   type
 }
 fragment PostAsideComponentDeepNesting on PostAsideComponent {
   author__0f95 {
     ...PostAsideComponentAuthorDeepNesting
   }
+  className__31d2
   meta__3fe1 {
     ...PostMetaComponentDeepNesting
   }
   shareBar__55c7 {
     ...PostShareBarComponentDeepNesting
   }
-  className__31d2
   type
 }
 fragment PostHeadComponentDeepNesting on PostHeadComponent {
-  image__c108 {
-    ...PostHeadComponentImageDeepNesting
-  }
-  imageAlignment__4697
-  date__05dc
-  headline__4ec9 {
-    ...PostHeadComponentHeadlineDeepNesting
-  }
   categories__51d2 {
     ...TagLabelComponentDeepNesting
   }
   className__a3e5
+  date__05dc
+  headline__4ec9 {
+    ...PostHeadComponentHeadlineDeepNesting
+  }
+  imageAlignment__4697
+  image__c108 {
+    ...PostHeadComponentImageDeepNesting
+  }
   type
 }
 fragment PostShareBarComponentDeepNesting on PostShareBarComponent {
+  className__d6f2
   headline__3ab8 {
     ...PostShareBarComponentHeadlineDeepNesting
   }
   links__0338 {
     ...PostShareBarComponentLinksDeepNesting
   }
-  className__d6f2
   type
 }
 fragment ContactComponentLinksDeepNesting on ContactComponentLinks {
+  href__c779
   icon__b943
   label__7ffb
-  href__c779
   newTab__97e0
 }
 fragment PictureComponentDeepNesting on PictureComponent {
+  alt__1f75
+  className__a117
+  height__23ff
+  id__9f67
+  itemProp__ba17
+  lazy__55bf
+  noscript__ec26
+  pictureClassName__9f3e
+  sources__a109 {
+    ...PictureComponentSourcesDeepNesting
+  }
+  
+  srcSet__866d {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
   
   src__197b {
     childImageSharp {
@@ -92,29 +110,12 @@ fragment PictureComponentDeepNesting on PictureComponent {
     }
     publicURL
   }
-  
-  srcSet__866d {
-    childImageSharp {
-      gatsbyImageData
-    }
-    publicURL
-  }
-  alt__1f75
-  width__4691
-  height__23ff
-  className__a117
-  id__9f67
-  itemProp__ba17
   style__ccee
-  noscript__ec26
-  lazy__55bf
-  sources__a109 {
-    ...PictureComponentSourcesDeepNesting
-  }
-  pictureClassName__9f3e
   type
+  width__4691
 }
 fragment PictureComponentSourcesDeepNesting on PictureComponentSources {
+  media__420c
   
   srcSet__866d {
     childImageSharp {
@@ -122,75 +123,97 @@ fragment PictureComponentSourcesDeepNesting on PictureComponentSources {
     }
     publicURL
   }
-  media__420c
-  typeProp__c1ea
+  type
 }
 fragment PostAsideComponentAuthorDeepNesting on PostAsideComponentAuthor {
+  className__31d2
+  copy__f23d
+  headline__e226
   image__f40b {
     ...PictureComponentDeepNesting
   }
-  title__a188
-  subtitle__a4ed
   links__f230 {
     ...PostAsideComponentAuthorLinksDeepNesting
   }
-  copy__f23d
-  className__31d2
-  headline__e226
+  subtitle__a4ed
+  title__a188
+  type
 }
 fragment PostMetaComponentDeepNesting on PostMetaComponent {
   author__a9d0 {
     ...PostMetaComponentAuthorDeepNesting
   }
+  className__5dae
   items__25cc {
     ...PostMetaComponentItemsDeepNesting
   }
-  className__5dae
   type
 }
 fragment PostAsideComponentAuthorLinksDeepNesting on PostAsideComponentAuthorLinks {
+  href__98b4
   icon__05d7
   label__6e3e
-  href__98b4
   newTab__2837
 }
 fragment PostMetaComponentAuthorDeepNesting on PostMetaComponentAuthor {
-  name__3e80
   image__3b0a {
     ...PictureComponentDeepNesting
   }
+  name__3e80
 }
 fragment PostMetaComponentItemsDeepNesting on PostMetaComponentItems {
   icon__9fc4
   text__a6d7
 }
 fragment PostShareBarComponentHeadlineDeepNesting on PostShareBarComponentHeadline {
-  content__00b0
   align__84ae
+  className__d6f2
+  content__00b0
   level__d60e
+  pageHeader__0804
+  spaceAfter__3aa5
   styleAs__cecb
   subheadline__75b9
-  spaceAfter__3aa5
-  pageHeader__0804
-  className__d6f2
+  switchOrder__956d
+  type
 }
 fragment PostShareBarComponentLinksDeepNesting on PostShareBarComponentLinks {
   href__58b0
   icon__4d4f
-  title__2454
   newTab__496f
+  title__2454
 }
 fragment PostHeadComponentHeadlineDeepNesting on PostHeadComponentHeadline {
-  level__cd70
-  styleAs__782c
   align__1b07
-  content__1f5a
-  subheadline__8825
-  spaceAfter__f365
-  pageHeader__f637
   className__a3e5
+  content__1f5a
+  level__cd70
+  pageHeader__f637
+  spaceAfter__f365
+  styleAs__782c
+  subheadline__8825
+  switchOrder__e1f8
+  type
 }
 fragment PostHeadComponentImageDeepNesting on PostHeadComponentImage {
+  alt__bb36
+  className__a3e5
+  height__c61c
+  id__5e93
+  itemProp__e1f8
+  lazy__82e1
+  noscript__e188
+  pictureClassName__00ff
+  sources__9bbc {
+    ...PostHeadComponentImageSourcesDeepNesting
+  }
+  
+  srcSet__1861 {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
   
   src__2f94 {
     childImageSharp {
@@ -198,36 +221,20 @@ fragment PostHeadComponentImageDeepNesting on PostHeadComponentImage {
     }
     publicURL
   }
-  
-  srcSet__1861 {
-    childImageSharp {
-      gatsbyImageData
-    }
-    publicURL
-  }
-  alt__bb36
-  width__1054
-  height__c61c
-  className__a3e5
-  id__5e93
-  itemProp__e1f8
   style__87b8
-  noscript__e188
-  lazy__82e1
-  sources__9bbc {
-    ...PostHeadComponentImageSourcesDeepNesting
-  }
-  pictureClassName__00ff
+  type
+  width__1054
 }
 fragment TagLabelComponentDeepNesting on TagLabelComponent {
+  className__2a76
   label__7246
-  size__d93f
   link__6ced
   removable__7eaf
-  className__2a76
+  size__d93f
   type
 }
 fragment PostHeadComponentImageSourcesDeepNesting on PostHeadComponentImageSources {
+  media__c4bf
   
   srcSet__1861 {
     childImageSharp {
@@ -235,8 +242,7 @@ fragment PostHeadComponentImageSourcesDeepNesting on PostHeadComponentImageSourc
     }
     publicURL
   }
-  media__c4bf
-  typeProp__be75
+  type
 } 
 query BLOG_BY_SLUG($slug: String) { 
   kickstartDsBlogPage(slug: { eq: $slug }) { 

@@ -9,4 +9,3 @@ extensions:
       ./dist/page.graphql:
         plugins:
           - "@kickstartds/graphql-cli-add-gatsby-directives"
-

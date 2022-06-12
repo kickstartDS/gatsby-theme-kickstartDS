@@ -22,6 +22,7 @@ module.exports = {
     twitterUsername: "@kickstartDS",
     email: "hello@kickstartDS.com",
   },
+  trailingSlash: 'always',
   plugins: [
     {
       resolve: `@kickstartds/gatsby-theme-kickstartds`,
@@ -36,12 +37,6 @@ module.exports = {
     // { resolve: `@kickstartds/gatsby-transformer-kickstartds-mdx`, options: {} },
     { resolve: `@kickstartds/gatsby-transformer-kickstartds-netlify-cms`, options: {} },
     { resolve: `@kickstartds/gatsby-transformer-kickstartds-wordpress`, options: {} },
-    {
-      resolve: `gatsby-plugin-force-trailing-slashes`,
-      options: {
-        excludedPaths: [`/404.html`],
-      },
-    },
     {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
