@@ -1,3 +1,15 @@
+# v2.1.1 (Tue Jun 14 2022)
+
+#### ⚠️ Pushed to `master`
+
+- feature: add footer and header to settings ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.1.0 (Sun Jun 12 2022)
 
 #### 🚀 Enhancement
