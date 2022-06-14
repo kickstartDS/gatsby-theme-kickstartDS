@@ -2,6 +2,21 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-transformer-kickstartds-mdx@2.1.2`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.1.2`
+  - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@2.1.1`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.1.1`, `@kickstartds/gatsby-transformer-kickstartds-mdx@2.1.2`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.1.2`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.1.1`
+  - fix: broken netlify cms pages config ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Tue Jun 14 2022)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-transformer-kickstartds-mdx@2.1.1`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.1.1`
   - feature: add footer and header to settings ([@julrich](https://github.com/julrich))
 

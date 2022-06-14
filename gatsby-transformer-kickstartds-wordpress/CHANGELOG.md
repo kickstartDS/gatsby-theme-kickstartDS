@@ -1,3 +1,16 @@
+# v2.1.1 (Tue Jun 14 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- fix: broken netlify cms pages config ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.1.0 (Sun Jun 12 2022)
 
 #### 🚀 Enhancement
