@@ -1,3 +1,16 @@
+# (Tue Jun 14 2022)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-mdx@2.1.1`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.1.1`
+  - feature: add footer and header to settings ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Jun 12 2022)
 
 #### 🚀 Enhancement
