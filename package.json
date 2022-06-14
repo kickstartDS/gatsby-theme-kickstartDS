@@ -23,7 +23,7 @@
     "@auto-it/npm": "^10.37.1",
     "@auto-it/released": "^10.37.1",
     "@graphql-codegen/cli": "^2.6.2",
-    "@kickstartds/generate-from-schema": "2.3.0-canary.40.497.0",
+    "@kickstartds/generate-from-schema": "2.3.0",
     "auto": "^10.37.1",
     "graphql": "^15.8.0",
     "graphql-config": "^4.3.1",

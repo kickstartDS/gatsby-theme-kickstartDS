@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@gatsbyjs/reach-router": "^1.3.7",
-    "@kickstartds/jsonschema2graphql": "2.2.0-canary.29.484.0",
-    "@kickstartds/jsonschema2netlifycms": "2.3.0-canary.40.497.0",
+    "@kickstartds/jsonschema2graphql": "^2.2.0",
+    "@kickstartds/jsonschema2netlifycms": "^2.3.0",
     "gatsby-plugin-netlify-cms": "^6.15.0",
     "netlify-cms-app": "^2.15.72",
     "netlify-cms-widget-simple-uuid": "^0.0.2",
