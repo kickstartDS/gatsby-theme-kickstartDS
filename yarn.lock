@@ -2415,10 +2415,10 @@
     svgstore "^3.0.1"
     tinycolor2 "^1.4.2"
 
-"@kickstartds/design-system@2.0.18--canary.74.1999.0":
-  version "2.0.18--canary.74.1999.0"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.0.18--canary.74.1999.0.tgz#e872492cb0c66c96f4d6ddb90c7a61d5f1ab3dd2"
-  integrity sha512-Uo8UAVFjoJ+J9gZXuBsjN/jHAWgmeRlfI3csQwhdMHELfHZvQsfhHcNj7WNwcXXVtoimBsGzowWeBuLkFHXLQQ==
+"@kickstartds/design-system@2.1.0--canary.75.2022.0":
+  version "2.1.0--canary.75.2022.0"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.1.0--canary.75.2022.0.tgz#ea54dd01b1a11a4eeb0e7fd5e737a1b98e6bae42"
+  integrity sha512-3KUOuyZBRZyx8HD0dwTeE+oxrYPxPhfiGksk5fCtjCDfEoGIZWDQKVJlcEgOi5toT1gUhtEbzu8Zf+qNNUaLBA==
   dependencies:
     "@kickstartds/base" "2.0.0-canary.922.4419.0"
     "@kickstartds/blog" "2.0.0-canary.922.4419.0"
@@ -2428,6 +2428,7 @@
     change-case "^4.1.2"
     classnames "^2.3.1"
     json-schema-to-typescript "^10.1.5"
+    json-schema-traverse "^1.0.0"
     postinstall-postinstall "^2.1.0"
     typescript "^4.5.4"
 
@@ -2441,19 +2442,19 @@
     "@kickstartds/core" "2.0.0-canary.922.4419.0"
     classnames "^2.2.6"
 
-"@kickstartds/generate-from-schema@2.2.0-canary.29.484.0":
-  version "2.2.0-canary.29.484.0"
-  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-2.2.0-canary.29.484.0.tgz#756aced5f3f0eb13d0d0ede23597aa18d7bcd31e"
-  integrity sha512-ugtH0vbx+w7Y/5hUFhoXHJ0DdwC6dgCQDt+pOycRiMzbladWIHXbxkf+g+wKALs9DAHP4N1AVbkomnWd6QqUaQ==
+"@kickstartds/generate-from-schema@2.3.0-canary.40.497.0":
+  version "2.3.0-canary.40.497.0"
+  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-2.3.0-canary.40.497.0.tgz#11c472e2390c66a3526b47af8e1229e24e3cc9e8"
+  integrity sha512-C07K9c+a7kvlLaFsIfuedZKEuJfAbmbqkoZ/g6Wgx19t8zfTQSX5Hiih7Qva0efQYqkcQK1p5gucH6CVMoC7Xg==
   dependencies:
     "@graphql-codegen/cli" "^2.6.2"
-    "@kickstartds/graphql-cli-add-gatsby-directives" "1.2.0-canary.29.484.0"
-    "@kickstartds/graphql-cli-generate-fragments" "1.7.0-canary.29.484.0"
-    "@kickstartds/jsonschema-utils" "2.2.0-canary.29.484.0"
-    "@kickstartds/jsonschema2graphql" "2.2.0-canary.29.484.0"
-    "@kickstartds/jsonschema2netlifycms" "2.2.0-canary.29.484.0"
-    "@kickstartds/jsonschema2sanity" "1.1.0-canary.29.484.0"
-    "@kickstartds/jsonschema2tinacms" "2.2.0-canary.29.484.0"
+    "@kickstartds/graphql-cli-add-gatsby-directives" "^1.2.0"
+    "@kickstartds/graphql-cli-generate-fragments" "^1.7.0"
+    "@kickstartds/jsonschema-utils" "^2.2.0"
+    "@kickstartds/jsonschema2graphql" "^2.2.0"
+    "@kickstartds/jsonschema2netlifycms" "2.3.0-canary.40.497.0"
+    "@kickstartds/jsonschema2sanity" "^1.1.0"
+    "@kickstartds/jsonschema2tinacms" "2.3.0-canary.40.497.0"
     "@types/chokidar" "^2.1.3"
     ajv "^8.5.0"
     change-case "^4.1.2"
@@ -2466,10 +2467,10 @@
     js-yaml "^4.1.0"
     json-schema-traverse "^1.0.0"
 
-"@kickstartds/graphql-cli-add-gatsby-directives@1.2.0-canary.29.484.0":
-  version "1.2.0-canary.29.484.0"
-  resolved "https://registry.npmjs.org/@kickstartds/graphql-cli-add-gatsby-directives/-/graphql-cli-add-gatsby-directives-1.2.0-canary.29.484.0.tgz#9b482159fa28df523c17299f491ff23cb13d998f"
-  integrity sha512-iUfygZU1sODkzszTUU3rdOkA2o9cXDaTWzpgt/pSeL0SI3mYiPItmQ1eY/q9LdMfYys+tuBaVXOMVK+4y6+CxA==
+"@kickstartds/graphql-cli-add-gatsby-directives@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/@kickstartds/graphql-cli-add-gatsby-directives/-/graphql-cli-add-gatsby-directives-1.2.0.tgz#439ca2dcf6c71b97a127199cd98598626f842b81"
+  integrity sha512-hF6QcR2BtBzWk99wkeappsux3eMxM7THsr+K7CVvne+AY0koL2QiFLSo8cm7WqYcPYPuIsY3tjNqqDyNJVgF5Q==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^2.4.2"
     "@graphql-codegen/visitor-plugin-common" "2.8.0"
@@ -2479,10 +2480,10 @@
     lodash "^4.17.21"
     tslib "~2.4.0"
 
-"@kickstartds/graphql-cli-generate-fragments@1.7.0-canary.29.484.0":
-  version "1.7.0-canary.29.484.0"
-  resolved "https://registry.npmjs.org/@kickstartds/graphql-cli-generate-fragments/-/graphql-cli-generate-fragments-1.7.0-canary.29.484.0.tgz#7675f04bb36e22b548daf5b5384071b310a2bc94"
-  integrity sha512-IYlCb9Tljbu4om3gzTQEV+8rMXbRgM78zUoNSnaMVbbFTdSfBYMhEdEj5zclWSG8/khMye8KXerafd3k6waj8w==
+"@kickstartds/graphql-cli-generate-fragments@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/@kickstartds/graphql-cli-generate-fragments/-/graphql-cli-generate-fragments-1.7.0.tgz#01d90d98f37f614b3ead33914f0c7f5fa08a7ef9"
+  integrity sha512-BXqGnqod6vpeCokuSL5yzqdn+6wN7lDEu9PH4dq2fCQudJQgRcmNMbGNr/EzfHXynzHtD4vIV9AloYy67/mQTw==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^2.4.2"
     "@graphql-codegen/visitor-plugin-common" "2.8.0"
@@ -2504,6 +2505,32 @@
     lodash "^4.17.21"
     uppercamelcase "^3.0.0"
 
+"@kickstartds/jsonschema-utils@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema-utils/-/jsonschema-utils-2.2.0.tgz#3ce2c44efa5433b44f1ae982060031b312d53154"
+  integrity sha512-FYiqyg3cfdpbpmhzmNXucNf4v+AtNf3Qh/i71xoBXMXBc44PK6v7pW9mF1RK1phD1cKO4Eg/0OhnBRZTMWSB4A==
+  dependencies:
+    ajv "^8.5.0"
+    fast-glob "^3.2.5"
+    fs-extra "^10.0.0"
+    json-schema-traverse "^1.0.0"
+    lodash "^4.17.21"
+    uppercamelcase "^3.0.0"
+
+"@kickstartds/jsonschema2graphql@2.2.0", "@kickstartds/jsonschema2graphql@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-2.2.0.tgz#9bc0c8478b63366946bb753f8bd78515717c9447"
+  integrity sha512-/FkuYVsdjHaaXNb5/abreZGRO/ilIGYT1iaZ1Tp9qNmBGW/BSVJX03J9mMtpG3MObd1i592oGLcFEH3Tasa4sQ==
+  dependencies:
+    "@kickstartds/jsonschema-utils" "^2.2.0"
+    ajv "^8.5.0"
+    camelcase "^6.3.0"
+    graphql "^15.8.0"
+    lodash "^4.17.21"
+    pluralize "^8.0.0"
+    ramda "^0.28.0"
+    uppercamelcase "^3.0.0"
+
 "@kickstartds/jsonschema2graphql@2.2.0-canary.29.484.0":
   version "2.2.0-canary.29.484.0"
   resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-2.2.0-canary.29.484.0.tgz#2246c0ca5625eed534cba28396fb636bacf92f22"
@@ -2518,12 +2545,12 @@
     ramda "^0.28.0"
     uppercamelcase "^3.0.0"
 
-"@kickstartds/jsonschema2netlifycms@2.2.0-canary.29.484.0":
-  version "2.2.0-canary.29.484.0"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2netlifycms/-/jsonschema2netlifycms-2.2.0-canary.29.484.0.tgz#3863821d7a4eb622f0ec255f60f56f718a8bc3cd"
-  integrity sha512-ZBhlcVEW7xLGYTFeEzHnm/quQOYxV7l1qWrIbePQwX7DLW26YmIfDgcs6ZVd2ke3rlxfi8NLDvSJ5jpHUwIYmQ==
+"@kickstartds/jsonschema2netlifycms@2.3.0-canary.40.497.0":
+  version "2.3.0-canary.40.497.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2netlifycms/-/jsonschema2netlifycms-2.3.0-canary.40.497.0.tgz#ac8b21e8e82f94a6bfa65caaae98a614f5a33421"
+  integrity sha512-m7rMup3j3XTo2gilhCCCI1wI2gRdp0csXD7eHjC4VsKe1DVEjAhPUF8AAYSQiWpgHLwTDm+X6GG78Seni3G+Ng==
   dependencies:
-    "@kickstartds/jsonschema-utils" "2.2.0-canary.29.484.0"
+    "@kickstartds/jsonschema-utils" "^2.2.0"
     ajv "^8.5.0"
     camelcase "^6.2.0"
     lodash "^4.17.21"
@@ -2531,10 +2558,10 @@
     object-traversal "^1.0.1"
     ramda "^0.27.1"
 
-"@kickstartds/jsonschema2sanity@1.1.0-canary.29.484.0":
-  version "1.1.0-canary.29.484.0"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2sanity/-/jsonschema2sanity-1.1.0-canary.29.484.0.tgz#8462f394c066b285c0019236dab9081722c372cd"
-  integrity sha512-t+31j+yHnR3XsCMYrz2pG2dpYK000mKPsOiaE32e4wlHgrtpsVlVvP1eyN4MO6ijREl1QV5isYFexe2SB2eADg==
+"@kickstartds/jsonschema2sanity@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2sanity/-/jsonschema2sanity-1.1.0.tgz#7d67c03f3e134057929caa5d711dca1a2fa7d40e"
+  integrity sha512-tDC53CPer53Qj2RnQsLEXW43CTBP43JtR8R4TqMZvR/i7L3XsIqa+1B0N+NPhM1+YPJyCeAzkqIgyT8Ol2vG8A==
   dependencies:
     "@types/json-pointer" "^1.0.31"
     ajv "^8.5.0"
@@ -2544,12 +2571,12 @@
     object-traversal "^1.0.1"
     ramda "^0.27.1"
 
-"@kickstartds/jsonschema2tinacms@2.2.0-canary.29.484.0":
-  version "2.2.0-canary.29.484.0"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2tinacms/-/jsonschema2tinacms-2.2.0-canary.29.484.0.tgz#8c2da0c79b2c4c2288f79155a066f91bc2d907a1"
-  integrity sha512-yWn5cZQa1+1tC+0S76DNnUnw+c9VeDOrlqJQNX5rHJcNx3J1YlTf0SS3Ak+Ln9U0jLPx9aizJXDcMC896GdJ6Q==
+"@kickstartds/jsonschema2tinacms@2.3.0-canary.40.497.0":
+  version "2.3.0-canary.40.497.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2tinacms/-/jsonschema2tinacms-2.3.0-canary.40.497.0.tgz#31bc54c1e30c76fc95c4b61f48f261cd5fc29fd6"
+  integrity sha512-END06CU2401H+raeqtHGqweFscBJMxH3bQiddzi1SC9PCr75hD6/BdswgIcSmSTWKLSYa+EHS/8liVyeVANKZQ==
   dependencies:
-    "@kickstartds/jsonschema-utils" "2.2.0-canary.29.484.0"
+    "@kickstartds/jsonschema-utils" "^2.2.0"
     ajv "^8.5.0"
     camelcase "^6.2.0"
     lodash "^4.17.21"
@@ -9767,7 +9794,7 @@ gatsby-plugin-loadable-components-ssr@^4.2.0:
     "@loadable/server" "^5.15.0"
     "@loadable/webpack-plugin" "^5.15.0"
 
-gatsby-plugin-mdx@^3.15.1:
+gatsby-plugin-mdx@^3.16.1:
   version "3.16.1"
   resolved "https://registry.npmjs.org/gatsby-plugin-mdx/-/gatsby-plugin-mdx-3.16.1.tgz#f31a0a5df1a151826ae6f71ad6839830cd1fafce"
   integrity sha512-6YX+z182gmRcUy+YK+mw8fFEzqakaCAFQI/AZU0V2lUoyhUiphETrqJAvoQh+pR0mOKI738ux9ENDCz5NAM0Bw==
@@ -9919,7 +9946,7 @@ gatsby-react-router-scroll@^5.16.0:
     "@babel/runtime" "^7.15.4"
     prop-types "^15.8.1"
 
-gatsby-remark-autolink-headers@^5.15.1:
+gatsby-remark-autolink-headers@^5.16.0:
   version "5.16.0"
   resolved "https://registry.npmjs.org/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-5.16.0.tgz#88b3af3ca7caf9e8e82acd098d8fbf23c604f34e"
   integrity sha512-IvbBBeX+CTAhoEGRhfUxzmZg+9fv+UvJTMArjJuB6cOQht1glwfPGoeAP1gm3kb3RDBYZulziTpsYZB5dE/TKQ==

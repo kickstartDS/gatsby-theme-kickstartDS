@@ -1,0 +1,23 @@
+sections:
+  - headline: Links
+    links:
+      - label: Blog
+        href: /blog
+      - href: /storybook
+        label: Storybook
+  - headline: Get in touch
+    links:
+      - label: Twitter
+        href: https://twitter.com/kickstartDS
+      - href: https://wa.me/491752131879?text=Hi!%20I%20am%20interested%20to%20know%20more%20about%20kickstartDS.
+        label: WhatsApp us
+      - href: mailto:hello@kickstartds.com
+        label: Send a mail
+  - headline: Data & Compliance
+    links:
+      - href: /privacy
+        label: Privacy
+      - href: /cookies
+        label: Cookie List
+      - label: Legal notice
+        href: /legal
