@@ -190,14 +190,14 @@ exports.createResolvers = async ({
             }
   
             glossaryJson.cta = {
-              headline: {
-                content: "Why we care?",
-                styleAs: "h1",
-                type: "headline",
-              },
               box: {
                 text: "Read more, or chat with us, to learn how this helps create consistent frontend interfaces",
                 vAlign: "top",
+                headline: {
+                  content: "Why we care?",
+                  styleAs: "h1",
+                  type: "headline",
+                },
                 link: {
                   href: "/",
                   label: "About kickstartDS",
@@ -212,9 +212,9 @@ exports.createResolvers = async ({
                 },
               },
               full: true,
-              type: "cta",
+              type: "storytelling",
             };
-  
+
             const ctaImage = await context.nodeModel.findOne({
               query: {
                 filter: {
@@ -236,7 +236,7 @@ exports.createResolvers = async ({
             }
   
             glossaryJson.type = 'glossary';
-
+            
             return hashObjectKeys(glossaryJson, 'glossary');
           }
 

@@ -8,13 +8,13 @@ import { Layout } from "@kickstartds/gatsby-theme-kickstartds/src/components/Lay
 import { Glossary } from "@kickstartds/design-system/dist/components/glossary/GlossaryComponent";
 import { SEO } from "../components/Seo";
 
-export default function PostPage({ data }) {
+export default function GlossaryPage({ data }) {
   const { glossary } = cleanKeys(data.kickstartDsGlossaryPage);
 
   return (
     <Layout
-      header={data.kickstartDsHeader.component}
-      footer={data.kickstartDsFooter.component}
+      header={cleanKeys(data.kickstartDsHeader.component)}
+      footer={cleanKeys(data.kickstartDsFooter.component)}
     >
       <SEO
         title={data.kickstartDsGlossaryPage.title}

@@ -95,8 +95,8 @@ module.exports = async ({ actions, graphql }, options) => {
         title: 'Blog – releases, updates, background info // kickstartDS',
         layout: 'blog-list',
         description: 'Read about the latest updates and changes, our rationale behind decisions and how to apply a Design System on our blog',
-        header: data.kickstartDsHeader.component,
-        footer: data.kickstartDsFooter.component,
+        header: cleanObjectKeys(data.kickstartDsHeader.component),
+        footer: cleanObjectKeys(data.kickstartDsFooter.component),
       },
     },
   });

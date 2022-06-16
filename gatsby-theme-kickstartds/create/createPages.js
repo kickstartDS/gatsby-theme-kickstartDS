@@ -1,4 +1,5 @@
 const { collectGraphQLFragments } = require('../src/util/collectGraphQLFragments');
+const { cleanObjectKeys } = require('@kickstartds/jsonschema2graphql/build/dehashing');
 // TODO re-activate: this is the entry point for usage based component metrics
 // const { analyzeContent } = require('@kickstartds/gatsby-theme-kickstartds/src/helpers/componentAnalytics');
 
@@ -97,8 +98,8 @@ module.exports = async ({ actions, graphql }, options) => {
           path: page.node.slug,
           context: {
             page: {
-              header: data.kickstartDsHeader.component,
-              footer: data.kickstartDsFooter.component,
+              header: cleanObjectKeys(data.kickstartDsHeader.component),
+              footer: cleanObjectKeys(data.kickstartDsFooter.component),
               ...page.node
             },
           },

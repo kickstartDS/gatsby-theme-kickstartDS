@@ -17,8 +17,8 @@ export default function PostPage({ data }) {
         twitterCreator={data.kickstartDsBlogPage.twitterCreator}
       />
       <BlogDetailPage
-        header={data.kickstartDsHeader.component}
-        footer={data.kickstartDsFooter.component}
+        header={cleanKeys(data.kickstartDsHeader.component)}
+        footer={cleanKeys(data.kickstartDsFooter.component)}
         {...cleanKeys(data.kickstartDsBlogPage)}
       />
     </>

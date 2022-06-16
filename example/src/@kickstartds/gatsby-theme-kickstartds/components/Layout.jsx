@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { cleanObjectKeys } from '@kickstartds/jsonschema2graphql/build/dehashing';
-
 import { Layout as OriginalLayout } from '@kickstartds/gatsby-theme-kickstartds/src/components/Layout';
 
 import { Header } from '@kickstartds/design-system/dist/components/header/HeaderComponent';
@@ -16,11 +14,11 @@ import '@kickstartds/design-system/dist/index.js';
 export const Layout = ({ children, header, footer, ...rest }) => (
   <OriginalLayout {...rest}>
     <IconSprite />
-    <Header {...cleanObjectKeys(header || {})} />
+    <Header {...header} />
     
     {children}
 
-    <Footer {...cleanObjectKeys(footer || {})} />
+    <Footer {...footer} />
     <LightBox />  
   </OriginalLayout>
 );
