@@ -1,5 +1,6 @@
 const { collectGraphQLFragments } = require('../src/util/collectGraphQLFragments');
-const { analyzeContent } = require('@kickstartds/gatsby-theme-kickstartds/src/helpers/componentAnalytics');
+// TODO re-activate: this is the entry point for usage based component metrics
+// const { analyzeContent } = require('@kickstartds/gatsby-theme-kickstartds/src/helpers/componentAnalytics');
 
 module.exports = async ({ actions, graphql }, options) => {
   const { gqlPath } = options;
@@ -8,6 +9,8 @@ module.exports = async ({ actions, graphql }, options) => {
   const { data } = await graphql(/* GraphQL */ `
     ${await collectGraphQLFragments([
       'SectionComponentDeepNesting',
+      'HeaderComponentDeepNesting',
+      'FooterComponentDeepNesting',
     ], gqlPath)}
     {
       allKickstartDsPage {
@@ -70,19 +73,34 @@ module.exports = async ({ actions, graphql }, options) => {
           }
         }
       }
+      kickstartDsHeader {
+        component {
+          ...HeaderComponentDeepNesting
+        }
+      }
+      kickstartDsFooter {
+        component {
+          ...FooterComponentDeepNesting
+        }
+      }
     }
   `);
 
   await Promise.all(
     data.allKickstartDsPage.edges.map(async (page) => {
       if (!(page.node.slug.includes('blog') || page.node.slug.includes('glossary'))) {
+        // TODO re-activate: this is the entry point for usage based component metrics
         // await analyzeContent(page.node.slug, page.node.sections, true);
 
         await actions.createPage({
           component: require.resolve('../src/templates/page.js'),
           path: page.node.slug,
           context: {
-            page: page.node,
+            page: {
+              header: data.kickstartDsHeader.component,
+              footer: data.kickstartDsFooter.component,
+              ...page.node
+            },
           },
         });
       }

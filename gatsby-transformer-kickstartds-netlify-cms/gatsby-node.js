@@ -1,5 +1,5 @@
-const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const path = require('path');
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
 
 const slash = (path) => {
@@ -158,5 +158,55 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
 
     createNode(page);
     createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
+  }
+
+  if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.fileAbsolutePath.includes('/settings/')) {
+    if (node.fileAbsolutePath.includes('header.md')) {
+      const kickstartDSHeaderId = createNodeId(`${node.id} >>> KickstartDsHeader`);
+
+      node.frontmatter = hashObjectKeys(node.frontmatter, 'header');
+
+      const header = {
+        id: kickstartDSHeaderId,
+        component: {
+          ...node.frontmatter,
+          type: 'header',
+        },
+        parent: node.id,
+      };
+
+      header.internal = {
+        contentDigest: createContentDigest(header),
+        content: JSON.stringify(header),
+        type: 'KickstartDsHeader',
+        description: `Netlify CMS implementation of the kickstartDS header`,
+      };
+
+      createNode(header);
+      createParentChildLink({ parent: node, child: getNode(kickstartDSHeaderId) });
+    } else if (node.fileAbsolutePath.includes('footer.md')) {
+      const kickstartDSFooterId = createNodeId(`${node.id} >>> KickstartDsFooter`);
+
+      node.frontmatter = hashObjectKeys(node.frontmatter, 'footer');
+
+      const footer = {
+        id: kickstartDSFooterId,
+        component: {
+          ...node.frontmatter,
+          type: 'footer',
+        },
+        parent: node.id,
+      };
+
+      footer.internal = {
+        contentDigest: createContentDigest(footer),
+        content: JSON.stringify(footer),
+        type: 'KickstartDsFooter',
+        description: `Netlify CMS implementation of the kickstartDS footer`,
+      };
+
+      createNode(footer);
+      createParentChildLink({ parent: node, child: getNode(kickstartDSFooterId) });
+    }
   }
 };

@@ -14,6 +14,8 @@ interface KickstartDsPage implements Node @dontInfer {
   cardImage: File @link
 
   # generic content interface
+  header: HeaderComponent
+  footer: FooterComponent
   sections: [SectionComponent]
   components: [ContentComponent]
 

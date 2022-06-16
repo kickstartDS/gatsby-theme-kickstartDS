@@ -8,6 +8,8 @@ module.exports = async ({ actions, graphql }, options) => {
   const { data } = await graphql(/* GraphQL */ `
     ${await collectGraphQLFragments([
       'SectionComponentDeepNesting',
+      'HeaderComponentDeepNesting',
+      'FooterComponentDeepNesting',
     ], gqlPath)}
     {
       allKickstartDsBlogPage {
@@ -33,6 +35,16 @@ module.exports = async ({ actions, graphql }, options) => {
               ...PostAsideComponentDeepNesting
             }
           }
+        }
+      }
+      kickstartDsHeader {
+        component {
+          ...HeaderComponentDeepNesting
+        }
+      }
+      kickstartDsFooter {
+        component {
+          ...FooterComponentDeepNesting
         }
       }
     }
@@ -83,6 +95,8 @@ module.exports = async ({ actions, graphql }, options) => {
         title: 'Blog – releases, updates, background info // kickstartDS',
         layout: 'blog-list',
         description: 'Read about the latest updates and changes, our rationale behind decisions and how to apply a Design System on our blog',
+        header: data.kickstartDsHeader.component,
+        footer: data.kickstartDsFooter.component,
       },
     },
   });

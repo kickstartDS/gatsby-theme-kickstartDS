@@ -14,6 +14,8 @@ type KickstartDsMdxBlogPage implements Node & KickstartDsPage & KickstartDsBlogP
   cardImage: File @link
   
   # generic content interface
+  header: HeaderComponent
+  footer: FooterComponent
   sections: [SectionComponent]
   components: [ContentComponent]
   

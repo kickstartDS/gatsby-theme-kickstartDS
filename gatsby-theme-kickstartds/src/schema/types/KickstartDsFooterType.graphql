@@ -1,0 +1,8 @@
+"""Generic kickstartDS footer implementation"""
+type KickstartDsFooter implements Node @dontInfer {
+  # core interface
+  id: ID!
+  
+  # footer component
+  component: FooterComponent
+}

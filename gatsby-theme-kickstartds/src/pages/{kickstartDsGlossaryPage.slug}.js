@@ -12,7 +12,10 @@ export default function PostPage({ data }) {
   const { glossary } = cleanKeys(data.kickstartDsGlossaryPage);
 
   return (
-    <Layout>
+    <Layout
+      header={data.kickstartDsHeader.component}
+      footer={data.kickstartDsFooter.component}
+    >
       <SEO
         title={data.kickstartDsGlossaryPage.title}
         description={data.kickstartDsGlossaryPage.description}
@@ -27,6 +30,12 @@ export default function PostPage({ data }) {
 }
 
 export const query = graphql` 
+fragment FooterComponentDeepNesting on FooterComponent {
+  sections__17ac {
+    ...FooterComponentSectionsDeepNesting
+  }
+  type
+}
 fragment GlossaryComponentDeepNesting on GlossaryComponent {
   cover__bb73 {
     ...GlossaryComponentCoverDeepNesting
@@ -45,6 +54,29 @@ fragment GlossaryComponentDeepNesting on GlossaryComponent {
   tags__736d
   term__e184
   type
+}
+fragment HeaderComponentDeepNesting on HeaderComponent {
+  activeEntry__254f
+  cta__c294 {
+    ...HeaderComponentCtaDeepNesting
+  }
+  homeLink__5dc0
+  light__6e54
+  navEnabled__7b87
+  navEntries__8f4f {
+    ...HeaderComponentNavEntriesDeepNesting
+  }
+  type
+}
+fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
+  headline__b113
+  links__3f74 {
+    ...FooterComponentSectionsLinksDeepNesting
+  }
+}
+fragment FooterComponentSectionsLinksDeepNesting on FooterComponentSectionsLinks {
+  href__8955
+  label__f0f4
 }
 fragment GlossaryComponentCoverDeepNesting on GlossaryComponentCover {
   caption__47fa
@@ -169,6 +201,15 @@ fragment IconComponentDeepNesting on IconComponent {
 fragment StorytellingComponentImageOrderDeepNesting on StorytellingComponentImageOrder {
   desktopImageLast__ed82
   mobileImageLast__f625
+}
+fragment HeaderComponentCtaDeepNesting on HeaderComponentCta {
+  href__815d
+  label__e61b
+}
+fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
+  href__815d
+  id__7362
+  label__e61b
 } 
 query GLOSSARY_BY_SLUG($slug: String) { 
   kickstartDsGlossaryPage(slug: { eq: $slug }) { 
@@ -183,6 +224,16 @@ query GLOSSARY_BY_SLUG($slug: String) {
     } 
     glossary { 
       ...GlossaryComponentDeepNesting 
+    } 
+  } 
+  kickstartDsHeader { 
+    component { 
+      ...HeaderComponentDeepNesting 
+    } 
+  } 
+  kickstartDsFooter { 
+    component { 
+      ...FooterComponentDeepNesting 
     } 
   } 
 } 

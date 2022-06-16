@@ -8,6 +8,8 @@ const createPages = require(`./create/createPages.js`);
 
 const getGlossaryPageQuery = async (gqlPath) => {
   const glossaryFragments = await collectGraphQLFragments([
+    'HeaderComponentDeepNesting',
+    'FooterComponentDeepNesting',
     'GlossaryComponentDeepNesting',
   ], gqlPath);
 
@@ -29,6 +31,16 @@ query GLOSSARY_BY_SLUG($slug: String) { \n\
       ...GlossaryComponentDeepNesting \n\
     } \n\
   } \n\
+  kickstartDsHeader { \n\
+    component { \n\
+      ...HeaderComponentDeepNesting \n\
+    } \n\
+  } \n\
+  kickstartDsFooter { \n\
+    component { \n\
+      ...FooterComponentDeepNesting \n\
+    } \n\
+  } \n\
 } \n\
   `;'
 
@@ -37,6 +49,8 @@ query GLOSSARY_BY_SLUG($slug: String) { \n\
 
 const getBlogPageQuery = async (gqlPath) => {
   const blogFragments = await collectGraphQLFragments([
+    'HeaderComponentDeepNesting',
+    'FooterComponentDeepNesting',
     'PostHeadComponentDeepNesting',
     'PostAsideComponentDeepNesting',
     'PostShareBarComponentDeepNesting',
@@ -75,6 +89,16 @@ query BLOG_BY_SLUG($slug: String) { \n\
     } \n\
     postReadingTime \n\
     postWordCount \n\
+  } \n\
+  kickstartDsHeader { \n\
+    component { \n\
+      ...HeaderComponentDeepNesting \n\
+    } \n\
+  } \n\
+  kickstartDsFooter { \n\
+    component { \n\
+      ...FooterComponentDeepNesting \n\
+    } \n\
   } \n\
 } \n\
   `;'
@@ -117,6 +141,9 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
   const kickstartDsGlossaryPageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsGlossaryPageType.graphql`, 'utf8');
   const kickstartDsContentPageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsContentPageType.graphql`, 'utf8');
 
+  const kickstartDsHeaderType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsHeaderType.graphql`, 'utf8');
+  const kickstartDsFooterType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsFooterType.graphql`, 'utf8');
+
   // TODO generalize this
   const contentInterface = schema.buildInterfaceType({
     name: `ContentComponent`,
@@ -143,6 +170,8 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
     kickstartDsMdxBlogPageType,
     kickstartDsGlossaryPageType,
     kickstartDsContentPageType,
+    kickstartDsHeaderType,
+    kickstartDsFooterType,
     contentInterface,
     textMediaInterface
   ]);
