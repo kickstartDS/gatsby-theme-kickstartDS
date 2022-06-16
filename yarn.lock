@@ -2442,16 +2442,16 @@
     "@kickstartds/core" "2.0.0-canary.922.4419.0"
     classnames "^2.2.6"
 
-"@kickstartds/generate-from-schema@^2.3.2":
-  version "2.3.2"
-  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-2.3.2.tgz#c89197e4a6d99178551abd5690c62593b01c9a1f"
-  integrity sha512-gkhssCkLdEc+O072MW5vjjnIB8wpY5Uh5iB3w0NMpdehlCcP5YgFPzLzPUJraglhDIyrOoFvn4iWeOk7mwSgrQ==
+"@kickstartds/generate-from-schema@^2.3.3":
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-2.3.3.tgz#28d0af1c53d93ba49665b9e15bdd5e4b610fb161"
+  integrity sha512-O0Xga6q8OAxQ6kVhedBotuFMJFCJtL/BiDjRWQHHCnLOhxqDkWJKAQt8y/j3BmVDUsH9vFFRxJn1ICcOLxSHkw==
   dependencies:
     "@graphql-codegen/cli" "^2.6.2"
     "@kickstartds/graphql-cli-add-gatsby-directives" "^1.2.0"
     "@kickstartds/graphql-cli-generate-fragments" "^1.7.0"
     "@kickstartds/jsonschema-utils" "^2.2.0"
-    "@kickstartds/jsonschema2graphql" "^2.2.1"
+    "@kickstartds/jsonschema2graphql" "^2.2.2"
     "@kickstartds/jsonschema2netlifycms" "^2.3.2"
     "@kickstartds/jsonschema2sanity" "^1.1.0"
     "@kickstartds/jsonschema2tinacms" "^2.3.0"
@@ -2505,10 +2505,10 @@
     lodash "^4.17.21"
     uppercamelcase "^3.0.0"
 
-"@kickstartds/jsonschema2graphql@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-2.2.1.tgz#526fb248568e4777fdb801dfe6db8f9955eb300e"
-  integrity sha512-FISSbEYHX5965yiCoV/J6pVsBlAYXRX7cMsdxxu1UCaaJ6WflOxy5ug6vViBiVjqEx3ICqqJ6eFnAZ50/Nf5tA==
+"@kickstartds/jsonschema2graphql@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-2.2.2.tgz#47bc2b71ee63730d3a0fc5ff02ca27625c0c5f84"
+  integrity sha512-M2edYF3/bVGx47isynEulBVOC1GYTHyLoYHsAxP5CVEHtMRlmnLE62pb/gA2dwP6KKKsX9s2HDV7rhJaog8siA==
   dependencies:
     "@kickstartds/jsonschema-utils" "^2.2.0"
     ajv "^8.5.0"
