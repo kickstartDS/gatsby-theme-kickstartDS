@@ -18,12 +18,6 @@ module.exports = async ({ actions, graphql }, options) => {
           node {
             slug
             layout
-            header {
-              ...HeaderComponentDeepNesting
-            }
-            footer {
-              ...FooterComponentDeepNesting
-            }
             sections {
               ...SectionComponentDeepNesting
             }
@@ -79,6 +73,16 @@ module.exports = async ({ actions, graphql }, options) => {
           }
         }
       }
+      kickstartDsHeader {
+        component {
+          ...HeaderComponentDeepNesting
+        }
+      }
+      kickstartDsFooter {
+        component {
+          ...FooterComponentDeepNesting
+        }
+      }
     }
   `);
 
@@ -92,7 +96,11 @@ module.exports = async ({ actions, graphql }, options) => {
           component: require.resolve('../src/templates/page.js'),
           path: page.node.slug,
           context: {
-            page: page.node,
+            page: {
+              header: data.kickstartDsHeader.component,
+              footer: data.kickstartDsFooter.component,
+              ...page.node
+            },
           },
         });
       }

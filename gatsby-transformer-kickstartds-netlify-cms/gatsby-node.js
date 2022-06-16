@@ -1,5 +1,5 @@
-const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const path = require('path');
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
 
 const slash = (path) => {
@@ -22,41 +22,6 @@ const findMatchingFile = (src, files, options) => {
     );
   }
   return result;
-};
-
-exports.createResolvers = async ({
-  actions,
-  cache,
-  createNodeId,
-  createResolvers,
-  store,
-}) => {
-  const { createNode } = actions;
-
-  await createResolvers({
-    KickstartDsContentPage: {
-      header: {
-        type: "HeaderComponent",
-        async resolve(source, args, context) {
-          const header = await context.nodeModel.findOne({
-            type: "KickstartDsHeader",
-          });
-
-          return header.component;
-        },
-      },
-      footer: {
-        type: "FooterComponent",
-        async resolve(source, args, context) {
-          const footer = await context.nodeModel.findOne({
-            type: "KickstartDsFooter",
-          });
-
-          return footer.component;
-        },
-      }
-    }
-  });
 };
 
 exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNodeId, createContentDigest, store, cache }) => {

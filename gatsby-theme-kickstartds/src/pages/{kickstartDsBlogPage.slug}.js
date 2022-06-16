@@ -16,7 +16,11 @@ export default function PostPage({ data }) {
         cardImage={data.kickstartDsBlogPage.cardImage && data.kickstartDsBlogPage.cardImage.publicURL}
         twitterCreator={data.kickstartDsBlogPage.twitterCreator}
       />
-      <BlogDetailPage {...cleanKeys(data.kickstartDsBlogPage)} />
+      <BlogDetailPage
+        header={data.kickstartDsHeader.component}
+        footer={data.kickstartDsFooter.component}
+        {...cleanKeys(data.kickstartDsBlogPage)}
+      />
     </>
   );
 }
@@ -33,6 +37,25 @@ fragment ContactComponentDeepNesting on ContactComponent {
   }
   subtitle__92ac
   title__5426
+  type
+}
+fragment FooterComponentDeepNesting on FooterComponent {
+  sections__17ac {
+    ...FooterComponentSectionsDeepNesting
+  }
+  type
+}
+fragment HeaderComponentDeepNesting on HeaderComponent {
+  activeEntry__254f
+  cta__c294 {
+    ...HeaderComponentCtaDeepNesting
+  }
+  homeLink__5dc0
+  light__6e54
+  navEnabled__7b87
+  navEntries__8f4f {
+    ...HeaderComponentNavEntriesDeepNesting
+  }
   type
 }
 fragment HtmlComponentDeepNesting on HtmlComponent {
@@ -124,6 +147,25 @@ fragment PictureComponentSourcesDeepNesting on PictureComponentSources {
     publicURL
   }
   type
+}
+fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
+  headline__b113
+  links__3f74 {
+    ...FooterComponentSectionsLinksDeepNesting
+  }
+}
+fragment FooterComponentSectionsLinksDeepNesting on FooterComponentSectionsLinks {
+  href__8955
+  label__f0f4
+}
+fragment HeaderComponentCtaDeepNesting on HeaderComponentCta {
+  href__815d
+  label__e61b
+}
+fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
+  href__815d
+  id__7362
+  label__e61b
 }
 fragment PostAsideComponentAuthorDeepNesting on PostAsideComponentAuthor {
   className__31d2
@@ -272,6 +314,16 @@ query BLOG_BY_SLUG($slug: String) {
     } 
     postReadingTime 
     postWordCount 
+  } 
+  kickstartDsHeader { 
+    component { 
+      ...HeaderComponentDeepNesting 
+    } 
+  } 
+  kickstartDsFooter { 
+    component { 
+      ...FooterComponentDeepNesting 
+    } 
   } 
 } 
   `;
