@@ -5,6 +5,7 @@ keywords: Test1, Test2, Test3
 layout: content
 slug: content-box
 title: Content Box
+type: page
 sections:
   - mode: default
     spaceBefore: default

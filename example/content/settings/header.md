@@ -1,3 +1,4 @@
+---
 activeEntry: /
 homeLink: /
 light: false
@@ -15,3 +16,4 @@ navEntries:
   - href: /about
     id: about
     label: About
+---

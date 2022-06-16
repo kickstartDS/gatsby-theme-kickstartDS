@@ -1,5 +1,6 @@
 const { collectGraphQLFragments } = require('../src/util/collectGraphQLFragments');
-const { analyzeContent } = require('@kickstartds/gatsby-theme-kickstartds/src/helpers/componentAnalytics');
+// TODO re-activate: this is the entry point for usage based component metrics
+// const { analyzeContent } = require('@kickstartds/gatsby-theme-kickstartds/src/helpers/componentAnalytics');
 
 module.exports = async ({ actions, graphql }, options) => {
   const { gqlPath } = options;
@@ -8,6 +9,8 @@ module.exports = async ({ actions, graphql }, options) => {
   const { data } = await graphql(/* GraphQL */ `
     ${await collectGraphQLFragments([
       'SectionComponentDeepNesting',
+      'HeaderComponentDeepNesting',
+      'FooterComponentDeepNesting',
     ], gqlPath)}
     {
       allKickstartDsPage {
@@ -15,6 +18,12 @@ module.exports = async ({ actions, graphql }, options) => {
           node {
             slug
             layout
+            header {
+              ...HeaderComponentDeepNesting
+            }
+            footer {
+              ...FooterComponentDeepNesting
+            }
             sections {
               ...SectionComponentDeepNesting
             }
@@ -76,6 +85,7 @@ module.exports = async ({ actions, graphql }, options) => {
   await Promise.all(
     data.allKickstartDsPage.edges.map(async (page) => {
       if (!(page.node.slug.includes('blog') || page.node.slug.includes('glossary'))) {
+        // TODO re-activate: this is the entry point for usage based component metrics
         // await analyzeContent(page.node.slug, page.node.sections, true);
 
         await actions.createPage({

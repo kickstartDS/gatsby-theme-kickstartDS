@@ -1,0 +1,8 @@
+"""Generic kickstartDS header implementation"""
+type KickstartDsHeader implements Node @dontInfer {
+  # core interface
+  id: ID!
+
+  # header component
+  component: HeaderComponent
+}

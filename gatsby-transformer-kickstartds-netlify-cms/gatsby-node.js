@@ -24,6 +24,41 @@ const findMatchingFile = (src, files, options) => {
   return result;
 };
 
+exports.createResolvers = async ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+}) => {
+  const { createNode } = actions;
+
+  await createResolvers({
+    KickstartDsContentPage: {
+      header: {
+        type: "HeaderComponent",
+        async resolve(source, args, context) {
+          const header = await context.nodeModel.findOne({
+            type: "KickstartDsHeader",
+          });
+
+          return header.component;
+        },
+      },
+      footer: {
+        type: "FooterComponent",
+        async resolve(source, args, context) {
+          const footer = await context.nodeModel.findOne({
+            type: "KickstartDsFooter",
+          });
+
+          return footer.component;
+        },
+      }
+    }
+  });
+};
+
 exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNodeId, createContentDigest, store, cache }) => {
   const { createNode, createParentChildLink } = actions;
   const files = getNodesByType('File');
@@ -158,5 +193,55 @@ exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNo
 
     createNode(page);
     createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
+  }
+
+  if (node.internal.type === 'MarkdownRemark' && node.frontmatter && node.fileAbsolutePath.includes('/settings/')) {
+    if (node.fileAbsolutePath.includes('header.md')) {
+      const kickstartDSHeaderId = createNodeId(`${node.id} >>> KickstartDsHeader`);
+
+      node.frontmatter = hashObjectKeys(node.frontmatter, 'header');
+
+      const header = {
+        id: kickstartDSHeaderId,
+        component: {
+          ...node.frontmatter,
+          type: 'header',
+        },
+        parent: node.id,
+      };
+
+      header.internal = {
+        contentDigest: createContentDigest(header),
+        content: JSON.stringify(header),
+        type: 'KickstartDsHeader',
+        description: `Netlify CMS implementation of the kickstartDS header`,
+      };
+
+      createNode(header);
+      createParentChildLink({ parent: node, child: getNode(kickstartDSHeaderId) });
+    } else if (node.fileAbsolutePath.includes('footer.md')) {
+      const kickstartDSFooterId = createNodeId(`${node.id} >>> KickstartDsFooter`);
+
+      node.frontmatter = hashObjectKeys(node.frontmatter, 'footer');
+
+      const footer = {
+        id: kickstartDSFooterId,
+        component: {
+          ...node.frontmatter,
+          type: 'footer',
+        },
+        parent: node.id,
+      };
+
+      footer.internal = {
+        contentDigest: createContentDigest(footer),
+        content: JSON.stringify(footer),
+        type: 'KickstartDsFooter',
+        description: `Netlify CMS implementation of the kickstartDS footer`,
+      };
+
+      createNode(footer);
+      createParentChildLink({ parent: node, child: getNode(kickstartDSFooterId) });
+    }
   }
 };

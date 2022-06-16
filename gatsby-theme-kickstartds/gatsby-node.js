@@ -117,6 +117,9 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
   const kickstartDsGlossaryPageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsGlossaryPageType.graphql`, 'utf8');
   const kickstartDsContentPageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsContentPageType.graphql`, 'utf8');
 
+  const kickstartDsHeaderType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsHeaderType.graphql`, 'utf8');
+  const kickstartDsFooterType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsFooterType.graphql`, 'utf8');
+
   // TODO generalize this
   const contentInterface = schema.buildInterfaceType({
     name: `ContentComponent`,
@@ -143,6 +146,8 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
     kickstartDsMdxBlogPageType,
     kickstartDsGlossaryPageType,
     kickstartDsContentPageType,
+    kickstartDsHeaderType,
+    kickstartDsFooterType,
     contentInterface,
     textMediaInterface
   ]);
