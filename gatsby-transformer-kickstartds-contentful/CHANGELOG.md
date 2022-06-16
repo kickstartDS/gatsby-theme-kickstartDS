@@ -1,3 +1,21 @@
+# v2.2.2 (Thu Jun 16 2022)
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@julrich](https://github.com/julrich))
+- Update CHANGELOG.md \[skip ci\] ([@julrich](https://github.com/julrich))
+
+#### ⚠️ Pushed to `master`
+
+- fix: update versions ([@julrich](https://github.com/julrich))
+- fix: re-introduce glossary entries ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.2.1 (Thu Jun 16 2022)
 
 #### ⚠️ Pushed to `master`
