@@ -1,3 +1,20 @@
+# v2.2.0 (Thu Jun 16 2022)
+
+#### 🚀 Enhancement
+
+- feature: adds header and footer to page rendering [#87](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/87) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: clean up header and footer integration ([@julrich](https://github.com/julrich))
+- feature: adds header and footer to page rendering ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.1.1 (Tue Jun 14 2022)
 
 #### ⚠️ Pushed to `master`

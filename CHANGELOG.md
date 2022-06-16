@@ -1,3 +1,16 @@
+# (Thu Jun 16 2022)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@2.2.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.2.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@2.2.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.2.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.2.0`
+  - feature: adds header and footer to page rendering [#87](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/87) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Tue Jun 14 2022)
 
 #### ⚠️ Pushed to `master`
