@@ -2415,10 +2415,10 @@
     svgstore "^3.0.1"
     tinycolor2 "^1.4.2"
 
-"@kickstartds/design-system@2.1.0--canary.74.2038.0":
-  version "2.1.0--canary.74.2038.0"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.1.0--canary.74.2038.0.tgz#d7933ac7bc5cde1d633b9b382180246e0a4c8c87"
-  integrity sha512-V/l8gtpekcYJYTRUFU+pEYYCZrVVqTbvXR2SfTDYZYW5H0DWFS4Z1WOOSn09rag9YNzEAm8OGFVXGTDznYGHzQ==
+"@kickstartds/design-system@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.1.0.tgz#3f82ff38212c96a7c61a8ddebc697e78906820ad"
+  integrity sha512-14o5CjaiT7BQ48ubnrmqK+xkExjYtz14HGPHyNOjizGQwYOoYyf7TWlaixJA5wzHx0ZHG8yYNM/yrLqeotQqCQ==
   dependencies:
     "@kickstartds/base" "2.0.0-canary.922.4419.0"
     "@kickstartds/blog" "2.0.0-canary.922.4419.0"
@@ -2442,19 +2442,19 @@
     "@kickstartds/core" "2.0.0-canary.922.4419.0"
     classnames "^2.2.6"
 
-"@kickstartds/generate-from-schema@^2.3.3":
-  version "2.3.3"
-  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-2.3.3.tgz#28d0af1c53d93ba49665b9e15bdd5e4b610fb161"
-  integrity sha512-O0Xga6q8OAxQ6kVhedBotuFMJFCJtL/BiDjRWQHHCnLOhxqDkWJKAQt8y/j3BmVDUsH9vFFRxJn1ICcOLxSHkw==
+"@kickstartds/generate-from-schema@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/@kickstartds/generate-from-schema/-/generate-from-schema-2.4.0.tgz#24dcd0f8a9956bcf8215fd0bfe33f394d9d31835"
+  integrity sha512-QEhtiPUvZyjzuiCf0nT+RFYZVaSAdxcx43IXgeLwrF1QvTYWcYY93b8H7WbRMLLau2fZ5t74BluHXUkTFfKeQQ==
   dependencies:
     "@graphql-codegen/cli" "^2.6.2"
     "@kickstartds/graphql-cli-add-gatsby-directives" "^1.2.0"
     "@kickstartds/graphql-cli-generate-fragments" "^1.7.0"
-    "@kickstartds/jsonschema-utils" "^2.2.0"
-    "@kickstartds/jsonschema2graphql" "^2.2.2"
-    "@kickstartds/jsonschema2netlifycms" "^2.3.2"
+    "@kickstartds/jsonschema-utils" "^2.3.0"
+    "@kickstartds/jsonschema2graphql" "^2.3.0"
+    "@kickstartds/jsonschema2netlifycms" "^2.4.0"
     "@kickstartds/jsonschema2sanity" "^1.1.0"
-    "@kickstartds/jsonschema2tinacms" "^2.3.0"
+    "@kickstartds/jsonschema2tinacms" "^2.4.0"
     "@types/chokidar" "^2.1.3"
     ajv "^8.5.0"
     change-case "^4.1.2"
@@ -2493,10 +2493,10 @@
     lodash "^4.17.21"
     tslib "~2.4.0"
 
-"@kickstartds/jsonschema-utils@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema-utils/-/jsonschema-utils-2.2.0.tgz#3ce2c44efa5433b44f1ae982060031b312d53154"
-  integrity sha512-FYiqyg3cfdpbpmhzmNXucNf4v+AtNf3Qh/i71xoBXMXBc44PK6v7pW9mF1RK1phD1cKO4Eg/0OhnBRZTMWSB4A==
+"@kickstartds/jsonschema-utils@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema-utils/-/jsonschema-utils-2.3.0.tgz#e155ad0e3295f57f4bec2fb4d83fe640e2af5daf"
+  integrity sha512-zgeqjQ+feU8gJC7CiIgLN+CL5PQd72fjJcQSpif4i7+v+g09QtZ1xBBtTXHPQ8zHElTewJXQ7aZooTgijyoRCQ==
   dependencies:
     ajv "^8.5.0"
     fast-glob "^3.2.5"
@@ -2505,12 +2505,12 @@
     lodash "^4.17.21"
     uppercamelcase "^3.0.0"
 
-"@kickstartds/jsonschema2graphql@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-2.2.2.tgz#47bc2b71ee63730d3a0fc5ff02ca27625c0c5f84"
-  integrity sha512-M2edYF3/bVGx47isynEulBVOC1GYTHyLoYHsAxP5CVEHtMRlmnLE62pb/gA2dwP6KKKsX9s2HDV7rhJaog8siA==
+"@kickstartds/jsonschema2graphql@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2graphql/-/jsonschema2graphql-2.3.0.tgz#1f99b6e3f1329d378bbfab5df8fa10d3c504ed9d"
+  integrity sha512-baxGkq1Ps00195Q04CYaFMa4VuFYTm9nbMq57wpVtL7bBadUu8mnBDdi9tvipDyNPzv+hdIqE2qA5MWkO1QGkQ==
   dependencies:
-    "@kickstartds/jsonschema-utils" "^2.2.0"
+    "@kickstartds/jsonschema-utils" "^2.3.0"
     ajv "^8.5.0"
     camelcase "^6.3.0"
     graphql "^15.8.0"
@@ -2519,12 +2519,12 @@
     ramda "^0.28.0"
     uppercamelcase "^3.0.0"
 
-"@kickstartds/jsonschema2netlifycms@^2.3.2":
-  version "2.3.2"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2netlifycms/-/jsonschema2netlifycms-2.3.2.tgz#752cbced43e9d1b6ace3ce598e433e142c88e8c2"
-  integrity sha512-QvxQELVxhtbb9vfNAXdVJC5OMxJ1C/HrHLk4yrlb57IwJuCrn+XJ2A1TWwR5HS25tGP2OGZvfqGp03VBrVOVPA==
+"@kickstartds/jsonschema2netlifycms@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2netlifycms/-/jsonschema2netlifycms-2.4.0.tgz#a303ff8d5f3906727c95c2b8cb1e4d1889d655f5"
+  integrity sha512-+pwQRrQ3bJaqByJ/QczlSu8R8VoVNYotiRgfKNpN8jzLjTMQvS8W17kbJlLjWZtwy5GBG9YBFnAjr0Gc/MyluQ==
   dependencies:
-    "@kickstartds/jsonschema-utils" "^2.2.0"
+    "@kickstartds/jsonschema-utils" "^2.3.0"
     ajv "^8.5.0"
     camelcase "^6.2.0"
     lodash "^4.17.21"
@@ -2545,12 +2545,13 @@
     object-traversal "^1.0.1"
     ramda "^0.27.1"
 
-"@kickstartds/jsonschema2tinacms@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2tinacms/-/jsonschema2tinacms-2.3.0.tgz#c4a18455d515332314751f8a4473d5fc845bcd26"
-  integrity sha512-SMKfrUyY7Jp1Sd8DBxbwlQXQHI0EFfhiBpxe5q7z7S2BVjtYZR/rEJsMPE65hm14gcT0YUeGjdETu/GwiQdXsw==
+"@kickstartds/jsonschema2tinacms@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/@kickstartds/jsonschema2tinacms/-/jsonschema2tinacms-2.4.0.tgz#af0ba86da23665f0e1d011ca01dc47ea0e7d7b32"
+  integrity sha512-sLZQT5XCHLCF3pe/rUnhKNDXyzsfMKF14IC9afW8Kx3lbqmk6pVL0oNKXz5Jhs7TfZVbtEUd1I8KB9l1Vs3NIQ==
   dependencies:
-    "@kickstartds/jsonschema-utils" "^2.2.0"
+    "@kickstartds/jsonschema-utils" "^2.3.0"
+    "@kickstartds/jsonschema2netlifycms" "^2.4.0"
     ajv "^8.5.0"
     camelcase "^6.2.0"
     lodash "^4.17.21"
@@ -3319,10 +3320,10 @@
   resolved "https://registry.npmjs.org/@mapbox/unitbezier/-/unitbezier-0.0.0.tgz#15651bd553a67b8581fb398810c98ad86a34524e"
   integrity sha512-HPnRdYO0WjFjRTSwO3frz1wKaU649OBFPX3Zo/2WZvuRi6zMiRGui8SnPQiQABgqCf8YikDe5t3HViTVw1WUzA==
 
-"@mdx-js/mdx@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/@mdx-js/mdx/-/mdx-2.1.1.tgz#6d8b9b75456d7685a52c3812b1c3e4830c7458fb"
-  integrity sha512-SXC18cChut3F2zkVXwsb2no0fzTQ1z6swjK13XwFbF5QU/SFQM0orAItPypSdL3GvqYyzVJtz8UofzJhPEQtMw==
+"@mdx-js/mdx@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/@mdx-js/mdx/-/mdx-2.1.2.tgz#d13fb811809fda37967dc0eebd5bb36adce89a81"
+  integrity sha512-ASN1GUH0gXsgJ2UD/Td7FzJo1SwFkkQ5V1i9at5o/ROra7brkyMcBsotsOWJWRzmXZaLw2uXWn4aN8B3PMNFMA==
   dependencies:
     "@types/estree-jsx" "^0.0.1"
     "@types/mdx" "^2.0.0"
@@ -3342,10 +3343,10 @@
     unist-util-visit "^4.0.0"
     vfile "^5.0.0"
 
-"@mdx-js/react@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/@mdx-js/react/-/react-2.1.1.tgz#c59d844fd61b776fea8673fb77405d4e14db48c5"
-  integrity sha512-7zlZDf5xmWH8I0kFE4DG91COOkxjaW9DX5f1HWztZpFcVua2gJgMYfIkFaDpO/DH/tWi6Mz+OheW4194r15igg==
+"@mdx-js/react@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/@mdx-js/react/-/react-2.1.2.tgz#02972f170cd3ad9113ce448245c5f636bb3e750d"
+  integrity sha512-52e3DTJBrjsw3U51ZCdZ3N1IBaqnbzLIngCSXpKtiYiGr7PIqp3/P/+kym0MPTwBL/y9ZBmCieD8FyrXuEDrRw==
   dependencies:
     "@types/mdx" "^2.0.0"
     "@types/react" ">=16"
