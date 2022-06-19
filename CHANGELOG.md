@@ -1,3 +1,16 @@
+# (Sun Jun 19 2022)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@2.2.3`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.2.3`, `@kickstartds/gatsby-transformer-kickstartds-mdx@2.2.2`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.2.2`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.2.2`
+  - fix: update ksDS dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Thu Jun 16 2022)
 
 #### ⚠️ Pushed to `master`

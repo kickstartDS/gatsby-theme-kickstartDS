@@ -1,3 +1,15 @@
+# v2.2.2 (Sun Jun 19 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: update ksDS dependencies ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.2.1 (Thu Jun 16 2022)
 
 #### ⚠️ Pushed to `master`
