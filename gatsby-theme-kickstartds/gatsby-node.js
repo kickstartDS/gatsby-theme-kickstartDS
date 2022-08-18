@@ -146,7 +146,7 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
 
   // TODO generalize this
   const contentInterface = schema.buildInterfaceType({
-    name: `ContentComponent`,
+    name: `SectionComponentContent`,
     fields: {
       type: 'String',
     },

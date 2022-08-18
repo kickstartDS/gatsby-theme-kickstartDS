@@ -20,14 +20,14 @@
     "example"
   ],
   "devDependencies": {
-    "@auto-it/npm": "^10.37.1",
-    "@auto-it/released": "^10.37.1",
-    "@graphql-codegen/cli": "^2.6.2",
-    "@kickstartds/generate-from-schema": "^2.4.0",
-    "auto": "^10.37.1",
+    "@auto-it/npm": "^10.37.4",
+    "@auto-it/released": "^10.37.4",
+    "@graphql-codegen/cli": "^2.11.6",
+    "@kickstartds/generate-from-schema": "^2.5.12",
+    "auto": "^10.37.4",
     "graphql": "^15.8.0",
-    "graphql-config": "^4.3.1",
-    "lerna": "^5.0.0",
+    "graphql-config": "^4.3.3",
+    "lerna": "^5.4.2",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0"
   },

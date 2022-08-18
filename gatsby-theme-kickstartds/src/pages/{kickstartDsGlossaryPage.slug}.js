@@ -127,6 +127,7 @@ fragment StorytellingComponentDeepNesting on StorytellingComponent {
   image__cc97 {
     ...StorytellingComponentImageDeepNesting
   }
+  inverted__bd99
   type
 }
 fragment StorytellingComponentBoxDeepNesting on StorytellingComponentBox {
@@ -135,10 +136,10 @@ fragment StorytellingComponentBoxDeepNesting on StorytellingComponentBox {
     ...StorytellingComponentBoxHeadlineDeepNesting
   }
   link__5d0d {
-    ...LinkButtonComponentDeepNesting
+    ...ButtonComponentDeepNesting
   }
   links__83cd {
-    ...LinkButtonComponentDeepNesting
+    ...ButtonComponentDeepNesting
   }
   textAlign__4df6
   textColor__ad35
@@ -160,25 +161,29 @@ fragment StorytellingComponentImageDeepNesting on StorytellingComponentImage {
   }
   vAlign__9bd7
 }
-fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
-  className__8726
-  dataComponent__8d9e
-  deko__e569
-  fillAnimation__2a89
-  highlighted__83d6
-  href__11db
-  iconAfter__c8b6
-  iconAnimation__9933
-  iconBefore__7991
-  icon__157f {
+fragment ButtonComponentDeepNesting on ButtonComponent {
+  className__f69c
+  dataComponent__fb24
+  deko__578c
+  disabled__f1d0
+  fillAnimation__a843
+  highlighted__46cc
+  href__b8c0
+  iconAfter__9214
+  iconAnimation__a42f
+  iconBefore__ce4f
+  icon__b287 {
     ...IconComponentDeepNesting
   }
-  inverted__2475
-  label__b988
-  newTab__dc35
-  size__942c
+  inverted__eb49
+  label__634c
+  name__6a5d
+  newTab__56b9
+  size__1735
   type
-  variant__a43d
+  typeProp__0e9c
+  value__ed44
+  variant__c8d5
 }
 fragment StorytellingComponentBoxHeadlineDeepNesting on StorytellingComponentBoxHeadline {
   align__6135

@@ -18,25 +18,25 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@kickstartds/base": "2.0.0-canary.922.4419.0",
-    "@kickstartds/blog": "2.0.0-canary.922.4419.0",
-    "@kickstartds/content": "2.0.0-canary.922.4419.0",
-    "@kickstartds/core": "2.0.0-canary.922.4419.0",
-    "@kickstartds/design-system": "^2.1.0",
-    "@kickstartds/form": "2.0.0-canary.922.4419.0",
+    "@kickstartds/base": "2.0.0-canary.922.4512.0",
+    "@kickstartds/blog": "2.0.0-canary.922.4512.0",
+    "@kickstartds/content": "2.0.0-canary.922.4512.0",
+    "@kickstartds/core": "2.0.0-canary.922.4512.0",
+    "@kickstartds/design-system": "2.1.12--canary.81.2175.0",
+    "@kickstartds/form": "2.0.0-canary.922.4512.0",
     "@kickstartds/gatsby-theme-kickstartds": "^2.2.3",
     "@kickstartds/gatsby-transformer-kickstartds-contentful": "^2.2.3",
     "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^2.2.2",
     "@kickstartds/gatsby-transformer-kickstartds-wordpress": "^2.2.2",
     "@makotot/ghostui": "^2.0.0",
     "dotenv": "^16.0.1",
-    "gatsby": "^4.15.2",
+    "gatsby": "^4.20.0",
     "gatsby-plugin-advanced-sitemap": "^2.1.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "slugify": "^1.6.5"
   },
   "devDependencies": {
-    "prettier": "^2.6.2"
+    "prettier": "^2.7.1"
   }
 }

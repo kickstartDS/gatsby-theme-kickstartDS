@@ -39,7 +39,7 @@ sections:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-          type: link-button
+          type: button
       - type: content-box
         ratio: none
         alignement: left
@@ -59,7 +59,7 @@ sections:
           label: Lorem Ipsum
           newTab: false
           iconBefore: false
-          type: link-button
+          type: button
     type: section
     gutter: default
 ---

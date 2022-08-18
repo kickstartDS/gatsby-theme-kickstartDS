@@ -10,6 +10,7 @@ module.exports = async ({ actions, graphql }, options) => {
       'SectionComponentDeepNesting',
       'HeaderComponentDeepNesting',
       'FooterComponentDeepNesting',
+      'PostAsideComponentDeepNesting',
     ], gqlPath)}
     {
       allKickstartDsBlogPage {

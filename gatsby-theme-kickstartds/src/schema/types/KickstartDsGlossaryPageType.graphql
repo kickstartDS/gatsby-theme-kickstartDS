@@ -17,7 +17,7 @@ type KickstartDsGlossaryPage implements Node & KickstartDsPage @dontInfer {
   header: HeaderComponent
   footer: FooterComponent
   sections: [SectionComponent]
-  components: [ContentComponent]
+  components: [SectionComponentContent]
 
   # dates interface
   updated: Date! @dateformat

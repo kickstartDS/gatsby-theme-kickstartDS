@@ -35,7 +35,7 @@ sections:
           label: Career
           newTab: false
           iconBefore: false
-          type: link-button
+          type: button
       - type: count-up
         to: 387
         topic: "Locations (worldwide) "
@@ -52,7 +52,7 @@ sections:
           label: Global Search
           newTab: false
           iconBefore: false
-          type: link-button
+          type: button
       - type: count-up
         to: 42
         topic: "Country orgs (worldwide) "
@@ -69,7 +69,7 @@ sections:
           label: Local Search
           newTab: false
           iconBefore: false
-          type: link-button
+          type: button
     type: section
     gutter: large
   - mode: default
@@ -101,7 +101,7 @@ sections:
           label: Stats
           newTab: false
           iconBefore: false
-          type: link-button
+          type: button
       - type: count-up
         to: 39793200
         topic: Tonnage
@@ -118,7 +118,7 @@ sections:
           label: Pledge
           newTab: false
           iconBefore: false
-          type: link-button
+          type: button
     type: section
     gutter: large
 ---
