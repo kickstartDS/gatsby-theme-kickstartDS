@@ -34,6 +34,9 @@ fragment FooterComponentDeepNesting on FooterComponent {
   sections__17ac {
     ...FooterComponentSectionsDeepNesting
   }
+  subscriptionForm__afcd {
+    ...FooterComponentSubscriptionFormDeepNesting
+  }
   type
 }
 fragment GlossaryComponentDeepNesting on GlossaryComponent {
@@ -57,6 +60,9 @@ fragment GlossaryComponentDeepNesting on GlossaryComponent {
 }
 fragment HeaderComponentDeepNesting on HeaderComponent {
   activeEntry__254f
+  announcementBar__2ba5 {
+    ...HeaderComponentAnnouncementBarDeepNesting
+  }
   cta__c294 {
     ...HeaderComponentCtaDeepNesting
   }
@@ -73,6 +79,15 @@ fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
   links__3f74 {
     ...FooterComponentSectionsLinksDeepNesting
   }
+}
+fragment FooterComponentSubscriptionFormDeepNesting on FooterComponentSubscriptionForm {
+  action__a83d
+  buttonLabel__d5bb
+  headline__b113
+  honeypot__bc4e
+  placeholder__f8c9
+  subheadline__163b
+  tags__87c2
 }
 fragment FooterComponentSectionsLinksDeepNesting on FooterComponentSectionsLinks {
   href__8955
@@ -201,6 +216,11 @@ fragment IconComponentDeepNesting on IconComponent {
 fragment StorytellingComponentImageOrderDeepNesting on StorytellingComponentImageOrder {
   desktopImageLast__ed82
   mobileImageLast__f625
+}
+fragment HeaderComponentAnnouncementBarDeepNesting on HeaderComponentAnnouncementBar {
+  content__4b31
+  linkHref__738d
+  linkLabel__e25c
 }
 fragment HeaderComponentCtaDeepNesting on HeaderComponentCta {
   href__815d
