@@ -297,5 +297,99 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
 
     createNode(page);
     createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
+  } else if (node.internal.type === 'ContentfulAppearance') {
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsAppearancePage`);
+
+    const page = {
+      id: kickstartDSPageId,
+      slug: `appearance/${node.slug}`,
+      layout: 'appearance',
+      
+      title: node.title,
+      description: stripHtml(node.description.raw).result,
+
+      created: node.createdAt,
+      updated: node.updatedAt,
+
+      appearance: {
+        link: node.link,
+        title: node.title,
+        definition: node.description.raw,
+        tags: node.tags___NODE
+          && node.tags___NODE.length > 0
+          && node.tags___NODE || [],
+        related: node.related___NODE
+          && node.related___NODE.length > 0
+          && node.related___NODE || [],
+      },
+
+      parent: node.id,
+    };
+
+    if (node.cover___NODE) {
+      page.image = node.cover___NODE;
+      page.cardImage = node.cover___NODE;
+    };
+
+    if (node.media___NODE) {
+      page.appearance.media = node.media___NODE;
+    }
+
+    page.internal = {
+      contentDigest: createContentDigest(page),
+      content: JSON.stringify(page),
+      type: 'KickstartDsAppearancePage',
+      description: `Contentful appearance implementation of the kickstartDS appearance page interface`,
+    };
+
+    createNode(page);
+    createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
+  } else if (node.internal.type === 'ContentfulShowcase') {
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsShowcasePage`);
+
+    const page = {
+      id: kickstartDSPageId,
+      slug: `showcase/${node.slug}`,
+      layout: 'showcase',
+      
+      title: node.title,
+      description: stripHtml(node.description.raw).result,
+
+      created: node.createdAt,
+      updated: node.updatedAt,
+
+      showcase: {
+        link: node.link,
+        title: node.title,
+        definition: node.description.raw,
+        tags: node.tags___NODE
+          && node.tags___NODE.length > 0
+          && node.tags___NODE || [],
+        related: node.related___NODE
+          && node.related___NODE.length > 0
+          && node.related___NODE || [],
+      },
+
+      parent: node.id,
+    };
+
+    if (node.cover___NODE) {
+      page.image = node.cover___NODE;
+      page.cardImage = node.cover___NODE;
+    };
+
+    if (node.media___NODE) {
+      page.showcase.media = node.media___NODE;
+    }
+
+    page.internal = {
+      contentDigest: createContentDigest(page),
+      content: JSON.stringify(page),
+      type: 'KickstartDsShowcasePage',
+      description: `Contentful showcase implementation of the kickstartDS showcase page interface`,
+    };
+
+    createNode(page);
+    createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });    
   }
 };
