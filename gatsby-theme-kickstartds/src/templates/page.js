@@ -17,8 +17,14 @@ const selectTemplate = (key, props) => {
     case 'blog-detail':
       return <BlogDetailPage {...props} />
 
-    case 'glossary':
-      return <GlossaryEntryPage {...props} />
+      case 'glossary':
+        return <GlossaryEntryPage {...props} />
+
+      case 'appearance':
+        return <AppearanceEntryPage {...props} />
+
+      case 'showcase':
+        return <ShowcaseEntryPage {...props} />
 
     default:
       return <ContentPage {...props} />

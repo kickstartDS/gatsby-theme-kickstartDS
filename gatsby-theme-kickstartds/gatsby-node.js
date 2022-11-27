@@ -47,6 +47,88 @@ query GLOSSARY_BY_SLUG($slug: String) { \n\
   return glossaryPageQuery;
 };
 
+const getAppearancePageQuery = async (gqlPath) => {
+  const appearanceFragments = await collectGraphQLFragments([
+    'HeaderComponentDeepNesting',
+    'FooterComponentDeepNesting',
+    'AppearanceComponentDeepNesting',
+  ], gqlPath);
+
+  const appearancePageQuery = '\
+export const query = graphql` \n\
+'+appearanceFragments+' \n\
+query APPEARANCE_BY_SLUG($slug: String) { \n\
+  kickstartDsAppearancePage(slug: { eq: $slug }) { \n\
+    title \n\
+    description \n\
+    keywords \n\
+    image { \n\
+      publicURL \n\
+    } \n\
+    cardImage { \n\
+      publicURL \n\
+    } \n\
+    appearance { \n\
+      ...AppearanceComponentDeepNesting \n\
+    } \n\
+  } \n\
+  kickstartDsHeader { \n\
+    component { \n\
+      ...HeaderComponentDeepNesting \n\
+    } \n\
+  } \n\
+  kickstartDsFooter { \n\
+    component { \n\
+      ...FooterComponentDeepNesting \n\
+    } \n\
+  } \n\
+} \n\
+  `;'
+
+  return appearancePageQuery;
+};
+
+const getShowcasePageQuery = async (gqlPath) => {
+  const showcaseFragments = await collectGraphQLFragments([
+    'HeaderComponentDeepNesting',
+    'FooterComponentDeepNesting',
+    'ShowcaseComponentDeepNesting',
+  ], gqlPath);
+
+  const showcasePageQuery = '\
+export const query = graphql` \n\
+'+showcaseFragments+' \n\
+query SHOWCASE_BY_SLUG($slug: String) { \n\
+  kickstartDsShowcasePage(slug: { eq: $slug }) { \n\
+    title \n\
+    description \n\
+    keywords \n\
+    image { \n\
+      publicURL \n\
+    } \n\
+    cardImage { \n\
+      publicURL \n\
+    } \n\
+    showcase { \n\
+      ...ShowcaseComponentDeepNesting \n\
+    } \n\
+  } \n\
+  kickstartDsHeader { \n\
+    component { \n\
+      ...HeaderComponentDeepNesting \n\
+    } \n\
+  } \n\
+  kickstartDsFooter { \n\
+    component { \n\
+      ...FooterComponentDeepNesting \n\
+    } \n\
+  } \n\
+} \n\
+  `;'
+
+  return showcasePageQuery;
+};
+
 const getBlogPageQuery = async (gqlPath) => {
   const blogFragments = await collectGraphQLFragments([
     'HeaderComponentDeepNesting',
@@ -116,6 +198,20 @@ exports.createPages = async (props, options) => {
     'utf8',
   );
 
+  const appearanceSlugPage = fs.readFileSync(`${__dirname}/src/pages/{kickstartDsAppearancePage.slug}.js`, 'utf8');
+  fs.writeFileSync(
+    `${__dirname}/src/pages/{kickstartDsAppearancePage.slug}.js`,
+    appearanceSlugPage.replace(/export const query[\s\S]+/g, await getAppearancePageQuery(gqlPath)),
+    'utf8',
+  );
+
+  const showcaseSlugPage = fs.readFileSync(`${__dirname}/src/pages/{kickstartDsShowcasePage.slug}.js`, 'utf8');
+  fs.writeFileSync(
+    `${__dirname}/src/pages/{kickstartDsShowcasePage.slug}.js`,
+    showcaseSlugPage.replace(/export const query[\s\S]+/g, await getShowcasePageQuery(gqlPath)),
+    'utf8',
+  );
+
   const blogSlugPage = fs.readFileSync(`${__dirname}/src/pages/{kickstartDsBlogPage.slug}.js`, 'utf8');
   fs.writeFileSync(
     `${__dirname}/src/pages/{kickstartDsBlogPage.slug}.js`,
@@ -139,6 +235,8 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
   const kickstartDsWordpressBlogPageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsWordpressBlogPageType.graphql`, 'utf8');
   const kickstartDsMdxBlogPageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsMdxBlogPageType.graphql`, 'utf8');
   const kickstartDsGlossaryPageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsGlossaryPageType.graphql`, 'utf8');
+  const kickstartDsAppearancePageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsAppearancePageType.graphql`, 'utf8');
+  const kickstartDsShowcasePageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsShowcasePageType.graphql`, 'utf8');
   const kickstartDsContentPageType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsContentPageType.graphql`, 'utf8');
 
   const kickstartDsHeaderType = fs.readFileSync(`${__dirname}/src/schema/types/KickstartDsHeaderType.graphql`, 'utf8');
@@ -169,6 +267,8 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
     kickstartDsWordpressBlogPageType,
     kickstartDsMdxBlogPageType,
     kickstartDsGlossaryPageType,
+    kickstartDsAppearancePageType,
+    kickstartDsShowcasePageType,
     kickstartDsContentPageType,
     kickstartDsHeaderType,
     kickstartDsFooterType,
