@@ -62,6 +62,26 @@ module.exports = {
               }
             }
           }
+          allKickstartDsShowcasePage {
+            edges {
+              node {
+                id
+                slug
+                created_at: created
+                updated_at: updated
+              }
+            }
+          }
+          allKickstartDsAppearancePage {
+            edges {
+              node {
+                id
+                slug
+                created_at: created
+                updated_at: updated
+              }
+            }
+          }
           allKickstartDsBlogPage {
             edges {
               node {
@@ -78,6 +98,12 @@ module.exports = {
         mapping: {
           allKickstartDsGlossaryPage: {
             sitemap: `glossary`,
+          },
+          allKickstartDsShowcasePage: {
+            sitemap: `showcase`,
+          },
+          allKickstartDsAppearancePage: {
+            sitemap: `appearance`,
           },
           allKickstartDsContentPage: {
             sitemap: `pages`,

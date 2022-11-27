@@ -1,0 +1,28 @@
+"""Showcase implementation of kickstartDS page interface"""
+type KickstartDsShowcasePage implements Node & KickstartDsPage @dontInfer {
+  # core interface
+  id: ID!
+  layout: String!
+  slug: String!
+
+  # seo interface
+  title: String!
+  description: String
+  keywords: String
+  image: File @link
+  imageUrl: String
+  cardImage: File @link
+  
+  # generic content interface
+  header: HeaderComponent
+  footer: FooterComponent
+  sections: [SectionComponent]
+  components: [ContentComponent]
+
+  # dates interface
+  updated: Date! @dateformat
+  created: Date! @dateformat
+
+  # showcase detail
+  showcase: ShowcaseComponent!
+}

@@ -3,6 +3,8 @@ import { SEO } from "../components/Seo";
 import { ContentPage } from "../components/ContentPage";
 import { BlogDetailPage } from "../components/BlogDetailPage";
 import { BlogListPage } from "../components/BlogListPage";
+import { AppearanceListPage } from "../components/AppearanceListPage";
+import { ShowcaseListPage } from "../components/ShowcaseListPage";
 import { GlossaryEntryPage } from "../components/GlossaryEntryPage";
 
 const selectTemplate = (key, props) => {
@@ -17,8 +19,20 @@ const selectTemplate = (key, props) => {
     case 'blog-detail':
       return <BlogDetailPage {...props} />
 
-    case 'glossary':
-      return <GlossaryEntryPage {...props} />
+      case 'glossary':
+        return <GlossaryEntryPage {...props} />
+
+      case 'appearance':
+        return <AppearanceEntryPage {...props} />
+
+      case 'appearance-list':
+        return <AppearanceListPage {...props} />
+
+      case 'showcase':
+        return <ShowcaseEntryPage {...props} />
+
+      case 'showcase-list':
+        return <ShowcaseListPage {...props} />
 
     default:
       return <ContentPage {...props} />
