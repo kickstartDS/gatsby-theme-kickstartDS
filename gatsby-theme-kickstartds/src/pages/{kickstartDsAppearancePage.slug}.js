@@ -34,11 +34,17 @@ fragment AppearanceComponentDeepNesting on AppearanceComponent {
   cover__c9af {
     ...AppearanceComponentCoverDeepNesting
   }
+  date__3714
   description__0c15
+  host__c039 {
+    ...AppearanceComponentHostDeepNesting
+  }
+  language__9ebf
   link__5a2c
   media__9948 {
     ...AppearanceComponentMediaDeepNesting
   }
+  participants__d862
   related__7fc1 {
     ...AppearanceComponentRelatedDeepNesting
   }
@@ -80,6 +86,10 @@ fragment AppearanceComponentCoverDeepNesting on AppearanceComponentCover {
     }
     publicURL
   }
+}
+fragment AppearanceComponentHostDeepNesting on AppearanceComponentHost {
+  name__b20a
+  url__b835
 }
 fragment AppearanceComponentMediaDeepNesting on AppearanceComponentMedia {
   caption__bdf3

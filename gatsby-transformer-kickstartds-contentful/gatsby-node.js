@@ -701,6 +701,12 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createCont
         link: node.link,
         title: node.title,
         description: node.description.raw,
+        host: {
+          name: node.hostName,
+          url: node.hostUrl,
+        },
+        participants: node.participants,
+        date: new Date(node.date).toLocaleDateString(),
         tags: node.tags___NODE
           && node.tags___NODE.length > 0
           && node.tags___NODE || [],

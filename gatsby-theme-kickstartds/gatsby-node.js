@@ -4,6 +4,8 @@ const pascalCase =  require('change-case').pascalCase;
 const { collectGraphQLFragments } = require('./src/util/collectGraphQLFragments');
 
 const createBlogList = require(`./create/createBlogList.js`);
+const createAppearanceList = require(`./create/createAppearanceList.js`);
+const createShowcaseList = require(`./create/createShowcaseList.js`);
 const createPages = require(`./create/createPages.js`);
 
 const getGlossaryPageQuery = async (gqlPath) => {
@@ -220,6 +222,8 @@ exports.createPages = async (props, options) => {
   );
 
   await createBlogList(props, options);
+  await createAppearanceList(props, options);
+  await createShowcaseList(props, options);
   await createPages(props, options);
 };
 

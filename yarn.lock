@@ -2742,10 +2742,10 @@
     svgstore "^3.0.1"
     tinycolor2 "^1.4.2"
 
-"@kickstartds/design-system@2.2.0--canary.87.2329.0":
-  version "2.2.0--canary.87.2329.0"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.2.0--canary.87.2329.0.tgz#5af0cb79a1ec1d9172369e6344258c1be99e889c"
-  integrity sha512-xBK2CSAEkUvWpsk+grvKVYBCpGGv0h4oISf3PVSAGYDwiMQRFSvj4HUYbkyIIuXO2X234dYcABhlCdljjt3t4w==
+"@kickstartds/design-system@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.2.0.tgz#1e685893a0989d8f5f7b67464ccc3c35c6ad686c"
+  integrity sha512-oi67SYCZW1n0ZnWDNrh0A8LByGWUZbLCYEWbOooPHVL6ewLjPdSIJ0PPyK75FsGNqhfEpNv8OX5rsBjc/6/qxg==
   dependencies:
     "@bedrock-layout/primitives" "^2.2.1"
     "@kickstartds/base" "2.0.0-canary.922.4419.0"

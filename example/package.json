@@ -22,7 +22,7 @@
     "@kickstartds/blog": "2.0.0-canary.922.4419.0",
     "@kickstartds/content": "2.0.0-canary.922.4419.0",
     "@kickstartds/core": "2.0.0-canary.922.4419.0",
-    "@kickstartds/design-system": "2.2.0--canary.87.2329.0",
+    "@kickstartds/design-system": "^2.2.0",
     "@kickstartds/form": "2.0.0-canary.922.4419.0",
     "@kickstartds/gatsby-theme-kickstartds": "^2.2.3",
     "@kickstartds/gatsby-transformer-kickstartds-contentful": "^2.2.3",
