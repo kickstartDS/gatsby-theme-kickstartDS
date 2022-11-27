@@ -1,3 +1,21 @@
+# v2.3.0 (Sun Nov 27 2022)
+
+#### 🚀 Enhancement
+
+- Add new contentful types Showcase and Appearance [#95](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/95) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- feature: add listing pages for Showcase and Appearance ([@julrich](https://github.com/julrich))
+- feature: add templates and rendering to appearances and showcases ([@julrich](https://github.com/julrich))
+- feature(contentful): ingest showcase and appearances ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.2.3 (Sun Jun 19 2022)
 
 #### ⚠️ Pushed to `master`

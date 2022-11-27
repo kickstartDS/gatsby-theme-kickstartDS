@@ -1,3 +1,16 @@
+# (Sun Nov 27 2022)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@2.3.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.3.0`
+  - Add new contentful types Showcase and Appearance [#95](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/95) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Jun 19 2022)
 
 #### ⚠️ Pushed to `master`
