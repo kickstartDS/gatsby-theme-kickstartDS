@@ -1,3 +1,15 @@
+# v2.2.3 (Tue Dec 06 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: update to canary of gatsby wordpress plugin ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.2.2 (Sun Jun 19 2022)
 
 #### ⚠️ Pushed to `master`

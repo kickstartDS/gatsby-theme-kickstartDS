@@ -1,3 +1,17 @@
+# (Tue Dec 06 2022)
+
+#### ⚠️ Pushed to `master`
+
+- fix: use Node 18 on Circle CI ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.2.3`
+  - fix: update to canary of gatsby wordpress plugin ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Nov 27 2022)
 
 #### 🚀 Enhancement
