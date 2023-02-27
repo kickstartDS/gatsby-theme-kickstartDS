@@ -190,7 +190,9 @@ fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
 fragment PostAsideComponentAuthorDeepNesting on PostAsideComponentAuthor {
   className__31d2
   copy__f23d
-  headline__e226
+  headline__e226 {
+    ...PostAsideComponentAuthorHeadlineDeepNesting
+  }
   image__f40b {
     ...PictureComponentDeepNesting
   }
@@ -211,6 +213,18 @@ fragment PostMetaComponentDeepNesting on PostMetaComponent {
   }
   type
 }
+fragment PostAsideComponentAuthorHeadlineDeepNesting on PostAsideComponentAuthorHeadline {
+  align__b352
+  className__31d2
+  content__f35e
+  level__f7a7
+  pageHeader__7d53
+  spaceAfter__c0ff
+  styleAs__51ec
+  subheadline__664c
+  switchOrder__105c
+  type
+}
 fragment PostAsideComponentAuthorLinksDeepNesting on PostAsideComponentAuthorLinks {
   href__98b4
   icon__05d7
@@ -228,9 +242,13 @@ fragment PostMetaComponentItemsDeepNesting on PostMetaComponentItems {
   text__a6d7
 }
 fragment PostShareBarComponentHeadlineDeepNesting on PostShareBarComponentHeadline {
-  align__84ae
+  align__84ae {
+    ...PostShareBarComponentHeadlineAlignDeepNesting
+  }
   className__d6f2
-  content__00b0
+  content__00b0 {
+    ...PostShareBarComponentHeadlineContentDeepNesting
+  }
   level__d60e
   pageHeader__0804
   spaceAfter__3aa5
@@ -244,6 +262,30 @@ fragment PostShareBarComponentLinksDeepNesting on PostShareBarComponentLinks {
   icon__4d4f
   newTab__496f
   title__2454
+}
+fragment PostShareBarComponentHeadlineAlignDeepNesting on PostShareBarComponentHeadlineAlign {
+  align__84ae
+  className__d6f2
+  content__00b0
+  level__d60e
+  pageHeader__0804
+  spaceAfter__3aa5
+  styleAs__cecb
+  subheadline__75b9
+  switchOrder__956d
+  type
+}
+fragment PostShareBarComponentHeadlineContentDeepNesting on PostShareBarComponentHeadlineContent {
+  align__84ae
+  className__d6f2
+  content__00b0
+  level__d60e
+  pageHeader__0804
+  spaceAfter__3aa5
+  styleAs__cecb
+  subheadline__75b9
+  switchOrder__956d
+  type
 }
 fragment PostHeadComponentHeadlineDeepNesting on PostHeadComponentHeadline {
   align__1b07

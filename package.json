@@ -20,15 +20,15 @@
     "example"
   ],
   "devDependencies": {
-    "@auto-it/npm": "^10.37.1",
-    "@auto-it/released": "^10.37.1",
-    "@graphql-codegen/cli": "^2.6.2",
-    "@kickstartds/generate-from-schema": "^2.4.0",
-    "auto": "^10.37.1",
+    "@auto-it/npm": "^10.37.6",
+    "@auto-it/released": "^10.37.6",
+    "@graphql-codegen/cli": "^2.16.1",
+    "@kickstartds/generate-from-schema": "^2.5.13",
+    "auto": "^10.37.6",
     "graphql": "^15.8.0",
-    "graphql-config": "^4.3.1",
-    "lerna": "^5.0.0",
-    "patch-package": "^6.4.7",
+    "graphql-config": "^4.3.6",
+    "lerna": "^6.1.0",
+    "patch-package": "^6.5.0",
     "postinstall-postinstall": "^2.1.0"
   },
   "resolutions": {

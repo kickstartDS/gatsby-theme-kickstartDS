@@ -28,7 +28,7 @@ exports.collectGraphQLFragments = async (fragmentNamesToExtract, gqlPath) => {
     }
   };
 
-  const allFragments = result
+  const allFragments = result.astDefinitions
     .filter((item) => item.doc && item.doc.kind === "Document")
     .flatMap((document) => document.doc.definitions.filter(
       (def) => def.kind === "FragmentDefinition"
@@ -39,8 +39,14 @@ exports.collectGraphQLFragments = async (fragmentNamesToExtract, gqlPath) => {
       fragmentNamesToExtract.includes(fragment.name.value)
     );
 
+  console.log('fragmentNamesToExtract', fragmentNamesToExtract);
+
+  console.log('requiredFragments', requiredFragments.map((fragment) => fragment.name.value));
+
   const nestedFragments = requiredFragments
     .flatMap((requiredFragment) => getNestedFragments(requiredFragment, allFragments));
+
+  console.log('nestedFragments', nestedFragments.map((fragment) => fragment.name.value));
 
   return [...requiredFragments, ...nestedFragments]
     .filter((value, index, self) => self.map(x => x.name.value).indexOf(value.name.value) == index)
