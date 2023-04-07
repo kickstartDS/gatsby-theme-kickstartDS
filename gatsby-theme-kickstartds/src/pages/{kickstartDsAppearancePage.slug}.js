@@ -20,8 +20,14 @@ export default function AppearancePage({ data }) {
         title={data.kickstartDsAppearancePage.title}
         description={data.kickstartDsAppearancePage.description}
         keywords={data.kickstartDsAppearancePage.keywords}
-        image={data.kickstartDsAppearancePage.image && data.kickstartDsAppearancePage.image.publicURL}
-        cardImage={data.kickstartDsAppearancePage.cardImage && data.kickstartDsAppearancePage.cardImage.publicURL}
+        image={
+          data.kickstartDsAppearancePage.image &&
+          data.kickstartDsAppearancePage.image.publicURL
+        }
+        cardImage={
+          data.kickstartDsAppearancePage.cardImage &&
+          data.kickstartDsAppearancePage.cardImage.publicURL
+        }
         twitterCreator={data.kickstartDsAppearancePage.twitterCreator}
       />
       <Appearance {...appearance} />
@@ -44,15 +50,19 @@ fragment AppearanceComponentDeepNesting on AppearanceComponent {
   media__9948 {
     ...AppearanceComponentMediaDeepNesting
   }
-  participants__d862
+  participants__d862 {
+    ...PersonComponentDeepNesting
+  }
   related__7fc1 {
-    ...AppearanceComponentRelatedDeepNesting
+    ...RelatedComponentDeepNesting
   }
   tags__53b2
   title__5953
   type
 }
 fragment FooterComponentDeepNesting on FooterComponent {
+  dark__1ff9
+  homeLink__7c70
   sections__17ac {
     ...FooterComponentSectionsDeepNesting
   }
@@ -69,8 +79,8 @@ fragment HeaderComponentDeepNesting on HeaderComponent {
   cta__c294 {
     ...HeaderComponentCtaDeepNesting
   }
+  dark__f9be
   homeLink__5dc0
-  light__6e54
   navEnabled__7b87
   navEntries__8f4f {
     ...HeaderComponentNavEntriesDeepNesting
@@ -101,17 +111,29 @@ fragment AppearanceComponentMediaDeepNesting on AppearanceComponentMedia {
     publicURL
   }
 }
-fragment AppearanceComponentRelatedDeepNesting on AppearanceComponentRelated {
-  excerpt__f719
+fragment PersonComponentDeepNesting on PersonComponent {
+  avatar__d3c6
+  className__fb40
+  component__8c90
+  name__fac5
+  size__b1dd
+  title__b0b7
+  type
+}
+fragment RelatedComponentDeepNesting on RelatedComponent {
+  excerpt__b377
   
-  image__e4fa {
+  image__3a5c {
     childImageSharp {
       gatsbyImageData
     }
     publicURL
   }
-  title__5953
-  url__b835
+  tags__63eb
+  title__d9bc
+  type
+  typeProp__2b76
+  url__7c2a
 }
 fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
   headline__b113

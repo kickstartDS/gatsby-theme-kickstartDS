@@ -40,6 +40,8 @@ fragment ContactComponentDeepNesting on ContactComponent {
   type
 }
 fragment FooterComponentDeepNesting on FooterComponent {
+  dark__1ff9
+  homeLink__7c70
   sections__17ac {
     ...FooterComponentSectionsDeepNesting
   }
@@ -56,8 +58,8 @@ fragment HeaderComponentDeepNesting on HeaderComponent {
   cta__c294 {
     ...HeaderComponentCtaDeepNesting
   }
+  dark__f9be
   homeLink__5dc0
-  light__6e54
   navEnabled__7b87
   navEntries__8f4f {
     ...HeaderComponentNavEntriesDeepNesting

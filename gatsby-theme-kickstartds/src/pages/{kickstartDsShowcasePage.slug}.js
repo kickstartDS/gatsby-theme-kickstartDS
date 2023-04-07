@@ -31,6 +31,8 @@ export default function ShowcasePage({ data }) {
 
 export const query = graphql` 
 fragment FooterComponentDeepNesting on FooterComponent {
+  dark__1ff9
+  homeLink__7c70
   sections__17ac {
     ...FooterComponentSectionsDeepNesting
   }
@@ -47,8 +49,8 @@ fragment HeaderComponentDeepNesting on HeaderComponent {
   cta__c294 {
     ...HeaderComponentCtaDeepNesting
   }
+  dark__f9be
   homeLink__5dc0
-  light__6e54
   navEnabled__7b87
   navEntries__8f4f {
     ...HeaderComponentNavEntriesDeepNesting
@@ -64,9 +66,13 @@ fragment ShowcaseComponentDeepNesting on ShowcaseComponent {
   media__dbe9 {
     ...ShowcaseComponentMediaDeepNesting
   }
-  related__7eba {
-    ...ShowcaseComponentRelatedDeepNesting
+  quote__039f {
+    ...ShowcaseComponentQuoteDeepNesting
   }
+  related__7eba {
+    ...RelatedComponentDeepNesting
+  }
+  summary__c9c8
   tags__c50c
   title__b176
   type
@@ -104,6 +110,21 @@ fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
   id__7362
   label__e61b
 }
+fragment RelatedComponentDeepNesting on RelatedComponent {
+  excerpt__b377
+  
+  image__3a5c {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
+  tags__63eb
+  title__d9bc
+  type
+  typeProp__2b76
+  url__7c2a
+}
 fragment ShowcaseComponentCoverDeepNesting on ShowcaseComponentCover {
   caption__7b99
   
@@ -124,8 +145,9 @@ fragment ShowcaseComponentMediaDeepNesting on ShowcaseComponentMedia {
     publicURL
   }
 }
-fragment ShowcaseComponentRelatedDeepNesting on ShowcaseComponentRelated {
-  excerpt__0fe1
+fragment ShowcaseComponentQuoteDeepNesting on ShowcaseComponentQuote {
+  byline__61ce
+  className__07c7
   
   image__e691 {
     childImageSharp {
@@ -133,8 +155,10 @@ fragment ShowcaseComponentRelatedDeepNesting on ShowcaseComponentRelated {
     }
     publicURL
   }
-  title__b176
-  url__e10c
+  quoteToggle__4278
+  source__93d0
+  text__b7b2
+  type
 } 
 query SHOWCASE_BY_SLUG($slug: String) { 
   kickstartDsShowcasePage(slug: { eq: $slug }) { 

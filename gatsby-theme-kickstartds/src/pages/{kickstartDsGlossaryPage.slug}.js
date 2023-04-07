@@ -31,6 +31,8 @@ export default function GlossaryPage({ data }) {
 
 export const query = graphql` 
 fragment FooterComponentDeepNesting on FooterComponent {
+  dark__1ff9
+  homeLink__7c70
   sections__17ac {
     ...FooterComponentSectionsDeepNesting
   }
@@ -42,9 +44,6 @@ fragment FooterComponentDeepNesting on FooterComponent {
 fragment GlossaryComponentDeepNesting on GlossaryComponent {
   cover__bb73 {
     ...GlossaryComponentCoverDeepNesting
-  }
-  cta__4d5b {
-    ...StorytellingComponentDeepNesting
   }
   definition__ac38
   media__a8ab {
@@ -66,8 +65,8 @@ fragment HeaderComponentDeepNesting on HeaderComponent {
   cta__c294 {
     ...HeaderComponentCtaDeepNesting
   }
+  dark__f9be
   homeLink__5dc0
-  light__6e54
   navEnabled__7b87
   navEntries__8f4f {
     ...HeaderComponentNavEntriesDeepNesting
@@ -122,100 +121,10 @@ fragment GlossaryComponentRelatedDeepNesting on GlossaryComponentRelated {
     }
     publicURL
   }
+  tags__736d
   title__e835
+  type
   url__b9d5
-}
-fragment StorytellingComponentDeepNesting on StorytellingComponent {
-  backgroundColor__291a
-  
-  backgroundImage__cb66 {
-    childImageSharp {
-      gatsbyImageData
-    }
-    publicURL
-  }
-  box__5f7a {
-    ...StorytellingComponentBoxDeepNesting
-  }
-  className__3b87
-  full__be79
-  image__cc97 {
-    ...StorytellingComponentImageDeepNesting
-  }
-  type
-}
-fragment StorytellingComponentBoxDeepNesting on StorytellingComponentBox {
-  hAlign__9705
-  headline__7c3f {
-    ...StorytellingComponentBoxHeadlineDeepNesting
-  }
-  link__5d0d {
-    ...LinkButtonComponentDeepNesting
-  }
-  links__83cd {
-    ...LinkButtonComponentDeepNesting
-  }
-  textAlign__4df6
-  textColor__ad35
-  text__a401
-  vAlign__9bd7
-}
-fragment StorytellingComponentImageDeepNesting on StorytellingComponentImage {
-  hAlign__9705
-  order__eda1 {
-    ...StorytellingComponentImageOrderDeepNesting
-  }
-  ratio__f5fa
-  
-  source__20fd {
-    childImageSharp {
-      gatsbyImageData
-    }
-    publicURL
-  }
-  vAlign__9bd7
-}
-fragment LinkButtonComponentDeepNesting on LinkButtonComponent {
-  className__8726
-  dataComponent__8d9e
-  deko__e569
-  fillAnimation__2a89
-  highlighted__83d6
-  href__11db
-  iconAfter__c8b6
-  iconAnimation__9933
-  iconBefore__7991
-  icon__157f {
-    ...IconComponentDeepNesting
-  }
-  inverted__2475
-  label__b988
-  newTab__dc35
-  size__942c
-  type
-  variant__a43d
-}
-fragment StorytellingComponentBoxHeadlineDeepNesting on StorytellingComponentBoxHeadline {
-  align__6135
-  className__3b87
-  content__539b
-  level__81f6
-  pageHeader__5be3
-  spaceAfter__bdba
-  styleAs__96c0
-  subheadline__b4cd
-  switchOrder__4fe4
-  type
-}
-fragment IconComponentDeepNesting on IconComponent {
-  className__251a
-  icon__dcfe
-  role__ea32
-  type
-}
-fragment StorytellingComponentImageOrderDeepNesting on StorytellingComponentImageOrder {
-  desktopImageLast__ed82
-  mobileImageLast__f625
 }
 fragment HeaderComponentAnnouncementBarDeepNesting on HeaderComponentAnnouncementBar {
   content__4b31
