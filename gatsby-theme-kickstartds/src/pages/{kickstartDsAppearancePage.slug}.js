@@ -50,6 +50,7 @@ fragment AppearanceComponentDeepNesting on AppearanceComponent {
   media__9948 {
     ...AppearanceComponentMediaDeepNesting
   }
+  overviewPage__42f7
   participants__d862 {
     ...PersonComponentDeepNesting
   }
@@ -112,7 +113,13 @@ fragment AppearanceComponentMediaDeepNesting on AppearanceComponentMedia {
   }
 }
 fragment PersonComponentDeepNesting on PersonComponent {
-  avatar__d3c6
+  
+  avatar__d3c6 {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
   className__fb40
   component__8c90
   name__fac5
@@ -132,7 +139,7 @@ fragment RelatedComponentDeepNesting on RelatedComponent {
   tags__63eb
   title__d9bc
   type
-  typeProp__2b76
+  typeLabel__3922
   url__7c2a
 }
 fragment FooterComponentSectionsDeepNesting on FooterComponentSections {

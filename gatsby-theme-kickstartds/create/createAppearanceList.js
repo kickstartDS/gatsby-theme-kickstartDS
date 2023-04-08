@@ -104,7 +104,7 @@ module.exports = async ({ actions, graphql }, options) => {
 
   await actions.createPage({
     component: require.resolve("../src/templates/page.js"),
-    path: `/appearance/`,
+    path: `/appearances/`,
     context: {
       page: {
         // TODO remove at a later time, currently used to have posts generated, but not on the list

@@ -122,7 +122,7 @@ fragment RelatedComponentDeepNesting on RelatedComponent {
   tags__63eb
   title__d9bc
   type
-  typeProp__2b76
+  typeLabel__3922
   url__7c2a
 }
 fragment ShowcaseComponentCoverDeepNesting on ShowcaseComponentCover {

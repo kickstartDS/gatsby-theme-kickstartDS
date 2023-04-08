@@ -488,11 +488,12 @@ exports.createResolvers = async ({ createResolvers }) => {
 
                   if (contentfulAppearance) {
                     const related = {
-                      title: contentfulAppearance.name,
+                      url: `/appearance/${contentfulAppearance.slug}`,
                       excerpt: `${JSON.parse(
                         contentfulAppearance.description.raw
                       ).content[0].content[0].value.substring(0, 300)} …`,
-                      url: `/appearance/${contentfulAppearance.slug}`,
+                      title: contentfulAppearance.title,
+                      typeLabel: "Appearance",
                     };
 
                     if (contentfulAppearance.cover___NODE) {
@@ -508,6 +509,39 @@ exports.createResolvers = async ({ createResolvers }) => {
 
                       related.image___NODE =
                         contentfulImage.fields.localFile || "";
+                    }
+
+                    if (
+                      contentfulAppearance.tags___NODE &&
+                      contentfulAppearance.tags___NODE.length > 0
+                    ) {
+                      related.tags = await Promise.all(
+                        contentfulAppearance.tags___NODE.map(async (tagId) => {
+                          const contentfulTag = await context.nodeModel.findOne(
+                            {
+                              query: {
+                                filter: {
+                                  id: { eq: tagId },
+                                },
+                              },
+                              type: "ContentfulTag",
+                            }
+                          );
+
+                          if (contentfulTag) {
+                            return contentfulTag.title;
+                          } else {
+                            console.log(
+                              "Missing ContentfulTag `appearance`",
+                              contentfulTag,
+                              tagId,
+                              contentfulAppearance.tags,
+                              source.id
+                            );
+                            return undefined;
+                          }
+                        })
+                      );
                     }
 
                     return related;
@@ -634,11 +668,7 @@ exports.createResolvers = async ({ createResolvers }) => {
 
             appearanceJson.type = "appearance";
 
-            const test = hashObjectKeys(appearanceJson, "appearance");
-
-            console.log("HASHED", test);
-
-            return test;
+            return hashObjectKeys(appearanceJson, "appearance");
           }
 
           return undefined;
@@ -1013,6 +1043,7 @@ exports.onCreateNode = async ({
             node.related___NODE.length > 0 &&
             node.related___NODE) ||
           [],
+        overviewPage: "/appearances",
       },
 
       parent: node.id,
