@@ -835,11 +835,12 @@ exports.createResolvers = async ({ createResolvers }) => {
 
                   if (contentfulShowcase) {
                     const related = {
-                      title: contentfulShowcase.name,
+                      url: `/showcase/${contentfulShowcase.slug}`,
                       excerpt: `${JSON.parse(
                         contentfulShowcase.description.raw
                       ).content[0].content[0].value.substring(0, 300)} …`,
-                      url: `/showcase/${contentfulShowcase.slug}`,
+                      title: contentfulShowcase.title,
+                      typeLabel: "Showcase",
                     };
 
                     if (contentfulShowcase.cover___NODE) {
@@ -855,6 +856,39 @@ exports.createResolvers = async ({ createResolvers }) => {
 
                       related.image___NODE =
                         contentfulImage.fields.localFile || "";
+                    }
+
+                    if (
+                      contentfulShowcase.tags___NODE &&
+                      contentfulShowcase.tags___NODE.length > 0
+                    ) {
+                      related.tags = await Promise.all(
+                        contentfulShowcase.tags___NODE.map(async (tagId) => {
+                          const contentfulTag = await context.nodeModel.findOne(
+                            {
+                              query: {
+                                filter: {
+                                  id: { eq: tagId },
+                                },
+                              },
+                              type: "ContentfulTag",
+                            }
+                          );
+
+                          if (contentfulTag) {
+                            return contentfulTag.title;
+                          } else {
+                            console.log(
+                              "Missing ContentfulTag `appearance`",
+                              contentfulTag,
+                              tagId,
+                              contentfulShowcase.tags,
+                              source.id
+                            );
+                            return undefined;
+                          }
+                        })
+                      );
                     }
 
                     return related;
@@ -926,6 +960,43 @@ exports.createResolvers = async ({ createResolvers }) => {
                   source.showcase.media,
                   source.id
                 );
+              }
+            }
+
+            if (source.quote) {
+              const quote = {
+                text: source.quote.text,
+                source: source.quote.source,
+                quoteToggle: source.quote.quoteToggle,
+              };
+
+              if (source.quote.image) {
+                const contentfulImage = await context.nodeModel.findOne({
+                  query: {
+                    filter: { id: { eq: source.quote.image } },
+                    fields: { localFile: { ne: "" } },
+                  },
+                  type: "ContentfulAsset",
+                });
+
+                if (
+                  contentfulImage &&
+                  contentfulImage.fields &&
+                  contentfulImage.fields.localFile
+                ) {
+                  quote.image___NODE = contentfulImage.fields.localFile;
+                } else {
+                  console.log(
+                    "Missing ContentfulAsset `showcase` image",
+                    contentfulImage,
+                    source.image,
+                    source.id
+                  );
+                }
+              }
+
+              if (source.quote.byline) {
+                quote.byline = source.quote.byline;
               }
             }
 
@@ -1043,7 +1114,7 @@ exports.onCreateNode = async ({
             node.related___NODE.length > 0 &&
             node.related___NODE) ||
           [],
-        overviewPage: "/appearances",
+        overviewPage: "/appearances/",
       },
 
       parent: node.id,
@@ -1097,6 +1168,7 @@ exports.onCreateNode = async ({
             node.related___NODE.length > 0 &&
             node.related___NODE) ||
           [],
+        overviewPage: "/showcases/",
       },
 
       parent: node.id,
@@ -1109,6 +1181,23 @@ exports.onCreateNode = async ({
 
     if (node.media___NODE) {
       page.showcase.media = node.media___NODE;
+    }
+
+    if (
+      node.testimonial_visible &&
+      node.testimonial_text &&
+      node.testimonial_source
+    ) {
+      page.showcase.quote = {
+        quoteToggle: node.testimonial_visible,
+        text: node.testimonial_text,
+        source: node.testimonial_source,
+      };
+
+      if (node.testimonial_byline)
+        page.showcase.quote.byline = node.testimonial_byline;
+      if (node.testimonial_image___NODE)
+        page.showcase.quote.image = node.testimonial_image___NODE;
     }
 
     page.internal = {
