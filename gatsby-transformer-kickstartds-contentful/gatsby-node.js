@@ -879,7 +879,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                             return contentfulTag.title;
                           } else {
                             console.log(
-                              "Missing ContentfulTag `appearance`",
+                              "Missing ContentfulTag `showcase`",
                               contentfulTag,
                               tagId,
                               contentfulShowcase.tags,
@@ -963,17 +963,17 @@ exports.createResolvers = async ({ createResolvers }) => {
               }
             }
 
-            if (source.quote) {
+            if (source.showcase.quote) {
               const quote = {
-                text: source.quote.text,
-                source: source.quote.source,
-                quoteToggle: source.quote.quoteToggle,
+                text: source.showcase.quote.text,
+                source: source.showcase.quote.source,
+                quoteToggle: source.showcase.quote.quoteToggle,
               };
 
-              if (source.quote.image) {
+              if (source.showcase.quote.image___NODE) {
                 const contentfulImage = await context.nodeModel.findOne({
                   query: {
-                    filter: { id: { eq: source.quote.image } },
+                    filter: { id: { eq: source.showcase.quote.image___NODE } },
                     fields: { localFile: { ne: "" } },
                   },
                   type: "ContentfulAsset",
@@ -995,9 +995,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                 }
               }
 
-              if (source.quote.byline) {
-                quote.byline = source.quote.byline;
+              if (source.showcase.quote.byline) {
+                quote.byline = source.showcase.quote.byline;
               }
+
+              showcaseJson.quote = quote;
             }
 
             showcaseJson.type = "showcase";
@@ -1158,6 +1160,7 @@ exports.onCreateNode = async ({
         link: node.link,
         title: node.title,
         description: node.description.raw,
+        summary: node.summary?.raw || "",
         tags:
           (node.tags___NODE &&
             node.tags___NODE.length > 0 &&
@@ -1190,14 +1193,14 @@ exports.onCreateNode = async ({
     ) {
       page.showcase.quote = {
         quoteToggle: node.testimonial_visible,
-        text: node.testimonial_text,
+        text: node.testimonial_text.raw,
         source: node.testimonial_source,
       };
 
       if (node.testimonial_byline)
         page.showcase.quote.byline = node.testimonial_byline;
       if (node.testimonial_image___NODE)
-        page.showcase.quote.image = node.testimonial_image___NODE;
+        page.showcase.quote.image___NODE = node.testimonial_image___NODE;
     }
 
     page.internal = {
