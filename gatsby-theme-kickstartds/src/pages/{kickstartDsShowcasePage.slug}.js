@@ -71,7 +71,7 @@ fragment ShowcaseComponentDeepNesting on ShowcaseComponent {
     ...ShowcaseComponentQuoteDeepNesting
   }
   related__7eba {
-    ...RelatedComponentDeepNesting
+    ...ShowcaseComponentRelatedDeepNesting
   }
   summary__c9c8
   tags__c50c
@@ -111,21 +111,6 @@ fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
   id__7362
   label__e61b
 }
-fragment RelatedComponentDeepNesting on RelatedComponent {
-  excerpt__b377
-  
-  image__3a5c {
-    childImageSharp {
-      gatsbyImageData
-    }
-    publicURL
-  }
-  tags__63eb
-  title__d9bc
-  type
-  typeLabel__3922
-  url__7c2a
-}
 fragment ShowcaseComponentCoverDeepNesting on ShowcaseComponentCover {
   caption__7b99
   
@@ -160,6 +145,21 @@ fragment ShowcaseComponentQuoteDeepNesting on ShowcaseComponentQuote {
   source__93d0
   text__b7b2
   type
+}
+fragment ShowcaseComponentRelatedDeepNesting on ShowcaseComponentRelated {
+  excerpt__0fe1
+  
+  image__e691 {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
+  tags__c50c
+  title__b176
+  type
+  typeLabel__2a43
+  url__e10c
 } 
 query SHOWCASE_BY_SLUG($slug: String) { 
   kickstartDsShowcasePage(slug: { eq: $slug }) { 

@@ -55,7 +55,7 @@ fragment AppearanceComponentDeepNesting on AppearanceComponent {
     ...PersonComponentDeepNesting
   }
   related__7fc1 {
-    ...RelatedComponentDeepNesting
+    ...AppearanceComponentRelatedDeepNesting
   }
   tags__53b2
   title__5953
@@ -112,6 +112,21 @@ fragment AppearanceComponentMediaDeepNesting on AppearanceComponentMedia {
     publicURL
   }
 }
+fragment AppearanceComponentRelatedDeepNesting on AppearanceComponentRelated {
+  excerpt__f719
+  
+  image__e4fa {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
+  tags__53b2
+  title__5953
+  type
+  typeLabel__b70a
+  url__b835
+}
 fragment PersonComponentDeepNesting on PersonComponent {
   
   avatar__d3c6 {
@@ -126,21 +141,6 @@ fragment PersonComponentDeepNesting on PersonComponent {
   size__b1dd
   title__b0b7
   type
-}
-fragment RelatedComponentDeepNesting on RelatedComponent {
-  excerpt__b377
-  
-  image__3a5c {
-    childImageSharp {
-      gatsbyImageData
-    }
-    publicURL
-  }
-  tags__63eb
-  title__d9bc
-  type
-  typeLabel__3922
-  url__7c2a
 }
 fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
   headline__b113

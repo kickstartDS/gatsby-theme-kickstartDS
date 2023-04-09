@@ -124,6 +124,7 @@ fragment GlossaryComponentRelatedDeepNesting on GlossaryComponentRelated {
   tags__736d
   title__e835
   type
+  typeLabel__8f31
   url__b9d5
 }
 fragment HeaderComponentAnnouncementBarDeepNesting on HeaderComponentAnnouncementBar {

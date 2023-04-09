@@ -178,11 +178,12 @@ exports.createResolvers = async ({ createResolvers }) => {
 
                   if (contentfulTerm) {
                     const related = {
-                      title: contentfulTerm.name,
+                      url: `/glossary/${contentfulTerm.slug}`,
                       excerpt: `${JSON.parse(
                         contentfulTerm.definition.raw
                       ).content[0].content[0].value.substring(0, 300)} …`,
-                      url: `/glossary/${contentfulTerm.slug}`,
+                      title: contentfulTerm.name,
+                      typeLabel: "Glossary",
                     };
 
                     if (contentfulTerm.cover___NODE) {
@@ -196,6 +197,39 @@ exports.createResolvers = async ({ createResolvers }) => {
 
                       related.image___NODE =
                         contentfulImage.fields.localFile || "";
+                    }
+
+                    if (
+                      contentfulTerm.tags___NODE &&
+                      contentfulTerm.tags___NODE.length > 0
+                    ) {
+                      related.tags = await Promise.all(
+                        contentfulTerm.tags___NODE.map(async (tagId) => {
+                          const contentfulTag = await context.nodeModel.findOne(
+                            {
+                              query: {
+                                filter: {
+                                  id: { eq: tagId },
+                                },
+                              },
+                              type: "ContentfulTag",
+                            }
+                          );
+
+                          if (contentfulTag) {
+                            return contentfulTag.title;
+                          } else {
+                            console.log(
+                              "Missing ContentfulTag `showcase`",
+                              contentfulTag,
+                              tagId,
+                              contentfulTerm.tags,
+                              source.id
+                            );
+                            return undefined;
+                          }
+                        })
+                      );
                     }
 
                     return related;
@@ -488,7 +522,7 @@ exports.createResolvers = async ({ createResolvers }) => {
 
                   if (contentfulAppearance) {
                     const related = {
-                      url: `/appearance/${contentfulAppearance.slug}`,
+                      url: `/appearances/${contentfulAppearance.slug}`,
                       excerpt: `${JSON.parse(
                         contentfulAppearance.description.raw
                       ).content[0].content[0].value.substring(0, 300)} …`,
@@ -835,7 +869,7 @@ exports.createResolvers = async ({ createResolvers }) => {
 
                   if (contentfulShowcase) {
                     const related = {
-                      url: `/showcase/${contentfulShowcase.slug}`,
+                      url: `/showcases/${contentfulShowcase.slug}`,
                       excerpt: `${JSON.parse(
                         contentfulShowcase.description.raw
                       ).content[0].content[0].value.substring(0, 300)} …`,
@@ -1083,7 +1117,7 @@ exports.onCreateNode = async ({
 
     const page = {
       id: kickstartDSPageId,
-      slug: `appearance/${node.slug}`,
+      slug: `appearances/${node.slug}`,
       layout: "appearance",
 
       title: node.title,
@@ -1147,7 +1181,7 @@ exports.onCreateNode = async ({
 
     const page = {
       id: kickstartDSPageId,
-      slug: `showcase/${node.slug}`,
+      slug: `showcases/${node.slug}`,
       layout: "showcase",
 
       title: node.title,
