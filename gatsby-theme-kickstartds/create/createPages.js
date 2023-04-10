@@ -83,9 +83,14 @@ module.exports = async ({ actions, graphql }, options) => {
 
   await Promise.all(
     data.allKickstartDsPage.edges.map(async (page) => {
+      // TODO re-check some time, this seems to be superfluous,
+      // those are all handled by different create*.js files
       if (
         !(
-          page.node.slug.includes("blog") || page.node.slug.includes("glossary")
+          page.node.slug.includes("blog") ||
+          page.node.slug.includes("glossary") ||
+          page.node.slug.includes("showcases") ||
+          page.node.slug.includes("appearances")
         )
       ) {
         // TODO re-activate: this is the entry point for usage based component metrics

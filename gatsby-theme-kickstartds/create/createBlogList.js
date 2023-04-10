@@ -45,14 +45,22 @@ module.exports = async ({ actions, graphql }, options) => {
           }
         }
       }
-      kickstartDsHeader {
-        component {
-          ...HeaderComponentDeepNesting
+      allKickstartDsHeader {
+        edges {
+          node {
+            component {
+              ...HeaderComponentDeepNesting
+            }
+          }
         }
       }
-      kickstartDsFooter {
-        component {
-          ...FooterComponentDeepNesting
+      allKickstartDsFooter {
+        edges {
+          node {
+            component {
+              ...FooterComponentDeepNesting
+            }
+          }
         }
       }
     }
@@ -96,6 +104,19 @@ module.exports = async ({ actions, graphql }, options) => {
     return teaser;
   });
 
+  const headerEn = data.allKickstartDsHeader.edges.find(
+    (header) => !header.node.component.activeEntry__254f.includes("de")
+  );
+  const header = cleanObjectKeys(headerEn.node.component);
+
+  const footerEn = data.allKickstartDsFooter.edges.find(
+    (footer) =>
+      !footer.node.component.sections__17ac[1].headline__b113.includes(
+        "Kontakt"
+      )
+  );
+  const footer = cleanObjectKeys(footerEn.node.component);
+
   await actions.createPage({
     component: require.resolve("../src/templates/page.js"),
     path: `/blog/`,
@@ -114,8 +135,8 @@ module.exports = async ({ actions, graphql }, options) => {
         layout: "blog-list",
         description:
           "Read about the latest updates and changes, our rationale behind decisions and how to apply a Design System on our blog",
-        header: cleanObjectKeys(data.kickstartDsHeader.component),
-        footer: cleanObjectKeys(data.kickstartDsFooter.component),
+        header,
+        footer,
       },
     },
   });
