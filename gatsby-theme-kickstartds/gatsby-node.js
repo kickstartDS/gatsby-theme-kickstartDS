@@ -41,14 +41,22 @@ query GLOSSARY_BY_SLUG($slug: String) { \n\
       ...GlossaryComponentDeepNesting \n\
     } \n\
   } \n\
-  kickstartDsHeader { \n\
-    component { \n\
-      ...HeaderComponentDeepNesting \n\
+  allKickstartDsHeader { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...HeaderComponentDeepNesting \n\
+        } \n\
+      } \n\
     } \n\
   } \n\
-  kickstartDsFooter { \n\
-    component { \n\
-      ...FooterComponentDeepNesting \n\
+  allKickstartDsFooter { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...FooterComponentDeepNesting \n\
+        } \n\
+      } \n\
     } \n\
   } \n\
 } \n\
@@ -88,14 +96,22 @@ query APPEARANCE_BY_SLUG($slug: String) { \n\
       ...AppearanceComponentDeepNesting \n\
     } \n\
   } \n\
-  kickstartDsHeader { \n\
-    component { \n\
-      ...HeaderComponentDeepNesting \n\
+  allKickstartDsHeader { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...HeaderComponentDeepNesting \n\
+        } \n\
+      } \n\
     } \n\
   } \n\
-  kickstartDsFooter { \n\
-    component { \n\
-      ...FooterComponentDeepNesting \n\
+  allKickstartDsFooter { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...FooterComponentDeepNesting \n\
+        } \n\
+      } \n\
     } \n\
   } \n\
 } \n\
@@ -135,14 +151,22 @@ query SHOWCASE_BY_SLUG($slug: String) { \n\
       ...ShowcaseComponentDeepNesting \n\
     } \n\
   } \n\
-  kickstartDsHeader { \n\
-    component { \n\
-      ...HeaderComponentDeepNesting \n\
+  allKickstartDsHeader { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...HeaderComponentDeepNesting \n\
+        } \n\
+      } \n\
     } \n\
   } \n\
-  kickstartDsFooter { \n\
-    component { \n\
-      ...FooterComponentDeepNesting \n\
+  allKickstartDsFooter { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...FooterComponentDeepNesting \n\
+        } \n\
+      } \n\
     } \n\
   } \n\
 } \n\
@@ -200,14 +224,22 @@ query BLOG_BY_SLUG($slug: String) { \n\
     postReadingTime \n\
     postWordCount \n\
   } \n\
-  kickstartDsHeader { \n\
-    component { \n\
-      ...HeaderComponentDeepNesting \n\
+  allKickstartDsHeader { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...HeaderComponentDeepNesting \n\
+        } \n\
+      } \n\
     } \n\
   } \n\
-  kickstartDsFooter { \n\
-    component { \n\
-      ...FooterComponentDeepNesting \n\
+  allKickstartDsFooter { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...FooterComponentDeepNesting \n\
+        } \n\
+      } \n\
     } \n\
   } \n\
 } \n\

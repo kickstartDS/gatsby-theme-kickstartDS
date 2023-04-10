@@ -1,27 +1,42 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { cleanKeys } from "@kickstartds/gatsby-theme-kickstartds/src/helpers/componentMapper";
+import { cleanObjectKeys } from "@kickstartds/jsonschema2graphql/build/dehashing";
 
 import { Layout } from "@kickstartds/gatsby-theme-kickstartds/src/components/Layout";
-// TODO this needs to be in @kickstartDS, not in design-ssytem
 import { Glossary } from "@kickstartds/design-system/dist/components/glossary/GlossaryComponent";
 import { SEO } from "../components/Seo";
 
 export default function GlossaryPage({ data }) {
-  const { glossary } = cleanKeys(data.kickstartDsGlossaryPage);
+  const { glossary } = cleanObjectKeys(data.kickstartDsGlossaryPage);
+
+  const headerEn = data.allKickstartDsHeader.edges.find(
+    (header) => !header.node.component.activeEntry__254f.includes("de")
+  );
+  const header = cleanObjectKeys(headerEn.node.component);
+
+  const footerEn = data.allKickstartDsFooter.edges.find(
+    (footer) =>
+      !footer.node.component.sections__17ac[1].headline__b113.includes(
+        "Kontakt"
+      )
+  );
+  const footer = cleanObjectKeys(footerEn.node.component);
 
   return (
-    <Layout
-      header={cleanKeys(data.kickstartDsHeader.component)}
-      footer={cleanKeys(data.kickstartDsFooter.component)}
-    >
+    <Layout header={header} footer={footer}>
       <SEO
         title={data.kickstartDsGlossaryPage.title}
         description={data.kickstartDsGlossaryPage.description}
         keywords={data.kickstartDsGlossaryPage.keywords}
-        image={data.kickstartDsGlossaryPage.image && data.kickstartDsGlossaryPage.image.publicURL}
-        cardImage={data.kickstartDsGlossaryPage.cardImage && data.kickstartDsGlossaryPage.cardImage.publicURL}
+        image={
+          data.kickstartDsGlossaryPage.image &&
+          data.kickstartDsGlossaryPage.image.publicURL
+        }
+        cardImage={
+          data.kickstartDsGlossaryPage.cardImage &&
+          data.kickstartDsGlossaryPage.cardImage.publicURL
+        }
         twitterCreator={data.kickstartDsGlossaryPage.twitterCreator}
       />
       <Glossary {...glossary} />
@@ -156,14 +171,22 @@ query GLOSSARY_BY_SLUG($slug: String) {
       ...GlossaryComponentDeepNesting 
     } 
   } 
-  kickstartDsHeader { 
-    component { 
-      ...HeaderComponentDeepNesting 
+  allKickstartDsHeader { 
+    edges { 
+      node { 
+        component { 
+          ...HeaderComponentDeepNesting 
+        } 
+      } 
     } 
   } 
-  kickstartDsFooter { 
-    component { 
-      ...FooterComponentDeepNesting 
+  allKickstartDsFooter { 
+    edges { 
+      node { 
+        component { 
+          ...FooterComponentDeepNesting 
+        } 
+      } 
     } 
   } 
 } 
