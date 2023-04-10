@@ -216,6 +216,61 @@ query BLOG_BY_SLUG($slug: String) { \n\
   return blogPageQuery;
 };
 
+const getTagPageQuery = async (gqlPath) => {
+  const tagFragments = await collectGraphQLFragments(
+    [
+      "HeaderComponentDeepNesting",
+      "FooterComponentDeepNesting",
+      "TagLabelComponentDeepNesting",
+    ],
+    gqlPath
+  );
+
+  const tagPageQuery =
+    "\
+export const query = graphql` \n\
+" +
+    tagFragments +
+    " \n\
+query TAG_BY_SLUG($slug: String) { \n\
+  kickstartDsTagPage(slug: { eq: $slug }) { \n\
+    title \n\
+    description \n\
+    keywords \n\
+    image { \n\
+      publicURL \n\
+    } \n\
+    cardImage { \n\
+      publicURL \n\
+    } \n\
+    tagLabel { \n\
+      ...TagLabelComponentDeepNesting \n\
+    } \n\
+  } \n\
+  allKickstartDsHeader { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...HeaderComponentDeepNesting \n\
+        } \n\
+      } \n\
+    } \n\
+  } \n\
+  allKickstartDsFooter { \n\
+    edges { \n\
+      node { \n\
+        component { \n\
+          ...FooterComponentDeepNesting \n\
+        } \n\
+      } \n\
+    } \n\
+  } \n\
+} \n\
+  `;";
+
+  return tagPageQuery;
+};
+
 exports.createPages = async (props, options) => {
   const { gqlPath } = options;
 
@@ -271,6 +326,19 @@ exports.createPages = async (props, options) => {
     "utf8"
   );
 
+  const tagSlugPage = fs.readFileSync(
+    `${__dirname}/src/pages/{kickstartDsTagPage.slug}.js`,
+    "utf8"
+  );
+  fs.writeFileSync(
+    `${__dirname}/src/pages/{kickstartDsTagPage.slug}.js`,
+    tagSlugPage.replace(
+      /export const query[\s\S]+/g,
+      await getTagPageQuery(gqlPath)
+    ),
+    "utf8"
+  );
+
   await createBlogList(props, options);
   await createAppearanceList(props, options);
   await createShowcaseList(props, options);
@@ -316,6 +384,10 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
     `${__dirname}/src/schema/types/KickstartDsContentPageType.graphql`,
     "utf8"
   );
+  const kickstartDsTagPageType = fs.readFileSync(
+    `${__dirname}/src/schema/types/KickstartDsTagPageType.graphql`,
+    "utf8"
+  );
 
   const kickstartDsHeaderType = fs.readFileSync(
     `${__dirname}/src/schema/types/KickstartDsHeaderType.graphql`,
@@ -354,6 +426,7 @@ exports.createSchemaCustomization = ({ actions, schema }, options) => {
     kickstartDsAppearancePageType,
     kickstartDsShowcasePageType,
     kickstartDsContentPageType,
+    kickstartDsTagPageType,
     kickstartDsHeaderType,
     kickstartDsFooterType,
     contentInterface,

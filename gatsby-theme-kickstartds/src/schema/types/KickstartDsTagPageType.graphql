@@ -1,0 +1,30 @@
+"""
+Tag label implementation of kickstartDS page interface
+"""
+type KickstartDsTagPage implements Node & KickstartDsPage @dontInfer {
+  # core interface
+  id: ID!
+  layout: String!
+  slug: String!
+
+  # seo interface
+  title: String!
+  description: String
+  keywords: String
+  image: File @link
+  imageUrl: String
+  cardImage: File @link
+
+  # generic content interface
+  header: HeaderComponent
+  footer: FooterComponent
+  sections: [SectionComponent]
+  components: [SectionComponentContent]
+
+  # dates interface
+  updated: Date! @dateformat
+  created: Date! @dateformat
+
+  # tag label detail
+  tagLabel: TagLabelComponent!
+}

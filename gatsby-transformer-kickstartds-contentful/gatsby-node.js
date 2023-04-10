@@ -1246,5 +1246,37 @@ exports.onCreateNode = async ({
 
     createNode(page);
     createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
+  } else if (node.internal.type === "ContentfulTag") {
+    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsTagPage`);
+
+    const page = {
+      id: kickstartDSPageId,
+      slug: `tags/${node.title}`,
+      layout: "tag-label",
+
+      title: node.title,
+      description: `TODO add description for tag: ${node.title}`,
+
+      created: node.createdAt,
+      updated: node.updatedAt,
+
+      tagLabel: {
+        label: node.title,
+        size: "m",
+        removable: false,
+      },
+
+      parent: node.id,
+    };
+
+    page.internal = {
+      contentDigest: createContentDigest(page),
+      content: JSON.stringify(page),
+      type: "KickstartDsTagPage",
+      description: `Contentful tag implementation of the kickstartDS tag page interface`,
+    };
+
+    createNode(page);
+    createParentChildLink({ parent: node, child: getNode(kickstartDSPageId) });
   }
 };
