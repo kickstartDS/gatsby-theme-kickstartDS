@@ -88,24 +88,39 @@ const HtmlProvider = (props) => (
   <HtmlContext.Provider value={WrappedHtml} {...props} />
 );
 
-const WrappedLink = ({ href, ...props }) =>
-  href && href.publicURL ? (
+const WrappedLink = ({ href, ...props }) => {
+  if (typeof props.children === "object") {
+    console.log(
+      "WrappedLink",
+      href,
+      props,
+      props.children,
+      typeof props.children,
+      props.className
+    );
+
+    return;
+  }
+
+  return href && href.publicURL ? (
     <LinkContextDefault href={href.publicURL} {...props} />
   ) : href && href.startsWith("/") ? (
     <Link to={href.endsWith("/") ? href : `${href}/`} {...props} />
   ) : (
     <LinkContextDefault href={href} {...props} />
   );
+};
 
 const LinkProvider = (props) => (
   <LinkContext.Provider value={WrappedLink} {...props} />
 );
 
-const WrappedImage = ({ src, ...props }) =>
-  src && src.childImageSharp ? (
+const WrappedImage = ({ src, ...props }) => {
+  const image = getImage(src);
+  return src && src.childImageSharp && image ? (
     <GatsbyImage
       className={props.className}
-      image={getImage(src)}
+      image={image}
       alt={props.alt || ""}
     />
   ) : src && src.publicURL ? (
@@ -113,6 +128,7 @@ const WrappedImage = ({ src, ...props }) =>
   ) : (
     <PictureContextDefault src={src} {...props} />
   );
+};
 
 const PictureProvider = (props) => (
   <PictureContext.Provider value={WrappedImage} {...props} />
