@@ -89,19 +89,6 @@ const HtmlProvider = (props) => (
 );
 
 const WrappedLink = ({ href, ...props }) => {
-  if (typeof props.children === "object") {
-    console.log(
-      "WrappedLink",
-      href,
-      props,
-      props.children,
-      typeof props.children,
-      props.className
-    );
-
-    return;
-  }
-
   return href && href.publicURL ? (
     <LinkContextDefault href={href.publicURL} {...props} />
   ) : href && href.startsWith("/") ? (
