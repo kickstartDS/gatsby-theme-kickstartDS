@@ -26,6 +26,7 @@ import { LinkContextDefault, LinkContext } from "@kickstartds/base/lib/link";
 import { HtmlContextDefault, HtmlContext } from "@kickstartds/base/lib/html";
 
 const ContentfulRichText = (props) => {
+  console.log("CONTENTFUL RICH TEXT");
   return props.text && props.text.includes("nodeType") ? (
     <div className={`c-rich-text ${props.className}`}>
       {renderRichText({ raw: props.text, references: [] }, contentfulOptions)}

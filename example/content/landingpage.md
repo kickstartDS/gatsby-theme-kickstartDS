@@ -55,7 +55,7 @@ sections:
             href: ''
             highlighted: true
             label: Request a guided demo
-            type: link-button
+            type: button
           horizontal: left
           vertical: center
           background: transparent
@@ -285,7 +285,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
-          type: link-button
+          type: button
       - type: content-box
         ratio: none
         alignement: left
@@ -304,7 +304,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
-          type: link-button
+          type: button
       - type: content-box
         ratio: none
         alignement: left
@@ -322,7 +322,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
-          type: link-button
+          type: button
       - type: content-box
         ratio: none
         alignement: left
@@ -340,7 +340,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
-          type: link-button
+          type: button
     type: sections
     gutter: large
   - mode: list
@@ -393,7 +393,7 @@ sections:
             variant: solid
             size: medium
             href: /blog/great-components
-            type: link-button
+            type: button
             className: ''
             iconAfter: false
         full: false
@@ -428,7 +428,7 @@ sections:
             variant: solid
             size: medium
             href: /storybook
-            type: link-button
+            type: button
             className: ''
         backgroundColor: '#eceff3'
         full: true
@@ -464,7 +464,7 @@ sections:
             variant: solid
             size: medium
             href: ''
-            type: link-button
+            type: button
             className: zen-storytelling-3-cta-primary
           textColor: ''
         backgroundImage: ''
@@ -502,7 +502,7 @@ sections:
             variant: solid
             size: medium
             href: /services
-            type: link-button
+            type: button
             className: ''
             inverted: true
           textColor: '#FFFFFF'
@@ -547,7 +547,7 @@ sections:
             variant: solid
             size: medium
             href: ''
-            type: link-button
+            type: button
             className: zen-storytelling-5-cta-primary
         backgroundColor: ''
         full: false
@@ -685,7 +685,7 @@ sections:
           variant: outline
           size: medium
           href: ''
-          type: link-button
+          type: button
           fillAnimation: false
           className: zen-askus-1-cta
         image: /images/headless_design_system_for_developer.svg
@@ -701,7 +701,7 @@ sections:
           variant: outline
           size: medium
           href: ''
-          type: link-button
+          type: button
           fillAnimation: false
           className: zen-askus-2-cta
         image: /images/headless_design_system_for_designer.svg
@@ -719,7 +719,7 @@ sections:
           variant: outline
           size: medium
           href: ''
-          type: link-button
+          type: button
           fillAnimation: false
           className: zen-askus-3-cta
         image: /images/headless_design_system_for_product_teams.svg
@@ -806,7 +806,7 @@ sections:
         iconBefore: false
         icon:
           icon: discord
-        type: link-button
+        type: button
       - size: medium
         fillAnimation: false
         variant: outline
@@ -817,8 +817,8 @@ sections:
         iconBefore: false
         icon:
           icon: twitter
-        type: link-button
-      - type: link-button
+        type: button
+      - type: button
         href: https://stackshare.io/kickstartds/kickstartds
         label: Our stackshare
         size: medium
