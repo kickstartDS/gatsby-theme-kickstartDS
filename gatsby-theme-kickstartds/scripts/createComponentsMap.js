@@ -10,16 +10,8 @@ const reducer =
   (mod) =>
   (prev, [key, value]) => {
     console.log(key, value);
-    if (key.endsWith("/index") && value.length) {
-      prev += `  '${key.replace(
-        "/index",
-        ""
-      )}': loadable(() => import('@kickstartds/${mod}/lib/${key.replace(
-        "/index",
-        ""
-      )}/index.js'), { resolveComponent: (exports) => exports.${
-        value[0]
-      } }),\n`;
+    if (key.indexOf("/") === -1 && value.length) {
+      prev += `  '${key}': loadable(() => import('@kickstartds/${mod}/lib/${key}/index.js'), { resolveComponent: (exports) => exports.${value[0]} }),\n`;
     }
     return prev;
   };
@@ -56,7 +48,7 @@ const defaultExports = [
 const uniquelyNewExports = Object.entries(additionalExports)
   .filter((additionalExport) =>
     defaultExports.every(
-      (defaultExport) => defaultExport[0] !== `${additionalExport[0]}/index`
+      (defaultExport) => defaultExport[0] !== `${additionalExport[0]}`
     )
   )
   .reduce((map, additionalExport) => {

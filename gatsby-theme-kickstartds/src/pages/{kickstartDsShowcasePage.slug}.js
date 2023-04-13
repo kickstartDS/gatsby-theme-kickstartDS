@@ -149,6 +149,7 @@ fragment ShowcaseComponentMediaDeepNesting on ShowcaseComponentMedia {
 fragment ShowcaseComponentQuoteDeepNesting on ShowcaseComponentQuote {
   byline__61ce
   className__07c7
+  component__ad89
   
   image__e691 {
     childImageSharp {

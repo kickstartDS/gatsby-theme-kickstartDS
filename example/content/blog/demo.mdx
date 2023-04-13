@@ -10,8 +10,9 @@ categories:
   - Developer
   - Internal
 ---
-import { Visual } from "@kickstartds/content/lib/visual";
-import { VisualComponentPlayground } from "../../src/components/VisualComponentPlayground";
+
+import { Visual } from '@kickstartds/content/lib/visual';
+import { VisualComponentPlayground } from '../../src/components/VisualComponentPlayground';
 
 ## TOPIC_NAME
 
@@ -19,115 +20,123 @@ TOPIC_DETAILS
 blah blah blah...
 
 ## Table of Contents
-* topic content 1 [Reference](http://dibya.org)
-* Renders actual, "native" React DOM elements
-* Allows you to escape or skip HTML (try toggling the checkboxes above)
-* If you escape or skip the HTML, no `dangerouslySetInnerHTML` is used! Yay!
 
+- topic content 1 [Reference](http://dibya.org)
+- Renders actual, "native" React DOM elements
+- Allows you to escape or skip HTML (try toggling the checkboxes above)
+- If you escape or skip the HTML, no `dangerouslySetInnerHTML` is used! Yay!
 
 ## Getting started
-Preliminary question: 
-<button onClick={()=> alert(42)}>What is the answer to the mystery of universe ??</button>
+
+Preliminary question:
+
+<button onClick={() => alert(42)}>
+  What is the answer to the mystery of universe ??
+</button>
 
 ## HTML block below
+
 <blockquote>
-This blockquote will change based on the HTML settings above.
+  This blockquote will change based on the HTML settings above.
 </blockquote>
 
 ## Tables?
+
 | Feature   | Support |
 | --------- | ------- |
-| tables    | ✔ |
-| alignment | ✔ |
-| wewt      | ✔ |
+| tables    | ✔       |
+| alignment | ✔       |
+| wewt      | ✔       |
 
 ## How about some code?
+
 ```tsx twoslash
-import { Visual } from "@kickstartds/content/lib/visual";
+import { Visual } from '@kickstartds/content/lib/visual';
 // ---cut---
 <Visual
   backgroundColor="transparent"
   height="small"
   media={{
-    mode: "image",
+    mode: 'image',
     image: {
-      srcMobile: "https://picsum.photos/seed/kdsvisual/640/470",
-      srcTablet: "https://picsum.photos/seed/kdsvisual/1280/840",
-      srcDesktop: "https://picsum.photos/seed/kdsvisual/1920/1210",
-      src: "https://picsum.photos/seed/kdsvisual/640/270",
-      indent: "none",
-    }
+      srcMobile: 'https://picsum.photos/seed/kdsvisual/640/470',
+      srcTablet: 'https://picsum.photos/seed/kdsvisual/1280/840',
+      srcDesktop: 'https://picsum.photos/seed/kdsvisual/1920/1210',
+      src: 'https://picsum.photos/seed/kdsvisual/640/270',
+      indent: 'none',
+    },
   }}
   overlay={false}
   box={{
     enabled: true,
-    text: "This demonstrates the typings used in all of our components",
-    background: "light",
-//  ^?
+    text: 'This demonstrates the typings used in all of our components',
+    background: 'light',
+    //  ^?
     headline: {
-      level: "p",
-      styleAs: "h3",
-      align: "left",
-      spaceAfter: "none",
+      level: 'p',
+      styleAs: 'h3',
+      align: 'left',
+      spaceAfter: 'minimum',
       pageHeader: false,
-      content: "kickstartDS components directly in your post",
+      content: 'kickstartDS components directly in your post',
     },
     link: {
       enabled: true,
-      variant: "solid",
-      label: "Learn more",
-      size: "medium",
-      href: "https://www.kickstartDS.com/",
-    }
+      variant: 'solid',
+      label: 'Learn more',
+      size: 'medium',
+      href: 'https://www.kickstartDS.com/',
+    },
   }}
-/>
+/>;
 ```
 
 Pretty neat, eh?
 
 ## kickstartDS components?
-<Visual 
+
+<Visual
   backgroundColor="transparent"
   height="small"
   media={{
-    mode: "image",
+    mode: 'image',
     image: {
-      srcMobile: "https://picsum.photos/seed/kdsvisual/640/470",
-      srcTablet: "https://picsum.photos/seed/kdsvisual/1280/840",
-      srcDesktop: "https://picsum.photos/seed/kdsvisual/1920/1210",
-      src: "https://picsum.photos/seed/kdsvisual/640/270",
-      indent: "none",
-    }
+      srcMobile: 'https://picsum.photos/seed/kdsvisual/640/470',
+      srcTablet: 'https://picsum.photos/seed/kdsvisual/1280/840',
+      srcDesktop: 'https://picsum.photos/seed/kdsvisual/1920/1210',
+      src: 'https://picsum.photos/seed/kdsvisual/640/270',
+      indent: 'none',
+    },
   }}
   overlay={false}
   box={{
     enabled: true,
-    text: "This demonstrates how you can easily add kickstartDS components to your blog post",
-    background: "light",
+    text: 'This demonstrates how you can easily add kickstartDS components to your blog post',
+    background: 'light',
     headline: {
-      level: "p",
-      styleAs: "h3",
-      align: "left",
-      spaceAfter: "none",
+      level: 'p',
+      styleAs: 'h3',
+      align: 'left',
+      spaceAfter: 'minimum',
       pageHeader: false,
-      content: "kickstartDS components directly in your post",
+      content: 'kickstartDS components directly in your post',
     },
     link: {
       enabled: true,
-      variant: "solid",
-      label: "Learn more",
-      size: "medium",
-      href: "https://www.kickstartDS.com/",
-    }
+      variant: 'solid',
+      label: 'Learn more',
+      size: 'medium',
+      href: 'https://www.kickstartDS.com/',
+    },
   }}
 />
 
 ## A grid component?
-<VisualComponentPlayground />
 
+<VisualComponentPlayground />
 
 ## More info?
 
-Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)
----------------
+## Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)
+
 A component by [Espen Hovlandsdal](https://espen.codes/)

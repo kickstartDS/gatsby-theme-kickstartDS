@@ -57,7 +57,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
             level: 'p',
             align: 'center',
             content: '',
-            spaceAfter: 'none',
+            spaceAfter: 'minimum',
           }}
           spaceBefore="small"
           spaceAfter="default"
@@ -94,7 +94,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
           gutter="large"
           headline={{
             level: 'h2',
-            spaceAfter: 'none',
+            spaceAfter: 'minimum',
             content: 'Get to know us',
             align: 'center',
           }}
@@ -111,7 +111,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
               headline: {
                 content: 'Find out if kickstartDS suits your project',
                 level: 'h2',
-                spaceAfter: 'none',
+                spaceAfter: 'minimum',
                 align: 'left',
               },
               text: 'Get in contact with our team',
@@ -138,7 +138,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
             level: 'p',
             align: 'center',
             content: '',
-            spaceAfter: 'none',
+            spaceAfter: 'minimum',
           }}
         >
           <Contact {...postContact} />
@@ -155,7 +155,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
             align: 'left',
             styleAs: 'h2',
             content: 'Dig deeper ⛏️',
-            spaceAfter: 'none',
+            spaceAfter: 'minimum',
           }}
           spaceAfter="none"
         >

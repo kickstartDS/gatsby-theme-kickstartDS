@@ -18,12 +18,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@kickstartds/base": "2.0.0-canary.922.4761.0",
-    "@kickstartds/blog": "2.0.0-canary.922.4761.0",
-    "@kickstartds/content": "2.0.0-canary.922.4761.0",
-    "@kickstartds/core": "2.0.0-canary.922.4761.0",
-    "@kickstartds/design-system": "2.4.23--canary.104.2955.0",
-    "@kickstartds/form": "2.0.0-canary.922.4761.0",
+    "@kickstartds/design-system": "2.5.0--canary.105.3016.0",
     "@kickstartds/gatsby-theme-kickstartds": "^2.3.0",
     "@kickstartds/gatsby-transformer-kickstartds-contentful": "^2.3.0",
     "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^2.2.2",
