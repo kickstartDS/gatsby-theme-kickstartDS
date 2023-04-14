@@ -9,7 +9,6 @@ const contentExports = require("@kickstartds/content/lib/exports.json");
 const reducer =
   (mod) =>
   (prev, [key, value]) => {
-    console.log(key, value);
     if (key.indexOf("/") === -1 && value.length) {
       prev += `  '${key}': loadable(() => import('@kickstartds/${mod}/lib/${key}/index.js'), { resolveComponent: (exports) => exports.${value[0]} }),\n`;
     }
