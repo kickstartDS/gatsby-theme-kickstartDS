@@ -1,6 +1,7 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
 import { Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -39,7 +40,7 @@ const RichTextProvider = (props) => {
   return <RichTextContext.Provider value={ContentfulRichText} {...props} />;
 };
 
-const nonRteMdxTypes = ["Visual", "pre", "VisualComponentPlayground"];
+const nonRteMdxTypes = ["Visual", "pre"];
 
 const components = {
   wrapper: ({ children }) =>
@@ -104,6 +105,7 @@ const LinkProvider = (props) => (
 
 const WrappedImage = ({ src, ...props }) => {
   const image = getImage(src);
+  console.log("theres an image", src, image);
   return src && src.childImageSharp && image ? (
     <GatsbyImage
       className={props.className}

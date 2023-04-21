@@ -32,7 +32,12 @@
     "postinstall-postinstall": "^2.1.0"
   },
   "resolutions": {
-    "graphql": "^15.8.0"
+    "graphql": "^15.8.0",
+    "@kickstartds/base": "2.0.4-next.5",
+    "@kickstartds/blog": "2.0.4-next.6",
+    "@kickstartds/content": "2.0.1--canary.61.48.0",
+    "@kickstartds/core": "2.0.4-next.2",
+    "@kickstartds/form": "2.0.4-next.5"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
