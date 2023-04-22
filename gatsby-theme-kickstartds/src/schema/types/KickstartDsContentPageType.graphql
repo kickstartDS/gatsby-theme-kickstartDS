@@ -1,10 +1,12 @@
-"""Generic content page implementation of kickstartDS page interface"""
+"""
+Generic content page implementation of kickstartDS page interface
+"""
 type KickstartDsContentPage implements Node & KickstartDsPage @dontInfer {
   # core interface
   id: ID!
   layout: String!
   slug: String!
-  
+
   # seo interface
   title: String!
   description: String
@@ -17,7 +19,7 @@ type KickstartDsContentPage implements Node & KickstartDsPage @dontInfer {
   header: HeaderComponent
   footer: FooterComponent
   sections: [SectionComponent]
-  components: [ContentComponent]
+  components: [SectionComponentContent]
 
   # dates interface
   updated: Date! @dateformat

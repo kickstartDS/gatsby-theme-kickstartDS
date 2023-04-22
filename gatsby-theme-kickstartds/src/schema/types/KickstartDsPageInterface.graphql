@@ -1,4 +1,6 @@
-"""Common interface for kickstartDS pages"""
+"""
+Common interface for kickstartDS pages
+"""
 interface KickstartDsPage implements Node @dontInfer {
   # core interface
   id: ID!
@@ -17,7 +19,7 @@ interface KickstartDsPage implements Node @dontInfer {
   header: HeaderComponent
   footer: FooterComponent
   sections: [SectionComponent]
-  components: [ContentComponent]
+  components: [SectionComponentContent]
 
   # dates interface
   updated: Date! @dateformat

@@ -1,27 +1,42 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { cleanKeys } from "@kickstartds/gatsby-theme-kickstartds/src/helpers/componentMapper";
+import { cleanObjectKeys } from "@kickstartds/jsonschema2graphql/build/dehashing";
 
 import { Layout } from "@kickstartds/gatsby-theme-kickstartds/src/components/Layout";
-// TODO this needs to be in @kickstartDS, not in design-ssytem
 import { Appearance } from "@kickstartds/design-system/dist/components/appearance/AppearanceComponent";
 import { SEO } from "../components/Seo";
 
 export default function AppearancePage({ data }) {
-  const { appearance } = cleanKeys(data.kickstartDsAppearancePage);
+  const { appearance } = cleanObjectKeys(data.kickstartDsAppearancePage);
+
+  const headerEn = data.allKickstartDsHeader.edges.find(
+    (header) => !header.node.component.activeEntry__254f.includes("de")
+  );
+  const header = cleanObjectKeys(headerEn.node.component);
+
+  const footerEn = data.allKickstartDsFooter.edges.find(
+    (footer) =>
+      !footer.node.component.sections__17ac[1].headline__b113.includes(
+        "Kontakt"
+      )
+  );
+  const footer = cleanObjectKeys(footerEn.node.component);
 
   return (
-    <Layout
-      header={cleanKeys(data.kickstartDsHeader.component)}
-      footer={cleanKeys(data.kickstartDsFooter.component)}
-    >
+    <Layout header={header} footer={footer}>
       <SEO
         title={data.kickstartDsAppearancePage.title}
         description={data.kickstartDsAppearancePage.description}
         keywords={data.kickstartDsAppearancePage.keywords}
-        image={data.kickstartDsAppearancePage.image && data.kickstartDsAppearancePage.image.publicURL}
-        cardImage={data.kickstartDsAppearancePage.cardImage && data.kickstartDsAppearancePage.cardImage.publicURL}
+        image={
+          data.kickstartDsAppearancePage.image &&
+          data.kickstartDsAppearancePage.image.publicURL
+        }
+        cardImage={
+          data.kickstartDsAppearancePage.cardImage &&
+          data.kickstartDsAppearancePage.cardImage.publicURL
+        }
         twitterCreator={data.kickstartDsAppearancePage.twitterCreator}
       />
       <Appearance {...appearance} />
@@ -44,7 +59,10 @@ fragment AppearanceComponentDeepNesting on AppearanceComponent {
   media__9948 {
     ...AppearanceComponentMediaDeepNesting
   }
-  participants__d862
+  overviewPage__42f7
+  participants__d862 {
+    ...PersonComponentDeepNesting
+  }
   related__7fc1 {
     ...AppearanceComponentRelatedDeepNesting
   }
@@ -53,6 +71,8 @@ fragment AppearanceComponentDeepNesting on AppearanceComponent {
   type
 }
 fragment FooterComponentDeepNesting on FooterComponent {
+  dark__1ff9
+  homeLink__7c70
   sections__17ac {
     ...FooterComponentSectionsDeepNesting
   }
@@ -69,8 +89,8 @@ fragment HeaderComponentDeepNesting on HeaderComponent {
   cta__c294 {
     ...HeaderComponentCtaDeepNesting
   }
+  dark__f9be
   homeLink__5dc0
-  light__6e54
   navEnabled__7b87
   navEntries__8f4f {
     ...HeaderComponentNavEntriesDeepNesting
@@ -110,8 +130,26 @@ fragment AppearanceComponentRelatedDeepNesting on AppearanceComponentRelated {
     }
     publicURL
   }
+  tags__53b2
   title__5953
+  type
+  typeLabel__b70a
   url__b835
+}
+fragment PersonComponentDeepNesting on PersonComponent {
+  
+  avatar__d3c6 {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
+  className__fb40
+  component__8c90
+  name__fac5
+  size__b1dd
+  title__b0b7
+  type
 }
 fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
   headline__b113
@@ -161,14 +199,22 @@ query APPEARANCE_BY_SLUG($slug: String) {
       ...AppearanceComponentDeepNesting 
     } 
   } 
-  kickstartDsHeader { 
-    component { 
-      ...HeaderComponentDeepNesting 
+  allKickstartDsHeader { 
+    edges { 
+      node { 
+        component { 
+          ...HeaderComponentDeepNesting 
+        } 
+      } 
     } 
   } 
-  kickstartDsFooter { 
-    component { 
-      ...FooterComponentDeepNesting 
+  allKickstartDsFooter { 
+    edges { 
+      node { 
+        component { 
+          ...FooterComponentDeepNesting 
+        } 
+      } 
     } 
   } 
 } 

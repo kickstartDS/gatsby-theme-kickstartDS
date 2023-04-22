@@ -1,14 +1,15 @@
-import React from 'react';
-import { FunctionComponent } from 'react';
+import React from "react";
+import { FunctionComponent } from "react";
 
 import { Section } from "@kickstartds/base/lib/section";
 import { PostTeaser } from "@kickstartds/blog/lib/post-teaser";
 
-import { Layout } from './Layout';
+import { Layout } from "./Layout";
 
 export const AppearanceListPage: FunctionComponent<any> = ({
-  postTeaser, ...rest
-}) =>
+  appearanceTeaser,
+  ...rest
+}) => (
   <Layout {...rest}>
     <Section
       headline={{
@@ -22,13 +23,12 @@ export const AppearanceListPage: FunctionComponent<any> = ({
       spaceAfter="none"
     />
 
-    {postTeaser && postTeaser.length > 0 && (
-      <Section
-        spaceBefore="default"
-        width="narrow"
-        mode="list"
-        gutter="large">
-        {postTeaser.map((teaser) => <PostTeaser {...teaser} />)}
+    {appearanceTeaser && appearanceTeaser.length > 0 && (
+      <Section spaceBefore="default" width="narrow" mode="list" gutter="large">
+        {appearanceTeaser.map((teaser) => (
+          <PostTeaser {...teaser} />
+        ))}
       </Section>
     )}
-  </Layout>;
+  </Layout>
+);

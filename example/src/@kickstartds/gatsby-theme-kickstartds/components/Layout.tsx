@@ -6,7 +6,6 @@ import { Header } from '@kickstartds/design-system/dist/components/header/Header
 import { Footer } from '@kickstartds/design-system/dist/components/footer/FooterComponent';
 
 import { IconSprite } from '@kickstartds/design-system/dist/components/icon-sprite/IconSpriteComponent';
-import { LightBox } from "@kickstartds/base/lib/lightbox";
 
 import '@kickstartds/design-system/dist/index.css';
 import '@kickstartds/design-system/dist/index.js';
@@ -15,10 +14,9 @@ export const Layout = ({ children, header, footer, ...rest }) => (
   <OriginalLayout {...rest}>
     <IconSprite />
     <Header {...header} />
-    
+
     {children}
 
     <Footer {...footer} />
-    <LightBox />  
   </OriginalLayout>
 );

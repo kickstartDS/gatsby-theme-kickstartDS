@@ -1,7 +1,8 @@
-const stripHtml = require('string-strip-html').stripHtml;
-const hashObjectKeys = require('@kickstartds/jsonschema2graphql/build/helpers').hashObjectKeys;
-const { createRemoteFileNode } = require('gatsby-source-filesystem');
-const readingTime = require('reading-time');
+const stripHtml = require("string-strip-html").stripHtml;
+const hashObjectKeys =
+  require("@kickstartds/jsonschema2graphql/build/helpers").hashObjectKeys;
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
+const readingTime = require("reading-time");
 
 const getLinks = (url, twitterText, emailSubject, emailBody) => [
   {
@@ -48,13 +49,13 @@ exports.createResolvers = async ({
               query: {
                 filter: {
                   parent: { id: { eq: source.image } },
-                  publicURL: { ne: '' }
+                  publicURL: { ne: "" },
                 },
               },
               type: "File",
             });
           }
-          
+
           return undefined;
         },
       },
@@ -66,7 +67,7 @@ exports.createResolvers = async ({
               query: {
                 filter: {
                   parent: { id: { eq: source.image } },
-                  publicURL: { ne: '' }
+                  publicURL: { ne: "" },
                 },
               },
               type: "File",
@@ -77,11 +78,13 @@ exports.createResolvers = async ({
               type: "Site",
             });
 
-            return fileNode && fileNode.__gatsby_resolved && fileNode.__gatsby_resolved.publicURL
+            return fileNode &&
+              fileNode.__gatsby_resolved &&
+              fileNode.__gatsby_resolved.publicURL
               ? `${site.siteMetadata.siteUrl}${fileNode.__gatsby_resolved.publicURL}`
               : undefined;
           }
-          
+
           return undefined;
         },
       },
@@ -93,13 +96,13 @@ exports.createResolvers = async ({
               query: {
                 filter: {
                   parent: { id: { eq: source.cardImage } },
-                  publicURL: { ne: '' }
+                  publicURL: { ne: "" },
                 },
               },
               type: "File",
             });
           }
-          
+
           return undefined;
         },
       },
@@ -110,17 +113,15 @@ exports.createResolvers = async ({
             const wpUser = await context.nodeModel.findOne({
               query: {
                 filter: {
-                  id: { eq: source.author } ,
+                  id: { eq: source.author },
                 },
               },
               type: "WpUser",
             });
 
-            return wpUser && wpUser.name
-              ? wpUser.name
-              : undefined;
+            return wpUser && wpUser.name ? wpUser.name : undefined;
           }
-          
+
           return undefined;
         },
       },
@@ -128,23 +129,27 @@ exports.createResolvers = async ({
         type: "[TagLabelComponent]",
         async resolve(source, args, context) {
           if (source.categories) {
-            const categories = await Promise.all(source.categories.map(async (categoryId) => {
-              const wpCategory = await context.nodeModel.findOne({
-                query: {
-                  filter: {
-                    id: { eq: categoryId },
+            const categories = await Promise.all(
+              source.categories.map(async (categoryId) => {
+                const wpCategory = await context.nodeModel.findOne({
+                  query: {
+                    filter: {
+                      id: { eq: categoryId },
+                    },
                   },
-                },
-                type: "WpCategory",
-              });
+                  type: "WpCategory",
+                });
 
-              return {
-                "label": wpCategory.name,
-                "type": "tag-label"
-              };
-            }));
-            
-            return categories.map((category) => hashObjectKeys(category, 'tag-label'));
+                return {
+                  label: wpCategory.name,
+                  type: "tag-label",
+                };
+              })
+            );
+
+            return categories.map((category) =>
+              hashObjectKeys(category, "tag-label")
+            );
           }
 
           return undefined;
@@ -155,33 +160,35 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.title && source.created) {
             const postHead = {
-              "type": "post-head",
-              "headline": {
-                "level": "h1",
-                "pageHeader": false,
-                "align": "left",
-                "content": source.title,
-                "spaceAfter": "none",
-                "type": "headline"
+              type: "post-head",
+              headline: {
+                level: "h1",
+                pageHeader: false,
+                align: "left",
+                content: source.title,
+                spaceAfter: "minimum",
+                type: "headline",
               },
             };
-            
+
             if (source.categories) {
-              postHead.categories = await Promise.all(source.categories.map(async (categoryId) => {
-                const wpCategory = await context.nodeModel.findOne({
-                  query: {
-                    filter: {
-                      id: { eq: categoryId },
+              postHead.categories = await Promise.all(
+                source.categories.map(async (categoryId) => {
+                  const wpCategory = await context.nodeModel.findOne({
+                    query: {
+                      filter: {
+                        id: { eq: categoryId },
+                      },
                     },
-                  },
-                  type: "WpCategory",
-                });
-  
-                return {
-                  "label": wpCategory.name,
-                  "type": "tag-label"
-                };
-              }));
+                    type: "WpCategory",
+                  });
+
+                  return {
+                    label: wpCategory.name,
+                    type: "tag-label",
+                  };
+                })
+              );
             }
 
             if (source.image) {
@@ -189,21 +196,21 @@ exports.createResolvers = async ({
                 query: {
                   filter: {
                     parent: { id: { eq: source.image } },
-                    publicURL: { ne: '' }
+                    publicURL: { ne: "" },
                   },
                 },
                 type: "File",
               });
 
               postHead.image = {
-                "src___NODE": image.id,
-                "alt": source.title,
-                "width": 900,
-                "height": 380,
+                src___NODE: image.id,
+                alt: source.title,
+                width: 900,
+                height: 380,
               };
             }
 
-            return hashObjectKeys(postHead, 'post-head');
+            return hashObjectKeys(postHead, "post-head");
           }
           return undefined;
         },
@@ -212,10 +219,13 @@ exports.createResolvers = async ({
         type: "HtmlComponent!",
         async resolve(source, args, context) {
           if (source.postBody) {
-            return hashObjectKeys({
-              "type": "html",
-              "html": source.postBody,
-            }, 'html');
+            return hashObjectKeys(
+              {
+                type: "html",
+                html: source.postBody,
+              },
+              "html"
+            );
           }
 
           return undefined;
@@ -282,19 +292,23 @@ exports.createResolvers = async ({
             // };
 
             const postAside = {
-              type: 'post-aside',
+              type: "post-aside",
               meta: {
                 items: [
                   {
                     icon: "date",
-                    text: new Date(source.created).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                    text: new Date(source.created).toLocaleString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }),
                   },
                   {
                     icon: "time",
                     text: `${source.postReadingTime} min read`,
                   },
-                ]
-              }
+                ],
+              },
             };
 
             if (wpUser.name === "Daniel Ley") {
@@ -302,36 +316,36 @@ exports.createResolvers = async ({
               const authorImage = await context.nodeModel.findOne({
                 query: {
                   filter: {
-                    relativePath: { eq: 'img/author_images_dley.png' },
-                    publicURL: { ne: '' }
+                    relativePath: { eq: "img/author_images_dley.png" },
+                    publicURL: { ne: "" },
                   },
                 },
                 type: "File",
               });
 
               postAside.author.image = {
-                "src___NODE": authorImage.id,
-                "alt": "Profile image Daniel Ley",
-                "width": 250,
-                "height": 250,
+                src___NODE: authorImage.id,
+                alt: "Profile image Daniel Ley",
+                width: 250,
+                height: 250,
               };
             } else {
               postAside.author = jonas;
               const authorImage = await context.nodeModel.findOne({
                 query: {
                   filter: {
-                    relativePath: { eq: 'img/author_images_julrich.png' },
-                    publicURL: { ne: '' }
+                    relativePath: { eq: "img/author_images_julrich.png" },
+                    publicURL: { ne: "" },
                   },
                 },
                 type: "File",
               });
 
               postAside.author.image = {
-                "src___NODE": authorImage.id,
-                "alt": "Profile image Jonas Ulrich",
-                "width": 250,
-                "height": 250,
+                src___NODE: authorImage.id,
+                alt: "Profile image Jonas Ulrich",
+                width: 250,
+                height: 250,
               };
             }
 
@@ -339,21 +353,21 @@ exports.createResolvers = async ({
               query: {},
               type: "Site",
             });
-  
+
             postAside.shareBar = {
-              "headline": {
-                "content": "Share this article",
-                "level": "h3",
+              headline: {
+                content: "Share this article",
+                level: "h3",
               },
               links: getLinks(
                 `${site.siteMetadata.siteUrl}/${source.slug}`,
                 source.excerpt,
                 `Suggested article: ${source.title}`,
-                `${site.siteMetadata.siteUrl}/${source.slug}`,
+                `${site.siteMetadata.siteUrl}/${source.slug}`
               ),
             };
-            
-            return hashObjectKeys(postAside, 'post-aside');
+
+            return hashObjectKeys(postAside, "post-aside");
           }
           return undefined;
         },
@@ -366,19 +380,22 @@ exports.createResolvers = async ({
             type: "Site",
           });
 
-          return hashObjectKeys({
-            type: "post-share-bar",
-            headline: {
-              content: "Share this article",
-              level: "h3",
+          return hashObjectKeys(
+            {
+              type: "post-share-bar",
+              headline: {
+                content: "Share this article",
+                level: "h3",
+              },
+              links: getLinks(
+                `${site.siteMetadata.siteUrl}/${source.slug}`,
+                source.excerpt,
+                `Suggested article: ${source.title}`,
+                `${site.siteMetadata.siteUrl}/${source.slug}`
+              ),
             },
-            links: getLinks(
-              `${site.siteMetadata.siteUrl}/${source.slug}`,
-              source.excerpt,
-              `Suggested article: ${source.title}`,
-              `${site.siteMetadata.siteUrl}/${source.slug}`,
-            ),
-          }, 'post-share-bar');
+            "post-share-bar"
+          );
         },
       },
       postContact: {
@@ -443,87 +460,108 @@ exports.createResolvers = async ({
               const contactImage = await context.nodeModel.findOne({
                 query: {
                   filter: {
-                    relativePath: { eq: 'img/profile_images_dley.png' },
-                    publicURL: { ne: '' }
+                    relativePath: { eq: "img/profile_images_dley.png" },
+                    publicURL: { ne: "" },
                   },
                 },
                 type: "File",
               });
 
               contact.image = {
-                "src___NODE": contactImage.id,
-                "alt": "Profile image Daniel Ley",
-                "width": 250,
-                "height": 250,
+                src___NODE: contactImage.id,
+                alt: "Profile image Daniel Ley",
+                width: 250,
+                height: 250,
               };
 
-              return hashObjectKeys(contact, 'contact');
+              return hashObjectKeys(contact, "contact");
             } else {
               const contact = jonas;
               const contactImage = await context.nodeModel.findOne({
                 query: {
                   filter: {
-                    relativePath: { eq: 'img/profile_images_julrich.png' },
-                    publicURL: { ne: '' }
+                    relativePath: { eq: "img/profile_images_julrich.png" },
+                    publicURL: { ne: "" },
                   },
                 },
                 type: "File",
               });
 
               contact.image = {
-                "src___NODE": contactImage.id,
-                "alt": "Profile image Jonas Ulrich",
-                "width": 250,
-                "height": 250,
+                src___NODE: contactImage.id,
+                alt: "Profile image Jonas Ulrich",
+                width: 250,
+                height: 250,
               };
 
-              return hashObjectKeys(contact, 'contact');
+              return hashObjectKeys(contact, "contact");
             }
           }
           return undefined;
         },
-      }
+      },
     },
   });
 };
 
-exports.onCreateNode = async ({ node, actions, getNode, createNodeId, createContentDigest }) => {
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  createContentDigest,
+}) => {
   const { createNode, createParentChildLink } = actions;
 
-  if (node.internal.type === 'WpPost') {
-    const kickstartDSPageId = createNodeId(`${node.id} >>> KickstartDsWordpressBlogPage`);
+  if (node.internal.type === "WpPost") {
+    const kickstartDSPageId = createNodeId(
+      `${node.id} >>> KickstartDsWordpressBlogPage`
+    );
 
     const page = {
       id: kickstartDSPageId,
       slug: `blog/${node.slug}`,
-      layout: 'blog-detail',
+      layout: "blog-detail",
 
       title: node.title,
       description: stripHtml(node.excerpt).result,
 
       created: node.date,
       updated: node.modified,
-      
+
       excerpt: node.excerpt,
       author: node.author.node.id,
       categories: node.categories.nodes.map((category) => category.id),
 
       postBody: node.content,
-      postReadingTime: Math.ceil(readingTime(stripHtml(typeof node.content === 'string' ? node.content : '').result, { wordsPerMinute: 140 }).minutes || 0),
-      postWordCount: readingTime(stripHtml(typeof node.content === 'string' ? node.content : '').result).words || 0,
+      postReadingTime: Math.ceil(
+        readingTime(
+          stripHtml(typeof node.content === "string" ? node.content : "")
+            .result,
+          { wordsPerMinute: 140 }
+        ).minutes || 0
+      ),
+      postWordCount:
+        readingTime(
+          stripHtml(typeof node.content === "string" ? node.content : "").result
+        ).words || 0,
 
       parent: node.id,
     };
 
-    if (node.featuredImage && node.featuredImage.node && node.featuredImage.node.id) {
+    if (
+      node.featuredImage &&
+      node.featuredImage.node &&
+      node.featuredImage.node.id
+    ) {
       page.image = node.featuredImage.node.id;
       page.cardImage = node.featuredImage.node.id;
-    };
+    }
 
     page.internal = {
       contentDigest: createContentDigest(page),
       content: JSON.stringify(page),
-      type: 'KickstartDsWordpressBlogPage',
+      type: "KickstartDsWordpressBlogPage",
       description: `Wordpress Post implementation of the kickstartDS blog page interface`,
     };
 

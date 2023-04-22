@@ -1,10 +1,12 @@
-"""Blog implementation of kickstartDS page interface"""
+"""
+Blog implementation of kickstartDS page interface
+"""
 interface KickstartDsBlogPage implements Node & KickstartDsPage @dontInfer {
   # core interface
   id: ID!
   slug: String!
   layout: String!
-  
+
   # seo interface
   title: String!
   description: String
@@ -12,13 +14,13 @@ interface KickstartDsBlogPage implements Node & KickstartDsPage @dontInfer {
   image: File @link
   imageUrl: String
   cardImage: File @link
-  
+
   # generic content interface
   header: HeaderComponent
   footer: FooterComponent
   sections: [SectionComponent]
-  components: [ContentComponent]
-  
+  components: [SectionComponentContent]
+
   # dates interface
   updated: Date! @dateformat
   created: Date! @dateformat
@@ -27,7 +29,7 @@ interface KickstartDsBlogPage implements Node & KickstartDsPage @dontInfer {
   excerpt: String!
   author: String!
   categories: [TagLabelComponent]
-  
+
   # blog detail
   postHead: PostHeadComponent!
   postBody: HtmlComponent!

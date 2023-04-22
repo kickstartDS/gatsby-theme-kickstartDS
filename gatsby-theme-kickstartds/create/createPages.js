@@ -1,5 +1,9 @@
-const { collectGraphQLFragments } = require('../src/util/collectGraphQLFragments');
-const { cleanObjectKeys } = require('@kickstartds/jsonschema2graphql/build/dehashing');
+const {
+  collectGraphQLFragments,
+} = require("../src/util/collectGraphQLFragments");
+const {
+  cleanObjectKeys,
+} = require("@kickstartds/jsonschema2graphql/build/dehashing");
 // TODO re-activate: this is the entry point for usage based component metrics
 // const { analyzeContent } = require('@kickstartds/gatsby-theme-kickstartds/src/helpers/componentAnalytics');
 
@@ -8,11 +12,14 @@ module.exports = async ({ actions, graphql }, options) => {
 
   // TODO dedupe the components fragments below, this should not be necessary!
   const { data } = await graphql(/* GraphQL */ `
-    ${await collectGraphQLFragments([
-      'SectionComponentDeepNesting',
-      'HeaderComponentDeepNesting',
-      'FooterComponentDeepNesting',
-    ], gqlPath)}
+    ${await collectGraphQLFragments(
+      [
+        "SectionComponentDeepNesting",
+        "HeaderComponentDeepNesting",
+        "FooterComponentDeepNesting",
+      ],
+      gqlPath
+    )}
     {
       allKickstartDsPage {
         edges {
@@ -23,43 +30,21 @@ module.exports = async ({ actions, graphql }, options) => {
               ...SectionComponentDeepNesting
             }
             components {
-              ...ButtonComponentDeepNesting,
-              ...CheckboxComponentDeepNesting,
-              ...CheckboxGroupComponentDeepNesting,
-              ...CollapsibleBoxComponentDeepNesting,
-              ...ContactComponentDeepNesting,
-              ...ContentBoxComponentDeepNesting,
-              ...CountUpComponentDeepNesting,
-              ...DividerComponentDeepNesting,
-              ...GlossaryComponentDeepNesting,
-              ...HeadlineComponentDeepNesting,
-              ...HtmlComponentDeepNesting,
-              ...IconComponentDeepNesting,
-              ...InputComponentDeepNesting,
-              ...LightboxLazyImageComponentDeepNesting,
-              ...LinkButtonComponentDeepNesting,
-              ...LogoTilesComponentDeepNesting,
-              ...NewsItemComponentDeepNesting,
-              ...PictureComponentDeepNesting,
-              ...PostHeadComponentDeepNesting,
-              ...PostTeaserComponentDeepNesting,
-              ...QuoteComponentDeepNesting,
-              ...QuotesSliderComponentDeepNesting,
-              ...RadioComponentDeepNesting,
-              ...RadioGroupComponentDeepNesting,
-              ...SelectFieldComponentDeepNesting,
-              ...SliderComponentDeepNesting,
-              ...StorytellingComponentDeepNesting,
-              ...TableComponentDeepNesting,
-              ...TagLabelComponentDeepNesting,
-              ...TeaserBoxComponentDeepNesting,
-              ...TeaserComponentDeepNesting,
-              ...TeaserRowComponentDeepNesting,
-              ...TextAreaComponentDeepNesting,
-              ...TextFieldComponentDeepNesting,
-              ...TextMediaComponentDeepNesting,
-              ...VisualComponentDeepNesting,
-              ...VisualSlidePreviewComponentDeepNesting,
+              ...ButtonComponentDeepNesting
+              ...CollapsibleBoxComponentDeepNesting
+              ...ContactComponentDeepNesting
+              ...ContentBoxComponentDeepNesting
+              ...CountUpComponentDeepNesting
+              ...HeadlineComponentDeepNesting
+              ...LogoTilesComponentDeepNesting
+              ...QuoteComponentDeepNesting
+              ...QuotesSliderComponentDeepNesting
+              ...StorytellingComponentDeepNesting
+              ...TagLabelComponentDeepNesting
+              ...TeaserBoxComponentDeepNesting
+              ...TeaserRowComponentDeepNesting
+              ...TextMediaComponentDeepNesting
+              ...VisualComponentDeepNesting
               ...VisualSliderComponentDeepNesting
             }
             title
@@ -74,14 +59,22 @@ module.exports = async ({ actions, graphql }, options) => {
           }
         }
       }
-      kickstartDsHeader {
-        component {
-          ...HeaderComponentDeepNesting
+      allKickstartDsHeader {
+        edges {
+          node {
+            component {
+              ...HeaderComponentDeepNesting
+            }
+          }
         }
       }
-      kickstartDsFooter {
-        component {
-          ...FooterComponentDeepNesting
+      allKickstartDsFooter {
+        edges {
+          node {
+            component {
+              ...FooterComponentDeepNesting
+            }
+          }
         }
       }
     }
@@ -89,22 +82,64 @@ module.exports = async ({ actions, graphql }, options) => {
 
   await Promise.all(
     data.allKickstartDsPage.edges.map(async (page) => {
-      if (!(page.node.slug.includes('blog') || page.node.slug.includes('glossary'))) {
+      // TODO re-check some time, this seems to be superfluous,
+      // those are all handled by different create*.js files
+      if (
+        !(
+          page.node.slug.includes("blog") ||
+          page.node.slug.includes("glossary") ||
+          page.node.slug.includes("showcases") ||
+          page.node.slug.includes("appearances")
+        )
+      ) {
         // TODO re-activate: this is the entry point for usage based component metrics
         // await analyzeContent(page.node.slug, page.node.sections, true);
 
+        const headerDe = data.allKickstartDsHeader.edges.find((header) =>
+          header.node.component.activeEntry__254f.includes("de")
+        );
+        const headerEn = data.allKickstartDsHeader.edges.find(
+          (header) => !header.node.component.activeEntry__254f.includes("de")
+        );
+
+        const header =
+          page.node.slug.includes("de/") ||
+          page.node.slug === "de" ||
+          page.node.slug.includes("ueber-uns")
+            ? cleanObjectKeys(headerDe.node.component)
+            : cleanObjectKeys(headerEn.node.component);
+
+        const footerDe = data.allKickstartDsFooter.edges.find((footer) =>
+          footer.node.component.sections__17ac[1].headline__b113.includes(
+            "Kontakt"
+          )
+        );
+        const footerEn = data.allKickstartDsFooter.edges.find(
+          (footer) =>
+            !footer.node.component.sections__17ac[1].headline__b113.includes(
+              "Kontakt"
+            )
+        );
+
+        const footer =
+          page.node.slug.includes("de/") ||
+          page.node.slug === "de" ||
+          page.node.slug.includes("ueber-uns")
+            ? cleanObjectKeys(footerDe.node.component)
+            : cleanObjectKeys(footerEn.node.component);
+
         await actions.createPage({
-          component: require.resolve('../src/templates/page.js'),
+          component: require.resolve("../src/templates/page.js"),
           path: page.node.slug,
           context: {
             page: {
-              header: cleanObjectKeys(data.kickstartDsHeader.component),
-              footer: cleanObjectKeys(data.kickstartDsFooter.component),
-              ...page.node
+              header,
+              footer,
+              ...page.node,
             },
           },
         });
       }
     })
-  )
-}
+  );
+};
