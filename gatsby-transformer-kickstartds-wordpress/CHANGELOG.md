@@ -1,3 +1,23 @@
+# v2.3.0 (Sat Apr 22 2023)
+
+#### 🚀 Enhancement
+
+- Update glossary, appearances, and showcases pages [#105](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/105) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: use fixed schema tooling, re-fixing headlines in sections ([@julrich](https://github.com/julrich))
+- fix: empty appearances objects ([@julrich](https://github.com/julrich))
+- fix: update to latest stable version of kickstartDS dependencies ([@julrich](https://github.com/julrich))
+- fix: align showcases, appearances and glossary entries ([@julrich](https://github.com/julrich))
+- feature: get appearances running again ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.2.3 (Tue Dec 06 2022)
 
 #### ⚠️ Pushed to `master`
