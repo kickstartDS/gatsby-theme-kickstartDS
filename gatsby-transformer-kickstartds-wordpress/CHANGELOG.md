@@ -1,3 +1,15 @@
+# v2.3.1 (Sun Apr 23 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: wordpress ingestion after wpgraphql WP addon update ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.3.0 (Sat Apr 22 2023)
 
 #### 🚀 Enhancement

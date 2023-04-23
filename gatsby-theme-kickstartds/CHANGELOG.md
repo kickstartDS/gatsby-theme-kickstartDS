@@ -1,3 +1,15 @@
+# v2.4.1 (Sun Apr 23 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: remove console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.4.0 (Sat Apr 22 2023)
 
 #### 🚀 Enhancement
