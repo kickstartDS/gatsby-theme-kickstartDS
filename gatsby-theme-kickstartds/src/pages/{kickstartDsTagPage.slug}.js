@@ -46,107 +46,108 @@ export default function TagPage({ data }) {
   );
 }
 
-export const query = graphql`
-  fragment FooterComponentDeepNesting on FooterComponent {
-    dark__1ff9
-    homeLink__7c70
-    sections__17ac {
-      ...FooterComponentSectionsDeepNesting
-    }
-    subscriptionForm__afcd {
-      ...FooterComponentSubscriptionFormDeepNesting
-    }
-    type
+export const query = graphql` 
+fragment FooterComponentDeepNesting on FooterComponent {
+  dark__1ff9
+  homeLink__7c70
+  sections__17ac {
+    ...FooterComponentSectionsDeepNesting
   }
-  fragment HeaderComponentDeepNesting on HeaderComponent {
-    activeEntry__254f
-    announcementBar__2ba5 {
-      ...HeaderComponentAnnouncementBarDeepNesting
-    }
-    cta__c294 {
-      ...HeaderComponentCtaDeepNesting
-    }
-    dark__f9be
-    homeLink__5dc0
-    navEnabled__7b87
-    navEntries__8f4f {
-      ...HeaderComponentNavEntriesDeepNesting
-    }
-    type
+  subscriptionForm__afcd {
+    ...FooterComponentSubscriptionFormDeepNesting
   }
-  fragment TagLabelComponentDeepNesting on TagLabelComponent {
-    className__2a76
-    label__7246
-    link__6ced
-    removable__7eaf
-    size__d93f
-    type
+  type
+}
+fragment HeaderComponentDeepNesting on HeaderComponent {
+  activeEntry__254f
+  announcementBar__2ba5 {
+    ...HeaderComponentAnnouncementBarDeepNesting
   }
-  fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
-    headline__b113
-    links__3f74 {
-      ...FooterComponentSectionsLinksDeepNesting
-    }
+  cta__c294 {
+    ...HeaderComponentCtaDeepNesting
   }
-  fragment FooterComponentSubscriptionFormDeepNesting on FooterComponentSubscriptionForm {
-    action__a83d
-    buttonLabel__d5bb
-    headline__b113
-    honeypot__bc4e
-    placeholder__f8c9
-    subheadline__163b
-    tags__87c2
+  dark__f9be
+  homeLink__5dc0
+  navEnabled__7b87
+  navEntries__8f4f {
+    ...HeaderComponentNavEntriesDeepNesting
   }
-  fragment FooterComponentSectionsLinksDeepNesting on FooterComponentSectionsLinks {
-    href__8955
-    label__f0f4
+  type
+}
+fragment TagLabelComponentDeepNesting on TagLabelComponent {
+  className__2a76
+  component__0189
+  label__7246
+  link__6ced
+  removable__7eaf
+  size__d93f
+  type
+}
+fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
+  headline__b113
+  links__3f74 {
+    ...FooterComponentSectionsLinksDeepNesting
   }
-  fragment HeaderComponentAnnouncementBarDeepNesting on HeaderComponentAnnouncementBar {
-    content__4b31
-    linkHref__738d
-    linkLabel__e25c
-  }
-  fragment HeaderComponentCtaDeepNesting on HeaderComponentCta {
-    href__815d
-    label__e61b
-  }
-  fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
-    href__815d
-    id__7362
-    label__e61b
-  }
-  query TAG_BY_SLUG($slug: String) {
-    kickstartDsTagPage(slug: { eq: $slug }) {
-      title
-      description
-      keywords
-      image {
-        publicURL
-      }
-      cardImage {
-        publicURL
-      }
-      tagLabel {
-        ...TagLabelComponentDeepNesting
-      }
-    }
-    allKickstartDsHeader {
-      edges {
-        node {
-          component {
-            ...HeaderComponentDeepNesting
-          }
-        }
-      }
-    }
-    allKickstartDsFooter {
-      edges {
-        node {
-          component {
-            ...FooterComponentDeepNesting
-          }
-        }
-      }
-    }
-  }
-`;
+}
+fragment FooterComponentSubscriptionFormDeepNesting on FooterComponentSubscriptionForm {
+  action__a83d
+  buttonLabel__d5bb
+  headline__b113
+  honeypot__bc4e
+  placeholder__f8c9
+  subheadline__163b
+  tags__87c2
+}
+fragment FooterComponentSectionsLinksDeepNesting on FooterComponentSectionsLinks {
+  href__8955
+  label__f0f4
+}
+fragment HeaderComponentAnnouncementBarDeepNesting on HeaderComponentAnnouncementBar {
+  content__4b31
+  linkHref__738d
+  linkLabel__e25c
+}
+fragment HeaderComponentCtaDeepNesting on HeaderComponentCta {
+  href__815d
+  label__e61b
+}
+fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
+  href__815d
+  id__7362
+  label__e61b
+} 
+query TAG_BY_SLUG($slug: String) { 
+  kickstartDsTagPage(slug: { eq: $slug }) { 
+    title 
+    description 
+    keywords 
+    image { 
+      publicURL 
+    } 
+    cardImage { 
+      publicURL 
+    } 
+    tagLabel { 
+      ...TagLabelComponentDeepNesting 
+    } 
+  } 
+  allKickstartDsHeader { 
+    edges { 
+      node { 
+        component { 
+          ...HeaderComponentDeepNesting 
+        } 
+      } 
+    } 
+  } 
+  allKickstartDsFooter { 
+    edges { 
+      node { 
+        component { 
+          ...FooterComponentDeepNesting 
+        } 
+      } 
+    } 
+  } 
+} 
+  `;

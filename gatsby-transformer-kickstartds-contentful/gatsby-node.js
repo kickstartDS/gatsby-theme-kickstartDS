@@ -1376,7 +1376,7 @@ exports.onCreateNode = async ({
 
     const page = {
       id: kickstartDSPageId,
-      slug: `tags/${node.title}`,
+      slug: `tags/${node.slug}`,
       layout: "tag-label",
 
       title: node.title,
