@@ -105,7 +105,6 @@ const LinkProvider = (props) => (
 
 const WrappedImage = ({ src, ...props }) => {
   const image = getImage(src);
-  console.log("theres an image", src, image);
   return src && src.childImageSharp && image ? (
     <GatsbyImage
       className={props.className}
