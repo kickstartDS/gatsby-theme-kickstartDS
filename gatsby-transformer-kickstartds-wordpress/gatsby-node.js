@@ -1,7 +1,6 @@
 const stripHtml = require("string-strip-html").stripHtml;
 const hashObjectKeys =
   require("@kickstartds/jsonschema2graphql/build/helpers").hashObjectKeys;
-const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const readingTime = require("reading-time");
 
 const getLinks = (url, twitterText, emailSubject, emailBody) => [
@@ -119,7 +118,36 @@ exports.createResolvers = async ({
               type: "WpUser",
             });
 
-            return wpUser && wpUser.name ? wpUser.name : undefined;
+            if (wpUser && wpUser.name) {
+              const contentfulPerson = await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    name: { eq: wpUser && wpUser.name },
+                  },
+                },
+                type: "ContentfulPerson",
+              });
+
+              if (contentfulPerson && contentfulPerson.name) {
+                return contentfulPerson.name;
+              } else {
+                console.log(
+                  "Missing ContentfulPerson for `author`",
+                  contentfulPerson,
+                  source.author,
+                  source.id
+                );
+                return undefined;
+              }
+            } else {
+              console.log(
+                "Missing WpUser for `author`",
+                wpUser,
+                source.author,
+                source.id
+              );
+              return undefined;
+            }
           }
 
           return undefined;
@@ -140,10 +168,46 @@ exports.createResolvers = async ({
                   type: "WpCategory",
                 });
 
-                return {
-                  label: wpCategory.name,
-                  type: "tag-label",
-                };
+                if (wpCategory && wpCategory.name) {
+                  const contentfulTag = await context.nodeModel.findOne({
+                    query: {
+                      filter: {
+                        title: { eq: wpCategory.name },
+                      },
+                    },
+                    type: "ContentfulTag",
+                  });
+
+                  if (contentfulTag && contentfulTag.title) {
+                    const site = await context.nodeModel.findOne({
+                      query: {},
+                      type: "Site",
+                    });
+
+                    return {
+                      label: contentfulTag.title,
+                      link: `${site.siteMetadata.siteUrl}/tags/${contentfulTag.slug}/`,
+                      type: "tag-label",
+                    };
+                  } else {
+                    console.log(
+                      "Missing ContentfulTag for `categories`",
+                      contentfulTag,
+                      wpCategory,
+                      source.categories,
+                      source.id
+                    );
+                    return undefined;
+                  }
+                } else {
+                  console.log(
+                    "Missing WpCategory for `categories`",
+                    wpCategory,
+                    source.categories,
+                    source.id
+                  );
+                  return undefined;
+                }
               })
             );
 
@@ -183,10 +247,45 @@ exports.createResolvers = async ({
                     type: "WpCategory",
                   });
 
-                  return {
-                    label: wpCategory.name,
-                    type: "tag-label",
-                  };
+                  if (wpCategory && wpCategory.name) {
+                    const contentfulTag = await context.nodeModel.findOne({
+                      query: {
+                        filter: {
+                          title: { eq: wpCategory.name },
+                        },
+                      },
+                      type: "ContentfulTag",
+                    });
+
+                    if (contentfulTag && contentfulTag.title) {
+                      const site = await context.nodeModel.findOne({
+                        query: {},
+                        type: "Site",
+                      });
+
+                      return {
+                        label: contentfulTag.title,
+                        link: `${site.siteMetadata.siteUrl}/tags/${contentfulTag.slug}/`,
+                        type: "tag-label",
+                      };
+                    } else {
+                      console.log(
+                        "Missing ContentfulTag for `postHead categories`",
+                        contentfulTag,
+                        source.categories,
+                        source.id
+                      );
+                      return undefined;
+                    }
+                  } else {
+                    console.log(
+                      "Missing WpCategory for `postHead categories`",
+                      wpCategory,
+                      source.categories,
+                      source.id
+                    );
+                    return undefined;
+                  }
                 })
               );
             }
@@ -239,114 +338,113 @@ exports.createResolvers = async ({
             type: "Site",
           });
 
+          const postAside = {
+            type: "post-aside",
+            meta: {
+              items: [
+                {
+                  icon: "date",
+                  text: new Date(source.created).toLocaleString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }),
+                },
+                {
+                  icon: "time",
+                  text: `${source.postReadingTime} min read`,
+                },
+              ],
+            },
+          };
+
           if (source.author) {
             const wpUser = await context.nodeModel.findOne({
               query: { filter: { id: { eq: source.author } } },
               type: "WpUser",
             });
 
-            // TODO make dynamic again, deduplicate (see `postContact` below)
-            const jonas = {
-              title: "Jonas Ulrich",
-              links: [
-                {
-                  icon: "twitter",
-                  label: "@tsnmp",
-                  href: "https://twitter.com/tsnmp",
-                },
-                {
-                  icon: "email",
-                  label: "jonas.ulrich@kickstartds.com",
-                  href: "mailto:jonas.ulrich@kickstartds.com",
-                },
-              ],
-              copy: "Founder & CTO, frontend first since day one",
-              type: "contact",
-            };
-
-            const daniel = {
-              title: "Daniel Ley",
-              links: [
-                {
-                  icon: "twitter",
-                  label: "@DLey_de",
-                  href: "https://twitter.com/DLey_de",
-                },
-                {
-                  icon: "email",
-                  label: "daniel.ley@kickstartds.com",
-                  href: "mailto:daniel.ley@kickstartds.com",
-                },
-              ],
-              copy: "Co-Founder + UX Strategist with heart & soul",
-              type: "contact",
-            };
-
-            // const contact = {
-            //   "title": wpUser.name,
-            //   "subtitle": "Founder and CTO with a faible for smart frontend solutions",
-            //   "email": wpUser.email || 'info@kickstartds.com',
-            //   "phone": "+49(0)22868896620",
-            //   "copy": wpUser.description,
-            //   "type": "contact",
-            // };
-
-            const postAside = {
-              type: "post-aside",
-              meta: {
-                items: [
-                  {
-                    icon: "date",
-                    text: new Date(source.created).toLocaleString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    }),
-                  },
-                  {
-                    icon: "time",
-                    text: `${source.postReadingTime} min read`,
-                  },
-                ],
-              },
-            };
-
-            if (wpUser.name === "Daniel Ley") {
-              postAside.author = daniel;
-              const authorImage = await context.nodeModel.findOne({
+            if (wpUser && wpUser.name) {
+              const contentfulPerson = await context.nodeModel.findOne({
                 query: {
                   filter: {
-                    relativePath: { eq: "img/author_images_dley.png" },
-                    publicURL: { ne: "" },
+                    name: { eq: wpUser && wpUser.name },
                   },
                 },
-                type: "File",
+                type: "ContentfulPerson",
               });
 
-              postAside.author.image = {
-                src___NODE: authorImage.id,
-                alt: "Profile image Daniel Ley",
-                width: 250,
-                height: 250,
-              };
+              if (contentfulPerson && contentfulPerson.name) {
+                postAside.author = {
+                  title: contentfulPerson.name,
+                  links: [
+                    {
+                      icon: "email",
+                      label: contentfulPerson.email,
+                      href: `mailto:${contentfulPerson.email}`,
+                    },
+                  ],
+                  copy: contentfulPerson.role,
+                  type: "contact",
+                };
+
+                if (contentfulPerson.twitterHandle) {
+                  postAside.author.links.push({
+                    icon: "twitter",
+                    label: contentfulPerson.twitterHandle,
+                    href: `https://twitter.com/${contentfulPerson.twitterHandle.replace(
+                      "@",
+                      ""
+                    )}`,
+                  });
+                }
+
+                if (contentfulPerson.avatar___NODE) {
+                  const contentfulImage = await context.nodeModel.findOne({
+                    query: {
+                      filter: { id: { eq: contentfulPerson.avatar___NODE } },
+                      fields: { localFile: { ne: "" } },
+                    },
+                    type: "ContentfulAsset",
+                  });
+
+                  if (
+                    contentfulImage &&
+                    contentfulImage.fields &&
+                    contentfulImage.fields.localFile
+                  ) {
+                    postAside.author.image = {
+                      src___NODE: contentfulImage.fields.localFile,
+                      alt: `Profile image ${contentfulPerson.name}`,
+                      width: 250,
+                      height: 250,
+                    };
+                  } else {
+                    console.log(
+                      "Missing ContentfulAsset `author` image",
+                      contentfulImage,
+                      source.image,
+                      source.id
+                    );
+                  }
+                }
+              } else {
+                console.log(
+                  "Missing ContentfulPerson for `author`",
+                  contentfulPerson,
+                  source.author,
+                  source.id
+                );
+                return undefined;
+              }
             } else {
-              postAside.author = jonas;
-              const authorImage = await context.nodeModel.findOne({
-                query: {
-                  filter: {
-                    relativePath: { eq: "img/author_images_julrich.png" },
-                    publicURL: { ne: "" },
-                  },
-                },
-                type: "File",
-              });
-
-              postAside.author.image = {
-                src___NODE: authorImage.id,
-                alt: "Profile image Jonas Ulrich",
-                width: 250,
-                height: 250,
-              };
+              console.log(
+                "Missing WpUser for `author`",
+                wpUser,
+                source.author,
+                source.id
+              );
+              return undefined;
             }
 
             const site = await context.nodeModel.findOne({
@@ -401,100 +499,96 @@ exports.createResolvers = async ({
       postContact: {
         type: "ContactComponent",
         async resolve(source, args, context) {
-          // TODO make dynamic again, deduplicate (see `postAside` above)
           if (source.author) {
             const wpUser = await context.nodeModel.findOne({
               query: { filter: { id: { eq: source.author } } },
               type: "WpUser",
             });
 
-            const jonas = {
-              title: "Jonas Ulrich",
-              subtitle: "Founder & CTO, frontend first proponent since day one",
-              links: [
-                {
-                  icon: "twitter",
-                  label: "@tsnmp",
-                  href: "https://twitter.com/tsnmp",
-                },
-                {
-                  icon: "email",
-                  label: "jonas.ulrich@kickstartds.com",
-                  href: "mailto:jonas.ulrich@kickstartds.com",
-                },
-              ],
-              copy: "After 15 years building websites and UIs ourselves, we wanted to improve the way teams collaborate when creating web frontends. That's why we started kickstartDS.\n\nWe want to share our experience and offer a huge library of best practice patterns and well tested web components. All the while following the principles of the Atomic Design methodology.",
-              type: "contact",
-            };
-
-            const daniel = {
-              title: "Daniel Ley",
-              subtitle: "Co-Founder + UX Strategist with heart & soul",
-              links: [
-                {
-                  icon: "twitter",
-                  label: "@DLey_de",
-                  href: "https://twitter.com/DLey_de",
-                },
-                {
-                  icon: "email",
-                  label: "daniel.ley@kickstartds.com",
-                  href: "mailto:daniel.ley@kickstartds.com",
-                },
-              ],
-              copy: "More than 20 years ago I started creating user interfaces and web style guides, corporate design manuals and in the past years the first digital Design Systems.\n\nAfter working in a large tech corporation for a long time I very well know todays problems in gaining and maintaining consistency in UIs.",
-              type: "contact",
-            };
-
-            // const contact = {
-            //   "title": wpUser.name,
-            //   "subtitle": "Founder and CTO with a faible for smart frontend solutions",
-            //   "email": wpUser.email || 'info@kickstartds.com',
-            //   "phone": "+49(0)22868896620",
-            //   "copy": wpUser.description,
-            //   "type": "contact",
-            // };
-
-            if (wpUser.name === "Daniel Ley") {
-              const contact = daniel;
-              const contactImage = await context.nodeModel.findOne({
+            if (wpUser && wpUser.name) {
+              const contentfulPerson = await context.nodeModel.findOne({
                 query: {
                   filter: {
-                    relativePath: { eq: "img/profile_images_dley.png" },
-                    publicURL: { ne: "" },
+                    name: { eq: wpUser && wpUser.name },
                   },
                 },
-                type: "File",
+                type: "ContentfulPerson",
               });
 
-              contact.image = {
-                src___NODE: contactImage.id,
-                alt: "Profile image Daniel Ley",
-                width: 250,
-                height: 250,
-              };
+              if (contentfulPerson && contentfulPerson.name) {
+                const contact = {
+                  title: contentfulPerson.name,
+                  links: [
+                    {
+                      icon: "email",
+                      label: contentfulPerson.email,
+                      href: `mailto:${contentfulPerson.email}`,
+                    },
+                  ],
+                  subtitle: contentfulPerson.role,
+                  copy: contentfulPerson.bio.raw,
+                  type: "contact",
+                };
 
-              return hashObjectKeys(contact, "contact");
+                if (contentfulPerson.twitterHandle) {
+                  contact.links.push({
+                    icon: "twitter",
+                    label: contentfulPerson.twitterHandle,
+                    href: `https://twitter.com/${contentfulPerson.twitterHandle.replace(
+                      "@",
+                      ""
+                    )}`,
+                  });
+                }
+
+                if (contentfulPerson.avatar___NODE) {
+                  const contentfulImage = await context.nodeModel.findOne({
+                    query: {
+                      filter: { id: { eq: contentfulPerson.avatar___NODE } },
+                      fields: { localFile: { ne: "" } },
+                    },
+                    type: "ContentfulAsset",
+                  });
+
+                  if (
+                    contentfulImage &&
+                    contentfulImage.fields &&
+                    contentfulImage.fields.localFile
+                  ) {
+                    contact.image = {
+                      src___NODE: contentfulImage.fields.localFile,
+                      alt: `Profile image ${contentfulPerson.name}`,
+                      width: 250,
+                      height: 250,
+                    };
+                  } else {
+                    console.log(
+                      "Missing ContentfulAsset `author` image",
+                      contentfulImage,
+                      source.image,
+                      source.id
+                    );
+                  }
+                }
+
+                return hashObjectKeys(contact, "contact");
+              } else {
+                console.log(
+                  "Missing ContentfulPerson for `author`",
+                  contentfulPerson,
+                  source.author,
+                  source.id
+                );
+                return undefined;
+              }
             } else {
-              const contact = jonas;
-              const contactImage = await context.nodeModel.findOne({
-                query: {
-                  filter: {
-                    relativePath: { eq: "img/profile_images_julrich.png" },
-                    publicURL: { ne: "" },
-                  },
-                },
-                type: "File",
-              });
-
-              contact.image = {
-                src___NODE: contactImage.id,
-                alt: "Profile image Jonas Ulrich",
-                width: 250,
-                height: 250,
-              };
-
-              return hashObjectKeys(contact, "contact");
+              console.log(
+                "Missing WpUser for `author`",
+                wpUser,
+                source.author,
+                source.id
+              );
+              return undefined;
             }
           }
           return undefined;
