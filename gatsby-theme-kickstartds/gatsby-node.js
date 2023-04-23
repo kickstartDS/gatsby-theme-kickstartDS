@@ -254,6 +254,7 @@ const getTagPageQuery = async (gqlPath) => {
       "HeaderComponentDeepNesting",
       "FooterComponentDeepNesting",
       "TagLabelComponentDeepNesting",
+      "RelatedComponentDeepNesting",
     ],
     gqlPath
   );
@@ -277,6 +278,9 @@ query TAG_BY_SLUG($slug: String) { \n\
     } \n\
     tagLabel { \n\
       ...TagLabelComponentDeepNesting \n\
+    } \n\
+    related { \n\
+      ...RelatedComponentDeepNesting \n\
     } \n\
   } \n\
   allKickstartDsHeader { \n\

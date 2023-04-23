@@ -41,7 +41,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
       </div>
     </Section>
 
-    <Section width="wide" spaceBefore="none" spaceAfter="none" align="center">
+    <Section width="wide" spaceBefore="none" spaceAfter="none">
       <Divider />
     </Section>
   </Layout>

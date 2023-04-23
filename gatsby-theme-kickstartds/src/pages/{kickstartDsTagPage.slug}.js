@@ -2,13 +2,13 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import { cleanObjectKeys } from "@kickstartds/jsonschema2graphql/build/dehashing";
-
 import { Layout } from "@kickstartds/gatsby-theme-kickstartds/src/components/Layout";
-import { TagLabel } from "@kickstartds/base/lib/tag-label";
+
+import { TagEntryPage } from "../components/TagEntryPage";
 import { SEO } from "../components/Seo";
 
 export default function TagPage({ data }) {
-  const { tagLabel } = cleanObjectKeys(data.kickstartDsTagPage);
+  const { tagLabel, related } = cleanObjectKeys(data.kickstartDsTagPage);
 
   console.log("data.kickstartDsTagPage", data.kickstartDsTagPage);
 
@@ -41,7 +41,7 @@ export default function TagPage({ data }) {
         }
         twitterCreator={data.kickstartDsTagPage.twitterCreator}
       />
-      <TagLabel {...tagLabel} />
+      <TagEntryPage tagLabel={tagLabel} related={related} />
     </Layout>
   );
 }
@@ -73,6 +73,21 @@ fragment HeaderComponentDeepNesting on HeaderComponent {
     ...HeaderComponentNavEntriesDeepNesting
   }
   type
+}
+fragment RelatedComponentDeepNesting on RelatedComponent {
+  excerpt__b377
+  
+  image__3a5c {
+    childImageSharp {
+      gatsbyImageData
+    }
+    publicURL
+  }
+  tags__63eb
+  title__d9bc
+  type
+  typeLabel__3922
+  url__7c2a
 }
 fragment TagLabelComponentDeepNesting on TagLabelComponent {
   className__2a76
@@ -129,6 +144,9 @@ query TAG_BY_SLUG($slug: String) {
     } 
     tagLabel { 
       ...TagLabelComponentDeepNesting 
+    } 
+    related { 
+      ...RelatedComponentDeepNesting 
     } 
   } 
   allKickstartDsHeader { 
