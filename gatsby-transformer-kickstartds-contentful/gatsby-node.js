@@ -691,7 +691,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                   } else {
                     console.log(
                       "Missing ContentfulPerson for `participants`",
-                      contentfulPersons,
+                      contentfulPerson,
                       source.appearance.participants,
                       source.id
                     );
