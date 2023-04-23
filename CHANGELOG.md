@@ -1,5 +1,18 @@
 # (Sun Apr 23 2023)
 
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.4.0`
+  - Integrate blog authors and tags with respective Contentful entities [#106](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/106) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sun Apr 23 2023)
+
 #### ⚠️ Pushed to `master`
 
 - fix: update resource class for Circle CI build ([@julrich](https://github.com/julrich))
