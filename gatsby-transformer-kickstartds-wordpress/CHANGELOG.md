@@ -1,3 +1,20 @@
+# v2.4.0 (Sun Apr 23 2023)
+
+#### 🚀 Enhancement
+
+- Integrate blog authors and tags with respective Contentful entities [#106](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/106) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: get blog post authors and tags from contentful content ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into fix/integrate-blog-authors-and-tags ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.3.1 (Sun Apr 23 2023)
 
 #### ⚠️ Pushed to `master`
