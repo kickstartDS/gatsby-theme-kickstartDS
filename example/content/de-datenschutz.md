@@ -13,8 +13,8 @@ sections:
       styleAs: none
       level: h1
       align: left
-      subheadline: ""
-      spaceAfter: none
+      subheadline: ''
+      spaceAfter: minimum
       content: Datenschutz
       switchOrder: false
       type: headline

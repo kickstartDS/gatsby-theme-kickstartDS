@@ -1,3 +1,45 @@
+# v2.4.1 (Sun Apr 23 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: remove console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# v2.4.0 (Sat Apr 22 2023)
+
+#### 🚀 Enhancement
+
+- Update glossary, appearances, and showcases pages [#105](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/105) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: use fixed schema tooling, re-fixing headlines in sections ([@julrich](https://github.com/julrich))
+- fix: force ksds dependency resolutions ([@julrich](https://github.com/julrich))
+- fix: empty appearances objects ([@julrich](https://github.com/julrich))
+- fix: remove console.logs ([@julrich](https://github.com/julrich))
+- fix: update to latest stable version of kickstartDS dependencies ([@julrich](https://github.com/julrich))
+- fix: keep on fixing upgrade bugs ([@julrich](https://github.com/julrich))
+- fix: update to upgraded kickstartDS Design System ([@julrich](https://github.com/julrich))
+- fix: more generalized header and footer uses ([@julrich](https://github.com/julrich))
+- fix: temp fix to broken links ([@julrich](https://github.com/julrich))
+- fix: header and footer for other page types ([@julrich](https://github.com/julrich))
+- fix: update header, footer and static content ([@julrich](https://github.com/julrich))
+- fix: align showcases, appearances and glossary entries ([@julrich](https://github.com/julrich))
+- feature: first go at showcase integration ([@julrich](https://github.com/julrich))
+- feature: get appearances running again ([@julrich](https://github.com/julrich))
+- feature: update showcase and appearance pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.3.0 (Sun Nov 27 2022)
 
 #### 🚀 Enhancement

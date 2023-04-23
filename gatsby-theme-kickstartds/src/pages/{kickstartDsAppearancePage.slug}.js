@@ -1,21 +1,30 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { cleanKeys } from "@kickstartds/gatsby-theme-kickstartds/src/helpers/componentMapper";
+import { cleanObjectKeys } from "@kickstartds/jsonschema2graphql/build/dehashing";
 
 import { Layout } from "@kickstartds/gatsby-theme-kickstartds/src/components/Layout";
-// TODO this needs to be in @kickstartDS, not in design-ssytem
 import { Appearance } from "@kickstartds/design-system/dist/components/appearance/AppearanceComponent";
 import { SEO } from "../components/Seo";
 
 export default function AppearancePage({ data }) {
-  const { appearance } = cleanKeys(data.kickstartDsAppearancePage);
+  const { appearance } = cleanObjectKeys(data.kickstartDsAppearancePage);
+
+  const headerEn = data.allKickstartDsHeader.edges.find(
+    (header) => !header.node.component.activeEntry__254f.includes("de")
+  );
+  const header = cleanObjectKeys(headerEn.node.component);
+
+  const footerEn = data.allKickstartDsFooter.edges.find(
+    (footer) =>
+      !footer.node.component.sections__17ac[1].headline__b113.includes(
+        "Kontakt"
+      )
+  );
+  const footer = cleanObjectKeys(footerEn.node.component);
 
   return (
-    <Layout
-      header={cleanKeys(data.kickstartDsHeader.component)}
-      footer={cleanKeys(data.kickstartDsFooter.component)}
-    >
+    <Layout header={header} footer={footer}>
       <SEO
         title={data.kickstartDsAppearancePage.title}
         description={data.kickstartDsAppearancePage.description}
@@ -190,14 +199,22 @@ query APPEARANCE_BY_SLUG($slug: String) {
       ...AppearanceComponentDeepNesting 
     } 
   } 
-  kickstartDsHeader { 
-    component { 
-      ...HeaderComponentDeepNesting 
+  allKickstartDsHeader { 
+    edges { 
+      node { 
+        component { 
+          ...HeaderComponentDeepNesting 
+        } 
+      } 
     } 
   } 
-  kickstartDsFooter { 
-    component { 
-      ...FooterComponentDeepNesting 
+  allKickstartDsFooter { 
+    edges { 
+      node { 
+        component { 
+          ...FooterComponentDeepNesting 
+        } 
+      } 
     } 
   } 
 } 

@@ -36,7 +36,6 @@ module.exports = async ({ actions, graphql }, options) => {
               ...ContentBoxComponentDeepNesting
               ...CountUpComponentDeepNesting
               ...HeadlineComponentDeepNesting
-              ...LinkButtonComponentDeepNesting
               ...LogoTilesComponentDeepNesting
               ...QuoteComponentDeepNesting
               ...QuotesSliderComponentDeepNesting

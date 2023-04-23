@@ -1,0 +1,32 @@
+diff --git a/node_modules/photoswipe/package.json b/node_modules/photoswipe/package.json
+index 067e820..b8979a2 100644
+--- a/node_modules/photoswipe/package.json
++++ b/node_modules/photoswipe/package.json
+@@ -5,19 +5,6 @@
+   "style": "dist/photoswipe.css",
+   "type": "module",
+   "types": "./dist/types/photoswipe.d.ts",
+-  "exports": {
+-    ".": {
+-      "types": "./dist/types/photoswipe.d.ts",
+-      "default": "./dist/photoswipe.esm.js"
+-    },
+-    "./lightbox": {
+-      "types": "./dist/types/lightbox/lightbox.d.ts",
+-      "default": "./dist/photoswipe-lightbox.esm.js"
+-    },
+-    "./dist/photoswipe.css": "./dist/photoswipe.css",
+-    "./photoswipe.css": "./dist/photoswipe.css",
+-    "./style.css": "./dist/photoswipe.css"
+-  },
+   "typesVersions": {
+     "<4.7": {
+       "lightbox": [
+@@ -25,6 +12,7 @@
+       ]
+     }
+   },
++  "module": "dist/photoswipe.esm.js",
+   "files": [
+     "dist",
+     "src",

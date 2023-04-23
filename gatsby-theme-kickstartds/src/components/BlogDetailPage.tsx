@@ -1,5 +1,5 @@
-import React from 'react';
-import { FunctionComponent } from 'react';
+import React from "react";
+import { FunctionComponent } from "react";
 
 import { Section } from "@kickstartds/base/lib/section";
 import { Divider } from "@kickstartds/base/lib/divider";
@@ -7,7 +7,7 @@ import { Html } from "@kickstartds/base/lib/html";
 import { PostHead } from "@kickstartds/blog/lib/post-head";
 import { PostAside } from "@kickstartds/blog/lib/post-aside";
 
-import { Layout } from './Layout';
+import { Layout } from "./Layout";
 
 export const BlogDetailPage: FunctionComponent<any> = ({
   postHead,
@@ -18,7 +18,7 @@ export const BlogDetailPage: FunctionComponent<any> = ({
   postReadingTime,
   postWordCount,
   ...rest
-}) => 
+}) => (
   <Layout {...rest}>
     <Section
       className="l-section--blog"
@@ -28,11 +28,11 @@ export const BlogDetailPage: FunctionComponent<any> = ({
         level: "p",
         align: "center",
         content: "",
-        spaceAfter: "none",
+        spaceAfter: "minimum",
       }}
       spaceBefore="small"
-      spaceAfter="default">
-
+      spaceAfter="default"
+    >
       {postAside && <PostAside {...postAside} />}
 
       <div className="c-post__content">
@@ -43,5 +43,6 @@ export const BlogDetailPage: FunctionComponent<any> = ({
 
     <Section width="wide" spaceBefore="none" spaceAfter="none" align="center">
       <Divider />
-    </Section> 
-  </Layout>;
+    </Section>
+  </Layout>
+);

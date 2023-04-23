@@ -65,36 +65,27 @@ module.exports = async ({ actions, graphql }, options) => {
 
   const appearanceTeaser = data.allKickstartDsAppearancePage.edges.map(
     (page, index) => {
+      const cleaned = cleanObjectKeys(page.node.appearance);
+
       const teaser = {
-        date: cleanObjectKeys(page.node.appearance).date,
+        date: cleaned.date,
         link: {
           href: `/${page.node.slug}`,
           label: "Details...",
         },
         title: stripHtml(page.node.title).result,
-        body: `${
-          stripHtml(cleanObjectKeys(page.node.appearance).description).result
-        }`,
-        categories: cleanObjectKeys(page.node.appearance).participants.map(
-          (participant) => {
-            return {
-              label: participant.name,
-              size: "m",
-              type: "tag-label",
-            };
-          }
-        ),
+        body: `${stripHtml(cleaned.description).result}`,
+        categories:
+          cleaned.participants?.length > 0
+            ? cleaned.participants.map((participant) => {
+                return {
+                  label: participant.name,
+                  size: "m",
+                  type: "tag-label",
+                };
+              })
+            : [],
         index: index,
-        // "meta": {
-        //   ...cleanObjectKeys(page.node.postAside).meta,
-        //   "author": {
-        //     "name": cleanObjectKeys(page.node.postAside).author.title,
-        //     "image": {
-        //       ...cleanObjectKeys(page.node.postAside).author.image,
-        //       "className": "c-post-meta__avatar",
-        //     },
-        //   },
-        // },
         type: "post-teaser",
       };
 
@@ -129,7 +120,7 @@ module.exports = async ({ actions, graphql }, options) => {
     context: {
       page: {
         // TODO remove at a later time, currently used to have posts generated, but not on the list
-        postTeaser: appearanceTeaser
+        appearanceTeaser: appearanceTeaser
           .filter(
             (teaser) =>
               !teaser.categories.some(

@@ -1,27 +1,42 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { cleanKeys } from "@kickstartds/gatsby-theme-kickstartds/src/helpers/componentMapper";
+import { cleanObjectKeys } from "@kickstartds/jsonschema2graphql/build/dehashing";
 
 import { Layout } from "@kickstartds/gatsby-theme-kickstartds/src/components/Layout";
-// TODO this needs to be in @kickstartDS, not in design-ssytem
 import { Showcase } from "@kickstartds/design-system/dist/components/showcase/ShowcaseComponent";
 import { SEO } from "../components/Seo";
 
 export default function ShowcasePage({ data }) {
-  const { showcase } = cleanKeys(data.kickstartDsShowcasePage);
+  const { showcase } = cleanObjectKeys(data.kickstartDsShowcasePage);
+
+  const headerEn = data.allKickstartDsHeader.edges.find(
+    (header) => !header.node.component.activeEntry__254f.includes("de")
+  );
+  const header = cleanObjectKeys(headerEn.node.component);
+
+  const footerEn = data.allKickstartDsFooter.edges.find(
+    (footer) =>
+      !footer.node.component.sections__17ac[1].headline__b113.includes(
+        "Kontakt"
+      )
+  );
+  const footer = cleanObjectKeys(footerEn.node.component);
 
   return (
-    <Layout
-      header={cleanKeys(data.kickstartDsHeader.component)}
-      footer={cleanKeys(data.kickstartDsFooter.component)}
-    >
+    <Layout header={header} footer={footer}>
       <SEO
         title={data.kickstartDsShowcasePage.title}
         description={data.kickstartDsShowcasePage.description}
         keywords={data.kickstartDsShowcasePage.keywords}
-        image={data.kickstartDsShowcasePage.image && data.kickstartDsShowcasePage.image.publicURL}
-        cardImage={data.kickstartDsShowcasePage.cardImage && data.kickstartDsShowcasePage.cardImage.publicURL}
+        image={
+          data.kickstartDsShowcasePage.image &&
+          data.kickstartDsShowcasePage.image.publicURL
+        }
+        cardImage={
+          data.kickstartDsShowcasePage.cardImage &&
+          data.kickstartDsShowcasePage.cardImage.publicURL
+        }
         twitterCreator={data.kickstartDsShowcasePage.twitterCreator}
       />
       <Showcase {...showcase} />
@@ -134,6 +149,7 @@ fragment ShowcaseComponentMediaDeepNesting on ShowcaseComponentMedia {
 fragment ShowcaseComponentQuoteDeepNesting on ShowcaseComponentQuote {
   byline__61ce
   className__07c7
+  component__ad89
   
   image__e691 {
     childImageSharp {
@@ -176,14 +192,22 @@ query SHOWCASE_BY_SLUG($slug: String) {
       ...ShowcaseComponentDeepNesting 
     } 
   } 
-  kickstartDsHeader { 
-    component { 
-      ...HeaderComponentDeepNesting 
+  allKickstartDsHeader { 
+    edges { 
+      node { 
+        component { 
+          ...HeaderComponentDeepNesting 
+        } 
+      } 
     } 
   } 
-  kickstartDsFooter { 
-    component { 
-      ...FooterComponentDeepNesting 
+  allKickstartDsFooter { 
+    edges { 
+      node { 
+        component { 
+          ...FooterComponentDeepNesting 
+        } 
+      } 
     } 
   } 
 } 

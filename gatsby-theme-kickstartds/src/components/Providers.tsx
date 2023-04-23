@@ -1,6 +1,7 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
 import { Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -39,7 +40,7 @@ const RichTextProvider = (props) => {
   return <RichTextContext.Provider value={ContentfulRichText} {...props} />;
 };
 
-const nonRteMdxTypes = ["Visual", "pre", "VisualComponentPlayground"];
+const nonRteMdxTypes = ["Visual", "pre"];
 
 const components = {
   wrapper: ({ children }) =>
@@ -89,19 +90,6 @@ const HtmlProvider = (props) => (
 );
 
 const WrappedLink = ({ href, ...props }) => {
-  if (typeof props.children === "object") {
-    console.log(
-      "WrappedLink",
-      href,
-      props,
-      props.children,
-      typeof props.children,
-      props.className
-    );
-
-    return;
-  }
-
   return href && href.publicURL ? (
     <LinkContextDefault href={href.publicURL} {...props} />
   ) : href && href.startsWith("/") ? (

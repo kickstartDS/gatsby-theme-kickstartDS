@@ -1,25 +1,44 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { cleanKeys } from "@kickstartds/gatsby-theme-kickstartds/src/helpers/componentMapper";
+import { cleanObjectKeys } from "@kickstartds/jsonschema2graphql/build/dehashing";
 import { BlogDetailPage } from "../components/BlogDetailPage";
 import { SEO } from "../components/Seo";
 
 export default function PostPage({ data }) {
+  const headerEn = data.allKickstartDsHeader.edges.find(
+    (header) => !header.node.component.activeEntry__254f.includes("de")
+  );
+  const header = cleanObjectKeys(headerEn.node.component);
+
+  const footerEn = data.allKickstartDsFooter.edges.find(
+    (footer) =>
+      !footer.node.component.sections__17ac[1].headline__b113.includes(
+        "Kontakt"
+      )
+  );
+  const footer = cleanObjectKeys(footerEn.node.component);
+
   return (
     <>
       <SEO
         title={data.kickstartDsBlogPage.title}
         description={data.kickstartDsBlogPage.description}
         keywords={data.kickstartDsBlogPage.keywords}
-        image={data.kickstartDsBlogPage.image && data.kickstartDsBlogPage.image.publicURL}
-        cardImage={data.kickstartDsBlogPage.cardImage && data.kickstartDsBlogPage.cardImage.publicURL}
+        image={
+          data.kickstartDsBlogPage.image &&
+          data.kickstartDsBlogPage.image.publicURL
+        }
+        cardImage={
+          data.kickstartDsBlogPage.cardImage &&
+          data.kickstartDsBlogPage.cardImage.publicURL
+        }
         twitterCreator={data.kickstartDsBlogPage.twitterCreator}
       />
       <BlogDetailPage
-        header={cleanKeys(data.kickstartDsHeader.component)}
-        footer={cleanKeys(data.kickstartDsFooter.component)}
-        {...cleanKeys(data.kickstartDsBlogPage)}
+        header={header}
+        footer={footer}
+        {...cleanObjectKeys(data.kickstartDsBlogPage)}
       />
     </>
   );
@@ -28,6 +47,7 @@ export default function PostPage({ data }) {
 export const query = graphql` 
 fragment ContactComponentDeepNesting on ContactComponent {
   className__462e
+  component__5ebf
   copy__cda3
   image__a463 {
     ...PictureComponentDeepNesting
@@ -68,6 +88,7 @@ fragment HeaderComponentDeepNesting on HeaderComponent {
 }
 fragment HtmlComponentDeepNesting on HtmlComponent {
   className__24cd
+  component__01af
   html__8f99
   type
 }
@@ -76,6 +97,7 @@ fragment PostAsideComponentDeepNesting on PostAsideComponent {
     ...PostAsideComponentAuthorDeepNesting
   }
   className__31d2
+  component__6001
   meta__3fe1 {
     ...PostMetaComponentDeepNesting
   }
@@ -89,6 +111,7 @@ fragment PostHeadComponentDeepNesting on PostHeadComponent {
     ...TagLabelComponentDeepNesting
   }
   className__a3e5
+  component__4df0
   date__05dc
   headline__4ec9 {
     ...PostHeadComponentHeadlineDeepNesting
@@ -101,6 +124,7 @@ fragment PostHeadComponentDeepNesting on PostHeadComponent {
 }
 fragment PostShareBarComponentDeepNesting on PostShareBarComponent {
   className__d6f2
+  component__d4dc
   headline__3ab8 {
     ...PostShareBarComponentHeadlineDeepNesting
   }
@@ -118,6 +142,7 @@ fragment ContactComponentLinksDeepNesting on ContactComponentLinks {
 fragment PictureComponentDeepNesting on PictureComponent {
   alt__1f75
   className__a117
+  component__4dd4
   height__23ff
   id__9f67
   itemProp__ba17
@@ -191,6 +216,7 @@ fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
 }
 fragment PostAsideComponentAuthorDeepNesting on PostAsideComponentAuthor {
   className__31d2
+  component__6001
   copy__f23d
   headline__e226 {
     ...PostAsideComponentAuthorHeadlineDeepNesting
@@ -210,6 +236,7 @@ fragment PostMetaComponentDeepNesting on PostMetaComponent {
     ...PostMetaComponentAuthorDeepNesting
   }
   className__5dae
+  component__fb41
   items__25cc {
     ...PostMetaComponentItemsDeepNesting
   }
@@ -218,9 +245,9 @@ fragment PostMetaComponentDeepNesting on PostMetaComponent {
 fragment PostAsideComponentAuthorHeadlineDeepNesting on PostAsideComponentAuthorHeadline {
   align__b352
   className__31d2
+  component__6001
   content__f35e
   level__f7a7
-  pageHeader__7d53
   spaceAfter__c0ff
   styleAs__51ec
   subheadline__664c
@@ -244,15 +271,11 @@ fragment PostMetaComponentItemsDeepNesting on PostMetaComponentItems {
   text__a6d7
 }
 fragment PostShareBarComponentHeadlineDeepNesting on PostShareBarComponentHeadline {
-  align__84ae {
-    ...PostShareBarComponentHeadlineAlignDeepNesting
-  }
+  align__84ae
   className__d6f2
-  content__00b0 {
-    ...PostShareBarComponentHeadlineContentDeepNesting
-  }
+  component__d4dc
+  content__00b0
   level__d60e
-  pageHeader__0804
   spaceAfter__3aa5
   styleAs__cecb
   subheadline__75b9
@@ -265,36 +288,12 @@ fragment PostShareBarComponentLinksDeepNesting on PostShareBarComponentLinks {
   newTab__496f
   title__2454
 }
-fragment PostShareBarComponentHeadlineAlignDeepNesting on PostShareBarComponentHeadlineAlign {
-  align__84ae
-  className__d6f2
-  content__00b0
-  level__d60e
-  pageHeader__0804
-  spaceAfter__3aa5
-  styleAs__cecb
-  subheadline__75b9
-  switchOrder__956d
-  type
-}
-fragment PostShareBarComponentHeadlineContentDeepNesting on PostShareBarComponentHeadlineContent {
-  align__84ae
-  className__d6f2
-  content__00b0
-  level__d60e
-  pageHeader__0804
-  spaceAfter__3aa5
-  styleAs__cecb
-  subheadline__75b9
-  switchOrder__956d
-  type
-}
 fragment PostHeadComponentHeadlineDeepNesting on PostHeadComponentHeadline {
   align__1b07
   className__a3e5
+  component__4df0
   content__1f5a
   level__cd70
-  pageHeader__f637
   spaceAfter__f365
   styleAs__782c
   subheadline__8825
@@ -304,6 +303,7 @@ fragment PostHeadComponentHeadlineDeepNesting on PostHeadComponentHeadline {
 fragment PostHeadComponentImageDeepNesting on PostHeadComponentImage {
   alt__bb36
   className__a3e5
+  component__4df0
   height__c61c
   id__5e93
   itemProp__e1f8
@@ -333,6 +333,7 @@ fragment PostHeadComponentImageDeepNesting on PostHeadComponentImage {
 }
 fragment TagLabelComponentDeepNesting on TagLabelComponent {
   className__2a76
+  component__0189
   label__7246
   link__6ced
   removable__7eaf
@@ -379,14 +380,22 @@ query BLOG_BY_SLUG($slug: String) {
     postReadingTime 
     postWordCount 
   } 
-  kickstartDsHeader { 
-    component { 
-      ...HeaderComponentDeepNesting 
+  allKickstartDsHeader { 
+    edges { 
+      node { 
+        component { 
+          ...HeaderComponentDeepNesting 
+        } 
+      } 
     } 
   } 
-  kickstartDsFooter { 
-    component { 
-      ...FooterComponentDeepNesting 
+  allKickstartDsFooter { 
+    edges { 
+      node { 
+        component { 
+          ...FooterComponentDeepNesting 
+        } 
+      } 
     } 
   } 
 } 

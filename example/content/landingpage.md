@@ -1,8 +1,10 @@
 ---
+cardImage: /images/kickstartds_lp_card_default.png
 id: 78d601a0-dd08-11eb-b16f-093364d73e0c
+image: ''
 layout: default
 slug: /
-title: kickstartDS – starter kit for digital Design Systems
+title: kickstartDS – Open Source starter kit and low-code framework for Design Systems
 type: page
 sections:
   - className: ''
@@ -14,12 +16,13 @@ sections:
       level: h1
       align: center
       content: ''
-      spaceAfter: none
+      spaceAfter: minimum
       type: headline
       switchOrder: false
+      subheadline: ''
     spaceAfter: small
     content:
-      - className: ''
+      - className: contain-image
         media:
           mode: image
           image:
@@ -28,45 +31,131 @@ sections:
             srcDesktop: /images/bg-hero-lemon-desktop.svg
             indent: none
             alt: decorative graphic displaying a lemon
+            src: ''
         inbox: true
         height: default
         box:
           enabled: true
+          horizontal: left
+          indent: true
+          text: >-
+            \
+
+            A **low-code framework** and comprehensive **component library enabling** digital **teams** to create consistent and brand compliant web **frontends** super **efficiently**. \
+
+            Easy like squeeeeezing a lemon
+          background: transparent
           headline:
             styleAs: h1
             level: h1
             align: left
             subheadline: ''
-            spaceAfter: none
-            content: 'kickstartDS is the starter kit for Design Systems '
+            spaceAfter: minimum
+            content: 'kickstartDS is the Open Source starter kit for Design Systems '
             switchOrder: true
             type: headline
             pageHeader: false
-          text:
-            A **low-code framework** and comprehensive **component library enabling**
-            development **teams** to create consistent and brand compliant web
-            **frontends** super **efficiently**. Easy like squeeeeezing a lemon.
-          link:
-            size: medium
-            enabled: true
-            className: zen-visual-cta
-            variant: solid
-            deko: true
-            href: ''
-            highlighted: true
-            label: Request a guided demo
-            type: link-button
-          horizontal: left
+          inverted: false
           vertical: center
-          background: transparent
-          indent: true
+          links:
+            - size: medium
+              enabled: true
+              className: ''
+              iconAfter: true
+              variant: solid
+              deko: true
+              href: https://www.kickstartds.com/docs
+              highlighted: false
+              label: Get started now
+              newTab: true
+              inverted: false
+              icon:
+                icon: chevron-right
+              type: button
+            - size: medium
+              iconAfter: false
+              variant: outline
+              deko: false
+              href: https://www.kickstartds.com/storybook
+              label: Browse components
+              newTab: true
+              icon:
+                type: icon
+                icon: chevron-right
+              type: button
         overlay: false
         skipButton: false
         backgroundColor: ''
         type: visual
     type: sections
     gutter: default
-  - className: l-section--outer-width-wide triple-col
+  - mode: default
+    spaceBefore: small
+    variant: none
+    width: wide
+    background: default
+    pattern: none
+    headline:
+      align: left
+      content: Own a Design System without years of investment
+      level: h2
+      spaceAfter: minimum
+      styleAs: none
+      type: headline
+      subheadline: The simple truth
+      switchOrder: true
+    spaceAfter: default
+    content:
+      - type: content-box
+        alignement: left
+        image: /images/ico_start-small.svg
+        ratio: none
+        text: By following our
+          5-Steps **[guide](https://www.kickstartds.com/docs/guides/create/)** explaining
+          how to kickstart your own Design System.
+        topic: Start small
+        link:
+          href: https://example.com
+          label: Lorem Ipsum
+          size: medium
+          type: button
+          variant: solid
+          icon:
+            type: icon
+      - type: content-box
+        alignement: left
+        image: /images/ico_no-vendor-lockin.svg
+        ratio: none
+        text: Y﻿ou create your own repo having the code installed, so you’re not
+          locked-in.
+        topic: No vendor lock-in!
+        link:
+          href: https://example.com
+          label: Lorem Ipsum
+          size: medium
+          type: button
+          variant: solid
+          icon:
+            type: icon
+      - type: content-box
+        alignement: left
+        image: /images/ico_you-own-it.svg
+        ratio: none
+        text:
+          It is your Design System. You own whatever you build. It’s yours to do
+          what you want.
+        topic: You own it!
+        link:
+          href: https://example.com
+          label: Lorem Ipsum
+          size: medium
+          type: button
+          variant: solid
+          icon:
+            type: icon
+    type: section
+    gutter: default
+  - className: l-section--outer-width-wide triple-col additional-spacing
     mode: default
     spaceBefore: small
     variant: highlight
@@ -76,13 +165,13 @@ sections:
     pattern: VALUE_2
     headline:
       align: center
-      content: kickstartDS full flexibility in numbers
+      content: Number of decisions available to you
       level: h2
       spaceAfter: small
       type: headline
-      subheadline: 'As result from +20 years of frontend experience we built the
-        foundation to scale your Design System across all your platforms and
-        websites '
+      subheadline:
+        directly use best practice defaults given by kickstartDS, or make
+        it your own in detail
     inverted: true
     spaceAfter: small
     content:
@@ -93,7 +182,7 @@ sections:
 
 
           Read why our [components are great](/blog/great-components/).
-        to: 33
+        to: 26
         topic: Components
         link:
           href: ''
@@ -109,7 +198,7 @@ sections:
 
 
           Directly engage with components through **[Storybooks](/storybook/)** rich interface.
-        to: 580
+        to: 250
         topic: Properties
         link:
           href: ''
@@ -120,13 +209,13 @@ sections:
         graphic: properties
       - type: count-up
         text: >-
-          Of course we have **design tokens** – colors, fonts, sizes and
+          Of course we have **design token** – colors, fonts, sizes and
           iconography.
 
 
-          Additionally, **[component tokens](/blog/great-components/)** provide a solid base layer of defaults for you to mutate.
-        to: 793
-        topic: Tokens
+          Additionally, **[component token](/blog/great-components/)** provide a solid base layer of defaults for you to mutate.
+        to: 500
+        topic: Token
         link:
           href: ''
           label: Learn more
@@ -254,17 +343,18 @@ sections:
     gutter: default
   - mode: default
     spaceBefore: default
-    width: default
+    width: narrow
     background: default
     pattern: VALUE_1
     headline:
       level: h2
       align: center
-      content: Frontend first approach
+      content: Open Source framework for Design System creation
       spaceAfter: small
       type: headline
-      subheadline: ... a holistic view of components; unifying content creators,
-        developers, designers and stakeholders under one roof
+      subheadline:
+        For better collaboration between content creators, developers,
+        designers and stakeholders
     inverted: true
     spaceAfter: small
     content:
@@ -285,7 +375,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
-          type: link-button
+          type: button
       - type: content-box
         ratio: none
         alignement: left
@@ -304,7 +394,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
-          type: link-button
+          type: button
       - type: content-box
         ratio: none
         alignement: left
@@ -322,7 +412,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
-          type: link-button
+          type: button
       - type: content-box
         ratio: none
         alignement: left
@@ -340,7 +430,7 @@ sections:
           variant: solid
           size: medium
           href: https://example.com
-          type: link-button
+          type: button
     type: sections
     gutter: large
   - mode: list
@@ -352,9 +442,9 @@ sections:
       styleAs: h1
       level: h2
       align: center
-      subheadline: '5 reasons why you should start with kickstartDS today! '
+      subheadline: Learn how kickstartDS helps in building your Design System
       spaceAfter: small
-      content: Easy peasy lemon squeezy
+      content: Make it your own
       switchOrder: false
       type: headline
       pageHeader: false
@@ -366,15 +456,17 @@ sections:
           ratio: none
           vAlign: top_edge
           hAlign: left_edge
+          order:
+            desktopImageLast: false
         box:
           headline:
             level: h2
             align: left
-            content: Great components
+            content: Great Open Source components
             spaceAfter: small
             subheadline:
-              Make the most out of your frontends by unifying their core –
-              utilizing component and design tokens
+              Components serving as the basic building blocks of your Design
+              Systen
             switchOrder: false
           text: >-
             **kickstartDS** is the foundation for your Design System, built with
@@ -393,7 +485,7 @@ sections:
             variant: solid
             size: medium
             href: /blog/great-components
-            type: link-button
+            type: button
             className: ''
             iconAfter: false
         full: false
@@ -428,48 +520,10 @@ sections:
             variant: solid
             size: medium
             href: /storybook
-            type: link-button
+            type: button
             className: ''
         backgroundColor: '#eceff3'
         full: true
-      - type: storytelling
-        image:
-          source: /images/backend.png
-          ratio: none
-          vAlign: center
-          hAlign: center
-        box:
-          headline:
-            level: h2
-            align: left
-            content: Working with "classic" backend environments
-            spaceAfter: small
-            subheadline:
-              Tooling to support your daily integration tasks, improving
-              developer DX drastically
-          text: >-
-            Not every potential touchpoint can be run headless, and
-            **integration of HTML markup into backend templates** still plays a
-            very important role today. Be it your **Rails-driven eCommerce
-            site**, a **blog** you run for your marketing department, or a
-            **fully custom** backend-rendering based approach.
-
-
-            **Changelogs** with automatic markup **change detection** and **documentation**, copy-pasteable & configurable **HTML-Snippets**, and **optimized bundles** lighten your load!
-          textAlign: left
-          vAlign: center
-          hAlign: center
-          link:
-            label: Book a demo
-            variant: solid
-            size: medium
-            href: ''
-            type: link-button
-            className: zen-storytelling-3-cta-primary
-          textColor: ''
-        backgroundImage: ''
-        full: false
-        backgroundColor: ''
       - type: storytelling
         image:
           source: ''
@@ -483,17 +537,17 @@ sections:
           headline:
             level: h2
             align: left
-            content: Design System as a Service
-            spaceAfter: none
+            content: 'Design System services '
+            spaceAfter: minimum
             subheadline: ''
           text: >-
-            **kickstartDS is made to design all your frontends!**
+            **Together we identify if you need a Design System**
 
 
-            We offer consultancy to check if your frontend inventory matches with the components **kickstartDS** offers. This is already the case for **more than 90%** of our users.
+            We offer services to check if your frontend inventory matches with the components **kickstartDS** offers. This is already the case for **more than 90%** of our users.
 
 
-            Integrating **kickstartDS**, together with your design and dev teams, we'll assist and empower you to use your Design System on a day to day basis.
+            We'll assist and empower you to use your Design System on a day to day basis.
           textAlign: left
           vAlign: center
           hAlign: left
@@ -502,12 +556,22 @@ sections:
             variant: solid
             size: medium
             href: /services
-            type: link-button
+            type: button
             className: ''
-            inverted: true
+            inverted: false
+            deko: false
           textColor: '#FFFFFF'
+          links:
+            - href: /blog/how-our-initiative-workshop-series-helps-customers-to-decide-for-or-against-a-design-system/
+              label: Read about the DS initiative
+              size: medium
+              type: button
+              variant: solid
+              icon:
+                type: icon
+              newTab: true
         full: false
-        backgroundColor: '#065669'
+        backgroundColor: var(--ks-background-color-primary)
         backgroundImage: /images/design-system-as-a-service-section.svg
       - type: storytelling
         image:
@@ -543,12 +607,12 @@ sections:
           vAlign: center
           hAlign: center
           link:
-            label: Book a demo
+            label: Our integrations in detail
             variant: solid
             size: medium
-            href: ''
-            type: link-button
-            className: zen-storytelling-5-cta-primary
+            href: /integrations
+            type: button
+            className: ''
         backgroundColor: ''
         full: false
     type: sections
@@ -559,7 +623,7 @@ sections:
     variant: highlight
     deko: true
     width: default
-    background: default
+    background: accent
     pattern: VALUE_1
     headline:
       level: h2
@@ -568,7 +632,8 @@ sections:
       spaceAfter: small
       type: headline
       pageHeader: false
-    inverted: true
+      styleAs: h1
+    inverted: false
     spaceAfter: default
     content:
       - type: quotes-slider
@@ -596,74 +661,9 @@ sections:
             type: quote
     type: sections
     gutter: default
-  - mode: default
-    spaceBefore: default
-    deko: true
-    width: default
-    background: default
-    pattern: VALUE_2
-    headline:
-      align: left
-      content: Still wondering, if kickstartDS could be a good fit for you?
-      level: h2
-      spaceAfter: small
-      type: headline
-      subheadline: We can help you get started, setting you up for success!
-    spaceAfter: small
-    content:
-      - type: teaser-box
-        image: ''
-        ratio: VALUE_16_9
-        text: >-
-          Still unsure if **kickstartDS** suits you? We're offering a Design
-          System sprint, where we, together with you and **all important
-          stakeholders**, check your current frontend stack and design &
-          development processes. Additionally we can help you to ... 
-
-
-          * set up an interface inventory 
-
-          * identify and set up pilot projects 
-
-          * create a roadmap for company-wide adoption
-        topic: kickstartDS is made for productivity. And so are we!
-        className: zen-teaserbox-1-cta
-        link:
-          href: ''
-          label: Get in touch
-          size: medium
-          variant: solid
-          fillAnimation: false
-          className: zen-teaserbox-1-cta
-      - type: teaser-box
-        image: ''
-        ratio: VALUE_16_9
-        text: >-
-          Every development team and environment is unique. In order to increase
-          your teams productivity and overall happiness, we can help you to get
-          your devs familiar with our component library **kickstartDS**. We
-          offer  training for the following topics:
-
-
-          * Frontend-frameworks & -technologies
-
-          * Loading time performance
-
-          * Frontend build pipelines and tool chains
-        topic: Learn to use kickstartDS with our custom training
-        className: zen-teaserbox-2-cta
-        link:
-          href: ''
-          label: I want to learn
-          size: medium
-          variant: solid
-          fillAnimation: false
-          className: zen-teaserbox-2-cta
-    type: section
-    gutter: default
   - className: triple-col
     mode: default
-    spaceBefore: small
+    spaceBefore: default
     width: default
     background: default
     headline:
@@ -679,33 +679,35 @@ sections:
         ratio: VALUE_16_9
         text: Ask how **developers** and dev teams can benefit by using **kickstartDS**.
         topic: ... as a developer?
+        inverted: true
         type: teaser-box
         link:
           label: read more
           variant: outline
           size: medium
           href: ''
-          type: link-button
+          type: button
           fillAnimation: false
           className: zen-askus-1-cta
         image: /images/headless_design_system_for_developer.svg
-        inverted: true
+        darkStyle: true
       - className: zen-askus-2-cta
         imageSpacing: true
         ratio: VALUE_16_9
         text: Ask how **designers**  and design teams can benefit with **kickstartDS**.
         topic: ... as a designer?
+        inverted: true
         type: teaser-box
         link:
           label: read more
           variant: outline
           size: medium
           href: ''
-          type: link-button
+          type: button
           fillAnimation: false
           className: zen-askus-2-cta
         image: /images/headless_design_system_for_designer.svg
-        inverted: true
+        darkStyle: true
       - className: zen-askus-3-cta
         imageSpacing: true
         ratio: VALUE_16_9
@@ -713,74 +715,23 @@ sections:
           Ask how **product teams** can scale their products interfaces more easily
           by using **kickstartDS**.
         topic: ... as a product team?
+        inverted: true
         type: teaser-box
         link:
           label: read more
           variant: outline
           size: medium
           href: ''
-          type: link-button
+          type: button
           fillAnimation: false
           className: zen-askus-3-cta
         image: /images/headless_design_system_for_product_teams.svg
-        inverted: true
+        darkStyle: true
     type: sections
     gutter: default
-  - className: l-section--outer-width-wide
-    mode: list
-    spaceBefore: default
-    variant: highlight
-    deko: true
-    width: narrow
-    background: default
-    pattern: VALUE_2
-    headline:
-      align: center
-      content: Origin story
-      level: h2
-      spaceAfter: small
-      type: headline
-      subheadline: 20+ years of agency experience turned product
-    inverted: true
-    spaceAfter: default
-    content:
-      - type: quote
-        image: /images/web_profile_images_julrich.png
-        source: Jonas Ulrich, Founder and CTO
-        text: >-
-          After **15 years** building websites and UI's ourselves, we wanted to
-          **improve the way teams collaborate** when creating web frontends.
-          That's why we started **kickstartDS.**
-
-
-          We want to share our experience and offer a **huge library** of best practice **patterns** and well tested **web components**. All the while following the principles of the Atomic Design methodology.
-
-
-          That's why **kickstartDS** really is a ready to use framework, to support people and organizations building Design Systems and digital touchpoints.
-
-
-          It **prevents** developers from **wasting time** setting up the basics, while it **enables designers** to focus on tricky UI challenges.
-      - type: quote
-        image: /images/web_profile_images.png
-        source: Daniel Ley, Co-Founder + UX Strategist with heart & soul
-        text: >-
-          More than 20 years ago I started creating user interfaces and web
-          style guides, corporate design manuals and in the past years the first
-          digital Design Systems. 
-
-
-          After working in a large tech corporation for a long time I very well know todays problems in **gaining and maintaining consistency** in UIs. Whilst organizing the regional [UX meetup](http://uxbn.de) I heard so many design and dev teams complaining about the same frontend problems. 
-
-
-          That was the reason I co-founded **kickstartDS**. Knowing that we can create tremendous value for all these frontend creators and the companies they are working for.
-
-
-          I am convinced that both parties will benefit from using our solution within their tool chain. And I am more than happy to hear your story!
-    type: section
-    gutter: large
   - className: triple-col
     mode: default
-    spaceBefore: default
+    spaceBefore: small
     width: wide
     background: default
     pattern: VALUE_1
@@ -806,7 +757,7 @@ sections:
         iconBefore: false
         icon:
           icon: discord
-        type: link-button
+        type: button
       - size: medium
         fillAnimation: false
         variant: outline
@@ -817,13 +768,80 @@ sections:
         iconBefore: false
         icon:
           icon: twitter
-        type: link-button
-      - type: link-button
+        type: button
+      - type: button
         href: https://stackshare.io/kickstartds/kickstartds
         label: Our stackshare
         size: medium
         variant: outline
         newTab: true
+    type: section
+    gutter: default
+  - className: l-section--outer-width-wide triple-col additional-spacing
+    mode: default
+    spaceBefore: none
+    variant: none
+    width: default
+    inverted: true
+    pattern: none
+    headline:
+      align: center
+      content: ''
+      level: h2
+      spaceAfter: minimum
+      styleAs: none
+      type: headline
+    spaceAfter: small
+    content:
+      - type: storytelling
+        box:
+          hAlign: left
+          text:
+            'The **Content Module** includes seven rich components: Hero visual,
+            Quote,  Slider, Storytelling etc. — everything you need to build
+            beautiful content experiences or to enrich your existing Design
+            System'
+          textAlign: left
+          vAlign: center
+          headline:
+            content: kickstartDS Content Module
+            level: h3
+            spaceAfter: minimum
+            styleAs: h2
+            type: headline
+            subheadline: The perfect addition to our Open Source base
+            switchOrder: true
+          link:
+            href: '#'
+            label: Interested? Contact us!
+            size: medium
+            type: button
+            variant: solid
+            icon:
+              type: icon
+            className: zen-storytelling-4-cta-primary
+            highlighted: false
+          links:
+            - size: medium
+              iconAfter: true
+              variant: outline
+              iconAnimation: false
+              href: /blog/great-components/
+              label: 'Details in our blog '
+              newTab: true
+              icon:
+                type: icon
+                icon: chevron-right
+              type: button
+        image:
+          hAlign: center
+          ratio: none
+          source: ''
+          vAlign: center
+        backgroundImage: /images/bg-component-module-light.png
+        backgroundColor: ''
+        className: ''
+        full: false
     type: section
     gutter: default
 ---

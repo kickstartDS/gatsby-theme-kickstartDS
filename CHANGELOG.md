@@ -1,3 +1,32 @@
+# (Sun Apr 23 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: update resource class for Circle CI build ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.3.1`
+  - fix: wordpress ingestion after wpgraphql WP addon update ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@2.4.1`
+  - fix: remove console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Sat Apr 22 2023)
+
+#### 🚀 Enhancement
+
+- `@kickstartds/gatsby-theme-kickstartds@2.4.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.4.0`, `@kickstartds/gatsby-transformer-kickstartds-mdx@2.3.0`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.3.0`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.3.0`
+  - Update glossary, appearances, and showcases pages [#105](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/105) ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Tue Dec 06 2022)
 
 #### ⚠️ Pushed to `master`

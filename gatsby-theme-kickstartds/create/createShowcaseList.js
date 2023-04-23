@@ -127,7 +127,7 @@ module.exports = async ({ actions, graphql }, options) => {
     context: {
       page: {
         // TODO remove at a later time, currently used to have posts generated, but not on the list
-        postTeaser: showcaseTeaser.filter(
+        showcaseTeaser: showcaseTeaser.filter(
           (teaser) =>
             !teaser.categories.some((category) => category.label === "Internal")
         ),

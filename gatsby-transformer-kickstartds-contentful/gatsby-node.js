@@ -1045,6 +1045,131 @@ exports.createResolvers = async ({ createResolvers }) => {
         },
       },
     },
+    KickstartDsTagPage: {
+      image: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.image) {
+            const image = await context.nodeModel.findOne({
+              query: {
+                filter: { id: { eq: source.image } },
+                fields: { localFile: { ne: "" } },
+              },
+              type: "ContentfulAsset",
+            });
+
+            if (image && image.fields && image.fields.localFile) {
+              return await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    id: { eq: image.fields.localFile },
+                    publicURL: { ne: "" },
+                  },
+                },
+                type: "File",
+              });
+            } else {
+              console.log(
+                "Missing ContentfulAsset `image`",
+                image,
+                source.image,
+                source.id
+              );
+              return undefined;
+            }
+          }
+
+          return undefined;
+        },
+      },
+      imageUrl: {
+        type: "String",
+        async resolve(source, args, context) {
+          if (source.image) {
+            const fileNode = await context.nodeModel.findOne({
+              query: {
+                filter: {
+                  parent: { id: { eq: source.image } },
+                  publicURL: { ne: "" },
+                },
+              },
+              type: "File",
+            });
+
+            const site = await context.nodeModel.findOne({
+              query: {},
+              type: "Site",
+            });
+
+            if (fileNode && site) {
+              return fileNode &&
+                fileNode.__gatsby_resolved &&
+                fileNode.__gatsby_resolved.publicURL
+                ? `${site.siteMetadata.siteUrl}${fileNode.__gatsby_resolved.publicURL}`
+                : undefined;
+            } else {
+              console.log(
+                "Missing File or Site for `imageUrl`",
+                fileNode,
+                site,
+                source.id
+              );
+              return undefined;
+            }
+          }
+
+          return undefined;
+        },
+      },
+      cardImage: {
+        type: "File",
+        async resolve(source, args, context) {
+          if (source.cardImage) {
+            const image = await context.nodeModel.findOne({
+              query: {
+                filter: { id: { eq: source.cardImage } },
+                fields: { localFile: { ne: "" } },
+              },
+              type: "ContentfulAsset",
+            });
+
+            if (image && image.fields && image.fields.localFile) {
+              return await context.nodeModel.findOne({
+                query: {
+                  filter: {
+                    id: { eq: image.fields.localFile },
+                    publicURL: { ne: "" },
+                  },
+                },
+                type: "File",
+              });
+            } else {
+              console.log(
+                "Missing ContentfulAsset `image`",
+                image,
+                source.image,
+                source.id
+              );
+              return undefined;
+            }
+          }
+
+          return undefined;
+        },
+      },
+      tagLabel: {
+        type: "TagLabelComponent!",
+        async resolve(source, args, context) {
+          if (source.tagLabel) {
+            const tagLabelJson = source.tagLabel;
+
+            return hashObjectKeys(tagLabelJson, "tag-label");
+          }
+
+          return undefined;
+        },
+      },
+    },
   });
 };
 
