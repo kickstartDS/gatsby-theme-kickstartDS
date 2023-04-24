@@ -1,5 +1,18 @@
 # (Mon Apr 24 2023)
 
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@2.5.1`
+  - fix: remove rogue console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Apr 24 2023)
+
 #### 🚀 Enhancement
 
 - `@kickstartds/gatsby-theme-kickstartds@2.5.0`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.0`
