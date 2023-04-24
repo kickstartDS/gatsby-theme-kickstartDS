@@ -1172,57 +1172,57 @@ exports.createResolvers = async ({ createResolvers }) => {
       related: {
         type: "[RelatedComponent!]",
         async resolve(source, args, context) {
-          if (source.related && source.related.length > 0) {
-            const relatedPosts = [];
+          const relatedPosts = [];
 
-            const { entries: wpPosts } = await context.nodeModel.findAll({
-              query: {
-                filter: {
-                  tags: {
-                    nodes: { elemMatch: { name: { eq: source.title } } },
-                  },
+          const { entries: wpPosts } = await context.nodeModel.findAll({
+            query: {
+              filter: {
+                tags: {
+                  nodes: { elemMatch: { name: { eq: source.title } } },
                 },
               },
-              type: "WpPost",
-            });
+            },
+            type: "WpPost",
+          });
 
-            if (wpPosts) {
-              relatedPosts.push(
-                ...(await Promise.all(
-                  Array.from(wpPosts).map(async (post) => {
-                    console.log("POST", post);
+          if (wpPosts) {
+            relatedPosts.push(
+              ...(await Promise.all(
+                Array.from(wpPosts).map(async (post) => {
+                  console.log("POST", post);
 
-                    const related = {
-                      url: `/blog/${post.slug}`,
-                      excerpt: `${stripHtml(post.excerpt).result}…`,
-                      title: post.title,
-                      typeLabel: "Blog",
-                      type: "related",
-                    };
+                  const related = {
+                    url: `/blog/${post.slug}`,
+                    excerpt: `${stripHtml(post.excerpt).result}…`,
+                    title: post.title,
+                    typeLabel: "Blog",
+                    type: "related",
+                  };
 
-                    if (
-                      post.featuredImage &&
-                      post.featuredImage.node &&
-                      post.featuredImage.node.id
-                    ) {
-                      const image = await context.nodeModel.findOne({
-                        query: {
-                          filter: {
-                            parent: { id: { eq: post.featuredImage.node.id } },
-                            publicURL: { ne: "" },
-                          },
+                  if (
+                    post.featuredImage &&
+                    post.featuredImage.node &&
+                    post.featuredImage.node.id
+                  ) {
+                    const image = await context.nodeModel.findOne({
+                      query: {
+                        filter: {
+                          parent: { id: { eq: post.featuredImage.node.id } },
+                          publicURL: { ne: "" },
                         },
-                        type: "File",
-                      });
-                      related.image___NODE = image.id;
-                    }
+                      },
+                      type: "File",
+                    });
+                    related.image___NODE = image.id;
+                  }
 
-                    return hashObjectKeys(related, "related");
-                  })
-                ))
-              );
-            }
+                  return hashObjectKeys(related, "related");
+                })
+              ))
+            );
+          }
 
+          if (source.related && source.related.length > 0) {
             return relatedPosts.concat(
               await Promise.all(
                 source.related.map(async (relatedObject) => {
@@ -1482,7 +1482,7 @@ exports.createResolvers = async ({ createResolvers }) => {
             );
           }
 
-          return [];
+          return relatedPosts;
         },
       },
     },
