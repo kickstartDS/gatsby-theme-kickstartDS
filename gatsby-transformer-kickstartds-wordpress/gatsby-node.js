@@ -179,14 +179,9 @@ exports.createResolvers = async ({
                   });
 
                   if (contentfulTag && contentfulTag.title) {
-                    const site = await context.nodeModel.findOne({
-                      query: {},
-                      type: "Site",
-                    });
-
                     return {
                       label: contentfulTag.title,
-                      link: `${site.siteMetadata.siteUrl}/tags/${contentfulTag.slug}/`,
+                      link: `/tags/${contentfulTag.slug}/`,
                       type: "tag-label",
                     };
                   } else {
@@ -258,14 +253,9 @@ exports.createResolvers = async ({
                     });
 
                     if (contentfulTag && contentfulTag.title) {
-                      const site = await context.nodeModel.findOne({
-                        query: {},
-                        type: "Site",
-                      });
-
                       return {
                         label: contentfulTag.title,
-                        link: `${site.siteMetadata.siteUrl}/tags/${contentfulTag.slug}/`,
+                        link: `/tags/${contentfulTag.slug}/`,
                         type: "tag-label",
                       };
                     } else {
