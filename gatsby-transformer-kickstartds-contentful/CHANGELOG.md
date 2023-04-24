@@ -1,3 +1,15 @@
+# v2.5.1 (Mon Apr 24 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: always load related blog posts ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.5.0 (Mon Apr 24 2023)
 
 #### 🚀 Enhancement
