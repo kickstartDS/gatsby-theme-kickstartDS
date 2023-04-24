@@ -1,3 +1,15 @@
+# v2.4.2 (Mon Apr 24 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: use tags in blog, not categories ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.4.1 (Mon Apr 24 2023)
 
 #### ⚠️ Pushed to `master`
