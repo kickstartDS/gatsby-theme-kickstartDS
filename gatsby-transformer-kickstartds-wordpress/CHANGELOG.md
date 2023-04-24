@@ -1,3 +1,15 @@
+# v2.4.3 (Mon Apr 24 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: tag ingestion for blog posts ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.4.2 (Mon Apr 24 2023)
 
 #### ⚠️ Pushed to `master`

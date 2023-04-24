@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.4.3`
+  - fix: tag ingestion for blog posts ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Apr 24 2023)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.4.2`
   - fix: use tags in blog, not categories ([@julrich](https://github.com/julrich))
 
