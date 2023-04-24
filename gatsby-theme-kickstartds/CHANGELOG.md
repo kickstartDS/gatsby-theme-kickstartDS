@@ -1,3 +1,24 @@
+# v2.5.0 (Mon Apr 24 2023)
+
+#### 🚀 Enhancement
+
+- Add tags pages [#107](https://github.com/kickstartDS/gatsby-theme-kickstartDS/pull/107) ([@julrich](https://github.com/julrich))
+
+#### 🐛 Bug Fix
+
+- fix: add tag related entries ([@julrich](https://github.com/julrich))
+- feature: add content to tag pages ([@julrich](https://github.com/julrich))
+- Merge branch 'master' into feature/add-tags-pages ([@julrich](https://github.com/julrich))
+- fix: use slug for tags nodes ([@julrich](https://github.com/julrich))
+- Merge branch 'fix/integrate-blog-authors-and-tags' into feature/add-tags-pages ([@julrich](https://github.com/julrich))
+- feature: add tags pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.4.1 (Sun Apr 23 2023)
 
 #### ⚠️ Pushed to `master`
