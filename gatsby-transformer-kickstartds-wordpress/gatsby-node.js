@@ -29,15 +29,7 @@ const getLinks = (url, twitterText, emailSubject, emailBody) => [
   },
 ];
 
-exports.createResolvers = async ({
-  actions,
-  cache,
-  createNodeId,
-  createResolvers,
-  store,
-}) => {
-  const { createNode } = actions;
-
+exports.createResolvers = async ({ actions, createResolvers }) => {
   await createResolvers({
     KickstartDsWordpressBlogPage: {
       image: {
@@ -156,7 +148,7 @@ exports.createResolvers = async ({
       categories: {
         type: "[TagLabelComponent]",
         async resolve(source, args, context) {
-          if (source.categories) {
+          if (source.categories && source.categories.length > 0) {
             const categories = await Promise.all(
               source.categories.map(async (tagId) => {
                 const wpTag = await context.nodeModel.findOne({
@@ -211,7 +203,7 @@ exports.createResolvers = async ({
             );
           }
 
-          return undefined;
+          return [];
         },
       },
       postHead: {
@@ -230,7 +222,7 @@ exports.createResolvers = async ({
               },
             };
 
-            if (source.categories) {
+            if (source.categories && source.categories.length > 0) {
               postHead.categories = await Promise.all(
                 source.categories.map(async (tagId) => {
                   const wpTag = await context.nodeModel.findOne({
@@ -278,6 +270,8 @@ exports.createResolvers = async ({
                   }
                 })
               );
+            } else {
+              postHead.categories = [];
             }
 
             if (source.image) {
@@ -615,7 +609,10 @@ exports.onCreateNode = async ({
 
       excerpt: node.excerpt,
       author: node.author.node.id,
-      categories: node.tags.nodes.map((tag) => tag.id),
+      categories:
+        node.tags && node.tags.nodes && node.tags.nodes.length > 0
+          ? node.tags.nodes.map((tag) => tag.id)
+          : [],
 
       postBody: node.content,
       postReadingTime: Math.ceil(
