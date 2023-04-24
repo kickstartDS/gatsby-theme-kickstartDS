@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@2.5.2`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.2`
+  - fix: remove another console.log ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Apr 24 2023)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.1`
   - fix: always load related blog posts ([@julrich](https://github.com/julrich))
 
