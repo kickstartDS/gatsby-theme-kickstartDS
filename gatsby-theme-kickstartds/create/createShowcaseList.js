@@ -83,16 +83,6 @@ module.exports = async ({ actions, graphql }, options) => {
           };
         }),
         index: index,
-        // "meta": {
-        //   ...cleanObjectKeys(page.node.postAside).meta,
-        //   "author": {
-        //     "name": cleanObjectKeys(page.node.postAside).author.title,
-        //     "image": {
-        //       ...cleanObjectKeys(page.node.postAside).author.image,
-        //       "className": "c-post-meta__avatar",
-        //     },
-        //   },
-        // },
         type: "post-teaser",
       };
 

@@ -6,40 +6,46 @@ import { BlogListPage } from "../components/BlogListPage";
 import { AppearanceListPage } from "../components/AppearanceListPage";
 import { ShowcaseListPage } from "../components/ShowcaseListPage";
 import { GlossaryEntryPage } from "../components/GlossaryEntryPage";
+import { AppearanceEntryPage } from "../components/AppearanceEntryPage";
+import { ShowcaseEntryPage } from "../components/ShowcaseEntryPage";
+import { TagEntryPage } from "../components/TagEntryPage";
 
 const selectTemplate = (key, props) => {
   switch (key) {
-    case 'default':
-    case 'content':
-      return <ContentPage {...props} />
+    case "default":
+    case "content":
+      return <ContentPage {...props} />;
 
-    case 'blog-list':
-      return <BlogListPage {...props} />
+    case "blog-list":
+      return <BlogListPage {...props} />;
 
-    case 'blog-detail':
-      return <BlogDetailPage {...props} />
+    case "blog-detail":
+      return <BlogDetailPage {...props} />;
 
-      case 'glossary':
-        return <GlossaryEntryPage {...props} />
+    case "glossary":
+      return <GlossaryEntryPage {...props} />;
 
-      case 'appearance':
-        return <AppearanceEntryPage {...props} />
+    case "appearance":
+      return <AppearanceEntryPage {...props} />;
 
-      case 'appearance-list':
-        return <AppearanceListPage {...props} />
+    case "appearance-list":
+      return <AppearanceListPage {...props} />;
 
-      case 'showcase':
-        return <ShowcaseEntryPage {...props} />
+    case "showcase":
+      return <ShowcaseEntryPage {...props} />;
 
-      case 'showcase-list':
-        return <ShowcaseListPage {...props} />
+    case "showcase-list":
+      return <ShowcaseListPage {...props} />;
+
+    case "tag-label":
+      return <TagEntryPage {...props} />;
 
     default:
-      return <ContentPage {...props} />
-  };
+      return <ContentPage {...props} />;
+  }
 };
 
-export const GatsbyPage = ({ pageContext: { page } }) =>
+export const GatsbyPage = ({ pageContext: { page } }) => (
   <>
     <SEO
       title={page.title}
@@ -50,6 +56,7 @@ export const GatsbyPage = ({ pageContext: { page } }) =>
       twitterCreator={page.twitterCreator}
     />
     {selectTemplate(page.layout, page)}
-  </>;  
+  </>
+);
 
 export default GatsbyPage;
