@@ -158,21 +158,21 @@ exports.createResolvers = async ({
         async resolve(source, args, context) {
           if (source.categories) {
             const categories = await Promise.all(
-              source.categories.map(async (categoryId) => {
-                const wpCategory = await context.nodeModel.findOne({
+              source.categories.map(async (tagId) => {
+                const wpTag = await context.nodeModel.findOne({
                   query: {
                     filter: {
-                      id: { eq: categoryId },
+                      id: { eq: tagId },
                     },
                   },
-                  type: "WpCategory",
+                  type: "WpTag",
                 });
 
-                if (wpCategory && wpCategory.name) {
+                if (wpTag && wpTag.name) {
                   const contentfulTag = await context.nodeModel.findOne({
                     query: {
                       filter: {
-                        title: { eq: wpCategory.name },
+                        title: { eq: wpTag.name },
                       },
                     },
                     type: "ContentfulTag",
@@ -188,7 +188,7 @@ exports.createResolvers = async ({
                     console.log(
                       "Missing ContentfulTag for `categories`",
                       contentfulTag,
-                      wpCategory,
+                      wpTag,
                       source.categories,
                       source.id
                     );
@@ -196,8 +196,8 @@ exports.createResolvers = async ({
                   }
                 } else {
                   console.log(
-                    "Missing WpCategory for `categories`",
-                    wpCategory,
+                    "Missing WpTag for `categories`",
+                    wpTag,
                     source.categories,
                     source.id
                   );
@@ -232,21 +232,21 @@ exports.createResolvers = async ({
 
             if (source.categories) {
               postHead.categories = await Promise.all(
-                source.categories.map(async (categoryId) => {
-                  const wpCategory = await context.nodeModel.findOne({
+                source.categories.map(async (tagId) => {
+                  const wpTag = await context.nodeModel.findOne({
                     query: {
                       filter: {
-                        id: { eq: categoryId },
+                        id: { eq: tagId },
                       },
                     },
-                    type: "WpCategory",
+                    type: "WpTag",
                   });
 
-                  if (wpCategory && wpCategory.name) {
+                  if (wpTag && wpTag.name) {
                     const contentfulTag = await context.nodeModel.findOne({
                       query: {
                         filter: {
-                          title: { eq: wpCategory.name },
+                          title: { eq: wpTag.name },
                         },
                       },
                       type: "ContentfulTag",
@@ -269,8 +269,8 @@ exports.createResolvers = async ({
                     }
                   } else {
                     console.log(
-                      "Missing WpCategory for `postHead categories`",
-                      wpCategory,
+                      "Missing WpTag for `postHead categories`",
+                      wpTag,
                       source.categories,
                       source.id
                     );
@@ -615,7 +615,7 @@ exports.onCreateNode = async ({
 
       excerpt: node.excerpt,
       author: node.author.node.id,
-      categories: node.categories.nodes.map((category) => category.id),
+      categories: node.tags.nodes.map((tag) => tag.id),
 
       postBody: node.content,
       postReadingTime: Math.ceil(
