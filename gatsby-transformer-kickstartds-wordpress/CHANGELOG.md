@@ -1,3 +1,15 @@
+# v2.4.1 (Mon Apr 24 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: use absolute links without domain for tags links ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.4.0 (Sun Apr 23 2023)
 
 #### 🚀 Enhancement

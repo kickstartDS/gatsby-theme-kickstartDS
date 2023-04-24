@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.4.1`
+  - fix: use absolute links without domain for tags links ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Mon Apr 24 2023)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@2.5.1`
   - fix: remove rogue console.log ([@julrich](https://github.com/julrich))
 
