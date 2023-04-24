@@ -1189,8 +1189,6 @@ exports.createResolvers = async ({ createResolvers }) => {
             relatedPosts.push(
               ...(await Promise.all(
                 Array.from(wpPosts).map(async (post) => {
-                  console.log("POST", post);
-
                   const related = {
                     url: `/blog/${post.slug}`,
                     excerpt: `${stripHtml(post.excerpt).result}…`,
