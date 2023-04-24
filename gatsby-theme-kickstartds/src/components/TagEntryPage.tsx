@@ -4,14 +4,8 @@ import { FunctionComponent } from "react";
 import { Section } from "@kickstartds/base/lib/section";
 import { Related } from "@kickstartds/design-system/dist/components/related/RelatedComponent";
 
-import { Layout } from "./Layout";
-
-export const TagEntryPage: FunctionComponent<any> = ({
-  tagLabel,
-  related,
-  ...rest
-}) => (
-  <Layout {...rest}>
+export const TagEntryPage: FunctionComponent<any> = ({ tagLabel, related }) => (
+  <>
     <Section
       headline={{
         content: `Content tagged with: "${tagLabel.label}"`,
@@ -24,11 +18,11 @@ export const TagEntryPage: FunctionComponent<any> = ({
     />
 
     {related && related.length > 0 && (
-      <Section spaceBefore="default" width="narrow" mode="list" gutter="large">
+      <Section spaceBefore="default" width="wide" mode="tile" gutter="large">
         {related.map((related) => (
           <Related {...related} />
         ))}
       </Section>
     )}
-  </Layout>
+  </>
 );

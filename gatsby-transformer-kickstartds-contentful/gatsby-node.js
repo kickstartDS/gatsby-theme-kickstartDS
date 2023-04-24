@@ -1173,257 +1173,312 @@ exports.createResolvers = async ({ createResolvers }) => {
         type: "[RelatedComponent!]",
         async resolve(source, args, context) {
           if (source.related && source.related.length > 0) {
-            return await Promise.all(
-              source.related.map(async (relatedObject) => {
-                if (relatedObject.type === "ContentfulTerm") {
-                  const relatedTerm = await context.nodeModel.findOne({
-                    query: {
-                      filter: {
-                        id: { eq: relatedObject.id },
-                      },
-                    },
-                    type: "ContentfulTerm",
-                  });
+            const relatedPosts = [];
 
-                  if (relatedTerm) {
+            const { entries: wpPosts } = await context.nodeModel.findAll({
+              query: {
+                filter: {
+                  tags: {
+                    nodes: { elemMatch: { name: { eq: source.title } } },
+                  },
+                },
+              },
+              type: "WpPost",
+            });
+
+            if (wpPosts) {
+              relatedPosts.push(
+                ...(await Promise.all(
+                  Array.from(wpPosts).map(async (post) => {
+                    console.log("POST", post);
+
                     const related = {
-                      url: `/glossary/${relatedTerm.slug}`,
-                      excerpt: `${JSON.parse(
-                        relatedTerm.definition.raw
-                      ).content[0].content[0].value.substring(0, 300)} …`,
-                      title: relatedTerm.name,
-                      typeLabel: "Glossary",
+                      url: `/blog/${post.slug}`,
+                      excerpt: `${stripHtml(post.excerpt).result}…`,
+                      title: post.title,
+                      typeLabel: "Blog",
                       type: "related",
                     };
 
-                    if (relatedTerm.cover___NODE) {
-                      const contentfulImage = await context.nodeModel.findOne({
+                    if (
+                      post.featuredImage &&
+                      post.featuredImage.node &&
+                      post.featuredImage.node.id
+                    ) {
+                      const image = await context.nodeModel.findOne({
                         query: {
                           filter: {
-                            id: { eq: relatedTerm.cover___NODE },
+                            parent: { id: { eq: post.featuredImage.node.id } },
+                            publicURL: { ne: "" },
                           },
-                          fields: { localFile: { ne: "" } },
                         },
-                        type: "ContentfulAsset",
+                        type: "File",
                       });
-
-                      related.image___NODE =
-                        contentfulImage.fields.localFile || "";
-                    }
-
-                    if (
-                      relatedTerm.tags___NODE &&
-                      relatedTerm.tags___NODE.length > 0
-                    ) {
-                      related.tags = await Promise.all(
-                        relatedTerm.tags___NODE.map(async (tagId) => {
-                          const contentfulTag = await context.nodeModel.findOne(
-                            {
-                              query: {
-                                filter: {
-                                  id: { eq: tagId },
-                                },
-                              },
-                              type: "ContentfulTag",
-                            }
-                          );
-
-                          if (contentfulTag) {
-                            return contentfulTag.title;
-                          } else {
-                            console.log(
-                              "Missing ContentfulTag `showcase`",
-                              contentfulTag,
-                              tagId,
-                              relatedTerm.tags,
-                              source.id
-                            );
-                            return undefined;
-                          }
-                        })
-                      );
+                      related.image___NODE = image.id;
                     }
 
                     return hashObjectKeys(related, "related");
+                  })
+                ))
+              );
+            }
+
+            return relatedPosts.concat(
+              await Promise.all(
+                source.related.map(async (relatedObject) => {
+                  if (relatedObject.type === "ContentfulTerm") {
+                    const relatedTerm = await context.nodeModel.findOne({
+                      query: {
+                        filter: {
+                          id: { eq: relatedObject.id },
+                        },
+                      },
+                      type: "ContentfulTerm",
+                    });
+
+                    if (relatedTerm) {
+                      const related = {
+                        url: `/glossary/${relatedTerm.slug}`,
+                        excerpt: `${JSON.parse(
+                          relatedTerm.definition.raw
+                        ).content[0].content[0].value.substring(0, 300)} …`,
+                        title: relatedTerm.name,
+                        typeLabel: "Glossary",
+                        type: "related",
+                      };
+
+                      if (relatedTerm.cover___NODE) {
+                        const contentfulImage = await context.nodeModel.findOne(
+                          {
+                            query: {
+                              filter: {
+                                id: { eq: relatedTerm.cover___NODE },
+                              },
+                              fields: { localFile: { ne: "" } },
+                            },
+                            type: "ContentfulAsset",
+                          }
+                        );
+
+                        related.image___NODE =
+                          contentfulImage.fields.localFile || "";
+                      }
+
+                      if (
+                        relatedTerm.tags___NODE &&
+                        relatedTerm.tags___NODE.length > 0
+                      ) {
+                        related.tags = await Promise.all(
+                          relatedTerm.tags___NODE.map(async (tagId) => {
+                            const contentfulTag =
+                              await context.nodeModel.findOne({
+                                query: {
+                                  filter: {
+                                    id: { eq: tagId },
+                                  },
+                                },
+                                type: "ContentfulTag",
+                              });
+
+                            if (contentfulTag) {
+                              return contentfulTag.title;
+                            } else {
+                              console.log(
+                                "Missing ContentfulTag `showcase`",
+                                contentfulTag,
+                                tagId,
+                                relatedTerm.tags,
+                                source.id
+                              );
+                              return undefined;
+                            }
+                          })
+                        );
+                      }
+
+                      return hashObjectKeys(related, "related");
+                    } else {
+                      console.log(
+                        "Missing ContentfulTerm `related`",
+                        relatedTerm,
+                        tagId,
+                        source.glossary.tags,
+                        source.id
+                      );
+                      return undefined;
+                    }
+                  } else if (relatedObject.type === "ContentfulAppearance") {
+                    const relatedAppearance = await context.nodeModel.findOne({
+                      query: {
+                        filter: {
+                          id: { eq: relatedObject.id },
+                        },
+                      },
+                      type: "ContentfulAppearance",
+                    });
+
+                    if (relatedAppearance) {
+                      const related = {
+                        url: `/appearances/${relatedAppearance.slug}`,
+                        excerpt: `${JSON.parse(
+                          relatedAppearance.description.raw
+                        ).content[0].content[0].value.substring(0, 300)} …`,
+                        title: relatedAppearance.title,
+                        typeLabel: "Appearance",
+                        type: "related",
+                      };
+
+                      if (relatedAppearance.cover___NODE) {
+                        const contentfulImage = await context.nodeModel.findOne(
+                          {
+                            query: {
+                              filter: {
+                                id: { eq: relatedAppearance.cover___NODE },
+                              },
+                              fields: { localFile: { ne: "" } },
+                            },
+                            type: "ContentfulAsset",
+                          }
+                        );
+
+                        related.image___NODE =
+                          contentfulImage.fields.localFile || "";
+                      }
+
+                      if (
+                        relatedAppearance.tags___NODE &&
+                        relatedAppearance.tags___NODE.length > 0
+                      ) {
+                        related.tags = await Promise.all(
+                          relatedAppearance.tags___NODE.map(async (tagId) => {
+                            const contentfulTag =
+                              await context.nodeModel.findOne({
+                                query: {
+                                  filter: {
+                                    id: { eq: tagId },
+                                  },
+                                },
+                                type: "ContentfulTag",
+                              });
+
+                            if (contentfulTag) {
+                              return contentfulTag.title;
+                            } else {
+                              console.log(
+                                "Missing ContentfulTag `showcase`",
+                                contentfulTag,
+                                tagId,
+                                relatedAppearance.tags,
+                                source.id
+                              );
+                              return undefined;
+                            }
+                          })
+                        );
+                      }
+
+                      return hashObjectKeys(related, "related");
+                    } else {
+                      console.log(
+                        "Missing ContentfulTerm `related`",
+                        relatedTerm,
+                        tagId,
+                        source.glossary.tags,
+                        source.id
+                      );
+                      return undefined;
+                    }
+                  } else if (relatedObject.type === "ContentfulShowcase") {
+                    const relatedShowcase = await context.nodeModel.findOne({
+                      query: {
+                        filter: {
+                          id: { eq: relatedObject.id },
+                        },
+                      },
+                      type: "ContentfulShowcase",
+                    });
+
+                    if (relatedShowcase) {
+                      const related = {
+                        url: `/showcases/${relatedShowcase.slug}`,
+                        excerpt: `${JSON.parse(
+                          relatedShowcase.description.raw
+                        ).content[0].content[0].value.substring(0, 300)} …`,
+                        title: relatedShowcase.title,
+                        typeLabel: "Showcase",
+                        type: "related",
+                      };
+
+                      if (relatedShowcase.cover___NODE) {
+                        const contentfulImage = await context.nodeModel.findOne(
+                          {
+                            query: {
+                              filter: {
+                                id: { eq: relatedShowcase.cover___NODE },
+                              },
+                              fields: { localFile: { ne: "" } },
+                            },
+                            type: "ContentfulAsset",
+                          }
+                        );
+
+                        related.image___NODE =
+                          contentfulImage.fields.localFile || "";
+                      }
+
+                      if (
+                        relatedShowcase.tags___NODE &&
+                        relatedShowcase.tags___NODE.length > 0
+                      ) {
+                        related.tags = await Promise.all(
+                          relatedShowcase.tags___NODE.map(async (tagId) => {
+                            const contentfulTag =
+                              await context.nodeModel.findOne({
+                                query: {
+                                  filter: {
+                                    id: { eq: tagId },
+                                  },
+                                },
+                                type: "ContentfulTag",
+                              });
+
+                            if (contentfulTag) {
+                              return contentfulTag.title;
+                            } else {
+                              console.log(
+                                "Missing ContentfulTag `showcase`",
+                                contentfulTag,
+                                tagId,
+                                relatedShowcase.tags,
+                                source.id
+                              );
+                              return undefined;
+                            }
+                          })
+                        );
+                      }
+
+                      return hashObjectKeys(related, "related");
+                    } else {
+                      console.log(
+                        "Missing ContentfulTerm `related`",
+                        relatedTerm,
+                        tagId,
+                        source.glossary.tags,
+                        source.id
+                      );
+                      return undefined;
+                    }
                   } else {
                     console.log(
-                      "Missing ContentfulTerm `related`",
-                      relatedTerm,
-                      tagId,
-                      source.glossary.tags,
+                      "Missing ContentfulEntry `related`",
+                      source.related,
                       source.id
                     );
                     return undefined;
                   }
-                } else if (relatedObject.type === "ContentfulAppearance") {
-                  const relatedAppearance = await context.nodeModel.findOne({
-                    query: {
-                      filter: {
-                        id: { eq: relatedObject.id },
-                      },
-                    },
-                    type: "ContentfulAppearance",
-                  });
-
-                  if (relatedAppearance) {
-                    const related = {
-                      url: `/appearances/${relatedAppearance.slug}`,
-                      excerpt: `${JSON.parse(
-                        relatedAppearance.description.raw
-                      ).content[0].content[0].value.substring(0, 300)} …`,
-                      title: relatedAppearance.title,
-                      typeLabel: "Appearance",
-                      type: "related",
-                    };
-
-                    if (relatedAppearance.cover___NODE) {
-                      const contentfulImage = await context.nodeModel.findOne({
-                        query: {
-                          filter: {
-                            id: { eq: relatedAppearance.cover___NODE },
-                          },
-                          fields: { localFile: { ne: "" } },
-                        },
-                        type: "ContentfulAsset",
-                      });
-
-                      related.image___NODE =
-                        contentfulImage.fields.localFile || "";
-                    }
-
-                    if (
-                      relatedAppearance.tags___NODE &&
-                      relatedAppearance.tags___NODE.length > 0
-                    ) {
-                      related.tags = await Promise.all(
-                        relatedAppearance.tags___NODE.map(async (tagId) => {
-                          const contentfulTag = await context.nodeModel.findOne(
-                            {
-                              query: {
-                                filter: {
-                                  id: { eq: tagId },
-                                },
-                              },
-                              type: "ContentfulTag",
-                            }
-                          );
-
-                          if (contentfulTag) {
-                            return contentfulTag.title;
-                          } else {
-                            console.log(
-                              "Missing ContentfulTag `showcase`",
-                              contentfulTag,
-                              tagId,
-                              relatedAppearance.tags,
-                              source.id
-                            );
-                            return undefined;
-                          }
-                        })
-                      );
-                    }
-
-                    return hashObjectKeys(related, "related");
-                  } else {
-                    console.log(
-                      "Missing ContentfulTerm `related`",
-                      relatedTerm,
-                      tagId,
-                      source.glossary.tags,
-                      source.id
-                    );
-                    return undefined;
-                  }
-                } else if (relatedObject.type === "ContentfulShowcase") {
-                  const relatedShowcase = await context.nodeModel.findOne({
-                    query: {
-                      filter: {
-                        id: { eq: relatedObject.id },
-                      },
-                    },
-                    type: "ContentfulShowcase",
-                  });
-
-                  if (relatedShowcase) {
-                    const related = {
-                      url: `/showcases/${relatedShowcase.slug}`,
-                      excerpt: `${JSON.parse(
-                        relatedShowcase.description.raw
-                      ).content[0].content[0].value.substring(0, 300)} …`,
-                      title: relatedShowcase.title,
-                      typeLabel: "Showcase",
-                      type: "related",
-                    };
-
-                    if (relatedShowcase.cover___NODE) {
-                      const contentfulImage = await context.nodeModel.findOne({
-                        query: {
-                          filter: {
-                            id: { eq: relatedShowcase.cover___NODE },
-                          },
-                          fields: { localFile: { ne: "" } },
-                        },
-                        type: "ContentfulAsset",
-                      });
-
-                      related.image___NODE =
-                        contentfulImage.fields.localFile || "";
-                    }
-
-                    if (
-                      relatedShowcase.tags___NODE &&
-                      relatedShowcase.tags___NODE.length > 0
-                    ) {
-                      related.tags = await Promise.all(
-                        relatedShowcase.tags___NODE.map(async (tagId) => {
-                          const contentfulTag = await context.nodeModel.findOne(
-                            {
-                              query: {
-                                filter: {
-                                  id: { eq: tagId },
-                                },
-                              },
-                              type: "ContentfulTag",
-                            }
-                          );
-
-                          if (contentfulTag) {
-                            return contentfulTag.title;
-                          } else {
-                            console.log(
-                              "Missing ContentfulTag `showcase`",
-                              contentfulTag,
-                              tagId,
-                              relatedShowcase.tags,
-                              source.id
-                            );
-                            return undefined;
-                          }
-                        })
-                      );
-                    }
-
-                    return hashObjectKeys(related, "related");
-                  } else {
-                    console.log(
-                      "Missing ContentfulTerm `related`",
-                      relatedTerm,
-                      tagId,
-                      source.glossary.tags,
-                      source.id
-                    );
-                    return undefined;
-                  }
-                } else {
-                  console.log(
-                    "Missing ContentfulEntry `related`",
-                    source.related,
-                    source.id
-                  );
-                  return undefined;
-                }
-              })
+                })
+              )
             );
           }
 
