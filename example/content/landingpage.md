@@ -1,13 +1,13 @@
 ---
 cardImage: /images/kickstartds_lp_card_default.png
 id: 78d601a0-dd08-11eb-b16f-093364d73e0c
-image: ''
+image: ""
 layout: default
 slug: /
 title: kickstartDS – Open Source starter kit and low-code framework for Design Systems
 type: page
 sections:
-  - className: ''
+  - className: ""
     mode: default
     spaceBefore: none
     width: full
@@ -15,11 +15,11 @@ sections:
     headline:
       level: h1
       align: center
-      content: ''
+      content: ""
       spaceAfter: minimum
       type: headline
       switchOrder: false
-      subheadline: ''
+      subheadline: ""
     spaceAfter: small
     content:
       - className: contain-image
@@ -31,7 +31,7 @@ sections:
             srcDesktop: /images/bg-hero-lemon-desktop.svg
             indent: none
             alt: decorative graphic displaying a lemon
-            src: ''
+            src: ""
         inbox: true
         height: default
         box:
@@ -49,9 +49,9 @@ sections:
             styleAs: h1
             level: h1
             align: left
-            subheadline: ''
+            subheadline: ""
             spaceAfter: minimum
-            content: 'kickstartDS is the Open Source starter kit for Design Systems '
+            content: "kickstartDS is the Open Source starter kit for Design Systems "
             switchOrder: true
             type: headline
             pageHeader: false
@@ -60,7 +60,7 @@ sections:
           links:
             - size: medium
               enabled: true
-              className: ''
+              className: ""
               iconAfter: true
               variant: solid
               deko: true
@@ -85,7 +85,7 @@ sections:
               type: button
         overlay: false
         skipButton: false
-        backgroundColor: ''
+        backgroundColor: ""
         type: visual
     type: sections
     gutter: default
@@ -185,7 +185,7 @@ sections:
         to: 26
         topic: Components
         link:
-          href: ''
+          href: ""
           label: Start now!
           size: small
           variant: outline_inverted
@@ -201,7 +201,7 @@ sections:
         to: 250
         topic: Properties
         link:
-          href: ''
+          href: ""
           label: Learn more
           size: small
           variant: outline_inverted
@@ -217,7 +217,7 @@ sections:
         to: 500
         topic: Token
         link:
-          href: ''
+          href: ""
           label: Learn more
           size: small
           variant: outline_inverted
@@ -438,7 +438,7 @@ sections:
     width: full
     background: default
     headline:
-      className: ''
+      className: ""
       styleAs: h1
       level: h2
       align: center
@@ -486,7 +486,7 @@ sections:
             size: medium
             href: /blog/great-components
             type: button
-            className: ''
+            className: ""
             iconAfter: false
         full: false
       - type: storytelling
@@ -521,12 +521,12 @@ sections:
             size: medium
             href: /storybook
             type: button
-            className: ''
-        backgroundColor: '#eceff3'
+            className: ""
+        backgroundColor: "#eceff3"
         full: true
       - type: storytelling
         image:
-          source: ''
+          source: ""
           ratio: none
           vAlign: center
           hAlign: center
@@ -537,9 +537,9 @@ sections:
           headline:
             level: h2
             align: left
-            content: 'Design System services '
+            content: "Design System services "
             spaceAfter: minimum
-            subheadline: ''
+            subheadline: ""
           text: >-
             **Together we identify if you need a Design System**
 
@@ -557,10 +557,10 @@ sections:
             size: medium
             href: /services
             type: button
-            className: ''
+            className: ""
             inverted: false
             deko: false
-          textColor: '#FFFFFF'
+          textColor: "#FFFFFF"
           links:
             - href: /blog/how-our-initiative-workshop-series-helps-customers-to-decide-for-or-against-a-design-system/
               label: Read about the DS initiative
@@ -612,8 +612,8 @@ sections:
             size: medium
             href: /integrations
             type: button
-            className: ''
-        backgroundColor: ''
+            className: ""
+        backgroundColor: ""
         full: false
     type: sections
     gutter: default
@@ -638,25 +638,25 @@ sections:
     content:
       - type: quotes-slider
         slides:
-          - image: ''
+          - image: ""
             text:
               kickstartDS is a game changer. Its Design System helped our team to
               improve our brand consistency, while it's pattern library boosted
               our developers building completely new frontend components.
-            source: 'Nicole Mentzen, Head of Marketing @maxcluster GmbH '
+            source: "Nicole Mentzen, Head of Marketing @maxcluster GmbH "
             type: quote
-          - byline: ''
-            image: ''
+          - byline: ""
+            image: ""
             source: Leh, CEO @Taktsoft GmbH
             text:
               kickstartDS has saved us so much time scaling different white label
               frontends with the most performant framework I have ever seen.
             type: quote
-          - image: ''
+          - image: ""
             text:
-              'I have rarely seen such a passionated and dedicated team with one shared
+              "I have rarely seen such a passionated and dedicated team with one shared
               mission: enhance the developer experience and make frontend first
-              again.'
+              again."
             source: Byron S., Senior Frontend Developer
             type: quote
     type: sections
@@ -685,7 +685,7 @@ sections:
           label: read more
           variant: outline
           size: medium
-          href: ''
+          href: ""
           type: button
           fillAnimation: false
           className: zen-askus-1-cta
@@ -702,7 +702,7 @@ sections:
           label: read more
           variant: outline
           size: medium
-          href: ''
+          href: ""
           type: button
           fillAnimation: false
           className: zen-askus-2-cta
@@ -721,7 +721,7 @@ sections:
           label: read more
           variant: outline
           size: medium
-          href: ''
+          href: ""
           type: button
           fillAnimation: false
           className: zen-askus-3-cta
@@ -786,7 +786,7 @@ sections:
     pattern: none
     headline:
       align: center
-      content: ''
+      content: ""
       level: h2
       spaceAfter: minimum
       styleAs: none
@@ -797,10 +797,10 @@ sections:
         box:
           hAlign: left
           text:
-            'The **Content Module** includes seven rich components: Hero visual,
+            "The **Content Module** includes seven rich components: Hero visual,
             Quote,  Slider, Storytelling etc. — everything you need to build
             beautiful content experiences or to enrich your existing Design
-            System'
+            System"
           textAlign: left
           vAlign: center
           headline:
@@ -812,7 +812,7 @@ sections:
             subheadline: The perfect addition to our Open Source base
             switchOrder: true
           link:
-            href: '#'
+            href: "#"
             label: Interested? Contact us!
             size: medium
             type: button
@@ -827,7 +827,7 @@ sections:
               variant: outline
               iconAnimation: false
               href: /blog/great-components/
-              label: 'Details in our blog '
+              label: "Details in our blog "
               newTab: true
               icon:
                 type: icon
@@ -836,11 +836,11 @@ sections:
         image:
           hAlign: center
           ratio: none
-          source: ''
+          source: ""
           vAlign: center
         backgroundImage: /images/bg-component-module-light.png
-        backgroundColor: ''
-        className: ''
+        backgroundColor: ""
+        className: ""
         full: false
     type: section
     gutter: default
