@@ -81,7 +81,9 @@ fragment RelatedComponentDeepNesting on RelatedComponent {
     }
     publicURL
   }
-  tags__63eb
+  tags__63eb {
+    ...RelatedComponentTagsDeepNesting
+  }
   title__d9bc
   type
   typeLabel__3922
@@ -128,6 +130,10 @@ fragment HeaderComponentNavEntriesDeepNesting on HeaderComponentNavEntries {
   href__815d
   id__7362
   label__e61b
+}
+fragment RelatedComponentTagsDeepNesting on RelatedComponentTags {
+  label__5252
+  link__cb80
 } 
 query TAG_BY_SLUG($slug: String) { 
   kickstartDsTagPage(slug: { eq: $slug }) { 

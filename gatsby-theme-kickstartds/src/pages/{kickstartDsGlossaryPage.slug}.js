@@ -68,7 +68,9 @@ fragment GlossaryComponentDeepNesting on GlossaryComponent {
     ...GlossaryComponentRelatedDeepNesting
   }
   stackshare__481c
-  tags__736d
+  tags__736d {
+    ...GlossaryComponentTagsDeepNesting
+  }
   term__e184
   type
 }
@@ -136,11 +138,21 @@ fragment GlossaryComponentRelatedDeepNesting on GlossaryComponentRelated {
     }
     publicURL
   }
-  tags__736d
+  tags__736d {
+    ...GlossaryComponentRelatedTagsDeepNesting
+  }
   title__e835
   type
   typeLabel__8f31
   url__b9d5
+}
+fragment GlossaryComponentTagsDeepNesting on GlossaryComponentTags {
+  label__2a4f
+  link__cb81
+}
+fragment GlossaryComponentRelatedTagsDeepNesting on GlossaryComponentRelatedTags {
+  label__2a4f
+  link__cb81
 }
 fragment HeaderComponentAnnouncementBarDeepNesting on HeaderComponentAnnouncementBar {
   content__4b31

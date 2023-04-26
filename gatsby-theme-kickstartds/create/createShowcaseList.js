@@ -77,7 +77,7 @@ module.exports = async ({ actions, graphql }, options) => {
         }`,
         categories: cleanObjectKeys(page.node.showcase).tags.map((tag) => {
           return {
-            label: tag,
+            ...tag,
             size: "m",
             type: "tag-label",
           };

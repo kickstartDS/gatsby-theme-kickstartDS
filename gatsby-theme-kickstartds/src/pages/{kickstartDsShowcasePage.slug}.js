@@ -89,7 +89,9 @@ fragment ShowcaseComponentDeepNesting on ShowcaseComponent {
     ...ShowcaseComponentRelatedDeepNesting
   }
   summary__c9c8
-  tags__c50c
+  tags__c50c {
+    ...ShowcaseComponentTagsDeepNesting
+  }
   title__b176
   type
 }
@@ -138,6 +140,7 @@ fragment ShowcaseComponentCoverDeepNesting on ShowcaseComponentCover {
 }
 fragment ShowcaseComponentMediaDeepNesting on ShowcaseComponentMedia {
   caption__7b99
+  mode__fc36
   
   src__1db5 {
     childImageSharp {
@@ -171,11 +174,21 @@ fragment ShowcaseComponentRelatedDeepNesting on ShowcaseComponentRelated {
     }
     publicURL
   }
-  tags__c50c
+  tags__c50c {
+    ...ShowcaseComponentRelatedTagsDeepNesting
+  }
   title__b176
   type
   typeLabel__2a43
   url__e10c
+}
+fragment ShowcaseComponentTagsDeepNesting on ShowcaseComponentTags {
+  label__eb6b
+  link__5db3
+}
+fragment ShowcaseComponentRelatedTagsDeepNesting on ShowcaseComponentRelatedTags {
+  label__eb6b
+  link__5db3
 } 
 query SHOWCASE_BY_SLUG($slug: String) { 
   kickstartDsShowcasePage(slug: { eq: $slug }) { 

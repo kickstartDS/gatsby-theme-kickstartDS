@@ -76,10 +76,10 @@ module.exports = async ({ actions, graphql }, options) => {
         title: stripHtml(page.node.title).result,
         body: `${stripHtml(cleaned.description).result}`,
         categories:
-          cleaned.participants?.length > 0
-            ? cleaned.participants.map((participant) => {
+          cleaned.tags?.length > 0
+            ? cleaned.tags.map((tag) => {
                 return {
-                  label: participant.name,
+                  ...tag,
                   size: "m",
                   type: "tag-label",
                 };

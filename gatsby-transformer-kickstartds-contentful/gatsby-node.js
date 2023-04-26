@@ -149,7 +149,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                   });
 
                   if (contentfulTag) {
-                    return contentfulTag.title;
+                    return {
+                      label: contentfulTag.title,
+                      link: `/tags/${contentfulTag.slug}`,
+                      type: "tag-label",
+                    };
                   } else {
                     console.log(
                       "Missing ContentfulTag `glossary`",
@@ -217,7 +221,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                           );
 
                           if (contentfulTag) {
-                            return contentfulTag.title;
+                            return {
+                              label: contentfulTag.title,
+                              link: `/tags/${contentfulTag.slug}`,
+                              type: "tag-label",
+                            };
                           } else {
                             console.log(
                               "Missing ContentfulTag `showcase`",
@@ -490,7 +498,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                   });
 
                   if (contentfulTag) {
-                    return contentfulTag.title;
+                    return {
+                      label: contentfulTag.title,
+                      link: `/tags/${contentfulTag.slug}`,
+                      type: "tag-label",
+                    };
                   } else {
                     console.log(
                       "Missing ContentfulTag `appearance`",
@@ -563,7 +575,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                           );
 
                           if (contentfulTag) {
-                            return contentfulTag.title;
+                            return {
+                              label: contentfulTag.title,
+                              link: `/tags/${contentfulTag.slug}`,
+                              type: "tag-label",
+                            };
                           } else {
                             console.log(
                               "Missing ContentfulTag `appearance`",
@@ -840,7 +856,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                   });
 
                   if (contentfulTag) {
-                    return contentfulTag.title;
+                    return {
+                      label: contentfulTag.title,
+                      link: `/tags/${contentfulTag.slug}`,
+                      type: "tag-label",
+                    };
                   } else {
                     console.log(
                       "Missing ContentfulTag `showcase`",
@@ -910,7 +930,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                           );
 
                           if (contentfulTag) {
-                            return contentfulTag.title;
+                            return {
+                              label: contentfulTag.title,
+                              link: `/tags/${contentfulTag.slug}`,
+                              type: "tag-label",
+                            };
                           } else {
                             console.log(
                               "Missing ContentfulTag `showcase`",
@@ -1279,7 +1303,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                               });
 
                             if (contentfulTag) {
-                              return contentfulTag.title;
+                              return {
+                                label: contentfulTag.title,
+                                link: `/tags/${contentfulTag.slug}`,
+                                type: "tag-label",
+                              };
                             } else {
                               console.log(
                                 "Missing ContentfulTag `showcase`",
@@ -1360,7 +1388,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                               });
 
                             if (contentfulTag) {
-                              return contentfulTag.title;
+                              return {
+                                label: contentfulTag.title,
+                                link: `/tags/${contentfulTag.slug}`,
+                                type: "tag-label",
+                              };
                             } else {
                               console.log(
                                 "Missing ContentfulTag `showcase`",
@@ -1441,7 +1473,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                               });
 
                             if (contentfulTag) {
-                              return contentfulTag.title;
+                              return {
+                                label: contentfulTag.title,
+                                link: `/tags/${contentfulTag.slug}`,
+                                type: "tag-label",
+                              };
                             } else {
                               console.log(
                                 "Missing ContentfulTag `showcase`",

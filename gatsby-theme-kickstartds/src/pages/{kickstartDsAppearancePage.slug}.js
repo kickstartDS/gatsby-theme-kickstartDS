@@ -66,7 +66,9 @@ fragment AppearanceComponentDeepNesting on AppearanceComponent {
   related__7fc1 {
     ...AppearanceComponentRelatedDeepNesting
   }
-  tags__53b2
+  tags__53b2 {
+    ...AppearanceComponentTagsDeepNesting
+  }
   title__5953
   type
 }
@@ -130,11 +132,17 @@ fragment AppearanceComponentRelatedDeepNesting on AppearanceComponentRelated {
     }
     publicURL
   }
-  tags__53b2
+  tags__53b2 {
+    ...AppearanceComponentRelatedTagsDeepNesting
+  }
   title__5953
   type
   typeLabel__b70a
   url__b835
+}
+fragment AppearanceComponentTagsDeepNesting on AppearanceComponentTags {
+  label__d957
+  link__5a2c
 }
 fragment PersonComponentDeepNesting on PersonComponent {
   
@@ -150,6 +158,10 @@ fragment PersonComponentDeepNesting on PersonComponent {
   size__b1dd
   title__b0b7
   type
+}
+fragment AppearanceComponentRelatedTagsDeepNesting on AppearanceComponentRelatedTags {
+  label__d957
+  link__5a2c
 }
 fragment FooterComponentSectionsDeepNesting on FooterComponentSections {
   headline__b113
