@@ -1,3 +1,16 @@
+# (Wed Apr 26 2023)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@2.5.3`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.3`
+  - fix: update tag-label integration ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon Apr 24 2023)
 
 #### ⚠️ Pushed to `master`

@@ -1,3 +1,15 @@
+# v2.5.3 (Wed Apr 26 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: update tag-label integration ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.5.2 (Mon Apr 24 2023)
 
 #### ⚠️ Pushed to `master`
