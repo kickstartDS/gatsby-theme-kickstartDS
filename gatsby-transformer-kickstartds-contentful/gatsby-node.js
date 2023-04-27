@@ -134,7 +134,7 @@ exports.createResolvers = async ({ createResolvers }) => {
         type: "GlossaryComponent!",
         async resolve(source, args, context) {
           if (source.glossary) {
-            const glossaryJson = source.glossary;
+            const glossaryJson = { ...source.glossary };
 
             if (source.glossary.tags && source.glossary.tags.length > 0) {
               glossaryJson.tags = await Promise.all(
@@ -225,6 +225,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                               label: contentfulTag.title,
                               link: `/tags/${contentfulTag.slug}`,
                               type: "tag-label",
+                              size: "s",
                             };
                           } else {
                             console.log(
@@ -483,7 +484,7 @@ exports.createResolvers = async ({ createResolvers }) => {
         type: "AppearanceComponent!",
         async resolve(source, args, context) {
           if (source.appearance) {
-            const appearanceJson = source.appearance;
+            const appearanceJson = { ...source.appearance };
 
             if (source.appearance.tags && source.appearance.tags.length > 0) {
               appearanceJson.tags = await Promise.all(
@@ -579,6 +580,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                               label: contentfulTag.title,
                               link: `/tags/${contentfulTag.slug}`,
                               type: "tag-label",
+                              size: "s",
                             };
                           } else {
                             console.log(
@@ -841,7 +843,7 @@ exports.createResolvers = async ({ createResolvers }) => {
         type: "ShowcaseComponent!",
         async resolve(source, args, context) {
           if (source.showcase) {
-            const showcaseJson = source.showcase;
+            const showcaseJson = { ...source.showcase };
 
             if (source.showcase.tags && source.showcase.tags.length > 0) {
               showcaseJson.tags = await Promise.all(
@@ -934,6 +936,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                               label: contentfulTag.title,
                               link: `/tags/${contentfulTag.slug}`,
                               type: "tag-label",
+                              size: "s",
                             };
                           } else {
                             console.log(
@@ -1307,6 +1310,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                                 label: contentfulTag.title,
                                 link: `/tags/${contentfulTag.slug}`,
                                 type: "tag-label",
+                                size: "s",
                               };
                             } else {
                               console.log(
@@ -1392,6 +1396,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                                 label: contentfulTag.title,
                                 link: `/tags/${contentfulTag.slug}`,
                                 type: "tag-label",
+                                size: "s",
                               };
                             } else {
                               console.log(
@@ -1477,6 +1482,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                                 label: contentfulTag.title,
                                 link: `/tags/${contentfulTag.slug}`,
                                 type: "tag-label",
+                                size: "s",
                               };
                             } else {
                               console.log(
@@ -1609,6 +1615,7 @@ exports.onCreateNode = async ({
           name: node.hostName,
           url: node.hostUrl,
         },
+        language: node.language,
         participants:
           (node.participants___NODE &&
             node.participants___NODE.length > 0 &&

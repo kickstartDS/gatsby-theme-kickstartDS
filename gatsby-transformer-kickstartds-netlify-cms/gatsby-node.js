@@ -192,6 +192,7 @@ exports.onCreateNode = async ({
   if (
     node.internal.type === "MarkdownRemark" &&
     node.frontmatter &&
+    node.fileAbsolutePath &&
     node.fileAbsolutePath.includes("/settings/")
   ) {
     if (node.fileAbsolutePath.includes("header.md")) {
