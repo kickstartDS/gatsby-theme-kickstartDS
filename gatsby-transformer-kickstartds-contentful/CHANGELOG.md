@@ -1,3 +1,15 @@
+# v2.5.4 (Thu Apr 27 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: minor fixes for showcases / appearances ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.5.3 (Wed Apr 26 2023)
 
 #### ⚠️ Pushed to `master`

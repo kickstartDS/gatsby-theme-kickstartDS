@@ -1,3 +1,16 @@
+# (Thu Apr 27 2023)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@2.5.4`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.4`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.3.1`
+  - fix: minor fixes for showcases / appearances ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Wed Apr 26 2023)
 
 #### ⚠️ Pushed to `master`
