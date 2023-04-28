@@ -1220,7 +1220,10 @@ exports.createResolvers = async ({ createResolvers }) => {
                 Array.from(wpPosts).map(async (post) => {
                   const related = {
                     url: `/blog/${post.slug}`,
-                    excerpt: `${stripHtml(post.excerpt).result}…`,
+                    excerpt: `${stripHtml(post.excerpt).result.substring(
+                      0,
+                      200
+                    )}`,
                     title: post.title,
                     typeLabel: "Blog",
                     type: "related",
@@ -1241,6 +1244,63 @@ exports.createResolvers = async ({ createResolvers }) => {
                       type: "File",
                     });
                     related.image___NODE = image.id;
+                  }
+
+                  if (
+                    post.tags &&
+                    post.tags.nodes &&
+                    post.tags.nodes.length > 0
+                  ) {
+                    related.tags = await Promise.all(
+                      post.tags.nodes.map(async (tagId) => {
+                        const wpTag = await context.nodeModel.findOne({
+                          query: {
+                            filter: {
+                              id: { eq: tagId.id },
+                            },
+                          },
+                          type: "WpTag",
+                        });
+
+                        if (wpTag && wpTag.name) {
+                          const contentfulTag = await context.nodeModel.findOne(
+                            {
+                              query: {
+                                filter: {
+                                  title: { eq: wpTag.name },
+                                },
+                              },
+                              type: "ContentfulTag",
+                            }
+                          );
+
+                          if (contentfulTag && contentfulTag.title) {
+                            return {
+                              label: contentfulTag.title,
+                              link: `/tags/${contentfulTag.slug}/`,
+                              type: "tag-label",
+                            };
+                          } else {
+                            console.log(
+                              "Missing ContentfulTag for `tags`",
+                              contentfulTag,
+                              wpTag,
+                              source.tags,
+                              source.id
+                            );
+                            return undefined;
+                          }
+                        } else {
+                          console.log(
+                            "Missing WpTag for `tags`",
+                            wpTag,
+                            source.tags,
+                            source.id
+                          );
+                          return undefined;
+                        }
+                      })
+                    );
                   }
 
                   return hashObjectKeys(related, "related");
@@ -1268,7 +1328,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                         url: `/glossary/${relatedTerm.slug}`,
                         excerpt: `${JSON.parse(
                           relatedTerm.definition.raw
-                        ).content[0].content[0].value.substring(0, 300)} …`,
+                        ).content[0].content[0].value.substring(0, 300)}`,
                         title: relatedTerm.name,
                         typeLabel: "Glossary",
                         type: "related",

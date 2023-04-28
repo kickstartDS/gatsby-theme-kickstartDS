@@ -18,7 +18,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@kickstartds/design-system": "^2.5.3",
+    "@kickstartds/design-system": "^2.5.6",
     "@kickstartds/gatsby-theme-kickstartds": "^2.5.6",
     "@kickstartds/gatsby-transformer-kickstartds-contentful": "^2.5.6",
     "@kickstartds/gatsby-transformer-kickstartds-netlify-cms": "^2.3.3",
