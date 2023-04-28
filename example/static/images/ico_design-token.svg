@@ -1,6 +1,5 @@
 <svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_2043_4312)">
-<rect width="480" height="480" fill="white"/>
 <circle opacity="0.5" cx="233" cy="233" r="233" fill="url(#paint0_radial_2043_4312)"/>
 <mask id="path-2-inside-1_2043_4312" fill="white">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M366.937 405.58L367.039 406.007L367.032 406.009C371.168 426.252 326.172 454.194 265.965 468.647C205.759 483.099 152.982 478.628 147.478 458.713L147.47 458.715L147.368 458.288L138.555 421.575L248.34 395.222L358.124 368.868L366.937 405.58Z"/>
