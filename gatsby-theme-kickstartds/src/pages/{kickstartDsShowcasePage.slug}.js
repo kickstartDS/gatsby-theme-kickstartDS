@@ -77,6 +77,7 @@ fragment ShowcaseComponentDeepNesting on ShowcaseComponent {
     ...ShowcaseComponentCoverDeepNesting
   }
   description__80c3
+  excerpt__0fe1
   link__5db3
   media__dbe9 {
     ...ShowcaseComponentMediaDeepNesting

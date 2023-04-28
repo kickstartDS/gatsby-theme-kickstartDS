@@ -72,9 +72,7 @@ module.exports = async ({ actions, graphql }, options) => {
           label: "Details...",
         },
         title: stripHtml(page.node.title).result,
-        body: `${
-          stripHtml(cleanObjectKeys(page.node.showcase).description).result
-        }`,
+        body: cleanObjectKeys(page.node.showcase).excerpt,
         categories: cleanObjectKeys(page.node.showcase).tags.map((tag) => {
           return {
             ...tag,

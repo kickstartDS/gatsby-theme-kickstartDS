@@ -3072,10 +3072,10 @@
     pubsub-js "^1.9.4"
     sass "^1.56.0"
 
-"@kickstartds/design-system@2.5.0--canary.105.3136.0":
-  version "2.5.0--canary.105.3136.0"
-  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.5.0--canary.105.3136.0.tgz#63e4321c7577f726e7f0f09bbcc113760a8f480d"
-  integrity sha512-PI0ubGWbOegRVGvo7du4cBuOmlPAHuuUHD8rb7bluBUSLxpfuFuJBSctffL7OVpmbi8pu658+gWPWnnHaQekXg==
+"@kickstartds/design-system@^2.5.2":
+  version "2.5.2"
+  resolved "https://registry.npmjs.org/@kickstartds/design-system/-/design-system-2.5.2.tgz#b93e6827a132ef390681894675f1417d0528a481"
+  integrity sha512-w36R+tD12sBx6Bt49ETsjg4GlV2dFqW3Zo0od1egqEh4spFBTUpUtZTVfsOdCaM0hkZ2ZL+x9m5H7N8ZLfCabQ==
   dependencies:
     "@bedrock-layout/primitives" "^2.2.1"
     "@kickstartds/base" "2.0.4-next.5"

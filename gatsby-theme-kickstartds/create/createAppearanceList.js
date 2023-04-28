@@ -74,7 +74,7 @@ module.exports = async ({ actions, graphql }, options) => {
           label: "Details...",
         },
         title: stripHtml(page.node.title).result,
-        body: `${stripHtml(cleaned.description).result}`,
+        body: cleaned.excerpt,
         categories:
           cleaned.tags?.length > 0
             ? cleaned.tags.map((tag) => {

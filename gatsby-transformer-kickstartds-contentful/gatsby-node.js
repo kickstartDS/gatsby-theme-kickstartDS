@@ -536,9 +536,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                   if (contentfulAppearance) {
                     const related = {
                       url: `/appearances/${contentfulAppearance.slug}`,
-                      excerpt: `${JSON.parse(
-                        contentfulAppearance.description.raw
-                      ).content[0].content[0].value.substring(0, 300)} …`,
+                      excerpt: contentfulAppearance.excerpt.raw,
                       title: contentfulAppearance.title,
                       typeLabel: "Appearance",
                     };
@@ -892,9 +890,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                   if (contentfulShowcase) {
                     const related = {
                       url: `/showcases/${contentfulShowcase.slug}`,
-                      excerpt: `${JSON.parse(
-                        contentfulShowcase.description.raw
-                      ).content[0].content[0].value.substring(0, 300)} …`,
+                      excerpt: contentfulShowcase.excerpt.raw,
                       title: contentfulShowcase.title,
                       typeLabel: "Showcase",
                     };
@@ -1350,9 +1346,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                     if (relatedAppearance) {
                       const related = {
                         url: `/appearances/${relatedAppearance.slug}`,
-                        excerpt: `${JSON.parse(
-                          relatedAppearance.description.raw
-                        ).content[0].content[0].value.substring(0, 300)} …`,
+                        excerpt: relatedAppearance.excerpt.raw,
                         title: relatedAppearance.title,
                         typeLabel: "Appearance",
                         type: "related",
@@ -1436,9 +1430,7 @@ exports.createResolvers = async ({ createResolvers }) => {
                     if (relatedShowcase) {
                       const related = {
                         url: `/showcases/${relatedShowcase.slug}`,
-                        excerpt: `${JSON.parse(
-                          relatedShowcase.description.raw
-                        ).content[0].content[0].value.substring(0, 300)} …`,
+                        excerpt: relatedShowcase.excerpt.raw,
                         title: relatedShowcase.title,
                         typeLabel: "Showcase",
                         type: "related",
@@ -1611,6 +1603,7 @@ exports.onCreateNode = async ({
         link: node.link,
         title: node.title,
         description: node.description.raw,
+        excerpt: node.excerpt.raw,
         host: {
           name: node.hostName,
           url: node.hostUrl,
@@ -1676,7 +1669,8 @@ exports.onCreateNode = async ({
         link: node.link,
         title: node.title,
         description: node.description.raw,
-        summary: node.summary?.raw || "",
+        summary: node.summary.raw,
+        excerpt: node.excerpt.raw,
         tags:
           (node.tags___NODE &&
             node.tags___NODE.length > 0 &&

@@ -51,6 +51,7 @@ fragment AppearanceComponentDeepNesting on AppearanceComponent {
   }
   date__3714
   description__0c15
+  excerpt__f719
   host__c039 {
     ...AppearanceComponentHostDeepNesting
   }
