@@ -2,6 +2,21 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-theme-kickstartds@2.5.6`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.6`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.3.3`
+  - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.6`
+  - fix: add media mode to showcase media elements ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Fri Apr 28 2023)
+
+#### ⚠️ Pushed to `master`
+
 - fix: update assets ([@julrich](https://github.com/julrich))
 - `@kickstartds/gatsby-theme-kickstartds@2.5.5`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.5`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.3.2`
   - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
