@@ -1,3 +1,16 @@
+# v2.5.5 (Fri Apr 28 2023)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+- feature: add excerpt handling for appearance and showcase ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.5.4 (Thu Apr 27 2023)
 
 #### ⚠️ Pushed to `master`

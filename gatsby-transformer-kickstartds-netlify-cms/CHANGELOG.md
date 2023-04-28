@@ -1,3 +1,15 @@
+# v2.3.2 (Fri Apr 28 2023)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.3.1 (Thu Apr 27 2023)
 
 #### ⚠️ Pushed to `master`
