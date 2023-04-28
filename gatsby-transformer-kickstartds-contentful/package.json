@@ -1,6 +1,6 @@
 {
   "name": "@kickstartds/gatsby-transformer-kickstartds-contentful",
-  "version": "2.5.4",
+  "version": "2.5.5",
   "main": "index.js",
   "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
   "license": "UNLICENSED",
