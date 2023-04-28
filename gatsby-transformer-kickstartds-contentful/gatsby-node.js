@@ -1,6 +1,7 @@
 const stripHtml = require("string-strip-html").stripHtml;
 const hashObjectKeys =
   require("@kickstartds/jsonschema2graphql/build/helpers").hashObjectKeys;
+const path = require("path");
 
 // Inspired by https://community.shopify.com/c/Shopify-Design/Ordinal-Number-in-javascript-1st-2nd-3rd-4th/m-p/72156
 function getOrdinal(date) {
@@ -1006,6 +1007,11 @@ exports.createResolvers = async ({ createResolvers }) => {
                   (media) => {
                     return {
                       src___NODE: media.fields.localFile,
+                      mode: [".svg", ".jpg", ".png", ".jpeg"].includes(
+                        path.extname(media.url)
+                      )
+                        ? "image"
+                        : "video",
                       caption: media.description,
                     };
                   }
