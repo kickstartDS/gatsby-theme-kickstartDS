@@ -2,6 +2,19 @@
 
 #### ⚠️ Pushed to `master`
 
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.7`
+  - fix: excerpt length for blogs in related tags, add tags ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
+# (Fri Apr 28 2023)
+
+#### ⚠️ Pushed to `master`
+
 - `@kickstartds/gatsby-theme-kickstartds@2.5.6`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.6`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.3.3`
   - Merge branch 'master' of github.com:kickstartDS/gatsby-theme-kickstartDS ([@julrich](https://github.com/julrich))
 - `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.6`

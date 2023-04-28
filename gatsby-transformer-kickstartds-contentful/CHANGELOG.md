@@ -1,3 +1,15 @@
+# v2.5.7 (Fri Apr 28 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: excerpt length for blogs in related tags, add tags ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.5.6 (Fri Apr 28 2023)
 
 #### ⚠️ Pushed to `master`
