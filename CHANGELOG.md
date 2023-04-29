@@ -1,3 +1,16 @@
+# (Sat Apr 29 2023)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@2.5.7`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.8`, `@kickstartds/gatsby-transformer-kickstartds-mdx@2.3.1`, `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.3.4`, `@kickstartds/gatsby-transformer-kickstartds-wordpress@2.4.4`
+  - fix: multiple buttons in storytelling ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Fri Apr 28 2023)
 
 #### ⚠️ Pushed to `master`

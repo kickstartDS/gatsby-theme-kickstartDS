@@ -1,3 +1,15 @@
+# v2.5.8 (Sat Apr 29 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: multiple buttons in storytelling ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.5.7 (Fri Apr 28 2023)
 
 #### ⚠️ Pushed to `master`
