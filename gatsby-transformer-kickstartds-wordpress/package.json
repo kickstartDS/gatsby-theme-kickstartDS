@@ -1,6 +1,6 @@
 {
   "name": "@kickstartds/gatsby-transformer-kickstartds-wordpress",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "main": "index.js",
   "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
   "license": "UNLICENSED",
