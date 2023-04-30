@@ -27,4 +27,5 @@ type KickstartDsAppearancePage implements Node & KickstartDsPage @dontInfer {
 
   # appearance detail
   appearance: AppearanceComponent!
+  date: Date! @dateformat
 }

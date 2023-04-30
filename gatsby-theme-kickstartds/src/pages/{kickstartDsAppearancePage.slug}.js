@@ -211,6 +211,7 @@ query APPEARANCE_BY_SLUG($slug: String) {
     appearance { 
       ...AppearanceComponentDeepNesting 
     } 
+    date 
   } 
   allKickstartDsHeader { 
     edges { 

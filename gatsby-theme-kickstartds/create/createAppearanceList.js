@@ -39,6 +39,7 @@ module.exports = async ({ actions, graphql }, options) => {
             appearance {
               ...AppearanceComponentDeepNesting
             }
+            date
           }
         }
       }
@@ -68,7 +69,7 @@ module.exports = async ({ actions, graphql }, options) => {
       const cleaned = cleanObjectKeys(page.node.appearance);
 
       const teaser = {
-        date: cleaned.date,
+        date: page.node.date,
         link: {
           href: `/${page.node.slug}`,
           label: "Details...",

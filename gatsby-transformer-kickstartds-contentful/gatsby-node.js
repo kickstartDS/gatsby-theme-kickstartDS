@@ -1664,6 +1664,7 @@ exports.onCreateNode = async ({
 
       created: node.createdAt,
       updated: node.updatedAt,
+      date: new Date(node.date),
 
       appearance: {
         link: node.link,
