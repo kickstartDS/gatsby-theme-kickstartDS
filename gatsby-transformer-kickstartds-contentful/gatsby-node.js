@@ -286,32 +286,31 @@ exports.createResolvers = async ({ createResolvers }) => {
             }
 
             if (source.glossary.media && source.glossary.media.length > 0) {
-              const { entries: contentfulMedia } =
-                await context.nodeModel.findAll({
-                  query: {
-                    filter: { id: { in: source.glossary.media } },
-                    fields: { localFile: { ne: "" } },
-                  },
-                  type: "ContentfulAsset",
-                });
+              glossaryJson.media = await Promise.all(
+                source.glossary.media.map(async (mediaId) => {
+                  const contentfulAsset = await context.nodeModel.findOne({
+                    query: {
+                      filter: { id: { eq: mediaId } },
+                      fields: { localFile: { ne: "" } },
+                    },
+                    type: "ContentfulAsset",
+                  });
 
-              if (contentfulMedia) {
-                glossaryJson.media = Array.from(contentfulMedia).map(
-                  (media) => {
+                  if (contentfulAsset) {
                     return {
-                      src___NODE: media.fields.localFile,
-                      caption: media.description,
+                      src___NODE: contentfulAsset.fields.localFile,
+                      caption: contentfulAsset.description,
                     };
+                  } else {
+                    console.log(
+                      "Missing ContentfulAssets `appearance` media",
+                      contentfulAsset,
+                      source.glossary.media,
+                      source.id
+                    );
                   }
-                );
-              } else {
-                console.log(
-                  "Missing ContentfulAssets `glossary` media",
-                  contentfulMedia,
-                  source.glossary.media,
-                  source.id
-                );
-              }
+                })
+              );
             }
 
             glossaryJson.cta = {
@@ -639,32 +638,31 @@ exports.createResolvers = async ({ createResolvers }) => {
             }
 
             if (source.appearance.media && source.appearance.media.length > 0) {
-              const { entries: contentfulMedia } =
-                await context.nodeModel.findAll({
-                  query: {
-                    filter: { id: { in: source.appearance.media } },
-                    fields: { localFile: { ne: "" } },
-                  },
-                  type: "ContentfulAsset",
-                });
+              appearanceJson.media = await Promise.all(
+                source.appearance.media.map(async (mediaId) => {
+                  const contentfulAsset = await context.nodeModel.findOne({
+                    query: {
+                      filter: { id: { eq: mediaId } },
+                      fields: { localFile: { ne: "" } },
+                    },
+                    type: "ContentfulAsset",
+                  });
 
-              if (contentfulMedia) {
-                appearanceJson.media = Array.from(contentfulMedia).map(
-                  (media) => {
+                  if (contentfulAsset) {
                     return {
-                      src___NODE: media.fields.localFile,
-                      caption: media.description,
+                      src___NODE: contentfulAsset.fields.localFile,
+                      caption: contentfulAsset.description,
                     };
+                  } else {
+                    console.log(
+                      "Missing ContentfulAssets `appearance` media",
+                      contentfulAsset,
+                      source.appearance.media,
+                      source.id
+                    );
                   }
-                );
-              } else {
-                console.log(
-                  "Missing ContentfulAssets `appearance` media",
-                  contentfulMedia,
-                  source.appearance.media,
-                  source.id
-                );
-              }
+                })
+              );
             }
 
             if (
@@ -993,37 +991,36 @@ exports.createResolvers = async ({ createResolvers }) => {
             }
 
             if (source.showcase.media && source.showcase.media.length > 0) {
-              const { entries: contentfulMedia } =
-                await context.nodeModel.findAll({
-                  query: {
-                    filter: { id: { in: source.showcase.media } },
-                    fields: { localFile: { ne: "" } },
-                  },
-                  type: "ContentfulAsset",
-                });
+              showcaseJson.media = await Promise.all(
+                source.showcase.media.map(async (mediaId) => {
+                  const contentfulAsset = await context.nodeModel.findOne({
+                    query: {
+                      filter: { id: { eq: mediaId } },
+                      fields: { localFile: { ne: "" } },
+                    },
+                    type: "ContentfulAsset",
+                  });
 
-              if (contentfulMedia) {
-                showcaseJson.media = Array.from(contentfulMedia).map(
-                  (media) => {
+                  if (contentfulAsset) {
                     return {
-                      src___NODE: media.fields.localFile,
-                      mode: [".svg", ".jpg", ".png", ".jpeg"].includes(
-                        path.extname(media.url)
+                      src___NODE: contentfulAsset.fields.localFile,
+                      mode: [".svg", ".jpg", ".png", ".jpeg", ".webp"].includes(
+                        path.extname(contentfulAsset.url)
                       )
                         ? "image"
                         : "video",
-                      caption: media.description,
+                      caption: contentfulAsset.description,
                     };
+                  } else {
+                    console.log(
+                      "Missing ContentfulAssets `showcase` media",
+                      contentfulAsset,
+                      source.showcase.media,
+                      source.id
+                    );
                   }
-                );
-              } else {
-                console.log(
-                  "Missing ContentfulAssets `showcase` media",
-                  contentfulMedia,
-                  source.showcase.media,
-                  source.id
-                );
-              }
+                })
+              );
             }
 
             if (source.showcase.quote) {
