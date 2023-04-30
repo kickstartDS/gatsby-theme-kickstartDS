@@ -1,3 +1,18 @@
+# (Sun Apr 30 2023)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.9`
+  - fix: sorting of showcases on listing, and media files in general ([@julrich](https://github.com/julrich))
+- `@kickstartds/gatsby-theme-kickstartds@2.5.8`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.9`
+  - fix: sort appearances by creation date ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sat Apr 29 2023)
 
 #### ⚠️ Pushed to `master`

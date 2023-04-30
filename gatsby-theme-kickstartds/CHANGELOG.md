@@ -1,3 +1,15 @@
+# v2.5.8 (Sun Apr 30 2023)
+
+#### ⚠️ Pushed to `master`
+
+- fix: sort appearances by creation date ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.5.7 (Sat Apr 29 2023)
 
 #### ⚠️ Pushed to `master`
