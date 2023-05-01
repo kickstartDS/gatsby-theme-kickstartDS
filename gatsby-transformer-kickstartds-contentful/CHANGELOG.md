@@ -1,3 +1,15 @@
+# v2.5.10 (Mon May 01 2023)
+
+#### ⚠️ Pushed to `master`
+
+- feature: add seo content to tags pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.5.9 (Sun Apr 30 2023)
 
 #### ⚠️ Pushed to `master`

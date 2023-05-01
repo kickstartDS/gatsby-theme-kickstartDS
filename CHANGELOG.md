@@ -1,3 +1,16 @@
+# (Mon May 01 2023)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-theme-kickstartds@2.5.9`, `@kickstartds/gatsby-transformer-kickstartds-contentful@2.5.10`
+  - feature: add seo content to tags pages ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Sun Apr 30 2023)
 
 #### ⚠️ Pushed to `master`
