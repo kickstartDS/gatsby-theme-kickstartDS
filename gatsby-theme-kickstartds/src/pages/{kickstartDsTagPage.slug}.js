@@ -8,7 +8,9 @@ import { TagEntryPage } from "../components/TagEntryPage";
 import { SEO } from "../components/Seo";
 
 export default function TagPage({ data }) {
-  const { tagLabel, related } = cleanObjectKeys(data.kickstartDsTagPage);
+  const { tagLabel, related, external } = cleanObjectKeys(
+    data.kickstartDsTagPage
+  );
 
   const headerEn = data.allKickstartDsHeader.edges.find(
     (header) => !header.node.component.activeEntry__254f.includes("de")
@@ -39,7 +41,12 @@ export default function TagPage({ data }) {
         }
         twitterCreator={data.kickstartDsTagPage.twitterCreator}
       />
-      <TagEntryPage tagLabel={tagLabel} related={related} />
+      <TagEntryPage
+        tagLabel={tagLabel}
+        related={related}
+        external={external}
+        description={data.kickstartDsTagPage.description}
+      />
     </Layout>
   );
 }
@@ -150,6 +157,9 @@ query TAG_BY_SLUG($slug: String) {
       ...TagLabelComponentDeepNesting 
     } 
     related { 
+      ...RelatedComponentDeepNesting 
+    } 
+    external { 
       ...RelatedComponentDeepNesting 
     } 
   } 

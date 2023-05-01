@@ -283,6 +283,9 @@ query TAG_BY_SLUG($slug: String) { \n\
     related { \n\
       ...RelatedComponentDeepNesting \n\
     } \n\
+    external { \n\
+      ...RelatedComponentDeepNesting \n\
+    } \n\
   } \n\
   allKickstartDsHeader { \n\
     edges { \n\

@@ -1,7 +1,11 @@
 const stripHtml = require("string-strip-html").stripHtml;
 const hashObjectKeys =
   require("@kickstartds/jsonschema2graphql/build/helpers").hashObjectKeys;
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const path = require("path");
+const documentToHtmlString =
+  require("@contentful/rich-text-html-renderer").documentToHtmlString;
+const createClient = require("@supabase/supabase-js").createClient;
 
 // Inspired by https://community.shopify.com/c/Shopify-Design/Ordinal-Number-in-javascript-1st-2nd-3rd-4th/m-p/72156
 function getOrdinal(date) {
@@ -17,7 +21,24 @@ function getOrdinal(date) {
   return `${month} ${day + (s[(v - 20) % 10] || s[v] || s[0])}, ${year}`;
 }
 
-exports.createResolvers = async ({ createResolvers }) => {
+function getSourceThumbnail(sourceUrl) {
+  const url = new URL(sourceUrl);
+  const domain = url.hostname
+    .replace("rivet.iu", "rivet.ui")
+    .replace(/\./g, "_");
+  const path = url.pathname.endsWith("/")
+    ? url.pathname.substring(1, url.pathname.length - 1).replace(/\//g, "-")
+    : url.pathname.substring(1, url.pathname.length).replace(/\//g, "-");
+  return `https://pzdzoelitkqizxopmwfg.supabase.co/storage/v1/object/public/screenshots/${domain}/${path}-chromium.png`;
+}
+
+exports.createResolvers = async ({
+  cache,
+  store,
+  actions,
+  createResolvers,
+  createNodeId,
+}) => {
   await createResolvers({
     KickstartDsGlossaryPage: {
       image: {
@@ -1072,6 +1093,32 @@ exports.createResolvers = async ({ createResolvers }) => {
       },
     },
     KickstartDsTagPage: {
+      description: {
+        type: "String",
+        async resolve(source, args, context) {
+          const keyword = source.title;
+          const url = `/${source.slug}`;
+
+          const supabaseUrl = process.env["GATSBY_SUPABASE_URL"];
+          const supabaseServiceKey = process.env["GATSBY_SUPABASE_ANON_KEY"];
+          const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
+
+          const options = {
+            body: {
+              documents: [],
+              keyword: keyword,
+              url: url,
+            },
+          };
+
+          const { data } = await supabaseClient.functions.invoke(
+            "description",
+            options
+          );
+
+          return data?.text || "";
+        },
+      },
       image: {
         type: "File",
         async resolve(source, args, context) {
@@ -1195,10 +1242,116 @@ exports.createResolvers = async ({ createResolvers }) => {
           return undefined;
         },
       },
+      external: {
+        type: "[RelatedComponent!]",
+        async resolve(source, args, context) {
+          const externalContent = [];
+
+          const keyword = source.title;
+          const url = `/${source.slug}`;
+
+          const supabaseUrl = process.env["GATSBY_SUPABASE_URL"];
+          const supabaseServiceKey = process.env["GATSBY_SUPABASE_ANON_KEY"];
+          const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
+
+          const options = {
+            body: {
+              documents: [],
+              keyword: keyword,
+              url: url,
+            },
+          };
+
+          const { data } = await supabaseClient.functions.invoke(
+            "description",
+            options
+          );
+
+          if (
+            data &&
+            data.externalSections &&
+            data.externalSections.length > 0
+          ) {
+            const reducedPages = data.externalSections.reduce(
+              (pages, pageSection) => {
+                const source = pages.find(
+                  (source) => source.page_url === pageSection.page_url
+                );
+
+                if (!source) {
+                  pages.push({
+                    page_url: pageSection.page_url,
+                    page_title: pageSection.page_title,
+                    page_summary: pageSection.page_summary,
+                  });
+                }
+
+                return pages;
+              },
+              []
+            );
+
+            const { createNode } = actions;
+
+            externalContent.push(
+              ...(await Promise.all(
+                reducedPages.slice(0, 3).map(async (page) => {
+                  let fileNode;
+                  try {
+                    fileNode = await createRemoteFileNode({
+                      url: getSourceThumbnail(page.page_url),
+                      parentNodeId: source.id,
+                      createNode,
+                      createNodeId,
+                      cache,
+                      store,
+                    });
+                  } catch (err) {
+                    console.error(
+                      `[createResolvers] error in fetching remote image ${source.url}:`,
+                      err
+                    );
+                  }
+
+                  const related = {
+                    url: page.page_url,
+                    excerpt: page.page_summary.substring(0, 200),
+                    title: page.page_title,
+                    typeLabel: "External",
+                    type: "related",
+                    tags: [
+                      {
+                        label: "External",
+                        link: `/tags/design-system`,
+                        type: "tag-label",
+                        size: "s",
+                      },
+                      {
+                        label: source.title,
+                        link: `/${source.slug}`,
+                        type: "tag-label",
+                        size: "s",
+                      },
+                    ],
+                  };
+
+                  if (fileNode && fileNode.id) {
+                    related.image___NODE = fileNode.id;
+                  }
+
+                  return hashObjectKeys(related, "related");
+                })
+              ))
+            );
+          }
+
+          return externalContent;
+        },
+      },
       related: {
         type: "[RelatedComponent!]",
         async resolve(source, args, context) {
-          const relatedPosts = [];
+          const relatedContent = [];
 
           const { entries: wpPosts } = await context.nodeModel.findAll({
             query: {
@@ -1212,7 +1365,7 @@ exports.createResolvers = async ({ createResolvers }) => {
           });
 
           if (wpPosts) {
-            relatedPosts.push(
+            relatedContent.push(
               ...(await Promise.all(
                 Array.from(wpPosts).map(async (post) => {
                   const related = {
@@ -1307,8 +1460,8 @@ exports.createResolvers = async ({ createResolvers }) => {
           }
 
           if (source.related && source.related.length > 0) {
-            return relatedPosts.concat(
-              await Promise.all(
+            relatedContent.push(
+              ...(await Promise.all(
                 source.related.map(async (relatedObject) => {
                   if (relatedObject.type === "ContentfulTerm") {
                     const relatedTerm = await context.nodeModel.findOne({
@@ -1573,11 +1726,125 @@ exports.createResolvers = async ({ createResolvers }) => {
                     return undefined;
                   }
                 })
-              )
+              ))
             );
           }
 
-          return relatedPosts;
+          const documents = relatedContent.reduce((acc, cur) => {
+            acc.push({
+              url: cur.url__7c2a,
+              excerpt: stripHtml(documentToHtmlString(cur.excerpt__b377)),
+              title: cur.title__d9bc,
+              type: cur.typeLabel__3922,
+            });
+            return acc;
+          }, []);
+
+          const keyword = source.title;
+          const url = `/${source.slug}`;
+
+          const supabaseUrl = process.env["GATSBY_SUPABASE_URL"];
+          const supabaseServiceKey = process.env["GATSBY_SUPABASE_ANON_KEY"];
+          const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
+
+          const options = {
+            body: {
+              documents: documents,
+              keyword: keyword,
+              url: url,
+            },
+          };
+
+          const { data } = await supabaseClient.functions.invoke(
+            "description",
+            options
+          );
+
+          if (
+            data &&
+            data.kickstartdsSections &&
+            data.kickstartdsSections.length > 0
+          ) {
+            const reducedPages = data.kickstartdsSections.reduce(
+              (pages, pageSection) => {
+                const source = pages.find(
+                  (source) => source.page_url === pageSection.page_url
+                );
+
+                if (!source) {
+                  pages.push({
+                    page_url: pageSection.page_url,
+                    page_title: pageSection.page_title,
+                    page_summary: pageSection.page_summary,
+                  });
+                }
+
+                return pages;
+              },
+              []
+            );
+
+            const { createNode } = actions;
+
+            relatedContent.push(
+              ...(await Promise.all(
+                reducedPages.slice(0, 3).map(async (page) => {
+                  let fileNode;
+                  try {
+                    fileNode = await createRemoteFileNode({
+                      url: getSourceThumbnail(page.page_url),
+                      parentNodeId: source.id,
+                      createNode,
+                      createNodeId,
+                      cache,
+                      store,
+                    });
+                  } catch (err) {
+                    console.error(
+                      `[createResolvers] error in fetching remote image ${source.url}:`,
+                      err
+                    );
+                  }
+
+                  const related = {
+                    url: page.page_url,
+                    excerpt: page.page_summary.substring(0, 200),
+                    title: page.page_title,
+                    typeLabel: "Docs",
+                    type: "related",
+                    tags: [
+                      {
+                        label: "Documentation",
+                        link: `/tags/documentation`,
+                        type: "tag-label",
+                        size: "s",
+                      },
+                      {
+                        label: "kickstartDS",
+                        link: `/tags/kickstartds`,
+                        type: "tag-label",
+                        size: "s",
+                      },
+                      {
+                        label: source.title,
+                        link: `/${source.slug}`,
+                        type: "tag-label",
+                        size: "s",
+                      },
+                    ],
+                  };
+
+                  if (fileNode && fileNode.id) {
+                    related.image___NODE = fileNode.id;
+                  }
+
+                  return hashObjectKeys(related, "related");
+                })
+              ))
+            );
+          }
+
+          return relatedContent;
         },
       },
     },
@@ -1795,7 +2062,7 @@ exports.onCreateNode = async ({
       layout: "tag-label",
 
       title: node.title,
-      description: `TODO add description for tag: ${node.title}`,
+      description: "",
 
       created: node.createdAt,
       updated: node.updatedAt,

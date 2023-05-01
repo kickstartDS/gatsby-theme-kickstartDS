@@ -28,4 +28,5 @@ type KickstartDsTagPage implements Node & KickstartDsPage @dontInfer {
   # tag label detail
   tagLabel: TagLabelComponent!
   related: [RelatedComponent!]
+  external: [RelatedComponent!]
 }
