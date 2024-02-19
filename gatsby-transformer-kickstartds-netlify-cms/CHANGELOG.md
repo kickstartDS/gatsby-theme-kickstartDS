@@ -1,3 +1,15 @@
+# v2.3.5 (Mon Feb 19 2024)
+
+#### ⚠️ Pushed to `master`
+
+- fix: add browserslistrc to netlify plugin ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # v2.3.4 (Sat Apr 29 2023)
 
 #### ⚠️ Pushed to `master`

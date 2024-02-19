@@ -1,3 +1,16 @@
+# (Mon Feb 19 2024)
+
+#### ⚠️ Pushed to `master`
+
+- `@kickstartds/gatsby-transformer-kickstartds-netlify-cms@2.3.5`
+  - fix: add browserslistrc to netlify plugin ([@julrich](https://github.com/julrich))
+
+#### Authors: 1
+
+- Jonas Ulrich ([@julrich](https://github.com/julrich))
+
+---
+
 # (Mon May 01 2023)
 
 #### ⚠️ Pushed to `master`
