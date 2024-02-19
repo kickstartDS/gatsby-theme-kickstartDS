@@ -1,6 +1,6 @@
 {
   "name": "@kickstartds/gatsby-transformer-kickstartds-netlify-cms",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "main": "index.js",
   "author": "julrich <jonas.ulrich@ruhmesmeile.com> (@ruhmesmeile)",
   "license": "UNLICENSED",
