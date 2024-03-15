@@ -1417,13 +1417,6 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.20.1":
-  version "7.21.5"
-  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.21.5.tgz#8492dddda9644ae3bda3b45eabe87382caee7200"
-  integrity sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==
-  dependencies:
-    regenerator-runtime "^0.13.11"
-
 "@babel/runtime@^7.20.13", "@babel/runtime@^7.21.0":
   version "7.21.0"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
@@ -3073,31 +3066,12 @@
     countup.js "^2.3.2"
     lodash-es "^4.17.21"
 
-"@kickstartds/core@2.0.4-next.2":
+"@kickstartds/core@2.0.4-next.2", "@kickstartds/core@^2.0.3":
   version "2.0.4-next.2"
   resolved "https://registry.npmjs.org/@kickstartds/core/-/core-2.0.4-next.2.tgz#5abadfc8a7134e625ad2ce265fcc1344e35d3789"
   integrity sha512-hN9EQR/1yKS65wWs15kPiRKNDjEix0gfT3EkmikS8cqhrJptst8ir+8BtSUCZGalOGqf3mB48dE/EYxxw/R22w==
   dependencies:
     "@babel/runtime" "^7.21.0"
-    bourbon "^7.2.0"
-    classnames "^2.2.6"
-    del "^6.0.0"
-    dependency-graph "^0.11.0"
-    esbuild "^0.15.10"
-    fast-glob "^3.2.11"
-    fs-extra "^10.1.0"
-    lazysizes "^5.3.2"
-    lodash "^4.17.21"
-    lodash-es "^4.17.21"
-    pubsub-js "^1.9.4"
-    sass "^1.56.0"
-
-"@kickstartds/core@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/@kickstartds/core/-/core-2.0.3.tgz#13e06549b04062f2012d6b547bd0a85aba49df41"
-  integrity sha512-RVbYt6v+t2lwabr31jEBMjtL7TltDZ5y4EkZnpb7KfeL8unR2DhXQibplhpuUlURzUr29IeRzkkDhpQ+1vGSbw==
-  dependencies:
-    "@babel/runtime" "^7.20.1"
     bourbon "^7.2.0"
     classnames "^2.2.6"
     del "^6.0.0"
@@ -10905,9 +10879,9 @@ focus-visible@^5.0.2:
   integrity sha512-Rwix9pBtC1Nuy5wysTmKy+UjbDJpIfg8eHjw0rjZ1mX4GNLz1Bmd16uDpI3Gk1i70Fgcs8Csg2lPm8HULFg9DQ==
 
 follow-redirects@^1.0.0, follow-redirects@^1.14.0:
-  version "1.15.1"
-  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
-  integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
+  version "1.15.6"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
+  integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
 
 for-each@^0.3.3:
   version "0.3.3"
